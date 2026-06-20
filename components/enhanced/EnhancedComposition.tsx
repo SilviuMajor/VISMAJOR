@@ -4,8 +4,6 @@ import { Ticker } from "@/components/sections/Ticker";
 import { Features } from "@/components/sections/Features";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { IsIsnt } from "@/components/sections/IsIsnt";
-import { Ingredients } from "@/components/sections/Ingredients";
-import { Faq } from "@/components/sections/Faq";
 import { Footer } from "@/components/sections/Footer";
 import { StickyBuyBar } from "@/components/ui/StickyBuyBar";
 
@@ -14,11 +12,15 @@ import { EnhancedHero } from "@/components/enhanced/EnhancedHero";
 import { StickyArchitecture } from "@/components/enhanced/StickyArchitecture";
 import { HorizontalUseBefore } from "@/components/enhanced/HorizontalUseBefore";
 import { Comparison } from "@/components/enhanced/Comparison";
-import { Proof } from "@/components/enhanced/Proof";
 import { HeritageBanner } from "@/components/enhanced/HeritageBanner";
 import { StickyBuy } from "@/components/enhanced/StickyBuy";
 import { NotifyBand } from "@/components/enhanced/NotifyBand";
 import { FinalCta } from "@/components/enhanced/FinalCta";
+
+// Selected v2 renditions (chosen from /compare)
+import { ProofV2 } from "@/components/v2/ProofV2";
+import { IngredientsV2 } from "@/components/v2/IngredientsV2";
+import { FaqV2 } from "@/components/v2/FaqV2";
 
 /**
  * The locked enhanced site (white). Kinetic GY-NO! hero, pinned Architecture,
@@ -41,11 +43,11 @@ export function EnhancedComposition() {
         <HorizontalUseBefore />
         <HowItWorks />
         <Comparison />
-        <Proof />
+        <ProofV2 />
         <StickyBuy shipMonth={shipMonth} />
         <IsIsnt />
-        <Ingredients />
-        <Faq shipMonth={shipMonth} />
+        <IngredientsV2 />
+        <FaqV2 shipMonth={shipMonth} />
         <FinalCta shipMonth={shipMonth} />
         <NotifyBand />
         <HeritageBanner />

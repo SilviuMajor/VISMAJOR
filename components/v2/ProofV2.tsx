@@ -91,32 +91,6 @@ function RecentlyReserved() {
   );
 }
 
-/* ── Initials avatar stack ───────────────────────────────────────── */
-function AvatarStack() {
-  return (
-    <div className="flex items-center gap-4">
-      <div className="flex">
-        {ROSTER.slice(0, 6).map((p, idx) => (
-          <Reveal key={p.in + idx} delay={idx * 0.05}>
-            <span
-              className="-ml-2 flex h-9 w-9 items-center justify-center rounded-full border bg-paper-2 text-[10.5px] font-semibold tracking-[0.04em] text-ink-1 first:ml-0"
-              style={{ borderColor: "var(--hair-strong)" }}
-            >
-              {p.in}
-            </span>
-          </Reveal>
-        ))}
-        <span
-          className="-ml-2 flex h-9 items-center justify-center rounded-full border bg-ink-0 px-3 text-[10px] font-semibold text-paper-0"
-          style={{ borderColor: "var(--ink-0)" }}
-        >
-          +1,994
-        </span>
-      </div>
-    </div>
-  );
-}
-
 /* ── Segmented allocation meter ──────────────────────────────────── */
 function AllocationMeter() {
   const reduce = useReducedMotion();
@@ -187,9 +161,6 @@ export function ProofV2() {
                   <br />
                   reserved
                 </span>
-              </div>
-              <div className="mt-7">
-                <AvatarStack />
               </div>
             </div>
 
