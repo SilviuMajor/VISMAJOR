@@ -1,0 +1,39 @@
+/* ============================================================
+   GY-NO! · Spacing, radii, frame & elevation
+   ------------------------------------------------------------
+   Apothecary geometry: tight radii (labels are near-rectangular),
+   a thin keyline frame around full compositions, and almost no
+   shadow except on photographed product.
+   ============================================================ */
+
+:root {
+  /* ---- Spacing scale (4px base) ---- */
+  --space-0: 0px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  /* ---- Radii (small by design) ---- */
+  --radius-none: 0px;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-pill: 999px;
+
+  /* ---- Hairlines & frame ---- */
+  --hair: 1px;
+  --keyline-width: 1px;
+  --keyline-inset: 16px;   /* gap from edge to the framing keyline */
+
+  /* ---- Elevation ---- */
+  --shadow-none: none;
+  --shadow-card:    0 18px 38px -30px rgba(20, 19, 15, 0.35);
+  --shadow-product: 0 46px 80px -44px rgba(20, 19, 15, 0.55);
+}

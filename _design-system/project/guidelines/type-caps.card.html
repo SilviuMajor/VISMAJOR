@@ -1,0 +1,25 @@
+<!-- @dsCard group="Type" viewport="700x320" name="Tracked Caps · Labels" subtitle="The signature: uppercase set with wide tracking" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  body{ background:var(--bg); color:var(--ink-0); font-family:var(--font-text); padding:38px 48px; min-height:100vh; display:flex; flex-direction:column; justify-content:center; gap:20px; }
+  .row{ display:flex; align-items:baseline; gap:20px; border-bottom:1px solid var(--hairline); padding-bottom:16px; }
+  .row:last-child{ border-bottom:none; }
+  .spec{ font-size:10px; letter-spacing:var(--track-caps); text-transform:uppercase; color:var(--ink-3); width:128px; flex:none; }
+  .l-label{ font-weight:var(--fw-medium); text-transform:uppercase; letter-spacing:var(--track-caps); font-size:15px; }
+  .l-eyebrow{ font-weight:var(--fw-regular); text-transform:uppercase; letter-spacing:var(--track-caps-loose); font-size:12px; color:var(--ink-1); }
+  .l-caption{ font-weight:var(--fw-regular); text-transform:uppercase; letter-spacing:var(--track-caps); font-size:11px; color:var(--ink-2); line-height:1.9; }
+  .l-legal{ font-weight:var(--fw-regular); text-transform:uppercase; letter-spacing:0.16em; font-size:10px; color:var(--ink-2); }
+</style>
+</head>
+<body>
+  <div class="row"><div class="spec">Eyebrow · 12 / .34em</div><div class="l-eyebrow">Topicals for Men</div></div>
+  <div class="row"><div class="spec">Label · 15 / .22em</div><div class="l-label">Nipple Tightening Cream</div></div>
+  <div class="row"><div class="spec">Caption · 11 / .22em</div><div class="l-caption">Works in minutes. Up to 1 hour of temporary firmness.</div></div>
+  <div class="row"><div class="spec">Legal · 10 / .16em</div><div class="l-legal">Cosmetic use only. Temporary effect. Not a treatment for any medical condition.</div></div>
+</body>
+</html>

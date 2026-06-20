@@ -1,0 +1,165 @@
+<!-- @dsCard group="Brand" viewport="1080x900" name="Direction Preview — GY-NO Gel" subtitle="GY-NO (no !) + gel + icy-blue accent across wordmark, tube & hero" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GY-NO — Direction Preview</title>
+<link rel="stylesheet" href="../styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *{ margin:0; box-sizing:border-box; }
+  :root{ --near:#1A1A1A; --steel:#378ADD; --hair:#1a1a1a1f; --hair2:#1a1a1a33; }
+  body{ background:var(--paper-0); color:var(--near); font-family:'Hanken Grotesk',sans-serif; -webkit-font-smoothing:antialiased; padding:0 0 90px; }
+  .mono{ font-family:'Space Mono',monospace; }
+  .top{ max-width:1180px; margin:0 auto; padding:44px 52px 0; }
+  .top .bar{ display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--hair2); padding-bottom:13px; }
+  .top .bar .mono{ font-size:10.5px; letter-spacing:0.28em; text-transform:uppercase; color:#1a1a1a99; }
+  .intro{ max-width:1180px; margin:0 auto; padding:34px 52px 0; }
+  .intro h1{ font-weight:800; font-size:34px; letter-spacing:-0.02em; }
+  .intro p{ font-size:14px; line-height:1.7; color:#1a1a1acc; max-width:760px; margin-top:12px; }
+
+  .sl{ max-width:1180px; margin:46px auto 20px; padding:0 52px; display:flex; align-items:baseline; gap:14px; }
+  .sl .n{ font-family:'Space Mono',monospace; font-size:11px; color:#1a1a1a80; }
+  .sl h3{ font-weight:700; font-size:18px; letter-spacing:-0.01em; }
+  .sl .ln{ flex:1; height:1px; background:var(--hair); }
+  .wrap{ max-width:1180px; margin:0 auto; padding:0 52px; }
+
+  /* 01 wordmark */
+  .wm-row{ display:flex; align-items:flex-end; gap:60px; flex-wrap:wrap; }
+  .wm{ }
+  .wm .house{ display:flex; align-items:center; gap:10px; margin-bottom:18px; }
+  .wm .house .l{ width:26px; height:1px; background:var(--near); }
+  .wm .house .n{ font-weight:500; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; }
+  .wm .gy{ font-weight:800; font-size:84px; letter-spacing:0.005em; line-height:0.86; white-space:nowrap; }
+  .wm .acc{ width:38px; height:4px; background:var(--steel); margin:16px 0 0; }
+  .compare{ font-family:'Space Mono',monospace; font-size:11px; line-height:1.9; color:#1a1a1a99; }
+  .compare b{ color:var(--near); }
+  .compare .old{ text-decoration:line-through; opacity:0.5; }
+
+  /* 02 tube */
+  .duo{ display:flex; gap:46px; align-items:center; flex-wrap:wrap; }
+  .tube{ width:188px; display:flex; flex-direction:column; align-items:center; }
+  .tube .crimp{ width:136px; height:15px; border-radius:3px 3px 0 0; background:repeating-linear-gradient(90deg,#7e8285 0 2px,#cfd2d3 2px 3px,#9a9ea1 3px 5px); box-shadow:inset 0 2px 3px rgba(255,255,255,0.4), inset 0 -3px 4px rgba(0,0,0,0.25); }
+  .tube .body{ position:relative; width:188px; height:360px; border-radius:28px 28px 5px 5px; overflow:hidden;
+    background:repeating-linear-gradient(90deg, rgba(255,255,255,0.42) 0 1px, rgba(255,255,255,0) 1px 2px, rgba(0,0,0,0.05) 2px 3px, rgba(0,0,0,0) 3px 4px), linear-gradient(90deg,#83878a 0%,#b4b8ba 12%,#e7e9ea 32%,#fbfcfc 50%,#d2d5d6 66%,#a4a8aa 86%,#7c8083 100%); }
+  .tube .body::before{ content:""; position:absolute; left:0; right:0; top:0; height:44px; background:linear-gradient(180deg, rgba(255,255,255,0.55), transparent); }
+  .lbl{ position:absolute; left:18px; right:18px; top:22px; bottom:22px; background:#fff; border-radius:3px; box-shadow:0 6px 14px -8px rgba(0,0,0,0.25); padding:16px 15px; display:flex; flex-direction:column; }
+  .lbl .house{ display:flex; align-items:center; justify-content:center; gap:8px; }
+  .lbl .house .l{ width:18px; height:1px; background:var(--near); }
+  .lbl .house .n{ font-weight:500; font-size:8.5px; letter-spacing:0.2em; text-transform:uppercase; }
+  .lbl .base{ margin-top:auto; }
+  .lbl .gy{ font-weight:800; font-size:34px; letter-spacing:0.01em; line-height:0.88; white-space:nowrap; }
+  .lbl .acc{ width:24px; height:3px; background:var(--steel); margin:11px 0 11px; }
+  .lbl .d{ font-weight:500; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; line-height:1.5; }
+  .lbl .s{ font-style:italic; font-size:9px; color:#1a1a1aaa; margin-top:9px; }
+  .lbl .nrow{ display:flex; justify-content:space-between; align-items:flex-end; margin-top:13px; padding-top:9px; border-top:1px solid var(--hair2); }
+  .lbl .nrow .a{ font-weight:500; font-size:6.5px; letter-spacing:0.18em; text-transform:uppercase; line-height:1.6; color:#1a1a1acc; }
+  .lbl .nrow .b{ font-weight:600; font-size:8px; letter-spacing:0.1em; text-transform:uppercase; }
+  .tube .base3d{ width:160px; height:50px; margin-top:-4px; border-radius:0 0 11px 11px; background:linear-gradient(180deg,#2b2a27,#161512 55%,#0c0b09); box-shadow:inset 0 3px 4px rgba(255,255,255,0.12), 0 24px 32px -22px rgba(0,0,0,0.7); }
+  .tube .ground{ width:210px; height:18px; margin-top:6px; border-radius:50%; background:radial-gradient(50% 50%, rgba(20,19,15,0.4), transparent 72%); filter:blur(5px); }
+  .specs{ font-family:'Space Mono',monospace; font-size:11px; line-height:1.95; color:#1a1a1a99; }
+  .specs b{ color:var(--near); }
+
+  /* 03 hero */
+  .hero{ border:1px solid var(--hair2); border-radius:8px; overflow:hidden; display:grid; grid-template-columns:1.1fr 0.9fr; }
+  .hero .lt{ padding:46px 42px; }
+  .hero .eyebrow{ display:flex; align-items:center; gap:12px; }
+  .hero .eyebrow .l{ width:26px; height:1px; background:var(--hair2); }
+  .hero .eyebrow span{ font-weight:600; font-size:10.5px; letter-spacing:0.3em; text-transform:uppercase; color:#1a1a1a99; }
+  .hero h2{ font-weight:800; font-size:52px; letter-spacing:-0.025em; line-height:0.98; text-transform:uppercase; margin:20px 0 0; }
+  .hero h2 .acc{ color:var(--steel); }
+  .hero p{ font-size:14.5px; line-height:1.6; color:#1a1a1acc; max-width:380px; margin:18px 0 0; }
+  .btns{ display:flex; gap:12px; margin-top:26px; align-items:center; }
+  /* candidate button E — corner ticks, our new default guess */
+  .btn{ position:relative; background:var(--near); color:var(--paper-0); border:none; padding:15px 30px; cursor:pointer; font-family:'Hanken Grotesk',sans-serif; font-weight:600; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; display:inline-flex; align-items:center; gap:10px; }
+  .btn.sec{ background:transparent; color:var(--near); border:1px solid var(--near); }
+  .hero .rt{ background:var(--surface); border-left:1px solid var(--hair2); display:flex; align-items:center; justify-content:center; position:relative; }
+  .hero .rt .frame{ position:absolute; inset:16px; border:1px solid var(--hair2); }
+
+  .note{ max-width:1180px; margin:40px auto 0; padding:0 52px; }
+  .note .inr{ font-family:'Space Mono',monospace; font-size:12px; line-height:1.85; color:#1a1a1a99; border-left:3px solid var(--steel); padding-left:18px; }
+  .note .inr b{ color:var(--near); }
+</style>
+</head>
+<body>
+  <div class="top"><div class="bar"><span class="mono">VIS MAJOR — Direction Preview</span><span class="mono">GY-NO · Gel · Steel-Blue</span></div></div>
+  <div class="intro">
+    <h1>Before I commit it — here's the new direction in context.</h1>
+    <p>This previews <b>GY-NO (no exclamation)</b>, the <b>Cooling Tightening Gel</b> positioning, and the single <b>icy-blue accent</b> applied to the wordmark, the steel tube and a marketing hero. Nothing system-wide has changed yet — say the word and I'll roll it through the component, tube render and UI kit.</p>
+  </div>
+
+  <!-- 01 -->
+  <div class="sl"><span class="n">01</span><h3>Wordmark</h3><span class="ln"></span></div>
+  <div class="wrap"><div class="wm-row">
+    <div class="wm">
+      <div class="house"><span class="l"></span><span class="n">VISMAJOR</span><span class="l"></span></div>
+      <div class="gy">GY&#8209;NO</div>
+      <div class="acc"></div>
+    </div>
+    <div class="compare">
+      <span class="old">GY-NO!&nbsp;&nbsp;→ exclamation dropped</span><br>
+      <b>GY-NO</b> · weight 800 · tight<br>
+      accent: <b>icy-blue rule only</b><br>
+      house: VISMAJOR, one word
+    </div>
+  </div></div>
+
+  <!-- 02 -->
+  <div class="sl"><span class="n">02</span><h3>Steel tube · new label</h3><span class="ln"></span></div>
+  <div class="wrap"><div class="duo">
+    <div class="tube">
+      <div class="crimp"></div>
+      <div class="body"><div class="lbl">
+        <div class="house"><span class="l"></span><span class="n">VISMAJOR</span><span class="l"></span></div>
+        <div class="base">
+          <div class="gy">GY&#8209;NO</div>
+          <div class="acc"></div>
+          <div class="d">Cooling<br>Tightening Gel</div>
+          <div class="s">Cool. Firm. Composed.</div>
+          <div class="nrow"><span class="a">With Caffeine<br>For Men</span><span class="b">30 ml &#8494;</span></div>
+        </div>
+      </div></div>
+      <div class="base3d"></div>
+      <div class="ground"></div>
+    </div>
+    <div class="specs">
+      <b>30 ml steel tube</b><br>
+      brushed-metal body<br>
+      matte-black base<br>
+      white matte label<br>
+      <b>one</b> icy-blue rule<br>
+      VISMAJOR top · GY-NO base
+    </div>
+  </div></div>
+
+  <!-- 03 -->
+  <div class="sl"><span class="n">03</span><h3>Marketing hero</h3><span class="ln"></span></div>
+  <div class="wrap"><div class="hero">
+    <div class="lt">
+      <div class="eyebrow"><span class="l"></span><span>Topicals for Men</span></div>
+      <h2>Cool.<br>Firm.<br><span class="acc">Composed.</span></h2>
+      <p>GY-NO Cooling Tightening Gel. Caffeine + menthol. Cools on contact, visibly tightens. Matte, undetectable under a shirt.</p>
+      <div class="btns">
+        <button class="btn">Shop GY-NO — £24</button>
+        <button class="btn sec">The Science</button>
+      </div>
+    </div>
+    <div class="rt"><div class="frame"></div>
+      <div class="tube" style="width:150px"><div class="crimp" style="width:108px"></div>
+        <div class="body" style="width:150px;height:288px">
+          <div class="lbl" style="left:14px;right:14px;top:18px;bottom:18px;padding:13px 12px">
+            <div class="house"><span class="l" style="width:13px"></span><span class="n" style="font-size:7px">VISMAJOR</span><span class="l" style="width:13px"></span></div>
+            <div class="base"><div class="gy" style="font-size:27px">GY&#8209;NO</div><div class="acc" style="width:20px;height:2.5px;margin:9px 0"></div><div class="d" style="font-size:8px">Cooling<br>Tightening Gel</div></div>
+          </div>
+        </div>
+        <div class="base3d" style="width:128px;height:40px"></div>
+      </div>
+    </div>
+  </div></div>
+
+  <div class="note"><div class="inr">
+    <b>Decision:</b> commit this across the system (Wordmark → GY-NO no !, tube render + UI kit → gel + accent), or keep it as this product only and leave the house strictly mono? Also pending: your <b>Round 03 button pick</b> — the hero above uses the outline/solid caps style as a placeholder.
+  </div></div>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIS MAJOR — Round 03</title>
+<link rel="stylesheet" href="../styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *{ margin:0; box-sizing:border-box; }
+  body{ background:var(--paper-0); color:var(--ink-0); font-family:var(--font-text); padding:0 0 120px; }
+  .mono{ font-family:'Space Mono',monospace; }
+  .top{ max-width:1340px; margin:0 auto; padding:46px 56px 0; }
+  .top .bar{ display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--hairline-strong); padding-bottom:13px; }
+  .top .bar .mono{ font-size:10.5px; letter-spacing:0.28em; text-transform:uppercase; color:var(--ink-2); }
+  .intro{ max-width:1340px; margin:0 auto; padding:36px 56px 0; }
+  .intro h1{ font-family:var(--font-display); font-weight:800; font-size:38px; letter-spacing:-0.02em; }
+  .intro p{ font-size:14.5px; line-height:1.7; color:var(--ink-1); max-width:820px; margin-top:14px; }
+
+  .sl{ max-width:1340px; margin:54px auto 22px; padding:0 56px; display:flex; align-items:baseline; gap:14px; }
+  .sl .n{ font-family:'Space Mono',monospace; font-size:11px; color:var(--ink-3); }
+  .sl h3{ font-family:var(--font-display); font-weight:700; font-size:19px; letter-spacing:-0.01em; }
+  .sl .ln{ flex:1; height:1px; background:var(--hairline); }
+
+  .grid{ max-width:1340px; margin:0 auto; padding:0 56px; display:grid; gap:22px; }
+  .g4{ grid-template-columns:repeat(4,1fr); } .g3{ grid-template-columns:repeat(3,1fr); } .g2{ grid-template-columns:1fr 1fr; }
+  .cell{ background:var(--surface); border:1px solid var(--hairline); border-radius:8px; overflow:hidden; display:flex; flex-direction:column; }
+  .stage{ min-height:150px; display:flex; align-items:center; justify-content:center; padding:30px 22px; }
+  .cap{ border-top:1px solid var(--hairline); padding:11px 16px; display:flex; justify-content:space-between; align-items:center; }
+  .cap .t{ font-family:var(--font-display); font-weight:700; font-size:11.5px; letter-spacing:0.02em; }
+  .cap .d{ font-family:'Space Mono',monospace; font-size:8.5px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-3); }
+  .dark{ background:var(--ink-0); } .dark .stage *{ color:var(--paper-0); } .dark .cap{ border-color:rgba(255,255,255,0.12); } .dark .cap .t{ color:var(--paper-0); } .dark .cap .d{ color:var(--ink-3); }
+
+  /* ===== MARKS (no hexagon/seal) ===== */
+  .vm-tight{ font-family:var(--font-display); font-weight:800; font-size:46px; letter-spacing:-0.04em; }
+  .vm-stack{ font-family:var(--font-display); font-weight:800; font-size:34px; letter-spacing:-0.03em; line-height:0.82; text-align:center; }
+  .vm-rule{ font-family:var(--font-display); font-weight:700; font-size:40px; letter-spacing:0.02em; display:flex; flex-direction:column; align-items:center; gap:7px; }
+  .vm-rule .r{ width:54px; height:2px; background:currentColor; }
+  .vm-rule .sub{ font-size:8px; font-weight:600; letter-spacing:0.3em; }
+  .word-light{ font-family:var(--font-display); font-weight:300; font-size:26px; letter-spacing:0.3em; text-transform:uppercase; padding-left:0.3em; }
+  .word-mid{ font-family:var(--font-display); font-weight:600; font-size:24px; letter-spacing:0.2em; text-transform:uppercase; padding-left:0.2em; }
+  .word-stamp{ display:flex; flex-direction:column; align-items:center; gap:9px; }
+  .word-stamp .w{ font-family:var(--font-display); font-weight:600; font-size:21px; letter-spacing:0.22em; text-transform:uppercase; }
+  .word-stamp .line{ display:flex; align-items:center; gap:9px; }
+  .word-stamp .line .l{ width:24px; height:1px; background:currentColor; opacity:0.45; }
+  .word-stamp .line .d{ font-family:'Space Mono',monospace; font-size:7.5px; letter-spacing:0.26em; text-transform:uppercase; }
+
+  /* ===== TALL LABELS ===== */
+  .tubewrap{ display:flex; align-items:center; justify-content:center; gap:42px; flex-wrap:wrap; }
+  .tube{ width:172px; display:flex; flex-direction:column; align-items:center; }
+  .tube .crimp{ width:124px; height:14px; border-radius:3px 3px 0 0; background:repeating-linear-gradient(90deg,#7e8285 0 2px,#cfd2d3 2px 3px,#9a9ea1 3px 5px); box-shadow:inset 0 2px 3px rgba(255,255,255,0.4), inset 0 -3px 4px rgba(0,0,0,0.25); }
+  .tube .body{ position:relative; width:172px; height:330px; border-radius:26px 26px 5px 5px; overflow:hidden;
+    background:repeating-linear-gradient(90deg, rgba(255,255,255,0.42) 0 1px, rgba(255,255,255,0) 1px 2px, rgba(0,0,0,0.05) 2px 3px, rgba(0,0,0,0) 3px 4px),
+      linear-gradient(90deg,#83878a 0%,#b4b8ba 12%,#e7e9ea 32%,#fbfcfc 50%,#d2d5d6 66%,#a4a8aa 86%,#7c8083 100%); }
+  .tube .body::before{ content:""; position:absolute; left:0; right:0; top:0; height:42px; background:linear-gradient(180deg, rgba(255,255,255,0.55), transparent); }
+  /* tall label */
+  .lbl{ position:absolute; left:18px; right:18px; top:24px; bottom:24px; background:#fff; border-radius:3px; box-shadow:0 6px 14px -8px rgba(0,0,0,0.25); padding:16px 16px 18px; display:flex; flex-direction:column; }
+  .lbl .vm{ font-family:var(--font-display); font-weight:600; font-size:9px; letter-spacing:0.26em; text-transform:uppercase; color:var(--ink-1); text-align:center; }
+  .lbl .vm-line{ width:100%; height:1px; background:var(--hairline); margin-top:11px; }
+  .lbl .base{ margin-top:auto; }
+  .lbl .gy{ font-family:var(--font-display); font-weight:800; font-size:30px; letter-spacing:0.02em; color:var(--ink-0); line-height:0.9; }
+  .lbl .rule{ width:24px; height:1.5px; background:var(--ink-0); margin:10px 0; }
+  .lbl .desc{ font-family:var(--font-display); font-weight:500; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; line-height:1.5; color:var(--ink-0); }
+  .lbl .oz{ font-family:var(--font-display); font-weight:500; font-size:7.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-2); margin-top:12px; }
+  /* variant B: centered vm chip */
+  .lbl.b .vm{ display:inline-block; border:1px solid var(--hairline-strong); border-radius:2px; padding:4px 9px; align-self:center; }
+  .lbl.b .vm-line{ display:none; }
+  .tube .base3d{ width:148px; height:48px; margin-top:-4px; border-radius:0 0 10px 10px; background:linear-gradient(180deg,#2b2a27,#161512 55%,#0c0b09); box-shadow:inset 0 3px 4px rgba(255,255,255,0.12), 0 24px 32px -22px rgba(0,0,0,0.7); }
+
+  /* ===== BUTTONS ===== */
+  .btns{ display:flex; flex-direction:column; gap:14px; align-items:flex-start; }
+  .b-base{ font-family:var(--font-display); cursor:pointer; display:inline-flex; align-items:center; gap:12px; }
+  /* A: solid, sentence case, no tracking */
+  .bA{ background:var(--ink-0); color:var(--paper-0); border:none; padding:15px 28px; border-radius:4px; font-weight:600; font-size:15px; letter-spacing:0; }
+  /* B: outline tracked caps with arrow */
+  .bB{ background:transparent; color:var(--ink-0); border:1px solid var(--ink-0); padding:14px 26px; border-radius:0; font-weight:600; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; }
+  /* C: underline link */
+  .bC{ background:none; border:none; color:var(--ink-0); font-weight:700; font-size:14px; letter-spacing:0.02em; padding:6px 0; border-bottom:2px solid var(--ink-0); border-radius:0; }
+  /* D: pill solid */
+  .bD{ background:var(--ink-0); color:var(--paper-0); border:none; padding:14px 30px; border-radius:999px; font-weight:600; font-size:13px; letter-spacing:0.06em; }
+  /* E: bracket/tick frame */
+  .bE{ background:transparent; color:var(--ink-0); border:none; padding:14px 30px; font-weight:700; font-size:12px; letter-spacing:0.2em; text-transform:uppercase; position:relative; }
+  .bE::before,.bE::after{ content:""; position:absolute; width:9px; height:9px; border:2px solid var(--ink-0); }
+  .bE::before{ left:0; top:0; border-right:none; border-bottom:none; }
+  .bE::after{ right:0; bottom:0; border-left:none; border-top:none; }
+  /* F: split — label + arrow box */
+  .bF{ background:var(--ink-0); color:var(--paper-0); border:none; padding:0; border-radius:4px; overflow:hidden; font-weight:600; font-size:13px; letter-spacing:0.04em; display:inline-flex; align-items:stretch; }
+  .bF span{ padding:14px 22px; } .bF i{ display:flex; align-items:center; padding:0 16px; background:rgba(255,255,255,0.14); font-style:normal; }
+
+  .note{ max-width:1340px; margin:42px auto 0; padding:0 56px; }
+  .note .inr{ font-family:'Space Mono',monospace; font-size:12px; line-height:1.85; color:var(--ink-2); border-left:3px solid var(--ink-0); padding-left:18px; }
+  .note .inr b{ color:var(--ink-0); }
+</style>
+</head>
+<body>
+  <div class="top"><div class="bar">
+    <span class="mono">VIS MAJOR — Marks · Label · Buttons</span>
+    <span class="mono">Round 03</span>
+  </div></div>
+  <div class="intro">
+    <h1>No hexagon, no seal. Cleaner.</h1>
+    <p>Per your notes: the mark is now just <b>VM</b> or the full word — no containers. The product label is taller, with <b>VIS MAJOR small at the top</b> and everything else anchored at the base. And a fresh set of buttons to replace the ones you didn't like. Pick one from each row.</p>
+  </div>
+
+  <!-- MARKS -->
+  <div class="sl"><span class="n">01</span><h3>The mark — VM</h3><span class="ln"></span></div>
+  <div class="grid g4">
+    <div class="cell"><div class="stage"><span class="vm-tight">VM</span></div><div class="cap"><span class="t">VM · tight</span><span class="d">800 · −.04em</span></div></div>
+    <div class="cell"><div class="stage"><span class="vm-stack">VI<br>MA</span></div><div class="cap"><span class="t">Stacked</span><span class="d">2×2 block</span></div></div>
+    <div class="cell"><div class="stage"><span class="vm-rule"><span>VM</span><span class="r"></span><span class="sub">VIS MAJOR</span></span></div><div class="cap"><span class="t">VM + rule</span><span class="d">with word</span></div></div>
+    <div class="cell dark"><div class="stage"><span class="vm-tight">VM</span></div><div class="cap"><span class="t">Reverse</span><span class="d">on ink</span></div></div>
+  </div>
+
+  <!-- FULL WORD -->
+  <div class="sl"><span class="n">02</span><h3>The mark — full word</h3><span class="ln"></span></div>
+  <div class="grid g3">
+    <div class="cell"><div class="stage"><span class="word-light">VIS MAJOR</span></div><div class="cap"><span class="t">Light · tracked</span><span class="d">300 · .30em</span></div></div>
+    <div class="cell"><div class="stage"><span class="word-mid">VIS MAJOR</span></div><div class="cap"><span class="t">Medium</span><span class="d">600 · .20em</span></div></div>
+    <div class="cell"><div class="stage"><span class="word-stamp"><span class="w">VIS MAJOR</span><span class="line"><span class="l"></span><span class="d">EST MMXXVI</span><span class="l"></span></span></span></div><div class="cap"><span class="t">Word + divider</span><span class="d">stamp lockup</span></div></div>
+  </div>
+
+  <!-- LABEL -->
+  <div class="sl"><span class="n">03</span><h3>Taller label — VIS MAJOR top, GY-NO! base</h3><span class="ln"></span></div>
+  <div class="grid"><div class="cell"><div class="stage"><div class="tubewrap">
+    <div class="tube">
+      <div class="crimp"></div>
+      <div class="body"><div class="lbl">
+        <div class="vm">VIS MAJOR</div><div class="vm-line"></div>
+        <div class="base">
+          <div class="gy">GY-NO!</div><div class="rule"></div>
+          <div class="desc">Nipple<br>Hardening<br>Cream</div>
+          <div class="oz">15ml &#8494; 0.5 fl oz</div>
+        </div>
+      </div></div>
+      <div class="base3d"></div>
+    </div>
+    <div class="tube">
+      <div class="crimp"></div>
+      <div class="body"><div class="lbl b">
+        <div class="vm">VIS MAJOR</div>
+        <div class="base">
+          <div class="gy">GY-NO!</div><div class="rule"></div>
+          <div class="desc">Nipple<br>Hardening<br>Cream</div>
+          <div class="oz">15ml &#8494; 0.5 fl oz</div>
+        </div>
+      </div></div>
+      <div class="base3d"></div>
+    </div>
+  </div></div><div class="cap"><span class="t">A — VM hairline top · B — VM chip top</span><span class="d">taller body · base-anchored</span></div></div></div>
+
+  <!-- BUTTONS -->
+  <div class="sl"><span class="n">04</span><h3>New buttons</h3><span class="ln"></span></div>
+  <div class="grid g3">
+    <div class="cell"><div class="stage"><button class="b-base bA">Shop GY-NO!</button></div><div class="cap"><span class="t">A — Solid sentence</span><span class="d">no tracking</span></div></div>
+    <div class="cell"><div class="stage"><button class="b-base bB">Shop GY-NO! →</button></div><div class="cap"><span class="t">B — Outline caps</span><span class="d">square · arrow</span></div></div>
+    <div class="cell"><div class="stage"><button class="b-base bC">Shop GY-NO!</button></div><div class="cap"><span class="t">C — Underline link</span><span class="d">minimal</span></div></div>
+    <div class="cell"><div class="stage"><button class="b-base bD">Shop GY-NO!</button></div><div class="cap"><span class="t">D — Pill</span><span class="d">soft</span></div></div>
+    <div class="cell"><div class="stage"><button class="b-base bE">Shop GY-NO!</button></div><div class="cap"><span class="t">E — Corner ticks</span><span class="d">technical</span></div></div>
+    <div class="cell"><div class="stage"><button class="b-base bF"><span>Shop GY-NO!</span><i>→</i></button></div><div class="cap"><span class="t">F — Split + arrow</span><span class="d">solid · 2-part</span></div></div>
+  </div>
+
+  <div class="note"><div class="inr">
+    <b>Your picks:</b> 1) VM mark — which? 2) full-word lockup — which? 3) label — A or B? 4) button — A–F?<br>
+    Tell me the letters and I'll wire all four into the system (Monogram → plain VM, Seal removed/replaced, taller tube label everywhere, new Button).
+  </div></div>
+</body>
+</html>

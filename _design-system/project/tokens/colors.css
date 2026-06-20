@@ -1,0 +1,65 @@
+/* ============================================================
+   GY-NO! · Colour
+   ------------------------------------------------------------
+   A strictly monochrome system: warm paper, near-black ink, and a
+   brushed-aluminium grey scale for product + material. There is NO
+   brand accent colour — restraint IS the brand. `--accent` is wired
+   to ink so any component asking for an accent stays mono; flip it
+   in one place if a campaign ever needs colour.
+   ============================================================ */
+
+:root {
+  /* ---- Paper / surfaces (warm off-white) ---- */
+  --paper-0: #F4F2EC;   /* primary page background */
+  --paper-1: #FAF9F5;   /* raised surface */
+  --paper-2: #FFFFFF;   /* label white */
+
+  /* ---- Ink (near-black, warm) ---- */
+  --ink-0: #14130F;     /* primary text + keylines */
+  --ink-1: #36352F;     /* strong secondary */
+  --ink-2: #6A6960;     /* muted / captions */
+  --ink-3: #9C9A8F;     /* faint / placeholder */
+
+  /* ---- Aluminium / metal scale ---- */
+  --metal-50:  #ECEDEC;
+  --metal-100: #DFE1E1;
+  --metal-200: #C8CBCC;
+  --metal-300: #ABAFB1;
+  --metal-400: #8C9093;
+  --metal-500: #6C7073;
+  --metal-600: #4E5255;
+  --metal-700: #36393B;
+  --cap-black: #161512;  /* matte black flip-cap / lid */
+
+  /* ---- Hairlines & frame ---- */
+  --hairline:        rgba(20, 19, 15, 0.14);
+  --hairline-strong: rgba(20, 19, 15, 0.30);
+  --keyline:         #14130F;
+
+  /* ============ Semantic aliases ============ */
+  --bg:               var(--paper-0);
+  --surface:          var(--paper-1);
+  --surface-label:    var(--paper-2);
+
+  --text-primary:     var(--ink-0);
+  --text-secondary:   var(--ink-2);
+  --text-faint:       var(--ink-3);
+  --text-on-ink:      var(--paper-0);
+
+  --border-hairline:  var(--hairline);
+  --border-strong:    var(--hairline-strong);
+  --frame:            var(--keyline);
+
+  --accent:           var(--ink-0);   /* mono by design */
+
+  /* product material shorthands */
+  --metal-light:      var(--metal-100);
+  --metal-mid:        var(--metal-300);
+  --metal-dark:       var(--metal-600);
+
+  /* ---- Optional product accent (use SPARINGLY) ----
+     The house system is mono; GY-NO! Cooling Tightening Gel introduces ONE
+     cold accent — an icy steel-blue — used for a single short rule under the
+     product name and nowhere else. Do not spread it across UI. */
+  --steel-blue: #378ADD;
+}

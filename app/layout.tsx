@@ -1,0 +1,44 @@
+import type { Metadata, Viewport } from "next";
+import { Hanken_Grotesk } from "next/font/google";
+import "./globals.css";
+
+const hanken = Hanken_Grotesk({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+export const metadata: Metadata = {
+  title: "GY-NO! — Nipple Tightening Cream · VIS MAJOR",
+  description:
+    "GY-NO! is a precision nipple tightening cream. Works in minutes. Up to one hour of temporary firmness. With caffeine and menthol agents. Made in the UK by VIS MAJOR.",
+  openGraph: {
+    title: "GY-NO! — Nipple Tightening Cream",
+    description:
+      "Works in minutes. Up to one hour of temporary firmness. Performance topicals for men.",
+    type: "website",
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#FFFFFF",
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  // White is locked as the default theme. The /classic page still exposes a
+  // runtime White/Cream toggle for internal comparison.
+  return (
+    <html lang="en" data-theme="white" suppressHydrationWarning className={hanken.variable}>
+      <body className="font-display bg-paper-0 text-ink-0 antialiased">
+        {children}
+      </body>
+    </html>
+  );
+}

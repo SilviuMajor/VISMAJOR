@@ -1,0 +1,43 @@
+<!-- @dsCard group="Brand" viewport="760x360" name="Logo & Marks" subtitle="GY-NO! product wordmark · VIS MAJOR house mark · descriptor lockup" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  body{ background:var(--bg); color:var(--ink-0); font-family:var(--font-text);
+    min-height:100vh; display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:48px; padding:48px 56px; }
+  .col{ display:flex; flex-direction:column; gap:30px; }
+  .col.r{ background:var(--ink-0); color:var(--paper-0); margin:-48px -56px -48px 0; padding:48px 56px; justify-content:center; }
+
+  .house{ font-family:var(--font-display); font-weight:var(--fw-light); letter-spacing:0.28em; text-transform:uppercase; font-size:24px; }
+  .wordmark{ font-family:var(--font-display); font-weight:var(--fw-extrabold); letter-spacing:0.01em; font-size:72px; line-height:var(--lh-solid); }
+  .descriptor{ font-family:var(--font-display); font-weight:var(--fw-medium); letter-spacing:var(--track-caps);
+    text-transform:uppercase; font-size:17px; line-height:1.45; }
+  .sub{ font-family:var(--font-display); font-weight:var(--fw-medium); letter-spacing:var(--track-caps); text-transform:uppercase; font-size:10px; color:var(--ink-2); margin-top:9px; }
+  .col.r .sub{ color:var(--metal-300); }
+  .lab{ font-family:var(--font-display); font-size:10px; letter-spacing:var(--track-caps); text-transform:uppercase; color:var(--ink-3); }
+  .col.r .lab{ color:var(--metal-300); }
+</style>
+</head>
+<body>
+  <div class="col">
+    <div>
+      <div class="lab">House mark</div>
+      <div class="house" style="margin-top:14px">VISMAJOR</div>
+    </div>
+    <div>
+      <div class="lab">Product wordmark</div>
+      <div class="wordmark" style="margin-top:10px">GY-NO!</div>
+      <div class="descriptor" style="margin-top:14px">Nipple Tightening Cream</div>
+      <div class="sub">With Caffeine &amp; Menthol Agents</div>
+    </div>
+  </div>
+  <div class="col r">
+    <div class="lab">Reverse</div>
+    <div class="house" style="margin-top:14px">VISMAJOR</div>
+    <div class="wordmark" style="margin-top:18px">GY-NO!</div>
+  </div>
+</body>
+</html>

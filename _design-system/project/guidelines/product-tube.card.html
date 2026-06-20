@@ -1,0 +1,56 @@
+<!-- @dsCard group="Brand" viewport="700x460" name="Product · Cream Tube" subtitle="20ml matte-white squeeze tube, black base" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  body{ background:var(--bg); font-family:var(--font-text); min-height:100vh; display:flex; align-items:center; justify-content:center; padding:30px; }
+  .scene{ position:relative; display:flex; flex-direction:column; align-items:center; }
+  .tube{ position:relative; width:208px; z-index:2; }
+  /* sealed ribbed top */
+  .crimp{ width:150px; height:15px; margin:0 auto; border-radius:3px 3px 0 0;
+    background:linear-gradient(90deg,#cecbc2,#efece6 45%,#efece6 55%,#c8c5bc);
+    box-shadow:inset 0 2px 3px rgba(255,255,255,0.4), inset 0 -3px 4px rgba(0,0,0,0.25); }
+  /* matte white body */
+  .body{ position:relative; width:208px; height:300px; border-radius:30px 30px 5px 5px; overflow:hidden;
+    background:linear-gradient(90deg,#d8d5cc 0%,#f3f1ea 16%,#ffffff 44%,#ffffff 56%,#eeebe4 82%,#d4d1c8 100%);
+    box-shadow:0 2px 0 rgba(255,255,255,0.6) inset, inset 0 0 0 1px rgba(20,19,15,0.06); }
+  .body::before{ content:""; position:absolute; left:0; right:0; top:0; height:46px; background:linear-gradient(180deg, rgba(255,255,255,0.55), transparent); }
+  /* white label */
+  .label{ position:absolute; left:24px; right:24px; top:74px; bottom:34px; background:transparent; border-radius:3px;
+    padding:18px 16px; display:flex; flex-direction:column; }
+  .label .house{ text-align:center; font-family:var(--font-display); font-weight:600; letter-spacing:0.2em; text-transform:uppercase; font-size:11px; color:var(--ink-1); }
+  .label .wm{ font-family:var(--font-display); font-weight:800; letter-spacing:0.02em; font-size:30px; line-height:0.9; color:var(--ink-0); }
+  .label .desc{ font-family:var(--font-display); font-weight:500; letter-spacing:0.16em; text-transform:uppercase; font-size:11px; line-height:1.45; color:var(--ink-0); margin-top:11px; }
+  .label .cap{ font-weight:500; letter-spacing:0.14em; text-transform:uppercase; font-size:7.5px; line-height:1.6; color:var(--ink-2); margin-top:8px; }
+  .label .oz{ display:flex; justify-content:space-between; margin-top:14px; padding-top:9px; border-top:1px solid rgba(20,19,15,0.18); font-family:var(--font-display); font-weight:600; letter-spacing:0.12em; text-transform:uppercase; font-size:8px; color:var(--ink-1); }
+  /* black base (the flip cap it stands on) */
+  .base{ width:178px; height:62px; margin:-4px auto 0; border-radius:0 0 12px 12px; position:relative; z-index:1;
+    background:linear-gradient(180deg,#2b2a27,#161512 55%,#0c0b09); box-shadow:inset 0 3px 4px rgba(255,255,255,0.12), 0 26px 36px -22px rgba(0,0,0,0.7); }
+  .base::after{ content:""; position:absolute; left:50%; bottom:13px; transform:translateX(-50%); width:96px; height:18px; border-radius:4px; background:linear-gradient(180deg,#0c0b09,#1d1c19); box-shadow:inset 0 2px 4px rgba(0,0,0,0.7); }
+  .ground{ width:230px; height:22px; margin-top:6px; border-radius:50%; background:radial-gradient(50% 50%, rgba(20,19,15,0.4), transparent 72%); filter:blur(5px); }
+</style>
+</head>
+<body>
+  <div class="scene">
+    <div class="tube">
+      <div class="crimp"></div>
+      <div class="body">
+        <div class="label">
+          <div class="house">VISMAJOR</div>
+          <div style="margin-top:auto">
+            <div class="wm">GY&#8209;NO!</div>
+            <div class="desc">Nipple<br>Tightening Cream</div>
+            <div class="cap">With Caffeine &amp; Menthol Agents</div>
+            <div class="oz"><span>For Men</span><span>20ml &#8494;</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="base"></div>
+    </div>
+    <div class="ground"></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!-- @dsCard group="Colors" viewport="700x200" name="Ink & Paper" subtitle="Warm near-black on warm off-white — the whole brand" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  body{ background:var(--bg); font-family:var(--font-text); padding:30px 40px; min-height:100vh; display:flex; align-items:center; }
+  .grid{ display:grid; grid-template-columns:repeat(7,1fr); gap:14px; width:100%; }
+  .sw{ display:flex; flex-direction:column; gap:8px; }
+  .chip{ height:84px; border-radius:var(--radius-sm); border:1px solid var(--hairline); }
+  .n{ font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-1); font-weight:600; }
+  .h{ font-size:10px; letter-spacing:0.06em; color:var(--ink-3); }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div class="sw"><div class="chip" style="background:#F4F2EC"></div><div class="n">Paper&nbsp;0</div><div class="h">#F4F2EC</div></div>
+    <div class="sw"><div class="chip" style="background:#FAF9F5"></div><div class="n">Paper&nbsp;1</div><div class="h">#FAF9F5</div></div>
+    <div class="sw"><div class="chip" style="background:#FFFFFF"></div><div class="n">Label</div><div class="h">#FFFFFF</div></div>
+    <div class="sw"><div class="chip" style="background:#9C9A8F"></div><div class="n">Ink&nbsp;3</div><div class="h">#9C9A8F</div></div>
+    <div class="sw"><div class="chip" style="background:#6A6960"></div><div class="n">Ink&nbsp;2</div><div class="h">#6A6960</div></div>
+    <div class="sw"><div class="chip" style="background:#36352F"></div><div class="n">Ink&nbsp;1</div><div class="h">#36352F</div></div>
+    <div class="sw"><div class="chip" style="background:#14130F"></div><div class="n">Ink&nbsp;0</div><div class="h">#14130F</div></div>
+  </div>
+</body>
+</html>

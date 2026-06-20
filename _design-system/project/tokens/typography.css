@@ -1,0 +1,44 @@
+/* ============================================================
+   GY-NO! · Typography
+   ------------------------------------------------------------
+   One family (Jost / geometric grotesque), used almost entirely in
+   UPPERCASE with wide tracking. Hierarchy comes from SIZE, WEIGHT
+   and TRACKING — never from a second family. Lowercase appears only
+   in long legal/body runs where caps would hurt legibility.
+   ============================================================ */
+
+:root {
+  /* ---- Families ---- */
+  --font-display: 'Hanken Grotesk', system-ui, sans-serif;
+  --font-text:    'Hanken Grotesk', system-ui, sans-serif;
+
+  /* ---- Weights ---- */
+  --fw-light:    300;  /* @kind font */
+  --fw-regular:  400;  /* @kind font */
+  --fw-medium:   500;  /* @kind font */
+  --fw-semibold: 600;  /* @kind font */
+  --fw-extrabold: 800;  /* @kind font */
+  --fw-black:     900;  /* @kind font */
+
+  /* ---- Tracking (the signature) ---- */
+  --track-wordmark:   0.04em;   /* @kind font */  /* GY-NO! lockup */
+  --track-tight:     -0.01em;   /* @kind font */  /* large display headlines */
+  --track-caps:       0.22em;   /* @kind font */  /* standard tracked label caps */
+  --track-caps-loose: 0.34em;   /* @kind font */  /* eyebrows, seals, dividers */
+
+  /* ---- Sizes ---- */
+  --fs-display: clamp(56px, 9vw, 132px); /* @kind font */ /* hero wordmark */
+  --fs-h1:      clamp(38px, 6vw, 68px);  /* @kind font */
+  --fs-h2:      32px;   /* @kind font */
+  --fs-h3:      22px;   /* @kind font */
+  --fs-body:    16px;   /* @kind font */
+  --fs-label:   13px;   /* @kind font */  /* tracked caps labels */
+  --fs-caption: 11px;   /* @kind font */
+  --fs-legal:   10px;   /* @kind font */
+
+  /* ---- Line height ---- */
+  --lh-solid: 0.9;   /* @kind font */
+  --lh-tight: 1.05;  /* @kind font */
+  --lh-snug:  1.25;  /* @kind font */
+  --lh-body:  1.6;   /* @kind font */
+}

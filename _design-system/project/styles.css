@@ -1,0 +1,12 @@
+/* ============================================================
+   GY-NO! — Design System · global entry point
+   ------------------------------------------------------------
+   Consumers link THIS file only. It is an import manifest; all real
+   declarations live in the token files below. Order: fonts → colour
+   → type → spacing.
+   ============================================================ */
+
+@import url("tokens/fonts.css");
+@import url("tokens/colors.css");
+@import url("tokens/typography.css");
+@import url("tokens/spacing.css");
