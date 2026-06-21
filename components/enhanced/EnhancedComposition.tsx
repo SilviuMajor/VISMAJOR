@@ -11,7 +11,6 @@ import { ScrollProgress } from "@/components/enhanced/ScrollProgress";
 import { EnhancedHero } from "@/components/enhanced/EnhancedHero";
 import { StickyArchitecture } from "@/components/enhanced/StickyArchitecture";
 import { HorizontalUseBefore } from "@/components/enhanced/HorizontalUseBefore";
-import { Comparison } from "@/components/enhanced/Comparison";
 import { HeritageBanner } from "@/components/enhanced/HeritageBanner";
 import { StickyBuy } from "@/components/enhanced/StickyBuy";
 import { NotifyBand } from "@/components/enhanced/NotifyBand";
@@ -42,7 +41,6 @@ export function EnhancedComposition() {
         <Features />
         <HorizontalUseBefore />
         <HowItWorks />
-        <Comparison />
         <ProofV2 />
         <StickyBuy shipMonth={shipMonth} />
         <IsIsnt />
