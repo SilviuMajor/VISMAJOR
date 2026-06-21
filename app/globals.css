@@ -35,6 +35,8 @@
   --keyline-inset: 16px;
   /* Shadow (almost none — product only) */
   --shadow-product: 0 46px 80px -44px rgba(20, 19, 15, 0.55);
+  /* The single sanctioned cold accent — used very sparingly */
+  --steel-blue: #378ADD;
 }
 
 /* CREAM theme — warm apothecary paper */

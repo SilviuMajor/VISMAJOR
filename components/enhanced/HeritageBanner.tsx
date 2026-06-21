@@ -13,30 +13,38 @@ export function HeritageBanner() {
     target: ref,
     offset: ["start end", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], reduce ? ["0%", "0%"] : ["-10%", "10%"]);
+  const y = useTransform(scrollYProgress, [0, 1], reduce ? ["0%", "0%"] : ["7%", "-7%"]);
 
   return (
     <section ref={ref} className="relative overflow-hidden bg-ink-0">
-      <motion.div style={{ y }} className="absolute inset-0 -z-0">
-        <div className="relative h-[120%] w-full">
-          <Image
-            src="/product/heritage-hero.png"
-            alt="GY-NO! among classical statuary, a Tuscan vista beyond the arch"
-            fill
-            sizes="100vw"
-            className="object-cover object-center"
-          />
-        </div>
+      {/* faint cold halo behind the figure (single sanctioned cold accent) */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute right-[8%] top-1/2 z-0 h-[72vh] w-[44vh] -translate-y-1/2 rounded-full blur-3xl"
+        style={{ background: "radial-gradient(circle, rgba(55,138,221,0.13), transparent 66%)" }}
+      />
+
+      {/* David — line-art inverted to a luminous etching on ink */}
+      <motion.div
+        style={{ y }}
+        className="pointer-events-none absolute inset-y-0 right-[-6%] z-0 w-[64vw] sm:right-[-2%] sm:w-[48vw] lg:w-[42vw]"
+      >
+        <Image
+          src="/product/david.png"
+          alt="A classical figure — the standard"
+          fill
+          sizes="50vw"
+          className="object-contain object-bottom opacity-90 invert mix-blend-screen"
+        />
       </motion.div>
 
-      {/* legibility scrim — darker on the left where the copy sits, keeps the
-          product (right) and the bright arch readable */}
+      {/* seat the copy: dark on the left, fading to clear over the figure */}
       <div
         aria-hidden
         className="absolute inset-0 z-10"
         style={{
           background:
-            "linear-gradient(90deg, rgba(20,19,15,0.80) 0%, rgba(20,19,15,0.5) 38%, rgba(20,19,15,0.12) 70%, rgba(20,19,15,0.05) 100%)",
+            "linear-gradient(90deg, rgba(20,19,15,0.9) 0%, rgba(20,19,15,0.55) 42%, rgba(20,19,15,0.05) 72%, transparent 100%)",
         }}
       />
 
@@ -54,7 +62,7 @@ export function HeritageBanner() {
             lines={["Cool. Firm.", "Composed."]}
           />
           <p className="mt-7 max-w-md text-[16.5px] leading-[1.6] text-paper-0/70">
-            One job. Done well. A cosmetic — temporary by design.
+            Engineered for men. One job, done well — a cosmetic, temporary by design.
           </p>
         </div>
       </Container>

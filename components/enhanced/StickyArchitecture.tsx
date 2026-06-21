@@ -47,7 +47,21 @@ export function StickyArchitecture() {
   return (
     <section id="science" ref={ref} className="relative h-[320vh] bg-paper-1">
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-        <Container className="w-full">
+        {/* classical figure presiding over the actives — line-art via multiply,
+            anchored right behind the pinned product */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-y-0 right-[-10%] z-0 hidden w-[52vw] sm:right-[-4%] sm:block sm:w-[46vw] lg:w-[40vw]"
+        >
+          <Image
+            src="/product/david.png"
+            alt=""
+            fill
+            sizes="46vw"
+            className="object-contain object-bottom opacity-[0.5] mix-blend-multiply"
+          />
+        </div>
+        <Container className="relative z-10 w-full">
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
             {/* Narrative */}
             <div className="order-2 lg:order-1">

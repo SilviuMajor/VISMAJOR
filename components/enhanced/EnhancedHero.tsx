@@ -180,7 +180,7 @@ export function EnhancedHero({ shipMonth }: { shipMonth: string }) {
           </motion.h1>
 
           {/* product — scroll parallax › cursor › entrance › float */}
-          <motion.div style={{ y: prodScrollY, scale: prodScrollScale }} className="relative z-10 -mt-[12vw]">
+          <motion.div style={{ y: prodScrollY, scale: prodScrollScale }} className="relative z-10 -mt-[15vw]">
             <motion.div style={{ x: tubeX, y: tubeCurY, rotate: tubeRot }}>
               <motion.div
                 initial={{ y: 76, opacity: 0 }}
@@ -190,7 +190,7 @@ export function EnhancedHero({ shipMonth }: { shipMonth: string }) {
                 <motion.div
                   animate={reduce ? {} : { y: [0, -9, 0] }}
                   transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                  className="relative h-[34vh] w-[170px] md:h-[42vh] md:w-[230px]"
+                  className="relative h-[42vh] w-[208px] md:h-[52vh] md:w-[286px]"
                 >
                   <Image
                     src="/product/front.png"
