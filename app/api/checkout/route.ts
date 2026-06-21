@@ -1,23 +1,57 @@
 import { NextResponse } from "next/server";
-import { getStripe, TIER_TO_PRICE_ENV } from "@/lib/stripe";
+import { getStripe, priceEnvFor } from "@/lib/stripe";
+import { bySlug, type ProductSlug } from "@/lib/products";
 
-const FALLBACK_AMOUNTS_GBP: Record<"1" | "2" | "3", number> = {
-  "1": 1499,
-  "2": 2499,
-  "3": 3499,
+type Tier = "1" | "2" | "3";
+
+// Server-authoritative catalogue. Amounts in GBP pence. Each tier optionally
+// maps to a real Stripe Price via env (see lib/stripe). Until those are set,
+// the fallback amount + name below is used so the flow still works.
+const CATALOG: Record<
+  ProductSlug,
+  { name: string; tiers: Record<Tier, { label: string; amount: number }> }
+> = {
+  "gy-no": {
+    name: "GY-NO! Nipple Tightening Cream",
+    tiers: {
+      "1": { label: "20ml", amount: 2400 },
+      "2": { label: "40ml", amount: 4200 },
+      "3": { label: "2 × 20ml", amount: 4400 },
+    },
+  },
+  chisel: {
+    name: "CHISEL Contour Sculpt",
+    tiers: {
+      "1": { label: "Cream · 50ml", amount: 2800 },
+      "2": { label: "Cream + Steel Tool", amount: 3900 },
+      "3": { label: "Cream + Tool · 2-pack", amount: 6800 },
+    },
+  },
+  sharp: {
+    name: "SHARP Matte Daily Moisturiser",
+    tiers: {
+      "1": { label: "50ml", amount: 2200 },
+      "2": { label: "100ml", amount: 3800 },
+      "3": { label: "2 × 50ml", amount: 4000 },
+    },
+  },
 };
 
-const QTYS: Record<"1" | "2" | "3", number> = { "1": 1, "2": 2, "3": 3 };
-
 export async function POST(req: Request) {
-  let tier: "1" | "2" | "3";
+  let tier: Tier;
+  let product: ProductSlug;
   try {
     const body = await req.json();
     tier = body?.tier;
+    product = (body?.product ?? "gy-no") as ProductSlug;
     if (!["1", "2", "3"].includes(tier)) throw new Error("Bad tier");
+    if (!CATALOG[product]) throw new Error("Bad product");
   } catch {
     return NextResponse.json(
-      { error: "Invalid request body. Expecting { tier: '1' | '2' | '3' }." },
+      {
+        error:
+          "Invalid request body. Expecting { product?: 'gy-no'|'chisel'|'sharp', tier: '1'|'2'|'3' }.",
+      },
       { status: 400 }
     );
   }
@@ -36,8 +70,10 @@ export async function POST(req: Request) {
     );
   }
 
-  const priceEnv = TIER_TO_PRICE_ENV[tier];
-  const priceId = process.env[priceEnv];
+  const entry = CATALOG[product];
+  const tierInfo = entry.tiers[tier];
+  const priceId = process.env[priceEnvFor(product, tier)];
+  const backHref = bySlug(product).href;
 
   try {
     const lineItems: any[] = priceId
@@ -47,11 +83,9 @@ export async function POST(req: Request) {
             quantity: 1,
             price_data: {
               currency: "gbp",
-              unit_amount: FALLBACK_AMOUNTS_GBP[tier],
+              unit_amount: tierInfo.amount,
               product_data: {
-                name: `GY-NO Cooling Tightening Gel — ${QTYS[tier]} tube${
-                  QTYS[tier] > 1 ? "s" : ""
-                }`,
+                name: `${entry.name} — ${tierInfo.label}`,
                 description: `Pre-order. Ships ${
                   process.env.PREORDER_SHIP_MONTH ?? "TBA"
                 }.`,
@@ -63,11 +97,11 @@ export async function POST(req: Request) {
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       line_items: lineItems,
-      success_url: `${siteUrl}/?status=ok#buy`,
-      cancel_url: `${siteUrl}/?status=cancel#buy`,
+      success_url: `${siteUrl}${backHref}?status=ok#buy`,
+      cancel_url: `${siteUrl}${backHref}?status=cancel#buy`,
       shipping_address_collection: { allowed_countries: ["GB"] },
       allow_promotion_codes: true,
-      metadata: { tier, qty: String(QTYS[tier]) },
+      metadata: { product, tier },
     });
 
     return NextResponse.json({ url: session.url });

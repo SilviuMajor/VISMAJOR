@@ -5,3 +5,10 @@ node_modules
 *.log
 .vercel
 next-env.d.ts
+
+# Local source / reference images (working files, not for the repo)
+/images/
+/ChatGPT Image*.png
+
+# TS incremental build cache
+tsconfig.tsbuildinfo

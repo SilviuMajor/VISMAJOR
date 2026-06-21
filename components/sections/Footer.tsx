@@ -1,9 +1,9 @@
 import { Container } from "@/components/ui/Container";
+import { PRODUCTS } from "@/lib/products";
 
 const LINKS = [
   { label: "Shipping & Returns", href: "#" },
-  { label: "Ingredients", href: "#ingredients" },
-  { label: "Contact", href: "mailto:hello@gy-no.co.uk" },
+  { label: "Contact", href: "mailto:hello@vismajor.co.uk" },
   { label: "Terms", href: "#" },
   { label: "Privacy", href: "#" },
 ];
@@ -13,27 +13,51 @@ export function Footer() {
     <footer className="bg-ink-0 text-paper-0">
       <Container className="pb-12 pt-20 md:pt-24">
         <div className="grid grid-cols-1 gap-14 md:grid-cols-12 md:gap-10">
-          <div className="md:col-span-7">
-            <div
-              className="house font-light"
+          <div className="md:col-span-6">
+            <a
+              href="/"
+              className="house inline-block font-light"
               style={{ fontSize: "clamp(38px, 5vw, 72px)", lineHeight: 1 }}
             >
               VIS&nbsp;MAJOR
-            </div>
+            </a>
             <p className="caps mt-5 text-[11px] font-medium text-ink-3">
               Performance Topicals for Men · Est. MMXXVI
             </p>
             <p className="mt-7 max-w-[440px] text-[10px] leading-[1.8] text-ink-3">
               Cosmetic use only. Temporary effect. Not a treatment for any
-              medical condition. GY-NO!™ is a product of Vis Major.
+              medical condition. GY-NO!, CHISEL and SHARP are products of Vis
+              Major.
             </p>
           </div>
 
-          <div className="md:col-span-5">
+          <div className="md:col-span-3">
+            <p className="caps-loose text-[11px] font-semibold text-ink-3">
+              The House
+            </p>
+            <ul className="mt-5 flex flex-col gap-3">
+              {PRODUCTS.map((p) => (
+                <li key={p.slug}>
+                  <a
+                    href={p.href}
+                    className="caps inline-flex items-center gap-2 text-[11.5px] font-semibold text-paper-0/90 transition-colors hover:text-paper-0"
+                  >
+                    <span
+                      className="inline-block h-1.5 w-1.5 rounded-full"
+                      style={{ background: p.accentHex }}
+                    />
+                    {p.wordmark}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="md:col-span-3">
             <p className="caps-loose text-[11px] font-semibold text-ink-3">
               Quick Links
             </p>
-            <ul className="mt-5 grid grid-cols-2 gap-3">
+            <ul className="mt-5 flex flex-col gap-3">
               {LINKS.map((l) => (
                 <li key={l.label}>
                   <a
@@ -45,15 +69,6 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-            <p className="caps-loose mt-10 text-[11px] font-semibold text-ink-3">
-              Home
-            </p>
-            <a
-              href="https://gy-no.co.uk"
-              className="mt-2 inline-block text-[22px] font-medium tracking-tight text-paper-0 hover:text-paper-0/70"
-            >
-              gy-no.co.uk
-            </a>
           </div>
         </div>
 

@@ -35,8 +35,11 @@
   --keyline-inset: 16px;
   /* Shadow (almost none — product only) */
   --shadow-product: 0 46px 80px -44px rgba(20, 19, 15, 0.55);
-  /* The single sanctioned cold accent — used very sparingly */
-  --steel-blue: #378ADD;
+  /* Per-product signature accents — one per product, used very sparingly.
+     GY-NO! is cold, CHISEL is warm, SHARP is fresh. */
+  --steel-blue: #378ADD;   /* GY-NO!  — cold / cooling */
+  --ember:      #C16A3C;   /* CHISEL  — warm / massage */
+  --mint:       #2F9E86;   /* SHARP   — fresh / matte  */
 }
 
 /* CREAM theme — warm apothecary paper */

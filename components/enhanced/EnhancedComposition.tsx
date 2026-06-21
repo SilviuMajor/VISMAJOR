@@ -15,6 +15,7 @@ import { HeritageBanner } from "@/components/enhanced/HeritageBanner";
 import { StickyBuy } from "@/components/enhanced/StickyBuy";
 import { NotifyBand } from "@/components/enhanced/NotifyBand";
 import { FinalCta } from "@/components/enhanced/FinalCta";
+import { OtherProducts } from "@/components/house/OtherProducts";
 
 // Selected v2 renditions (chosen from /compare)
 import { ProofV2 } from "@/components/v2/ProofV2";
@@ -33,7 +34,7 @@ export function EnhancedComposition() {
     <>
       <ScrollProgress />
       <Announcement shipMonth={shipMonth} />
-      <Header />
+      <Header crumb="GY-NO!" />
       <main>
         <EnhancedHero shipMonth={shipMonth} />
         <Ticker />
@@ -49,9 +50,10 @@ export function EnhancedComposition() {
         <FinalCta shipMonth={shipMonth} />
         <NotifyBand />
         <HeritageBanner />
+        <OtherProducts current="gy-no" />
       </main>
       <Footer />
-      <StickyBuyBar priceFrom="£24" />
+      <StickyBuyBar priceFrom="£24" label="GY-NO! · 20ml" />
     </>
   );
 }

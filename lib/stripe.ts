@@ -12,8 +12,16 @@ export function getStripe(): Stripe | null {
   return cached;
 }
 
-export const TIER_TO_PRICE_ENV: Record<"1" | "2" | "3", string> = {
-  "1": "STRIPE_PRICE_1_TUBE",
-  "2": "STRIPE_PRICE_2_TUBES",
-  "3": "STRIPE_PRICE_3_TUBES",
-};
+import type { ProductSlug } from "@/lib/products";
+
+// Map a product + tier to the env var holding its Stripe Price ID.
+// GY-NO! keeps its original env names for backward compatibility; the rest
+// follow STRIPE_PRICE_<PRODUCT>_<TIER> (e.g. STRIPE_PRICE_CHISEL_2).
+export function priceEnvFor(product: ProductSlug, tier: "1" | "2" | "3"): string {
+  if (product === "gy-no") {
+    return { "1": "STRIPE_PRICE_1_TUBE", "2": "STRIPE_PRICE_2_TUBES", "3": "STRIPE_PRICE_3_TUBES" }[
+      tier
+    ];
+  }
+  return `STRIPE_PRICE_${product.toUpperCase()}_${tier}`;
+}

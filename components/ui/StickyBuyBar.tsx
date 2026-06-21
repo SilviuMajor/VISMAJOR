@@ -3,7 +3,15 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-export function StickyBuyBar({ priceFrom }: { priceFrom: string }) {
+export function StickyBuyBar({
+  priceFrom,
+  label = "GY-NO! · 20ml",
+  href = "#buy",
+}: {
+  priceFrom: string;
+  label?: string;
+  href?: string;
+}) {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -36,14 +44,14 @@ export function StickyBuyBar({ priceFrom }: { priceFrom: string }) {
           <div className="flex items-center justify-between gap-4 px-5 py-3">
             <div className="flex flex-col">
               <span className="caps text-[9.5px] font-semibold text-ink-3">
-                GY-NO! · 20ml
+                {label}
               </span>
               <span className="text-[13px] font-semibold text-ink-0">
                 Pre-order from {priceFrom}
               </span>
             </div>
             <a
-              href="#buy"
+              href={href}
               className="caps inline-flex items-center rounded-sm border border-ink-0 bg-ink-0 px-5 py-3 text-[11px] font-semibold text-paper-0"
             >
               Buy
