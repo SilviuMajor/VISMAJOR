@@ -223,15 +223,13 @@ export function StickyArchitecture() {
                 </motion.div>
 
                 {/* phase 1 — caffeine: an electric lightning charge */}
-                <motion.svg
+                <motion.div
                   aria-hidden
-                  viewBox="0 0 200 250"
-                  className="absolute inset-0 z-[24] h-full w-full"
+                  className="absolute inset-0 z-[22] overflow-hidden"
                   style={{ opacity: caffeineOpacity }}
-                  preserveAspectRatio="xMidYMid meet"
                 >
                   <Lightning reduce={reduce} />
-                </motion.svg>
+                </motion.div>
 
                 {/* phase 2 — multiple snowflakes frosting over the tube */}
                 <motion.svg
@@ -291,71 +289,148 @@ export function StickyArchitecture() {
   );
 }
 
-/* Jagged lightning bolts that strike over the tube during the Caffeine phase
-   — monochrome ink, flickering on irregular cycles. Steady when reduced. */
-const BOLTS = [
-  "M100 16 L86 70 L106 90 L90 138 L112 166 L96 234",
-  "M106 90 L130 110 L119 138",
-  "M58 54 L74 96 L60 126 L80 166",
-  "M150 46 L135 90 L154 116 L139 158",
-  "M150 116 L170 138 L158 166",
-];
+/* Forked lightning that strikes over the tube during the Caffeine phase:
+   white-hot yellow bolts with a glow, plus a synced storm-flash that briefly
+   darkens the panel so the charge reads. Steady (no flicker) when reduced. */
+const AMBER = "#FFB200";
+const VOLT = "#FFD60A";
+const CORE = "#FFFFFF";
+const STRIKE_TIMES = [0, 0.04, 0.1, 0.18, 0.3, 1];
 
-const SPARKS = [
-  { x: 106, y: 90 },
-  { x: 90, y: 138 },
-  { x: 60, y: 126 },
-  { x: 154, y: 116 },
+const STRIKES = [
+  {
+    delay: 0.1,
+    period: 2.1,
+    paths: [
+      "M101 6 L94 34 L112 56 L97 88 L118 116 L101 150 L114 186 L99 236",
+      "M118 116 L140 134 L131 160",
+      "M97 88 L75 102 L86 124",
+    ],
+  },
+  {
+    delay: 0.9,
+    period: 2.5,
+    paths: ["M154 26 L139 58 L160 84 L144 118 L159 150", "M160 84 L178 92"],
+  },
+  {
+    delay: 1.7,
+    period: 2.3,
+    paths: ["M48 30 L63 60 L47 88 L66 116 L52 146", "M47 88 L30 98"],
+  },
 ];
 
 function Lightning({ reduce }: { reduce: boolean | null }) {
   return (
-    <g stroke="var(--ink-0)" fill="none" strokeLinejoin="round" strokeLinecap="round">
-      {BOLTS.map((d, i) => (
-        <motion.path
-          key={i}
-          d={d}
-          strokeWidth={i === 0 ? 1.7 : 1.15}
-          initial={{ opacity: 0 }}
-          animate={reduce ? { opacity: 0.8 } : { opacity: [0, 1, 0.25, 0.95, 0] }}
-          transition={
-            reduce
-              ? { duration: 0 }
-              : {
-                  duration: 0.55,
-                  times: [0, 0.12, 0.26, 0.4, 1],
-                  repeat: Infinity,
-                  repeatDelay: 0.7 + ((i * 0.41) % 1.7),
-                  delay: (i * 0.27) % 1.1,
-                  ease: "easeOut",
-                }
-          }
-        />
-      ))}
-      {SPARKS.map((s, i) => (
-        <motion.circle
-          key={`s${i}`}
-          cx={s.x}
-          cy={s.y}
-          r={2.1}
-          fill="var(--ink-0)"
-          stroke="none"
-          initial={{ opacity: 0 }}
-          animate={reduce ? { opacity: 0.65 } : { opacity: [0, 1, 0] }}
-          transition={
-            reduce
-              ? { duration: 0 }
-              : {
-                  duration: 0.4,
-                  times: [0, 0.3, 1],
-                  repeat: Infinity,
-                  repeatDelay: 0.9 + ((i * 0.53) % 1.5),
-                  delay: (i * 0.31) % 1.0,
-                  ease: "easeOut",
-                }
-          }
-        />
-      ))}
+    <>
+      {/* storm flashes — the panel charges and darkens with each strike */}
+      {!reduce &&
+        STRIKES.map((s, i) => (
+          <motion.div
+            key={`flash-${i}`}
+            className="absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(circle at 50% 42%, rgba(20,19,15,0.34), rgba(20,19,15,0.74))",
+            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0, 0.95, 0.25, 0.78, 0.32, 0] }}
+            transition={{
+              duration: 0.5,
+              times: STRIKE_TIMES,
+              repeat: Infinity,
+              repeatDelay: s.period - 0.5,
+              delay: s.delay,
+              ease: "easeOut",
+            }}
+          />
+        ))}
+
+      <svg
+        viewBox="0 0 200 250"
+        preserveAspectRatio="xMidYMid meet"
+        className="absolute inset-0 h-full w-full"
+      >
+        <defs>
+          <filter id="voltGlow" x="-80%" y="-80%" width="260%" height="260%">
+            <feGaussianBlur stdDeviation="3.8" />
+          </filter>
+        </defs>
+        {STRIKES.map((s, i) => (
+          <g key={i}>
+            {s.paths.map((d, j) => (
+              <Bolt key={j} d={d} strike={s} reduce={reduce} />
+            ))}
+          </g>
+        ))}
+      </svg>
+    </>
+  );
+}
+
+function Bolt({
+  d,
+  strike,
+  reduce,
+}: {
+  d: string;
+  strike: { delay: number; period: number };
+  reduce: boolean | null;
+}) {
+  const base = {
+    fill: "none" as const,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+  };
+
+  if (reduce) {
+    return (
+      <g {...base}>
+        <path d={d} stroke={AMBER} strokeWidth={8} opacity={0.26} filter="url(#voltGlow)" />
+        <path d={d} stroke={VOLT} strokeWidth={2.6} opacity={0.85} />
+        <path d={d} stroke={CORE} strokeWidth={1} opacity={0.9} />
+      </g>
+    );
+  }
+
+  const tx = {
+    duration: 0.5,
+    times: STRIKE_TIMES,
+    repeat: Infinity,
+    repeatDelay: strike.period - 0.5,
+    delay: strike.delay,
+    ease: "easeOut" as const,
+  };
+  const op = [0, 1, 0.4, 1, 0.45, 0];
+  const haloOp = [0, 0.9, 0.3, 0.85, 0.4, 0];
+  const pl = [0, 1, 1, 1, 1, 1];
+
+  return (
+    <g {...base}>
+      <motion.path
+        d={d}
+        stroke={AMBER}
+        strokeWidth={8}
+        filter="url(#voltGlow)"
+        initial={{ opacity: 0, pathLength: 0 }}
+        animate={{ opacity: haloOp, pathLength: pl }}
+        transition={tx}
+      />
+      <motion.path
+        d={d}
+        stroke={VOLT}
+        strokeWidth={2.6}
+        initial={{ opacity: 0, pathLength: 0 }}
+        animate={{ opacity: op, pathLength: pl }}
+        transition={tx}
+      />
+      <motion.path
+        d={d}
+        stroke={CORE}
+        strokeWidth={1.05}
+        initial={{ opacity: 0, pathLength: 0 }}
+        animate={{ opacity: op, pathLength: pl }}
+        transition={tx}
+      />
     </g>
   );
 }
