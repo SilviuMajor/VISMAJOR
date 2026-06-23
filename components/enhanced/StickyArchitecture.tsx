@@ -68,6 +68,9 @@ export function StickyArchitecture() {
   const productScale = useTransform(p, [0, 0.7, 1], [1, 1.015, 0.99]);
   const scanTop = useTransform(p, [0, 1], ["10%", "90%"]);
 
+  // Phase 1 — Caffeine: an electric lightning charge.
+  const caffeineOpacity = useTransform(scrollYProgress, [0, 0.04, 0.3, 0.34], [0, 1, 1, 0]);
+
   // Phase 2 — Cooling: soft steel wash + multiple snowflakes drawing on.
   const coolWash = useTransform(scrollYProgress, [0.34, 0.5, 0.67], [0, 0.5, 0]);
   const snowOpacity = useTransform(scrollYProgress, [0.34, 0.42, 0.6, 0.67], [0, 1, 1, 0]);
@@ -219,6 +222,17 @@ export function StickyArchitecture() {
                   </div>
                 </motion.div>
 
+                {/* phase 1 — caffeine: an electric lightning charge */}
+                <motion.svg
+                  aria-hidden
+                  viewBox="0 0 200 250"
+                  className="absolute inset-0 z-[24] h-full w-full"
+                  style={{ opacity: caffeineOpacity }}
+                  preserveAspectRatio="xMidYMid meet"
+                >
+                  <Lightning reduce={reduce} />
+                </motion.svg>
+
                 {/* phase 2 — multiple snowflakes frosting over the tube */}
                 <motion.svg
                   aria-hidden
@@ -274,6 +288,75 @@ export function StickyArchitecture() {
         </Container>
       </div>
     </section>
+  );
+}
+
+/* Jagged lightning bolts that strike over the tube during the Caffeine phase
+   — monochrome ink, flickering on irregular cycles. Steady when reduced. */
+const BOLTS = [
+  "M100 16 L86 70 L106 90 L90 138 L112 166 L96 234",
+  "M106 90 L130 110 L119 138",
+  "M58 54 L74 96 L60 126 L80 166",
+  "M150 46 L135 90 L154 116 L139 158",
+  "M150 116 L170 138 L158 166",
+];
+
+const SPARKS = [
+  { x: 106, y: 90 },
+  { x: 90, y: 138 },
+  { x: 60, y: 126 },
+  { x: 154, y: 116 },
+];
+
+function Lightning({ reduce }: { reduce: boolean | null }) {
+  return (
+    <g stroke="var(--ink-0)" fill="none" strokeLinejoin="round" strokeLinecap="round">
+      {BOLTS.map((d, i) => (
+        <motion.path
+          key={i}
+          d={d}
+          strokeWidth={i === 0 ? 1.7 : 1.15}
+          initial={{ opacity: 0 }}
+          animate={reduce ? { opacity: 0.8 } : { opacity: [0, 1, 0.25, 0.95, 0] }}
+          transition={
+            reduce
+              ? { duration: 0 }
+              : {
+                  duration: 0.55,
+                  times: [0, 0.12, 0.26, 0.4, 1],
+                  repeat: Infinity,
+                  repeatDelay: 0.7 + ((i * 0.41) % 1.7),
+                  delay: (i * 0.27) % 1.1,
+                  ease: "easeOut",
+                }
+          }
+        />
+      ))}
+      {SPARKS.map((s, i) => (
+        <motion.circle
+          key={`s${i}`}
+          cx={s.x}
+          cy={s.y}
+          r={2.1}
+          fill="var(--ink-0)"
+          stroke="none"
+          initial={{ opacity: 0 }}
+          animate={reduce ? { opacity: 0.65 } : { opacity: [0, 1, 0] }}
+          transition={
+            reduce
+              ? { duration: 0 }
+              : {
+                  duration: 0.4,
+                  times: [0, 0.3, 1],
+                  repeat: Infinity,
+                  repeatDelay: 0.9 + ((i * 0.53) % 1.5),
+                  delay: (i * 0.31) % 1.0,
+                  ease: "easeOut",
+                }
+          }
+        />
+      ))}
+    </g>
   );
 }
 
