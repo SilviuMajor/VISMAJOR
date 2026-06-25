@@ -1,11 +1,12 @@
 import { Marquee } from "@/components/ui/Marquee";
 
 const ITEMS = [
-  "Warming, Not Cooling",
-  "Cream + Steel Tool",
+  "A Massage & Recovery Cream",
   "Worked In, Not Smeared On",
+  "Glide, Work, Recover",
   "A More Defined Look",
   "Firmer-Looking Skin",
+  "Optional Steel Tools",
   "Made in the UK",
   "Temporary by Design",
   "For Men",

@@ -15,16 +15,16 @@ import { CreamTube, EMBER } from "@/components/chisel/Art";
 
 /**
  * THE ARCHITECTURE (id="science") — a pinned scroll sequence at the calibre of
- * GY-NO!'s StickyArchitecture, with CHISEL's own execution: three warming
- * actives, an active rail, and a warm glow that builds on the pinned cream as
- * you pass through the phases. Claim-safe: every line is feel & finish only.
+ * GY-NO!'s StickyArchitecture, with SCULPT's own execution: three actives, an
+ * active rail, and an ember accent that builds on the pinned cream as you pass
+ * through the phases. Claim-safe: every line is feel & finish only.
  */
 
 const ACTIVES = [
   {
     n: "01",
-    name: "Warming",
-    line: "A gentle warming agent that blooms on contact — it opens the skin and gives the massage its glide.",
+    name: "Slip Complex",
+    line: "A slip and glide complex that lets the cream work smoothly — a long, even slip so you can massage an area by hand or with the tools.",
   },
   {
     n: "02",
@@ -33,8 +33,8 @@ const ACTIVES = [
   },
   {
     n: "03",
-    name: "Defining",
-    line: "A film-forming complex sets the finish — a matte, defined look that reads sharp until you wash it off.",
+    name: "Conditioning",
+    line: "A conditioning, smoothing agent sets the finish — a matte, smoother-looking surface that reads sharp until you wash it off.",
   },
 ];
 
@@ -52,7 +52,7 @@ export function ChiselArchitecture() {
   });
 
   const railScale = useTransform(scrollYProgress, [0, 1], [0, 1]);
-  // warmth climbs the whole way through (the signature)
+  // the ember accent climbs the whole way through (the brand signature)
   const warmGlow = useTransform(scrollYProgress, [0, 0.5, 1], reduce ? [0.12, 0.12, 0.12] : [0.05, 0.35, 0.6]);
   const warmScale = useTransform(scrollYProgress, [0, 1], [0.85, 1.15]);
   const bandY = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [-6, 6]);
@@ -103,7 +103,7 @@ export function ChiselArchitecture() {
                     style={{ scaleY: railScale }}
                     className="absolute inset-0 origin-top"
                   >
-                    {/* the rail fills with a warm tint (the single warm accent) */}
+                    {/* the rail fills with the ember brand accent */}
                     <div className="h-full w-full" style={{ background: EMBER }} />
                   </motion.div>
                 </div>
@@ -123,17 +123,17 @@ export function ChiselArchitecture() {
               </div>
             </div>
 
-            {/* Pinned cream — specimen card, warming as you scroll */}
+            {/* Pinned cream — specimen card, ember accent building as you scroll */}
             <div className="relative order-1 flex justify-center lg:order-2">
               <Specimen
                 className="px-8 py-10"
-                topLeft="CHISEL / 002"
+                topLeft="SCULPT / 002"
                 topRight="Cream"
                 bottomRight="50ml ℮"
                 bottomLeft={<PlaceholderNote>Specimen — cream</PlaceholderNote>}
               >
                 <div className="relative h-[40vh] w-[150px] md:h-[52vh] md:w-[190px]">
-                  {/* warm glow — builds with scroll */}
+                  {/* ember accent glow — builds with scroll */}
                   <motion.div
                     aria-hidden
                     style={{ opacity: warmGlow }}
@@ -149,7 +149,7 @@ export function ChiselArchitecture() {
                       />
                     </motion.div>
                   </motion.div>
-                  {/* a warm contour band that drifts as you scroll */}
+                  {/* a contour band that drifts as you scroll */}
                   <motion.div
                     aria-hidden
                     style={{ y: bandY }}

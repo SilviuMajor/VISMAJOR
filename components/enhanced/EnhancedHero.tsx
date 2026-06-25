@@ -194,7 +194,7 @@ export function EnhancedHero({ shipMonth }: { shipMonth: string }) {
                 >
                   <Image
                     src="/product/front.png"
-                    alt="GY-NO! Nipple Tightening Cream"
+                    alt="GY-NO! Cooling Tightening Cream"
                     fill
                     priority
                     sizes="280px"
@@ -216,7 +216,7 @@ export function EnhancedHero({ shipMonth }: { shipMonth: string }) {
             transition={{ duration: 0.6, delay: 0.95, ease: EASE }}
             className="caps text-[13px] font-semibold text-ink-1 md:text-[15px]"
           >
-            Instant Confidence. Maximum Stiffness.
+            Instant Confidence. Cool &amp; Composed.
           </motion.p>
           <motion.p
             {...fadeUp}

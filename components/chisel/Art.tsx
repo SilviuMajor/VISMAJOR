@@ -1,9 +1,9 @@
 "use client";
 
 /**
- * CHISEL line-art primitives. No photography exists yet, so the cream tube and
- * the steel sculpting tool are drawn as premium, technical line-art — the same
- * monochrome register as the rest of the house, with the warm --ember accent
+ * SCULPT line-art primitives. No photography exists yet, so the cream tube and
+ * the steel massage tool are drawn as premium, technical line-art — the same
+ * monochrome register as the rest of the house, with the --ember brand accent
  * used only as a whisper. Everything here is presentational (aria-hidden by the
  * caller) and inherits stroke/fill from CSS variables so it themes cleanly.
  *
@@ -83,7 +83,7 @@ export function CreamTube({
       >
         {label}
       </text>
-      {/* a single warm contour band — the ember whisper */}
+      {/* a single contour band — the ember brand whisper */}
       <path
         d="M38 60 L82 60"
         stroke={EMBER}
@@ -94,15 +94,16 @@ export function CreamTube({
   );
 }
 
-/* ── The steel sculpting tool ────────────────────────────────────────
+/* ── The optional steel massage tool ─────────────────────────────────
    A weighted gua-sha / massage bar: a long handle into a contoured paddle
-   with a beveled edge. viewBox 0 0 260 120 (lies on its side). */
+   with a beveled edge. An optional add-on to the cream. viewBox 0 0 260 120
+   (lies on its side). */
 export function SteelTool({
   className,
   warmth = 0,
 }: {
   className?: string;
-  /** 0..1 — fades a warm glow along the working edge. */
+  /** 0..1 — fades the ember accent along the working edge. */
   warmth?: number;
 }) {
   return (
@@ -168,7 +169,7 @@ export function SteelTool({
         opacity={0.55}
       />
 
-      {/* warm glow along the working edge — the single sanctioned warm accent */}
+      {/* ember accent along the working edge — the single brand accent */}
       <path
         d="M178 30 Q224 18 246 40 Q258 52 252 70 Q244 92 206 96"
         stroke={EMBER}

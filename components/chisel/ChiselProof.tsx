@@ -8,8 +8,8 @@ import { Reveal } from "@/components/ui/Reveal";
 import { EMBER } from "@/components/chisel/Art";
 
 /* ── Allocation ───────────────────────────────────────────────────
-   The constraint here is the *steel tool* — each one is machined, so the
-   first run of the System is small. Distinct from GY-NO!'s units angle. */
+   The constraint here is the optional *steel tools* — each one is machined,
+   so the first run is small. Distinct from GY-NO!'s units angle. */
 const RESERVED_PCT = 74;
 const SEGMENTS = 40;
 const FILLED = Math.round((RESERVED_PCT / 100) * SEGMENTS);
@@ -27,15 +27,15 @@ const ROSTER = [
 
 const QUOTES = [
   {
-    q: "The warmth catches you off guard, then the tool just glides. Skin looks tighter for the rest of the night.",
+    q: "The slip is the thing — it just keeps gliding, so you can actually work an area. Skin looks tighter for the rest of the night.",
     a: "Early tester · London",
   },
   {
-    q: "It feels like a proper ritual, not a quick smear. Jaw and chest read a lot sharper after a minute of work.",
+    q: "It feels like a proper ritual, not a quick smear. Jaw and chest read a lot sharper after a minute of work, and the muscle feels eased.",
     a: "Early tester · Bristol",
   },
   {
-    q: "The steel has real weight to it. You do less and it does more. Looks defined without trying.",
+    q: "Worked it in by hand for a week, then tried the steel. The steel has real weight — you do less and it does more. Looks defined without trying.",
     a: "Early tester · Leeds",
   },
 ];
@@ -168,9 +168,9 @@ export function ChiselProof() {
             </div>
 
             <p className="max-w-sm pb-1 text-[16.5px] leading-[1.6] text-ink-2 md:justify-self-end">
-              Every steel tool is machined to order, so the first run of the System
-              is small. Pre-order locks the early-bird price and a place in the
-              first batch.
+              The cream pours in full batches, but every optional steel tool is
+              machined to order — so the first run is small. Pre-order locks the
+              early-bird price and a place in the first batch.
             </p>
           </div>
         </Reveal>
@@ -180,7 +180,7 @@ export function ChiselProof() {
           <div className="mt-14">
             <div className="flex items-end justify-between">
               <span className="caps text-[11px] font-semibold text-ink-1">
-                First steel run · early-bird allocation
+                First steel-tool run · early-bird allocation
               </span>
               <span className="flex items-baseline gap-2">
                 <span
@@ -197,7 +197,7 @@ export function ChiselProof() {
             </div>
             <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
               <span className="caps text-[10.5px] font-medium text-ink-2">
-                Limited early-bird Systems left from £39
+                Limited early-bird tool sets left from £39
               </span>
               <span className="caps text-[10.5px] font-medium text-ink-3">
                 RRP £52 once it ships

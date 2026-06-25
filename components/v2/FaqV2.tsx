@@ -150,7 +150,7 @@ export function FaqV2({ shipMonth }: { shipMonth: string }) {
 
               {/* contact card — hairline, not shadow */}
               <a
-                href="mailto:hello@gy-no.co.uk"
+                href="mailto:hello@vismajor.co.uk"
                 className="group mt-8 flex items-center justify-between gap-4 rounded-sm border bg-paper-0 px-5 py-4 transition-colors duration-200 hover:bg-paper-2"
                 style={{ borderColor: "var(--hair-strong)" }}
               >
@@ -159,7 +159,7 @@ export function FaqV2({ shipMonth }: { shipMonth: string }) {
                     Still wondering
                   </span>
                   <span className="mt-1 text-[15px] font-semibold text-ink-0">
-                    hello@gy-no.co.uk
+                    hello@vismajor.co.uk
                   </span>
                 </span>
                 <span

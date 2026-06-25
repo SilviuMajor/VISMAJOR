@@ -10,12 +10,16 @@ const EASE = [0.2, 0, 0, 1] as const;
 
 const FAQS = [
   {
-    q: "How do I use the steel tool?",
-    a: "Warm a thin layer of cream into the skin, then draw the tool along the contour in slow, firm strokes — edge to the skin, jaw down to neck, across the chest, along the midsection. About a minute per area is plenty.",
+    q: "How do I use it?",
+    a: "Work a thin layer into the skin and massage the area in slow, firm strokes — jaw down to neck, across the chest, along the midsection. The cream gives a long slip so you can keep working without dragging. About a minute per area is plenty. It's drawn from myofascial- and lymphatic-style massage technique.",
   },
   {
-    q: "What does the warming feel like?",
-    a: "A gentle, building warmth as you massage — the foil to a cooling product. It opens the skin and gives the tool its glide. It should feel pleasant, never hot. Patch test first.",
+    q: "Do I need the steel tools, or can I use my hands?",
+    a: "Your hands are all you need — the cream is the product and works on its own. The steel tools are an optional upgrade: their weight gives you more pressure and a contoured edge when you want more than your hands. Optional, never required.",
+  },
+  {
+    q: "What does it do to how my skin looks and feels?",
+    a: "Worked in, it gives skin a firmer, more defined, smoother-looking finish, and the area feels worked and eased afterward. It describes a look and a feel — not a change to your body.",
   },
   {
     q: "Where on the body can I use it?",
@@ -23,19 +27,19 @@ const FAQS = [
   },
   {
     q: "How long does the look last?",
-    a: "It's temporary. The defined, firmer-looking finish reads for a while after you work it in, then fades. Reapply whenever you want it back — it lasts for as long as you need it to read sharp.",
+    a: "It's temporary. The defined, firmer-looking finish and the worked feeling read for a while after you work it in, then fade. Reapply whenever you want it back — it lasts for as long as you need it to read sharp.",
   },
   {
     q: "Is it permanent? Does it change my body?",
-    a: "No. CHISEL is a cosmetic. It changes how the skin looks and feels for a short time — it does not burn fat, build muscle, or alter your body in any way. The effect washes off.",
+    a: "No. SCULPT is a cosmetic. It changes how the skin looks and feels for a short time — it is not fat loss or weight loss, and it does not alter your body in any way. The effect washes off.",
   },
   {
-    q: "Is the steel tool included?",
-    a: "It depends on the set. The Cream-only tier is the cream by itself. The System and the 2-pack both include the weighted steel tool. You can see exactly what's in each set on the pre-order panel.",
+    q: "Are the steel tools included?",
+    a: "It depends on the set. The Cream-only tier is the cream by itself — the full product. The other tiers add the optional weighted steel tools. You can see exactly what's in each set on the pre-order panel.",
   },
   {
     q: "When will my pre-order ship?",
-    a: "The first batch ships in the launch month shown at checkout. Because each tool is machined to order the first run is limited — you'll get confirmation and tracking by email.",
+    a: "The first batch ships in the launch month shown at checkout. Because each optional tool is machined to order the first run is limited — you'll get confirmation and tracking by email.",
   },
 ];
 
@@ -59,7 +63,7 @@ function Row({
         aria-expanded={isOpen}
         className="group flex w-full items-center gap-5 py-6 text-left md:gap-7"
       >
-        {/* big numeral — the one warm accent, only when open */}
+        {/* big numeral — the one ember accent, only when open */}
         <span
           className="shrink-0 font-bold tabular-nums transition-colors duration-200"
           style={{
@@ -132,18 +136,18 @@ export function ChiselFaq({ shipMonth }: { shipMonth: string }) {
                 className="font-bold uppercase text-ink-0"
                 style={{ fontSize: "clamp(40px, 5vw, 68px)", letterSpacing: "-0.025em", lineHeight: 0.96 }}
               >
-                The tool,
+                The cream,
                 <br />
                 explained.
               </h3>
 
               <p className="mt-6 max-w-sm text-[16.5px] leading-[1.6] text-ink-2">
-                How the steel works, where it goes, and how long the look holds.
-                The honest answers, upfront.
+                How to work it in, by hand or with the optional tools, and how
+                long the look holds. The honest answers, upfront.
               </p>
 
               <a
-                href="mailto:hello@gy-no.co.uk"
+                href="mailto:hello@vismajor.co.uk"
                 className="group mt-8 flex items-center justify-between gap-4 rounded-sm border bg-paper-0 px-5 py-4 transition-colors duration-200 hover:bg-paper-2"
                 style={{ borderColor: "var(--hair-strong)" }}
               >
@@ -152,7 +156,7 @@ export function ChiselFaq({ shipMonth }: { shipMonth: string }) {
                     Still wondering
                   </span>
                   <span className="mt-1 text-[15px] font-semibold text-ink-0">
-                    hello@gy-no.co.uk
+                    hello@vismajor.co.uk
                   </span>
                 </span>
                 <span

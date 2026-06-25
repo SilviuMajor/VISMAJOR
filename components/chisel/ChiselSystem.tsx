@@ -7,26 +7,26 @@ import { Specimen, PlaceholderNote } from "@/components/chisel/Specimen";
 import { CreamTube, SteelTool, EMBER } from "@/components/chisel/Art";
 
 /**
- * THE SYSTEM — the cream and the steel tool explained as two parts of one
- * thing. Twin specimen frames (cream | tool) joined by a centre "+" so the duo
- * reads as paired, not two products. Photo-free: line-art now, real shots drop
- * into the same frames later.
+ * THE CREAM & THE TOOLS — the cream explained as the product, the steel tools
+ * as an optional upgrade. Twin specimen frames (cream | tool) so the cream
+ * reads as the hero and the tools as an add-on, not a second product.
+ * Photo-free: line-art now, real shots drop into the same frames later.
  */
 
 const PARTS = [
   {
-    tag: "Part One",
+    tag: "The Product",
     name: "The Cream",
-    spec: "50ml · Warming Base",
-    body: "A warming contour cream. It blooms on contact, glides under the tool, and dries down to a matte, defined finish.",
-    points: ["Warming, not greasy", "Caffeine for a firmer look", "Matte, lightly scented"],
+    spec: "50ml · Slip Medium",
+    body: "A massage and recovery cream. It gives a long, even slip so you can work it into the body by hand, and dries down to a matte, defined finish.",
+    points: ["Long slip, not greasy", "Caffeine for a firmer look", "Matte, lightly scented"],
   },
   {
-    tag: "Part Two",
-    name: "The Steel Tool",
+    tag: "Optional Upgrade",
+    name: "The Steel Tools",
     spec: "Weighted · Contoured Edge",
-    body: "A weighted steel bar with a contoured working edge. The mass does the pressing so your strokes stay slow and even.",
-    points: ["Solid, cool to hold", "Contoured to the body", "For massage, not medicine"],
+    body: "Optional weighted steel tools with a contoured working edge. The mass does the pressing so your strokes stay slow and even — for when you want more than your hands.",
+    points: ["Solid, cool to hold", "Contoured to the body", "Optional, never required"],
   },
 ];
 
@@ -34,7 +34,7 @@ export function ChiselSystem() {
   return (
     <section className="py-16 md:py-24">
       <Container>
-        <SectionHead n="02" title="One system, two parts." />
+        <SectionHead n="02" title="The cream, and the tools." />
 
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-8">
           {/* CREAM */}
@@ -44,7 +44,7 @@ export function ChiselSystem() {
               specimen={
                 <Specimen
                   ratio="4 / 5"
-                  topLeft="CHISEL / 002"
+                  topLeft="SCULPT / 002"
                   topRight="Cream"
                   bottomLeft={<PlaceholderNote>Specimen — cream</PlaceholderNote>}
                   bottomRight="50ml ℮"
@@ -65,9 +65,9 @@ export function ChiselSystem() {
               specimen={
                 <Specimen
                   ratio="4 / 5"
-                  topLeft="CHISEL / 002"
-                  topRight="Steel Tool"
-                  bottomLeft={<PlaceholderNote>Specimen — tool</PlaceholderNote>}
+                  topLeft="SCULPT / 002"
+                  topRight="Steel · Optional"
+                  bottomLeft={<PlaceholderNote>Specimen — tools</PlaceholderNote>}
                   bottomRight="Steel"
                   innerClassName="aspect-[4/5]"
                 >
@@ -80,23 +80,24 @@ export function ChiselSystem() {
           </Reveal>
         </div>
 
-        {/* the join — they only work together */}
+        {/* the join — the cream stands alone, the tools are optional */}
         <Reveal delay={0.05}>
           <div
             className="mt-10 flex flex-col items-center gap-5 border-t pt-10 text-center md:flex-row md:justify-between md:text-left"
             style={{ borderColor: "var(--hair)" }}
           >
             <p className="max-w-xl text-[18px] leading-[1.65] text-ink-1">
-              <span className="font-semibold text-ink-0">Sold as one.</span> The
-              cream warms and lubricates; the tool gives you the pressure and the
-              edge. Neither does the job alone — together they make the look.
+              <span className="font-semibold text-ink-0">The cream is the product.</span>{" "}
+              It gives the slip and the finish, and works on its own by hand. The
+              steel tools are an optional upgrade — more pressure, more edge, when
+              you want it.
             </p>
             <span
               className="caps inline-flex shrink-0 items-center gap-2 rounded-xs border px-4 py-2 text-[10px] font-semibold"
               style={{ borderColor: "var(--hair-strong)", color: EMBER }}
             >
               <span className="h-1.5 w-1.5 rounded-full" style={{ background: EMBER }} />
-              Cream + Tool · The System
+              Cream · Tools Optional
             </span>
           </div>
         </Reveal>

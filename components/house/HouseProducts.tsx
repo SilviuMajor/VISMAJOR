@@ -33,10 +33,10 @@ function Glyph({ slug, hex }: { slug: ProductSlug; hex: string }) {
     );
   }
 
-  if (slug === "chisel") {
+  if (slug === "sculpt") {
     return (
       <svg {...common} strokeWidth={1.6}>
-        {/* the steel tool — a chisel blade */}
+        {/* the steel tool — a sculpting blade */}
         <path d="M33 14 L47 14 L47 58 L33 47 Z" />
         <path d="M40 49 L47 55" strokeWidth={1.1} />
         {/* the contour it works */}

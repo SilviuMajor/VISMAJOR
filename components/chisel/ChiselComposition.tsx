@@ -1,6 +1,6 @@
-// CHISEL — the house's second product. Mirrors EnhancedComposition's shell, but
-// every in-page section is CHISEL's own. Server component: the interactive parts
-// are client components imported below, so this shell needs no "use client".
+// SCULPT — the house's second product (route /sculpt; formerly CHISEL).
+// Mirrors EnhancedComposition's shell, but every in-page section is SCULPT's own.
+// Server component: the interactive parts are client components imported below.
 
 import { Announcement } from "@/components/nav/Announcement";
 import { Header } from "@/components/nav/Header";
@@ -12,19 +12,23 @@ import { ProductQuote } from "@/components/house/ProductQuote";
 
 import { ChiselHero } from "@/components/chisel/ChiselHero";
 import { ChiselTicker } from "@/components/chisel/ChiselTicker";
+import { SculptWhatItDoes } from "@/components/chisel/SculptWhatItDoes";
+import { SculptEffects } from "@/components/chisel/SculptEffects";
 import { ChiselRitual } from "@/components/chisel/ChiselRitual";
+import { SculptCraft } from "@/components/chisel/SculptCraft";
 import { ChiselSystem } from "@/components/chisel/ChiselSystem";
 import { ChiselArchitecture } from "@/components/chisel/ChiselArchitecture";
 import { ChiselProof } from "@/components/chisel/ChiselProof";
 import { ChiselBuy } from "@/components/chisel/ChiselBuy";
+import { SculptTools } from "@/components/chisel/SculptTools";
 import { ChiselIsIsnt } from "@/components/chisel/ChiselIsIsnt";
 import { ChiselFaq } from "@/components/chisel/ChiselFaq";
 import { ChiselFinalCta } from "@/components/chisel/ChiselFinalCta";
 import { ChiselNotify } from "@/components/chisel/ChiselNotify";
 
 const NAV = [
-  { href: "#how", label: "Ritual" },
-  { href: "#science", label: "Actives" },
+  { href: "#how", label: "The Ritual" },
+  { href: "#science", label: "The Cream" },
   { href: "#buy", label: "Pre-order" },
   { href: "#faq", label: "FAQ" },
 ];
@@ -36,27 +40,31 @@ export function ChiselComposition() {
     <>
       <ScrollProgress />
       <Announcement
-        message={`CHISEL · the Contour Sculpt System · pre-order · first batch ships ${shipMonth}`}
-        messageShort={`CHISEL · pre-order · ships ${shipMonth}`}
+        message={`SCULPT · the Contour & Recovery Cream · pre-order · first batch ships ${shipMonth}`}
+        messageShort={`SCULPT · pre-order · ships ${shipMonth}`}
       />
-      <Header crumb="CHISEL" nav={NAV} cta={{ href: "#buy", label: "Pre-order" }} />
+      <Header crumb="SCULPT" nav={NAV} cta={{ href: "#buy", label: "Pre-order" }} />
       <main>
         <ChiselHero shipMonth={shipMonth} />
         <ProductQuote latin="Labor omnia vincit" translation="work conquers all." />
         <ChiselTicker />
+        <SculptWhatItDoes />
+        <SculptEffects />
         <ChiselRitual />
+        <SculptCraft />
         <ChiselSystem />
         <ChiselArchitecture />
         <ChiselProof />
         <ChiselBuy shipMonth={shipMonth} />
+        <SculptTools />
         <ChiselIsIsnt />
         <ChiselFaq shipMonth={shipMonth} />
         <ChiselFinalCta shipMonth={shipMonth} />
         <ChiselNotify />
-        <OtherProducts current="chisel" />
+        <OtherProducts current="sculpt" />
       </main>
       <Footer />
-      <StickyBuyBar priceFrom="£28" label="CHISEL · System" href="#buy" />
+      <StickyBuyBar priceFrom="£28" label="SCULPT · The Cream" href="#buy" />
     </>
   );
 }

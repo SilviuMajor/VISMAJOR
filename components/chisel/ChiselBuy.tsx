@@ -9,16 +9,17 @@ import { Specimen, PlaceholderNote } from "@/components/chisel/Specimen";
 import { CreamTube, SteelTool, EMBER } from "@/components/chisel/Art";
 
 /**
- * Pre-order CHISEL. Bespoke panel, CHISEL's own look, but the StickyBuy logic:
- * loading/error states, POST /api/checkout, window.location to the returned url.
+ * Pre-order SCULPT. The cream is the product; the steel tools are optional
+ * upgrades. Same StickyBuy logic (loading/error, POST /api/checkout, redirect).
  *
  * Display tiers match the server CATALOG amounts EXACTLY (app/api/checkout):
- *   "1" Cream · 50ml            → £28  (RRP £38)
- *   "2" Cream + Steel Tool      → £39  (RRP £52)  — The System / Most chosen
- *   "3" Cream + Tool · 2-pack   → £68  (RRP £96)  — Best value
+ *   "1" The Cream             → £28  (RRP £38)
+ *   "2" Cream + Short Tool    → £44  (RRP £60)  — Control
+ *   "3" Cream + Long Tool     → £48  (RRP £66)  — Reach
+ *   "4" The Full Set          → £64  (RRP £92)  — Best value
  */
 
-type TierKey = "1" | "2" | "3";
+type TierKey = "1" | "2" | "3" | "4";
 
 type Tier = {
   key: TierKey;
@@ -28,13 +29,13 @@ type Tier = {
   reg: number;
   badge?: string;
   /** which objects the specimen shows */
-  contents: "cream" | "system" | "double";
+  contents: "cream" | "short" | "long" | "full";
 };
 
 const TIERS: Tier[] = [
   {
     key: "1",
-    label: "Cream · 50ml",
+    label: "The Cream",
     unitLabel: "Cream 50ml",
     price: 28,
     reg: 38,
@@ -42,21 +43,30 @@ const TIERS: Tier[] = [
   },
   {
     key: "2",
-    label: "Cream + Steel Tool",
-    unitLabel: "Cream 50ml + Tool",
-    price: 39,
-    reg: 52,
-    badge: "The System · Most chosen",
-    contents: "system",
+    label: "Cream + Short Tool",
+    unitLabel: "Cream + Short Steel",
+    price: 44,
+    reg: 60,
+    badge: "Control",
+    contents: "short",
   },
   {
     key: "3",
-    label: "Cream + Tool · 2-pack",
-    unitLabel: "2 × (Cream + Tool)",
-    price: 68,
-    reg: 96,
+    label: "Cream + Long Tool",
+    unitLabel: "Cream + Long Steel",
+    price: 48,
+    reg: 66,
+    badge: "Reach",
+    contents: "long",
+  },
+  {
+    key: "4",
+    label: "The Full Set",
+    unitLabel: "Cream + Both Tools",
+    price: 64,
+    reg: 92,
     badge: "Best value",
-    contents: "double",
+    contents: "full",
   },
 ];
 
@@ -68,37 +78,39 @@ function SpecimenContents({ contents }: { contents: Tier["contents"] }) {
       </div>
     );
   }
-  if (contents === "system") {
+  if (contents === "full") {
     return (
-      <div className="flex w-[82%] items-end justify-center gap-2">
-        <div className="relative h-[56%] w-[40%] min-h-[200px]">
+      <div className="flex w-[86%] items-end justify-center gap-2">
+        <div className="relative h-[56%] w-[32%] min-h-[200px]">
           <CreamTube className="h-full w-full" />
         </div>
-        <div className="relative mb-4 w-[52%] -rotate-[14deg]">
-          <SteelTool className="h-auto w-full" warmth={0.2} />
+        <div className="flex flex-col items-center gap-2.5">
+          <div className="relative w-[120px] -rotate-[14deg]">
+            <SteelTool className="h-auto w-full" warmth={0.14} />
+          </div>
+          <div className="relative w-[152px] -rotate-[14deg]">
+            <SteelTool className="h-auto w-full" warmth={0.14} />
+          </div>
         </div>
       </div>
     );
   }
-  // double — two compact systems
+  // short or long — cream + one tool, sized by reach
+  const toolW = contents === "long" ? "60%" : "44%";
   return (
-    <div className="grid w-[88%] grid-cols-2 gap-3">
-      {[0, 1].map((k) => (
-        <div key={k} className="flex items-end justify-center gap-1">
-          <div className="relative h-[150px] w-[34%]">
-            <CreamTube className="h-full w-full" label="002" />
-          </div>
-          <div className="relative mb-3 w-[58%] -rotate-[14deg]">
-            <SteelTool className="h-auto w-full" warmth={0.18} />
-          </div>
-        </div>
-      ))}
+    <div className="flex w-[82%] items-end justify-center gap-2">
+      <div className="relative h-[56%] w-[40%] min-h-[200px]">
+        <CreamTube className="h-full w-full" />
+      </div>
+      <div className="relative mb-4 -rotate-[14deg]" style={{ width: toolW }}>
+        <SteelTool className="h-auto w-full" warmth={0.14} />
+      </div>
     </div>
   );
 }
 
 export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
-  const [tierKey, setTierKey] = useState<TierKey>("2");
+  const [tierKey, setTierKey] = useState<TierKey>("1");
   const [qty, setQty] = useState(1);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -115,7 +127,7 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
       const res = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ product: "chisel", tier: tier.key }),
+        body: JSON.stringify({ product: "sculpt", tier: tier.key }),
       });
       const data = await res.json();
       if (data?.url) window.location.href = data.url;
@@ -127,17 +139,26 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
     }
   };
 
+  const topRightLabel =
+    tier.contents === "cream"
+      ? "Cream"
+      : tier.contents === "short"
+      ? "+ Short"
+      : tier.contents === "long"
+      ? "+ Long"
+      : "Full Set";
+
   return (
     <section id="buy" className="py-16 md:py-24">
       <Container>
-        <SectionHead n="04" title="Pre-order CHISEL." />
+        <SectionHead n="04" title="Pre-order SCULPT." />
 
         <div id="product" className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-14">
-          {/* Sticky specimen — reflects the chosen tier */}
+          {/* Sticky specimen — reflects the chosen kit */}
           <div className="lg:sticky lg:top-24 lg:self-start">
             <Specimen
               ratio="1 / 1"
-              topLeft="CHISEL / 002"
+              topLeft="SCULPT / 002"
               topRight={
                 <AnimatePresence mode="wait">
                   <motion.span
@@ -148,19 +169,15 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
                     transition={{ duration: 0.25 }}
                     className="caps text-[9px] font-medium text-ink-3"
                   >
-                    {tier.contents === "cream"
-                      ? "Cream"
-                      : tier.contents === "system"
-                      ? "The System"
-                      : "2-Pack"}
+                    {topRightLabel}
                   </motion.span>
                 </AnimatePresence>
               }
               bottomLeft={<PlaceholderNote>Specimen — set</PlaceholderNote>}
-              bottomRight="Warm"
+              bottomRight="Worked"
               innerClassName="aspect-square"
             >
-              {/* faint warm whisper behind the contents */}
+              {/* faint ember whisper behind the contents (brand accent) */}
               <div
                 aria-hidden
                 className="absolute inset-0 z-0"
@@ -183,19 +200,19 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
             </Specimen>
 
             {/* tier chips under the specimen */}
-            <div className="mt-3 grid grid-cols-3 gap-3">
+            <div className="mt-3 grid grid-cols-4 gap-3">
               {TIERS.map((t) => {
                 const on = t.key === tier.key;
                 return (
                   <button
                     key={t.key}
                     onClick={() => setTierKey(t.key)}
-                    className={`flex aspect-square items-center justify-center border bg-paper-2 p-3 transition-colors ${
+                    className={`flex aspect-square items-center justify-center border bg-paper-2 p-2 transition-colors ${
                       on ? "border-ink-0" : "border-[color:var(--hair)] hover:border-[color:var(--hair-strong)]"
                     }`}
                     aria-label={`Select ${t.label}`}
                   >
-                    <span className="pointer-events-none scale-[0.62]">
+                    <span className="pointer-events-none scale-[0.5]">
                       <SpecimenContents contents={t.contents} />
                     </span>
                   </button>
@@ -206,20 +223,21 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
 
           {/* Buy details */}
           <div>
-            <Eyebrow>CHISEL · 002</Eyebrow>
+            <Eyebrow>SCULPT · 002</Eyebrow>
             <h2
               className="mt-4 font-extrabold uppercase text-ink-0"
               style={{ fontSize: "clamp(52px, 6vw, 76px)", lineHeight: 0.9, letterSpacing: "0.01em" }}
             >
-              CHISEL
+              SCULPT
             </h2>
             <div className="caps mt-4 text-[15px] font-medium text-ink-1">
-              Contour Sculpt System
+              Contour &amp; Recovery Cream
             </div>
             <p className="mt-5 max-w-md text-[18px] leading-[1.65] text-ink-1">
-              A warming contour cream and a weighted steel tool. Massage it in for
-              a firmer, more defined look — temporary, matte, and yours for as long
-              as you need it to read sharp.
+              A massage &amp; recovery cream, worked into the body by hand or with
+              the optional steel tools — for skin that looks firmer, feels worked,
+              and reads sharper. The cream is the product; the tools are optional
+              upgrades.
             </p>
 
             {/* Early-bird price callout */}
@@ -265,10 +283,17 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
               </div>
             </div>
 
-            {/* tier selector with savings */}
+            {/* cream first, tools optional */}
             <div className="mt-8">
-              <div className="caps text-[10px] font-semibold text-ink-3">Choose your set</div>
-              <div className="mt-3 flex flex-col gap-2.5">
+              <div className="caps text-[10px] font-semibold text-ink-3">
+                The cream — add tools if you want
+              </div>
+              <p className="mt-2 max-w-md text-[13px] leading-[1.5] text-ink-2">
+                The cream is the product. The steel tools are optional upgrades.
+                Every option ships with <b className="font-semibold text-ink-1">The Field Manual</b> — the
+                illustrated movement guide.
+              </p>
+              <div className="mt-4 flex flex-col gap-2.5">
                 {TIERS.map((t) => {
                   const selected = t.key === tier.key;
                   return (
@@ -357,11 +382,21 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
             <div className="mt-12">
               <SectionHead n="—" title="Specification" />
               {[
-                ["In the box", tier.unitLabel],
-                ["Sensation", "Warming"],
+                ["In the box", `${tier.unitLabel} + The Field Manual`],
+                ["The cream", "50ml · Massage & Recovery"],
                 ["Finish", "Matte · Lightly Fragranced"],
-                ["Tool", tier.contents === "cream" ? "Not included" : "Weighted Steel · Contoured"],
-                ["Result", "A Firmer, More Defined Look (Temporary)"],
+                [
+                  "Steel tools",
+                  tier.contents === "cream"
+                    ? "Optional add-on (not included)"
+                    : tier.contents === "full"
+                    ? "Short + Long · Weighted Steel"
+                    : tier.contents === "long"
+                    ? "Long · Weighted Steel"
+                    : "Short · Weighted Steel",
+                ],
+                ["Worked", "By Hand, or with the Steel Tools"],
+                ["Look & feel", "Firmer, Smoother, Worked (Temporary)"],
                 ["Made By", "Vis Major · UK"],
               ].map(([k, v]) => (
                 <div

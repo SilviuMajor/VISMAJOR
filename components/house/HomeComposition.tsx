@@ -22,7 +22,7 @@ export function HomeComposition() {
       <Header
         nav={[
           { href: "/gy-no", label: "GY-NO!" },
-          { href: "/chisel", label: "CHISEL" },
+          { href: "/sculpt", label: "SCULPT" },
           { href: "/sharp", label: "SHARP" },
         ]}
         cta={{ href: "#products", label: "Pre-order" }}

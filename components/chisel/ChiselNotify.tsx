@@ -5,8 +5,8 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 
 /**
- * CHISEL's first-batch notify band. Same shape and the same shared /api/notify
- * endpoint as the house NotifyBand, with CHISEL copy. Carries id="notify" so the
+ * SCULPT's first-batch notify band. Same shape and the same shared /api/notify
+ * endpoint as the house NotifyBand, with SCULPT copy. Carries id="notify" so the
  * Final CTA's "join the list" anchor resolves on this page.
  */
 export function ChiselNotify() {
@@ -26,7 +26,7 @@ export function ChiselNotify() {
       const res = await fetch("/api/notify", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, product: "chisel" }),
+        body: JSON.stringify({ email, product: "sculpt" }),
       });
       const data = await res.json();
       if (data?.ok) {
@@ -58,7 +58,7 @@ export function ChiselNotify() {
               first-batch list.
             </h3>
             <p className="mt-4 max-w-md text-[16.5px] leading-[1.6] text-ink-2">
-              One email when the first steel run ships. No marketing fluff.
+              One email when the first batch ships. No marketing fluff.
             </p>
           </div>
           <form onSubmit={submit} className="flex w-full flex-col gap-3 self-end sm:flex-row">

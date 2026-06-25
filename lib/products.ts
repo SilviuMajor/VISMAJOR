@@ -2,7 +2,7 @@
 // summary, the cross-link band and per-page metadata. Claim-safe by design:
 // every line describes feel or look only — never a medical or anatomical claim.
 
-export type ProductSlug = "gy-no" | "chisel" | "sharp";
+export type ProductSlug = "gy-no" | "sculpt" | "sharp";
 
 export interface Product {
   slug: ProductSlug;
@@ -13,7 +13,7 @@ export interface Product {
   /** One-line summary for cards + the cross-link band. */
   short: string;
   /** The signature sensation, one word, for tags. */
-  signature: "Cool" | "Warm" | "Matte";
+  signature: "Cool" | "Worked" | "Matte";
   priceFrom: number; // GBP, early-bird pre-order
   rrpFrom: number; // GBP, RRP at launch
   /** CSS custom property name for this product's accent. */
@@ -28,7 +28,7 @@ export const PRODUCTS: Product[] = [
     href: "/gy-no",
     index: "001",
     wordmark: "GY-NO!",
-    category: "Nipple Tightening Cream",
+    category: "Cooling Tightening Cream",
     short:
       "Cools and tightens in minutes. Up to one hour of temporary firmness, undetectable under a shirt.",
     signature: "Cool",
@@ -38,14 +38,14 @@ export const PRODUCTS: Product[] = [
     accentHex: "#378ADD",
   },
   {
-    slug: "chisel",
-    href: "/chisel",
+    slug: "sculpt",
+    href: "/sculpt",
     index: "002",
-    wordmark: "CHISEL",
-    category: "Contour Sculpt System",
+    wordmark: "SCULPT",
+    category: "Contour & Recovery Cream",
     short:
-      "A warming contour cream, worked in with the steel tool, for a firmer, more defined look.",
-    signature: "Warm",
+      "A massage cream for men, worked in by hand or with the optional steel tools — for skin that looks firmer and feels worked.",
+    signature: "Worked",
     priceFrom: 28,
     rrpFrom: 38,
     accentVar: "--ember",

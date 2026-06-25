@@ -2,29 +2,30 @@ import { NextResponse } from "next/server";
 import { getStripe, priceEnvFor } from "@/lib/stripe";
 import { bySlug, type ProductSlug } from "@/lib/products";
 
-type Tier = "1" | "2" | "3";
-
 // Server-authoritative catalogue. Amounts in GBP pence. Each tier optionally
 // maps to a real Stripe Price via env (see lib/stripe). Until those are set,
-// the fallback amount + name below is used so the flow still works.
+// the fallback amount + name below is used so the flow still works. Tier keys
+// are per-product (SCULPT has four: the cream + tool upgrades), so they're a
+// flexible map rather than a fixed union.
 const CATALOG: Record<
   ProductSlug,
-  { name: string; tiers: Record<Tier, { label: string; amount: number }> }
+  { name: string; tiers: Record<string, { label: string; amount: number }> }
 > = {
   "gy-no": {
-    name: "GY-NO! Nipple Tightening Cream",
+    name: "GY-NO! Cooling Tightening Cream",
     tiers: {
       "1": { label: "20ml", amount: 2400 },
       "2": { label: "40ml", amount: 4200 },
       "3": { label: "2 × 20ml", amount: 4400 },
     },
   },
-  chisel: {
-    name: "CHISEL Contour Sculpt",
+  sculpt: {
+    name: "SCULPT Contour & Recovery Cream",
     tiers: {
-      "1": { label: "Cream · 50ml", amount: 2800 },
-      "2": { label: "Cream + Steel Tool", amount: 3900 },
-      "3": { label: "Cream + Tool · 2-pack", amount: 6800 },
+      "1": { label: "The Cream", amount: 2800 },
+      "2": { label: "Cream + Short Tool", amount: 4400 },
+      "3": { label: "Cream + Long Tool", amount: 4800 },
+      "4": { label: "The Full Set", amount: 6400 },
     },
   },
   sharp: {
@@ -38,19 +39,19 @@ const CATALOG: Record<
 };
 
 export async function POST(req: Request) {
-  let tier: Tier;
+  let tier: string;
   let product: ProductSlug;
   try {
     const body = await req.json();
-    tier = body?.tier;
+    tier = String(body?.tier);
     product = (body?.product ?? "gy-no") as ProductSlug;
-    if (!["1", "2", "3"].includes(tier)) throw new Error("Bad tier");
     if (!CATALOG[product]) throw new Error("Bad product");
+    if (!CATALOG[product].tiers[tier]) throw new Error("Bad tier");
   } catch {
     return NextResponse.json(
       {
         error:
-          "Invalid request body. Expecting { product?: 'gy-no'|'chisel'|'sharp', tier: '1'|'2'|'3' }.",
+          "Invalid request body. Expecting { product?: 'gy-no'|'sculpt'|'sharp', tier: a valid tier key }.",
       },
       { status: 400 }
     );

@@ -14,7 +14,7 @@ import { Container } from "@/components/ui/Container";
 import { CreamTube, SteelTool, EMBER } from "@/components/chisel/Art";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
-const WORD = ["C", "H", "I", "S", "E", "L"];
+const WORD = ["S", "C", "U", "L", "P", "T"];
 
 /* A button that leans toward the cursor — the house magnetic CTA. */
 function Magnetic({
@@ -133,15 +133,15 @@ export function ChiselHero({ shipMonth }: { shipMonth: string }) {
         >
           <span className="h-px w-7 bg-[var(--hair-strong)]" />
           <span className="caps-loose text-[11px] font-semibold text-ink-2">
-            The Contour Sculpt System · No. 002
+            The Massage & Recovery Cream · No. 002
           </span>
           <span className="h-px w-7 bg-[var(--hair-strong)]" />
         </motion.div>
 
         {/* giant kinetic wordmark + the cream/tool duo */}
         <div className="relative mt-6 flex w-full flex-1 flex-col items-center justify-center overflow-hidden">
-          {/* warm signature glow — a faint ember halo behind the duo (the single
-              sanctioned warm accent, used as a whisper) */}
+          {/* signature glow — a faint ember halo behind the duo (the brand
+              accent, used as a whisper) */}
           <motion.div
             aria-hidden
             initial={{ opacity: 0, scale: 0.75 }}
@@ -243,16 +243,17 @@ export function ChiselHero({ shipMonth }: { shipMonth: string }) {
             transition={{ duration: 0.6, delay: 0.95, ease: EASE }}
             className="caps text-[13px] font-semibold text-ink-1 md:text-[15px]"
           >
-            Warm It. Work It. Read Sharp.
+            The Contour &amp; Recovery Cream
           </motion.p>
           <motion.p
             {...fadeUp}
             transition={{ duration: 0.6, delay: 1.05, ease: EASE }}
             className="mt-4 max-w-xl text-[16px] leading-[1.6] text-ink-2 md:text-[18px]"
           >
-            A warming contour cream and a weighted steel tool — one system. Massage
-            it in across jaw, chest and midsection for a firmer, more defined look.
-            Temporary, for as long as you need it to read sharp.
+            A massage cream for men, worked into the body in the techniques
+            athletes and therapists have used for generations — for skin that
+            looks firmer, feels worked, and reads sharper. Use it by hand, or with
+            the SCULPT steel tools.
           </motion.p>
 
           <motion.div

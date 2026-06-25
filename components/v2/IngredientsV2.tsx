@@ -75,7 +75,7 @@ export function IngredientsV2() {
                   Reverse Panel
                 </span>
                 <span className="absolute right-5 top-4 z-20 caps text-[9px] font-medium text-ink-3">
-                  50ml ℮
+                  20ml ℮
                 </span>
                 <div className="relative aspect-[1122/1402]">
                   <Image

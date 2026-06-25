@@ -3,13 +3,13 @@ import { ReactNode } from "react";
 /**
  * The house "specimen" frame — a bordered card with an inner keyline and
  * corner read-outs, exactly the GY-NO! treatment (StickyArchitecture / StickyBuy
- * / IngredientsV2). Until real CHISEL photography exists, the centre holds
+ * / IngredientsV2). Until real SCULPT photography exists, the centre holds
  * line-art or a labelled placeholder. The frame must read as deliberate and
  * premium, never as a broken image.
  */
 export function Specimen({
   children,
-  topLeft = "CHISEL / 002",
+  topLeft = "SCULPT / 002",
   topRight,
   bottomLeft,
   bottomRight,

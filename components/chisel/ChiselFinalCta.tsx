@@ -19,7 +19,7 @@ export function ChiselFinalCta({ shipMonth }: { shipMonth: string }) {
         <TextReveal
           as="h2"
           className="mt-8 font-extrabold uppercase text-paper-0 text-[clamp(42px,9vw,140px)] leading-[0.9] tracking-[-0.035em]"
-          lines={["Warm it.", "Read sharp."]}
+          lines={["Work it.", "Read sharp."]}
         />
 
         <div className="mt-12 flex flex-col gap-10 md:flex-row md:items-end md:justify-between">

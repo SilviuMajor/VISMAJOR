@@ -10,13 +10,13 @@ const hanken = Hanken_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "GY-NO! — Nipple Tightening Cream · VIS MAJOR",
+  title: "VIS MAJOR — Performance Topicals for Men",
   description:
-    "GY-NO! is a precision nipple tightening cream. Works in minutes. Up to one hour of temporary firmness. With caffeine and menthol agents. Made in the UK by VIS MAJOR.",
+    "A small house of precision topicals for men. Cosmetic, temporary by design, each engineered to do exactly one thing. Made in the UK.",
   openGraph: {
-    title: "GY-NO! — Nipple Tightening Cream",
+    title: "VIS MAJOR — Performance Topicals for Men",
     description:
-      "Works in minutes. Up to one hour of temporary firmness. Performance topicals for men.",
+      "Precision topicals for men. Cosmetic, temporary by design. Made in the UK.",
     type: "website",
   },
 };

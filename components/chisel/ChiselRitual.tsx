@@ -16,38 +16,39 @@ import { SectionHead } from "@/components/ui/Eyebrow";
 import { SteelTool, EMBER } from "@/components/chisel/Art";
 
 /**
- * THE RITUAL — CHISEL's signature mechanic and the page showpiece.
+ * THE RITUAL — SCULPT's signature mechanic and the page showpiece.
  *
  * A pinned 320vh scroll sequence. A torso/jaw contour line-drawing sits in the
  * specimen panel. As you scroll the steel tool tracks DOWN a contour stroke-path
- * in three passes; warmth BUILDS (an ember heat-haze intensifies, the tool's
- * working edge glows hotter); and the "sculpted look" RESOLVES as definition
- * contour lines draw on via pathLength. The deliberate warm foil to GY-NO!'s
- * cooling sequence. Claim-safe: it describes a massage ritual and a *look*.
+ * in three passes; the ember accent BUILDS (the haze intensifies, the tool's
+ * working edge lights up); and the "sculpted look" RESOLVES as definition
+ * contour lines draw on via pathLength. Drawn from myofascial- and
+ * lymphatic-style massage technique. Claim-safe: it describes a massage ritual
+ * and a *look*.
  *
  * Reduced motion: the phases still advance by scroll (text + active state),
- * but the tool sits still, the heat-haze holds at a low constant, and the
- * contour lines render fully drawn.
+ * but the tool sits still, the haze holds at a low constant, and the contour
+ * lines render fully drawn.
  */
 
 const STEPS = [
   {
     n: "01",
-    title: "Warm",
-    body: "Press a thin layer in. The warming base blooms on contact and opens the skin for the work.",
-    cue: "Warming",
+    title: "Glide",
+    body: "Press a thin layer in. The cream gives a long, even slip so you can work the area without dragging.",
+    cue: "Glide",
   },
   {
     n: "02",
     title: "Work",
-    body: "Draw the weighted steel tool along the contour — slow, firm strokes, edge to the skin.",
-    cue: "Sculpting",
+    body: "Massage the contour by hand, or draw the optional steel tool along it — slow, firm strokes, edge to the skin.",
+    cue: "Working",
   },
   {
     n: "03",
-    title: "Read Sharp",
-    body: "Lines surface. A firmer, more defined look that lasts for as long as you need it to.",
-    cue: "Defined",
+    title: "Recover",
+    body: "Lines surface and the area feels worked and eased. A firmer, more defined look that lasts for as long as you need it to.",
+    cue: "Recovered",
   },
 ];
 
@@ -111,7 +112,7 @@ export function ChiselRitual() {
   // a little working wobble as it's drawn along
   const toolWobble = useTransform(p, [0, 1], reduce ? [0, 0] : [-7, 7]);
 
-  // Warmth builds across the whole section: 0 → ~1 by the resolve.
+  // The worked intensity builds across the whole section: 0 → ~1 by the resolve.
   const warmthMV = useTransform(scrollYProgress, [0.08, 0.62, 1], [0, 0.7, 1]);
   const warmth = useSpring(warmthMV, { stiffness: 120, damping: 30 });
   const hazeOpacity = useTransform(warmth, [0, 1], reduce ? [0.14, 0.14] : [0.06, 0.5]);
@@ -125,9 +126,9 @@ export function ChiselRitual() {
   // The contour the tool follows draws in during phase 1→2.
   const contourDraw = useTransform(scrollYProgress, [0.12, 0.5], reduce ? [1, 1] : [0, 1]);
 
-  // A heat read-out that climbs with warmth (cosmetic flavour, not a claim).
-  const [heat, setHeat] = useState(0);
-  useMotionValueEvent(warmth, "change", (v) => setHeat(Math.round(36 + v * 5)));
+  // A "worked" read-out that climbs with the pass (cosmetic flavour, not a claim).
+  const [worked, setWorked] = useState(0);
+  useMotionValueEvent(warmth, "change", (v) => setWorked(Math.round(v * 100)));
 
   return (
     <section id="how" ref={ref} className="relative h-[320vh] bg-paper-0">
@@ -138,8 +139,9 @@ export function ChiselRitual() {
             <div className="order-2 lg:order-1">
               <SectionHead n="01" title="The ritual." />
               <p className="-mt-3 mb-2 max-w-md text-[16.5px] leading-[1.65] text-ink-2">
-                Two parts, one motion. The warming cream and the steel tool work
-                together — a sixty-second massage that leaves the look sharper.
+                Work the cream into the body by hand, or with the optional steel
+                tools — a sixty-second massage that leaves the area worked and the
+                look sharper.
               </p>
               <ol className="mt-2 flex flex-col">
                 {STEPS.map((s, i) => (
@@ -194,7 +196,7 @@ export function ChiselRitual() {
 
                 {/* corner read-outs */}
                 <span className="absolute left-5 top-4 z-40 caps text-[9px] font-medium text-ink-3">
-                  CHISEL / 002
+                  SCULPT / 002
                 </span>
                 <div className="absolute right-5 top-4 z-40 h-4 overflow-hidden">
                   <AnimatePresence mode="wait">
@@ -210,16 +212,16 @@ export function ChiselRitual() {
                     </motion.span>
                   </AnimatePresence>
                 </div>
-                {/* warmth read-out (cosmetic flavour) */}
+                {/* worked read-out (cosmetic flavour) */}
                 <span className="absolute bottom-4 left-5 z-40 caps text-[9px] font-medium text-ink-3">
-                  Warmth {heat}°
+                  Worked {worked}
                 </span>
                 <span className="absolute bottom-4 right-5 z-40 caps text-[9px] font-medium text-ink-3">
                   Contour Pass
                 </span>
 
-                {/* warm heat-haze — builds with scroll (the ember whisper, here
-                    allowed to bloom because warmth IS the product's signature) */}
+                {/* ember haze — builds with scroll (the brand accent, here
+                    allowed to spread as the worked intensity climbs) */}
                 <motion.div
                   aria-hidden
                   style={{ opacity: hazeOpacity }}
@@ -332,7 +334,7 @@ export function ChiselRitual() {
 }
 
 /* The tool drawn inside the ritual SVG (shares the silhouette of Art's SteelTool
-   but inline so it can warm its edge via a motion value). */
+   but inline so it can light its edge with the ember accent via a motion value). */
 function MiniTool({
   warmthMV,
   reduce,
@@ -354,7 +356,7 @@ function MiniTool({
         strokeWidth={1.6}
         fill="none"
       />
-      {/* warming working edge */}
+      {/* ember-accent working edge */}
       <motion.path
         d="M178 30 Q224 18 246 40 Q258 52 252 70 Q244 92 206 96"
         stroke={EMBER}

@@ -214,7 +214,7 @@ export function StickyArchitecture() {
                   <div className="relative h-[78%] w-[60%]">
                     <Image
                       src="/product/front.png"
-                      alt="GY-NO! Nipple Tightening Cream"
+                      alt="GY-NO! Cooling Tightening Cream"
                       fill
                       sizes="320px"
                       className="object-contain"
