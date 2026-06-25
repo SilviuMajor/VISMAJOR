@@ -8,6 +8,7 @@ import { Footer } from "@/components/sections/Footer";
 import { StickyBuyBar } from "@/components/ui/StickyBuyBar";
 import { ScrollProgress } from "@/components/enhanced/ScrollProgress";
 import { OtherProducts } from "@/components/house/OtherProducts";
+import { ProductQuote } from "@/components/house/ProductQuote";
 
 import { ChiselHero } from "@/components/chisel/ChiselHero";
 import { ChiselTicker } from "@/components/chisel/ChiselTicker";
@@ -41,6 +42,7 @@ export function ChiselComposition() {
       <Header crumb="CHISEL" nav={NAV} cta={{ href: "#buy", label: "Pre-order" }} />
       <main>
         <ChiselHero shipMonth={shipMonth} />
+        <ProductQuote latin="Labor omnia vincit" translation="work conquers all." />
         <ChiselTicker />
         <ChiselRitual />
         <ChiselSystem />

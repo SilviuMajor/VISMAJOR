@@ -59,8 +59,8 @@ export function HouseStandard() {
           </h2>
           <p className="mt-7 max-w-md text-[16.5px] leading-[1.6] text-paper-0/70">
             VIS MAJOR makes precision topicals for men. No theatre, no promises we
-            cannot keep — cosmetic, temporary by design, engineered to do exactly
-            one thing each. Made in the UK.
+            cannot keep — cosmetic, temporary by design, each engineered to do
+            exactly one thing. Made in the UK, to one standard.
           </p>
 
           <div className="mt-9 flex flex-wrap gap-x-7 gap-y-3">
@@ -76,6 +76,10 @@ export function HouseStandard() {
               </a>
             ))}
           </div>
+
+          <p className="mt-14 max-w-md text-[13px] italic leading-relaxed text-paper-0/50">
+            The figure was always in the marble. The work is only in revealing it.
+          </p>
         </div>
       </Container>
     </section>

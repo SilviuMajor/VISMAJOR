@@ -16,6 +16,7 @@ import { StickyBuy } from "@/components/enhanced/StickyBuy";
 import { NotifyBand } from "@/components/enhanced/NotifyBand";
 import { FinalCta } from "@/components/enhanced/FinalCta";
 import { OtherProducts } from "@/components/house/OtherProducts";
+import { ProductQuote } from "@/components/house/ProductQuote";
 
 // Selected v2 renditions (chosen from /compare)
 import { ProofV2 } from "@/components/v2/ProofV2";
@@ -37,6 +38,7 @@ export function EnhancedComposition() {
       <Header crumb="GY-NO!" />
       <main>
         <EnhancedHero shipMonth={shipMonth} />
+        <ProductQuote latin="Mens sana in corpore sano" translation="a sound mind in a sound body." />
         <Ticker />
         <StickyArchitecture />
         <Features />

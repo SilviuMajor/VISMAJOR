@@ -4,6 +4,7 @@ import { Footer } from "@/components/sections/Footer";
 import { StickyBuyBar } from "@/components/ui/StickyBuyBar";
 import { ScrollProgress } from "@/components/enhanced/ScrollProgress";
 import { OtherProducts } from "@/components/house/OtherProducts";
+import { ProductQuote } from "@/components/house/ProductQuote";
 
 import { SharpHero } from "@/components/sharp/SharpHero";
 import { SharpTicker } from "@/components/sharp/SharpTicker";
@@ -47,6 +48,7 @@ export function SharpComposition() {
       />
       <main>
         <SharpHero shipMonth={shipMonth} />
+        <ProductQuote latin="Cotidie" translation="every day." />
         <SharpTicker />
         <SharpDaily />
         <SharpActives />

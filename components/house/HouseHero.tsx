@@ -66,7 +66,7 @@ export function HouseHero() {
         >
           <span className="h-px w-7 bg-[var(--hair-strong)]" />
           <span className="caps-loose text-[11px] font-semibold text-ink-2">
-            VIS MAJOR · Performance Topicals for Men
+            Est. MMXXVI · Made in the UK
           </span>
         </motion.div>
 
@@ -74,28 +74,35 @@ export function HouseHero() {
           variants={lines}
           initial="hidden"
           animate="show"
-          className="mt-7 font-extrabold uppercase text-ink-0"
-          style={{ fontSize: "clamp(46px, 9vw, 146px)", letterSpacing: "-0.04em", lineHeight: 0.9 }}
+          className="mt-7"
         >
           <span className="block overflow-hidden">
-            <motion.span variants={line} className="block">
-              Three topicals.
-            </motion.span>
-          </span>
-          <span className="block overflow-hidden">
-            <motion.span variants={line} className="block">
-              One standard.
+            <motion.span
+              variants={line}
+              className="block font-light uppercase text-ink-0"
+              style={{ fontSize: "clamp(42px, 10vw, 124px)", letterSpacing: "0.14em", lineHeight: 1 }}
+            >
+              VIS&nbsp;MAJOR
             </motion.span>
           </span>
         </motion.h1>
 
         <motion.p
           {...fadeUp}
-          transition={{ duration: 0.6, delay: 0.55, ease: EASE }}
-          className="mt-8 max-w-xl text-[17px] leading-[1.65] text-ink-1 md:text-[19px]"
+          transition={{ duration: 0.7, delay: 0.5, ease: EASE }}
+          className="mt-5 font-medium tracking-tight text-ink-0"
+          style={{ fontSize: "clamp(21px, 3vw, 36px)", lineHeight: 1.1 }}
         >
-          A small house of precision topicals for men — cosmetic, temporary by
-          design, each engineered to do exactly one thing. Cool. Warm. Matte.
+          A greater force.
+        </motion.p>
+
+        <motion.p
+          {...fadeUp}
+          transition={{ duration: 0.6, delay: 0.62, ease: EASE }}
+          className="mt-7 max-w-xl text-[17px] leading-[1.65] text-ink-1 md:text-[19px]"
+        >
+          Precision topicals for men. Three of them. Each cosmetic, temporary by
+          design, engineered to do exactly one thing — well.
         </motion.p>
 
         {/* triad chips → each product */}

@@ -3,6 +3,7 @@ import { Announcement } from "@/components/nav/Announcement";
 import { Header } from "@/components/nav/Header";
 import { Footer } from "@/components/sections/Footer";
 import { HouseHero } from "@/components/house/HouseHero";
+import { HouseMeaning, HouseVirtues } from "@/components/house/HouseMeaning";
 import { HouseProducts } from "@/components/house/HouseProducts";
 import { HouseStandard } from "@/components/house/HouseStandard";
 
@@ -28,6 +29,8 @@ export function HomeComposition() {
       />
       <main>
         <HouseHero />
+        <HouseMeaning />
+        <HouseVirtues />
         <HouseProducts />
         <HouseStandard />
       </main>
