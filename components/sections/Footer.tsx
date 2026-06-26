@@ -10,7 +10,10 @@ const LINKS = [
 
 export function Footer() {
   return (
-    <footer className="bg-ink-0 text-paper-0">
+    <footer
+      className="border-t bg-ink-0 text-paper-0"
+      style={{ borderColor: "rgba(244,242,236,0.12)" }}
+    >
       <Container className="pb-12 pt-20 md:pt-24">
         <div className="grid grid-cols-1 gap-14 md:grid-cols-12 md:gap-10">
           <div className="md:col-span-6">
@@ -26,7 +29,7 @@ export function Footer() {
             </p>
             <p className="mt-7 max-w-[440px] text-[10px] leading-[1.8] text-ink-3">
               Cosmetic use only. Temporary effect. Not a treatment for any
-              medical condition. GY-NO!, CHISEL and SHARP are products of Vis
+              medical condition. GY-NO!, SCULPT and SHARP are products of Vis
               Major.
             </p>
           </div>

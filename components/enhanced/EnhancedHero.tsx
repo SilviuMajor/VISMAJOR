@@ -250,9 +250,18 @@ export function EnhancedHero({ shipMonth }: { shipMonth: string }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 1.3 }}
-            className="mt-6 caps text-[10.5px] font-medium text-ink-3"
+            className="mt-6 flex flex-wrap items-center gap-2.5"
           >
-            ● Join 2,000+ on the first-batch list · ships {shipMonth}
+            <span className="caps inline-flex items-center gap-1.5 rounded-[4px] bg-ink-0 px-2.5 py-1.5 text-[10.5px] font-bold text-paper-0">
+              <span
+                className="inline-block h-1.5 w-1.5 rounded-full"
+                style={{ background: "var(--metal-300)" }}
+              />
+              2,000+ joined
+            </span>
+            <span className="caps text-[10.5px] font-medium text-ink-3">
+              the first-batch list · ships {shipMonth}
+            </span>
           </motion.p>
         </motion.div>
       </Container>

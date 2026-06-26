@@ -30,7 +30,7 @@ export function HeritageBanner() {
         className="pointer-events-none absolute inset-y-0 right-[-2%] z-0 hidden w-[48vw] sm:block lg:w-[42vw]"
       >
         <Image
-          src="/figures/elder.png"
+          src="/figures/gyno.png"
           alt="A classical figure — the standard"
           fill
           sizes="48vw"
@@ -68,7 +68,7 @@ export function HeritageBanner() {
           {/* figure — mobile: in flow, below the copy */}
           <div className="relative mt-10 h-[46vh] w-full sm:hidden">
             <Image
-              src="/figures/elder.png"
+              src="/figures/gyno.png"
               alt=""
               fill
               sizes="100vw"

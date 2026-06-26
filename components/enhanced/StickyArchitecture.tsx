@@ -95,7 +95,7 @@ export function StickyArchitecture() {
           className="pointer-events-none absolute inset-y-0 right-[-10%] z-0 hidden w-[52vw] sm:right-[-4%] sm:block sm:w-[46vw] lg:w-[40vw]"
         >
           <Image
-            src="/figures/general.png"
+            src="/figures/gyno-2.png"
             alt=""
             fill
             sizes="46vw"
