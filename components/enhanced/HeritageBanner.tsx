@@ -24,13 +24,13 @@ export function HeritageBanner() {
         style={{ background: "radial-gradient(circle, rgba(55,138,221,0.13), transparent 66%)" }}
       />
 
-      {/* David — line-art inverted to a luminous etching on ink */}
+      {/* Classical figure — line-art inverted to a luminous etching on ink */}
       <motion.div
         style={{ y }}
         className="pointer-events-none absolute inset-y-0 right-[-6%] z-0 w-[64vw] sm:right-[-2%] sm:w-[48vw] lg:w-[42vw]"
       >
         <Image
-          src="/product/david.png"
+          src="/figures/elder.png"
           alt="A classical figure — the standard"
           fill
           sizes="50vw"

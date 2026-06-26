@@ -95,7 +95,7 @@ export function StickyArchitecture() {
           className="pointer-events-none absolute inset-y-0 right-[-10%] z-0 hidden w-[52vw] sm:right-[-4%] sm:block sm:w-[46vw] lg:w-[40vw]"
         >
           <Image
-            src="/product/david.png"
+            src="/figures/general.png"
             alt=""
             fill
             sizes="46vw"
@@ -214,7 +214,7 @@ export function StickyArchitecture() {
                   <div className="relative h-[78%] w-[60%]">
                     <Image
                       src="/product/front.png"
-                      alt="GY-NO! Cooling Tightening Cream"
+                      alt="GY-NO! Nipple Tightening Cream"
                       fill
                       sizes="320px"
                       className="object-contain"

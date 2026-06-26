@@ -15,11 +15,11 @@ import { ChiselTicker } from "@/components/chisel/ChiselTicker";
 import { SculptWhatItDoes } from "@/components/chisel/SculptWhatItDoes";
 import { SculptEffects } from "@/components/chisel/SculptEffects";
 import { ChiselRitual } from "@/components/chisel/ChiselRitual";
-import { SculptCraft } from "@/components/chisel/SculptCraft";
-import { ChiselSystem } from "@/components/chisel/ChiselSystem";
+import { SculptRecovery } from "@/components/chisel/SculptRecovery";
 import { ChiselArchitecture } from "@/components/chisel/ChiselArchitecture";
 import { ChiselProof } from "@/components/chisel/ChiselProof";
 import { ChiselBuy } from "@/components/chisel/ChiselBuy";
+import { SculptFieldManual } from "@/components/chisel/SculptFieldManual";
 import { SculptTools } from "@/components/chisel/SculptTools";
 import { ChiselIsIsnt } from "@/components/chisel/ChiselIsIsnt";
 import { ChiselFaq } from "@/components/chisel/ChiselFaq";
@@ -51,11 +51,11 @@ export function ChiselComposition() {
         <SculptWhatItDoes />
         <SculptEffects />
         <ChiselRitual />
-        <SculptCraft />
-        <ChiselSystem />
+        <SculptRecovery />
         <ChiselArchitecture />
         <ChiselProof />
         <ChiselBuy shipMonth={shipMonth} />
+        <SculptFieldManual />
         <SculptTools />
         <ChiselIsIsnt />
         <ChiselFaq shipMonth={shipMonth} />

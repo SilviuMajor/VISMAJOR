@@ -194,7 +194,7 @@ export function EnhancedHero({ shipMonth }: { shipMonth: string }) {
                 >
                   <Image
                     src="/product/front.png"
-                    alt="GY-NO! Cooling Tightening Cream"
+                    alt="GY-NO! Nipple Tightening Cream"
                     fill
                     priority
                     sizes="280px"

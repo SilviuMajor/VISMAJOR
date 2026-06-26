@@ -23,7 +23,7 @@ export function HouseStandard() {
         className="pointer-events-none absolute inset-y-0 right-[-6%] z-0 w-[64vw] sm:right-[-2%] sm:w-[48vw] lg:w-[42vw]"
       >
         <Image
-          src="/product/david.png"
+          src="/figures/david.png"
           alt="A classical figure — the standard"
           fill
           sizes="50vw"

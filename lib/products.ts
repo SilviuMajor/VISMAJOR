@@ -28,7 +28,7 @@ export const PRODUCTS: Product[] = [
     href: "/gy-no",
     index: "001",
     wordmark: "GY-NO!",
-    category: "Cooling Tightening Cream",
+    category: "Nipple Tightening Cream",
     short:
       "Cools and tightens in minutes. Up to one hour of temporary firmness, undetectable under a shirt.",
     signature: "Cool",

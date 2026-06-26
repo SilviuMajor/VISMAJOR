@@ -9,6 +9,8 @@ next-env.d.ts
 # Local source / reference images (working files, not for the repo)
 /images/
 /ChatGPT Image*.png
+# Source image bank — the used subset is copied into public/figures/
+/VISMAJOR-IMAGES/
 
 # TS incremental build cache
 tsconfig.tsbuildinfo

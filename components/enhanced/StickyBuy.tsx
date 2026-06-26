@@ -125,7 +125,7 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
             >
               GY-NO!
             </h2>
-            <div className="caps mt-4 text-[15px] font-medium text-ink-1">Cooling Tightening Cream</div>
+            <div className="caps mt-4 text-[15px] font-medium text-ink-1">Nipple Tightening Cream</div>
             <p className="mt-5 max-w-md text-[18px] leading-[1.65] text-ink-1">
               Works in minutes. Up to one hour of temporary firmness. With caffeine
               and menthol agents — matte, lightly fragranced, undetectable.

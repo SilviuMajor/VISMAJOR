@@ -12,7 +12,7 @@ const CATALOG: Record<
   { name: string; tiers: Record<string, { label: string; amount: number }> }
 > = {
   "gy-no": {
-    name: "GY-NO! Cooling Tightening Cream",
+    name: "GY-NO! Nipple Tightening Cream",
     tiers: {
       "1": { label: "20ml", amount: 2400 },
       "2": { label: "40ml", amount: 4200 },
