@@ -17,24 +17,24 @@ export function HouseStandard() {
 
   return (
     <section id="standard" ref={ref} className="relative overflow-hidden bg-ink-0">
-      {/* David — line-art inverted to a luminous etching on ink */}
+      {/* David — desktop: absolute on the right, luminous etching on ink */}
       <motion.div
         style={{ y }}
-        className="pointer-events-none absolute inset-y-0 right-[-6%] z-0 w-[64vw] sm:right-[-2%] sm:w-[48vw] lg:w-[42vw]"
+        className="pointer-events-none absolute inset-y-0 right-[-2%] z-0 hidden w-[48vw] sm:block lg:w-[42vw]"
       >
         <Image
           src="/figures/david.png"
           alt="A classical figure — the standard"
           fill
-          sizes="50vw"
+          sizes="48vw"
           className="object-contain object-bottom opacity-90 invert mix-blend-screen"
         />
       </motion.div>
 
-      {/* seat the copy: dark on the left, fading to clear over the figure */}
+      {/* scrim — desktop only: dark on the left, fading to clear over the figure */}
       <div
         aria-hidden
-        className="absolute inset-0 z-10"
+        className="absolute inset-0 z-10 hidden sm:block"
         style={{
           background:
             "linear-gradient(90deg, rgba(20,19,15,0.92) 0%, rgba(20,19,15,0.6) 42%, rgba(20,19,15,0.05) 72%, transparent 100%)",
@@ -42,7 +42,7 @@ export function HouseStandard() {
       />
 
       <Container className="relative z-20">
-        <div className="flex min-h-[88vh] flex-col justify-center py-28 md:min-h-screen">
+        <div className="flex flex-col justify-center py-20 sm:min-h-screen sm:py-28">
           <div className="flex items-center gap-3.5">
             <span className="h-px w-8 bg-paper-0/45" />
             <span className="caps-loose text-[11px] font-semibold text-paper-0/75">
@@ -77,7 +77,18 @@ export function HouseStandard() {
             ))}
           </div>
 
-          <p className="mt-14 max-w-md text-[13px] italic leading-relaxed text-paper-0/50">
+          {/* figure — mobile: in flow, below the copy */}
+          <div className="relative mt-12 h-[46vh] w-full sm:hidden">
+            <Image
+              src="/figures/david.png"
+              alt=""
+              fill
+              sizes="100vw"
+              className="object-contain object-center opacity-90 invert mix-blend-screen"
+            />
+          </div>
+
+          <p className="mt-12 max-w-md text-[13px] italic leading-relaxed text-paper-0/50 sm:mt-14">
             The figure was always in the marble. The work is only in revealing it.
           </p>
         </div>

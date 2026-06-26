@@ -10,6 +10,9 @@ import { Container } from "@/components/ui/Container";
  * well-established practice of deep-tissue / sports massage; SCULPT is the cream
  * that makes that massage a ritual. Aspiration via the classical ideal — not a
  * medical claim about the cream itself.
+ *
+ * Desktop: figure on the right, copy on the left. Mobile: copy stacked above
+ * the figure so nothing overlaps the text.
  */
 export function SculptRecovery() {
   const ref = useRef<HTMLElement>(null);
@@ -22,31 +25,31 @@ export function SculptRecovery() {
 
   return (
     <section ref={ref} className="relative overflow-hidden bg-ink-0">
-      {/* faint ember halo behind the figure (SCULPT's accent) */}
+      {/* faint ember halo (desktop only) */}
       <div
         aria-hidden
-        className="pointer-events-none absolute right-[8%] top-1/2 z-0 h-[72vh] w-[44vh] -translate-y-1/2 rounded-full blur-3xl"
+        className="pointer-events-none absolute right-[8%] top-1/2 z-0 hidden h-[72vh] w-[44vh] -translate-y-1/2 rounded-full blur-3xl sm:block"
         style={{ background: "radial-gradient(circle, rgba(193,106,60,0.16), transparent 66%)" }}
       />
 
-      {/* the classical figure — the sculpted ideal, luminous etching on ink */}
+      {/* figure — desktop: absolute on the right */}
       <motion.div
         style={{ y }}
-        className="pointer-events-none absolute inset-y-0 right-[-6%] z-0 w-[64vw] sm:right-[-2%] sm:w-[48vw] lg:w-[42vw]"
+        className="pointer-events-none absolute inset-y-0 right-[-2%] z-0 hidden w-[48vw] sm:block lg:w-[42vw]"
       >
         <Image
           src="/figures/athlete.png"
           alt="A classical athlete scraping with a strigil — the sculpted ideal"
           fill
-          sizes="50vw"
+          sizes="48vw"
           className="object-contain object-bottom opacity-90 invert mix-blend-screen"
         />
       </motion.div>
 
-      {/* scrim: dark on the left, fading to clear over the figure */}
+      {/* scrim — desktop only: dark left, clear over the figure */}
       <div
         aria-hidden
-        className="absolute inset-0 z-10"
+        className="absolute inset-0 z-10 hidden sm:block"
         style={{
           background:
             "linear-gradient(90deg, rgba(20,19,15,0.92) 0%, rgba(20,19,15,0.6) 42%, rgba(20,19,15,0.05) 72%, transparent 100%)",
@@ -54,7 +57,7 @@ export function SculptRecovery() {
       />
 
       <Container className="relative z-20">
-        <div className="flex min-h-[88vh] flex-col justify-center py-28 md:min-h-screen">
+        <div className="flex flex-col justify-center py-20 sm:min-h-screen sm:py-28">
           <div className="flex items-center gap-3.5">
             <span className="h-px w-8 bg-paper-0/45" />
             <span className="caps-loose text-[11px] font-semibold text-paper-0/75">
@@ -97,6 +100,17 @@ export function SculptRecovery() {
                 {t}
               </span>
             ))}
+          </div>
+
+          {/* figure — mobile: in flow, below the copy */}
+          <div className="relative mt-12 h-[46vh] w-full sm:hidden">
+            <Image
+              src="/figures/athlete.png"
+              alt=""
+              fill
+              sizes="100vw"
+              className="object-contain object-center opacity-90 invert mix-blend-screen"
+            />
           </div>
         </div>
       </Container>
