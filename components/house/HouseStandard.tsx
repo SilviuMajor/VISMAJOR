@@ -68,7 +68,7 @@ export function HouseStandard() {
               <a key={p.slug} href={p.href} className="group inline-flex items-center gap-2.5">
                 <span
                   className="inline-block h-2 w-2 rounded-full"
-                  style={{ background: p.accentHex }}
+                  style={{ background: "var(--metal-300)" }}
                 />
                 <span className="caps text-[11.5px] font-semibold text-paper-0/85 transition-colors group-hover:text-paper-0">
                   {p.wordmark}

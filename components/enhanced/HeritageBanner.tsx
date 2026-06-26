@@ -21,7 +21,7 @@ export function HeritageBanner() {
       <div
         aria-hidden
         className="pointer-events-none absolute right-[8%] top-1/2 z-0 hidden h-[72vh] w-[44vh] -translate-y-1/2 rounded-full blur-3xl sm:block"
-        style={{ background: "radial-gradient(circle, rgba(55,138,221,0.13), transparent 66%)" }}
+        style={{ background: "radial-gradient(circle, rgba(20,19,15,0.06), transparent 66%)" }}
       />
 
       {/* Classical figure — desktop: absolute on the right */}

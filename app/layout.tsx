@@ -1,11 +1,19 @@
 import type { Metadata, Viewport } from "next";
-import { Hanken_Grotesk } from "next/font/google";
+import { Hanken_Grotesk, Cinzel } from "next/font/google";
 import "./globals.css";
 
 const hanken = Hanken_Grotesk({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800", "900"],
   variable: "--font-display",
+  display: "swap",
+});
+
+// House typeface — inscriptional Roman serif for the VIS·MAJOR mark + voice.
+const cinzel = Cinzel({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-cinzel",
   display: "swap",
 });
 
@@ -35,7 +43,12 @@ export default function RootLayout({
   // White is locked as the default theme. The /classic page still exposes a
   // runtime White/Cream toggle for internal comparison.
   return (
-    <html lang="en" data-theme="white" suppressHydrationWarning className={hanken.variable}>
+    <html
+      lang="en"
+      data-theme="white"
+      suppressHydrationWarning
+      className={`${hanken.variable} ${cinzel.variable}`}
+    >
       <body className="font-display bg-paper-0 text-ink-0 antialiased">
         {children}
       </body>

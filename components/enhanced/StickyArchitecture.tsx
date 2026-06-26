@@ -35,7 +35,7 @@ const ACTIVES = [
   },
 ];
 
-const STEEL = "rgba(55,138,221,1)";
+const STEEL = "#14130F"; // mono — accent retired
 
 // Scattered snowflakes across the specimen panel (viewBox 200 × 250).
 const FLAKES = [
@@ -202,7 +202,7 @@ export function StickyArchitecture() {
                 >
                   <div
                     className="absolute left-1/2 top-1/2 h-[130%] w-[130%] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
-                    style={{ background: "radial-gradient(circle, rgba(55,138,221,0.24), transparent 64%)" }}
+                    style={{ background: "radial-gradient(circle, rgba(20,19,15,0.05), transparent 64%)" }}
                   />
                 </motion.div>
 
@@ -289,12 +289,12 @@ export function StickyArchitecture() {
   );
 }
 
-/* Forked lightning that strikes over the tube during the Caffeine phase:
-   white-hot yellow bolts with a glow, plus a synced storm-flash that briefly
-   darkens the panel so the charge reads. Steady (no flicker) when reduced. */
-const AMBER = "#FFB200";
-const VOLT = "#FFD60A";
-const CORE = "#FFFFFF";
+/* Forked lightning that strikes over the tube during the Caffeine phase —
+   strictly mono: ink bolts with a faint ink glow on the white panel.
+   Steady (no flicker) when reduced. */
+const AMBER = "#14130F";
+const VOLT = "#14130F";
+const CORE = "#14130F";
 const STRIKE_TIMES = [0, 0.04, 0.1, 0.18, 0.3, 1];
 
 const STRIKES = [
@@ -322,29 +322,7 @@ const STRIKES = [
 function Lightning({ reduce }: { reduce: boolean | null }) {
   return (
     <>
-      {/* storm flashes — the panel charges and darkens with each strike */}
-      {!reduce &&
-        STRIKES.map((s, i) => (
-          <motion.div
-            key={`flash-${i}`}
-            className="absolute inset-0"
-            style={{
-              background:
-                "radial-gradient(circle at 50% 42%, rgba(20,19,15,0.34), rgba(20,19,15,0.74))",
-            }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: [0, 0.95, 0.25, 0.78, 0.32, 0] }}
-            transition={{
-              duration: 0.5,
-              times: STRIKE_TIMES,
-              repeat: Infinity,
-              repeatDelay: s.period - 0.5,
-              delay: s.delay,
-              ease: "easeOut",
-            }}
-          />
-        ))}
-
+      {/* storm flash removed — strictly mono ink bolts on the white panel */}
       <svg
         viewBox="0 0 200 250"
         preserveAspectRatio="xMidYMid meet"
@@ -401,7 +379,7 @@ function Bolt({
     ease: "easeOut" as const,
   };
   const op = [0, 1, 0.4, 1, 0.45, 0];
-  const haloOp = [0, 0.9, 0.3, 0.85, 0.4, 0];
+  const haloOp = [0, 0.22, 0.08, 0.2, 0.1, 0];
   const pl = [0, 1, 1, 1, 1, 1];
 
   return (

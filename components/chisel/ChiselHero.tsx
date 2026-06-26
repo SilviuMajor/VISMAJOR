@@ -140,8 +140,7 @@ export function ChiselHero({ shipMonth }: { shipMonth: string }) {
 
         {/* giant kinetic wordmark + the cream/tool duo */}
         <div className="relative mt-6 flex w-full flex-1 flex-col items-center justify-center overflow-hidden">
-          {/* signature glow — a faint ember halo behind the duo (the brand
-              accent, used as a whisper) */}
+          {/* signature glow — a faint ink halo behind the duo (mono whisper) */}
           <motion.div
             aria-hidden
             initial={{ opacity: 0, scale: 0.75 }}
@@ -153,7 +152,7 @@ export function ChiselHero({ shipMonth }: { shipMonth: string }) {
             transition={{ duration: 2.4, delay: 0.7, ease: EASE, times: [0, 0.55, 1] }}
             style={{
               x: glowX,
-              background: `radial-gradient(circle, ${EMBER}33, transparent 62%)`,
+              background: `radial-gradient(circle, rgba(20,19,15,0.06), transparent 62%)`,
             }}
             className="pointer-events-none absolute left-1/2 top-[60%] z-0 h-[40vh] w-[40vh] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
           />
@@ -263,13 +262,13 @@ export function ChiselHero({ shipMonth }: { shipMonth: string }) {
           >
             <Magnetic
               href="#buy"
-              className="caps inline-flex items-center justify-center gap-2.5 rounded-sm border border-ink-0 bg-ink-0 px-9 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
+              className="inline-flex items-center justify-center gap-2.5 rounded-[5px] border border-ink-0 bg-ink-0 px-9 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
             >
               Pre-order — from £28
             </Magnetic>
             <a
               href="#how"
-              className="caps inline-flex items-center justify-center rounded-sm border border-ink-0 px-9 py-[18px] text-[13px] font-semibold text-ink-0 transition-colors hover:bg-ink-0 hover:text-paper-0"
+              className="inline-flex items-center justify-center rounded-[5px] border border-ink-0 px-9 py-[18px] text-[13px] font-semibold text-ink-0 transition-colors hover:bg-ink-0 hover:text-paper-0"
             >
               The Ritual
             </a>

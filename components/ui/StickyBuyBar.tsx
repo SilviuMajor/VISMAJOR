@@ -52,7 +52,7 @@ export function StickyBuyBar({
             </div>
             <a
               href={href}
-              className="caps inline-flex items-center rounded-sm border border-ink-0 bg-ink-0 px-5 py-3 text-[11px] font-semibold text-paper-0"
+              className="inline-flex items-center rounded-[5px] border border-ink-0 bg-ink-0 px-5 py-3 text-[13px] font-semibold text-paper-0"
             >
               Buy
             </a>

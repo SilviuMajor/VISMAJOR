@@ -41,7 +41,7 @@ export function ChiselFinalCta({ shipMonth }: { shipMonth: string }) {
           >
             <a
               href="#buy"
-              className="caps inline-flex items-center justify-center gap-2.5 rounded-sm border border-paper-0 bg-paper-0 px-10 py-[20px] text-[14px] font-semibold text-ink-0 transition-colors hover:bg-transparent hover:text-paper-0"
+              className="inline-flex items-center justify-center gap-2.5 rounded-[5px] border border-paper-0 bg-paper-0 px-10 py-[20px] text-[14px] font-semibold text-ink-0 transition-colors hover:bg-transparent hover:text-paper-0"
             >
               Pre-order — from £28
             </a>

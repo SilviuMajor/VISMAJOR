@@ -6,7 +6,7 @@ import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 
 const EASE = [0.2, 0, 0, 1] as const;
-const STEEL = "rgba(55,138,221,1)";
+const INK_OPEN = "#14130F";
 
 const FAQS = [
   {
@@ -55,13 +55,13 @@ function Row({
         aria-expanded={isOpen}
         className="group flex w-full items-center gap-5 py-6 text-left md:gap-7"
       >
-        {/* big numeral — the one cold accent, only when open */}
+        {/* big numeral — ink, only when open */}
         <span
           className="shrink-0 font-bold tabular-nums transition-colors duration-200"
           style={{
             fontSize: "clamp(20px, 2.2vw, 28px)",
             letterSpacing: "-0.02em",
-            color: isOpen ? STEEL : "var(--ink-3)",
+            color: isOpen ? INK_OPEN : "var(--ink-3)",
           }}
         >
           {index}

@@ -74,7 +74,7 @@ export function ChiselNotify() {
             <button
               type="submit"
               disabled={status === "loading"}
-              className="caps inline-flex items-center justify-center rounded-sm border border-ink-0 bg-ink-0 px-8 py-[16px] text-[12px] font-semibold text-paper-0 transition-colors hover:bg-ink-1 disabled:opacity-50"
+              className="inline-flex items-center justify-center rounded-[5px] border border-ink-0 bg-ink-0 px-8 py-[16px] text-[12px] font-semibold text-paper-0 transition-colors hover:bg-ink-1 disabled:opacity-50"
             >
               {status === "loading" ? "Adding…" : "Notify Me"}
             </button>

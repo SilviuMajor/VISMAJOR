@@ -56,12 +56,12 @@ export function SculptTools() {
                   </h3>
                   <span
                     className="inline-block h-1.5 w-1.5 rounded-full"
-                    style={{ background: "var(--ember)" }}
+                    style={{ background: "#14130F" }}
                   />
                 </div>
                 <span
                   className="caps mt-2 text-[10px] font-semibold"
-                  style={{ color: "var(--ember)" }}
+                  style={{ color: "#14130F" }}
                 >
                   {t.use}
                 </span>

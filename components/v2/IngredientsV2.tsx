@@ -160,12 +160,11 @@ export function IngredientsV2() {
                           <span className="caps text-[10px] font-semibold text-ink-3">
                             {a.n}
                           </span>
-                          {/* the single cold accent — used once, here */}
                           <span
                             className="h-1.5 w-1.5 rounded-full transition-colors duration-200"
                             style={{
                               backgroundColor: isOn
-                                ? "rgba(55,138,221,0.95)"
+                                ? "#14130F"
                                 : "var(--hair-strong)",
                             }}
                             aria-hidden

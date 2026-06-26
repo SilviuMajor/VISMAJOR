@@ -7,8 +7,8 @@ import { ReactNode } from "react";
  * tasteful line-art tube rendered in pure CSS/SVG. It should read as an
  * apothecary plate, never as a broken image.
  *
- * `tone` switches the corner index colour to the SHARP mint on the rare
- * occasion we want the single accent to land here.
+ * `accentIndex` emphasises the corner index in full ink on the rare
+ * occasion we want it to land harder here.
  */
 export function Specimen({
   children,
@@ -39,7 +39,7 @@ export function Specimen({
       {/* corner read-outs */}
       <span
         className="absolute left-5 top-4 z-40 caps text-[9px] font-medium"
-        style={{ color: accentIndex ? "var(--mint)" : "var(--ink-3)" }}
+        style={{ color: accentIndex ? "#14130F" : "var(--ink-3)" }}
       >
         {index}
       </span>

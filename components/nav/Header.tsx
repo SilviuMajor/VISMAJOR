@@ -64,9 +64,9 @@ export function Header({
           <a
             href="/"
             onClick={() => setOpen(false)}
-            className="house text-[15px] font-light text-ink-0"
+            className="house text-[15px] text-ink-0"
           >
-            VIS&nbsp;MAJOR
+            VIS·MAJOR
           </a>
           {crumb && (
             <span className="caps text-[10px] font-semibold text-ink-3">
@@ -84,7 +84,7 @@ export function Header({
           {cta && (
             <a
               href={cta.href}
-              className="caps hidden items-center gap-2 rounded-xs border border-[var(--hair-strong)] px-3 py-1.5 text-[11px] font-semibold text-ink-0 transition-colors hover:bg-ink-0 hover:text-paper-0 md:inline-flex"
+              className="hidden items-center gap-2 rounded-[5px] border border-[var(--hair-strong)] px-3 py-1.5 text-[12px] font-semibold text-ink-0 transition-colors hover:bg-ink-0 hover:text-paper-0 md:inline-flex"
             >
               {cta.label}
             </a>
@@ -148,7 +148,7 @@ export function Header({
                 <a
                   href={cta.href}
                   onClick={() => setOpen(false)}
-                  className="caps mt-4 flex items-center justify-center rounded-sm border border-ink-0 bg-ink-0 px-6 py-[14px] text-[12px] font-semibold text-paper-0"
+                  className="mt-4 flex items-center justify-center rounded-[5px] border border-ink-0 bg-ink-0 px-6 py-[14px] text-[13px] font-semibold text-paper-0"
                 >
                   {cta.label}
                 </a>

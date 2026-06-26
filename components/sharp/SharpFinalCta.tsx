@@ -10,7 +10,7 @@ export function SharpFinalCta({ shipMonth }: { shipMonth: string }) {
     <section className="relative overflow-hidden bg-ink-0 py-24 text-paper-0 md:py-32">
       <Container>
         <div className="flex items-center gap-3.5">
-          <span className="h-px w-8" style={{ background: "var(--mint)" }} />
+          <span className="h-px w-8" style={{ background: "#14130F" }} />
           <span className="caps-loose text-[11px] font-semibold text-paper-0/70">
             First batch · ships {shipMonth}
           </span>
@@ -41,7 +41,7 @@ export function SharpFinalCta({ shipMonth }: { shipMonth: string }) {
           >
             <a
               href="#buy"
-              className="caps inline-flex items-center justify-center gap-2.5 rounded-sm border border-paper-0 bg-paper-0 px-10 py-[20px] text-[14px] font-semibold text-ink-0 transition-colors hover:bg-transparent hover:text-paper-0"
+              className="inline-flex items-center justify-center gap-2.5 rounded-[5px] border border-paper-0 bg-paper-0 px-10 py-[20px] text-[14px] font-semibold text-ink-0 transition-colors hover:bg-transparent hover:text-paper-0"
             >
               Pre-order — £22
             </a>

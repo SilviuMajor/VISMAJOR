@@ -26,7 +26,7 @@ export function SculptFieldManual() {
               </span>
               <span
                 className="absolute right-5 top-4 caps text-[9px] font-medium"
-                style={{ color: "var(--ember)" }}
+                style={{ color: "#14130F" }}
               >
                 Included
               </span>
@@ -82,7 +82,7 @@ export function SculptFieldManual() {
                       className="caps inline-flex items-center gap-2 rounded-xs border px-3 py-2 text-[10.5px] font-semibold text-ink-0"
                       style={{ borderColor: "var(--hair-strong)" }}
                     >
-                      <span className="h-1 w-1 rounded-full" style={{ background: "var(--ember)" }} />
+                      <span className="h-1 w-1 rounded-full" style={{ background: "#14130F" }} />
                       {b}
                     </span>
                   )

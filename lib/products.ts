@@ -34,8 +34,8 @@ export const PRODUCTS: Product[] = [
     signature: "Cool",
     priceFrom: 24,
     rrpFrom: 32,
-    accentVar: "--steel-blue",
-    accentHex: "#378ADD",
+    accentVar: "--ink-0",
+    accentHex: "#14130F",
   },
   {
     slug: "sculpt",
@@ -48,8 +48,8 @@ export const PRODUCTS: Product[] = [
     signature: "Worked",
     priceFrom: 28,
     rrpFrom: 38,
-    accentVar: "--ember",
-    accentHex: "#C16A3C",
+    accentVar: "--ink-0",
+    accentHex: "#14130F",
   },
   {
     slug: "sharp",
@@ -62,8 +62,8 @@ export const PRODUCTS: Product[] = [
     signature: "Matte",
     priceFrom: 22,
     rrpFrom: 30,
-    accentVar: "--mint",
-    accentHex: "#2F9E86",
+    accentVar: "--ink-0",
+    accentHex: "#14130F",
   },
 ];
 

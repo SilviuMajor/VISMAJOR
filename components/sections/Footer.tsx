@@ -16,10 +16,10 @@ export function Footer() {
           <div className="md:col-span-6">
             <a
               href="/"
-              className="house inline-block font-light"
+              className="house inline-block"
               style={{ fontSize: "clamp(38px, 5vw, 72px)", lineHeight: 1 }}
             >
-              VIS&nbsp;MAJOR
+              VIS·MAJOR
             </a>
             <p className="caps mt-5 text-[11px] font-medium text-ink-3">
               Performance Topicals for Men · Est. MMXXVI
@@ -44,7 +44,7 @@ export function Footer() {
                   >
                     <span
                       className="inline-block h-1.5 w-1.5 rounded-full"
-                      style={{ background: p.accentHex }}
+                      style={{ background: "var(--metal-300)" }}
                     />
                     {p.wordmark}
                   </a>

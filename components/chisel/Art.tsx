@@ -10,7 +10,7 @@
  * Coordinate systems are fixed per drawing; callers scale via viewBox.
  */
 
-export const EMBER = "#C16A3C";
+export const EMBER = "#14130F"; // mono — accent retired (name kept for callers)
 
 /* ── The cream tube ──────────────────────────────────────────────────
    A tall apothecary tube standing on its cap. viewBox 0 0 120 260. */

@@ -7,7 +7,7 @@ import { Eyebrow, SectionHead } from "@/components/ui/Eyebrow";
 import { Countdown } from "@/components/enhanced/Countdown";
 import { SharpBottle } from "@/components/sharp/Specimen";
 
-const MINT = "rgba(47,158,134,1)";
+const MINT = "#14130F";
 
 type Tier = {
   key: "1" | "2" | "3";
@@ -159,12 +159,6 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
               <span className="absolute bottom-4 right-5 z-40 caps text-[9px] font-medium text-ink-3">
                 {VIEWS[view].caption}
               </span>
-              {/* faint mint floor glow */}
-              <div
-                aria-hidden
-                className="pointer-events-none absolute bottom-[16%] left-1/2 z-0 h-[28%] w-[56%] -translate-x-1/2 rounded-full blur-2xl"
-                style={{ background: "radial-gradient(circle, rgba(47,158,134,0.14), transparent 64%)" }}
-              />
               <AnimatePresence mode="wait">
                 <motion.div
                   key={view}
@@ -328,7 +322,7 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
               <button
                 onClick={onPreorder}
                 disabled={loading}
-                className="caps flex-1 rounded-sm border border-ink-0 bg-ink-0 px-6 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1 disabled:opacity-50"
+                className="flex-1 rounded-[5px] border border-ink-0 bg-ink-0 px-6 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1 disabled:opacity-50"
               >
                 {loading ? "Opening Checkout…" : `Pre-order — £${total}`}
               </button>

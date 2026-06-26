@@ -13,13 +13,6 @@ import { PRODUCTS } from "@/lib/products";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
-// One faint halo per product — the house triad, stated once, very softly.
-const ORBS: React.CSSProperties[] = [
-  { top: "10%", left: "2%", height: "42vh", width: "42vh" },
-  { bottom: "4%", left: "36%", height: "48vh", width: "48vh" },
-  { top: "14%", right: "2%", height: "40vh", width: "40vh" },
-];
-
 export function HouseHero() {
   const reduce = useReducedMotion();
   const ref = useRef<HTMLElement>(null);
@@ -28,7 +21,6 @@ export function HouseHero() {
     offset: ["start start", "end start"],
   });
   const fade = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
-  const driftY = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [0, -70]);
 
   const lines: Variants = {
     hidden: {},
@@ -46,17 +38,6 @@ export function HouseHero() {
       id="top"
       className="relative flex min-h-[calc(100svh-104px)] items-center overflow-hidden py-16"
     >
-      {/* triad backdrop */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 z-0">
-        {PRODUCTS.map((p, i) => (
-          <motion.div
-            key={p.slug}
-            style={{ ...ORBS[i], y: driftY, background: p.accentHex }}
-            className="absolute rounded-full opacity-[0.07] blur-3xl"
-          />
-        ))}
-      </div>
-
       <Container className="relative z-10">
         <motion.div
           {...fadeUp}
@@ -79,10 +60,10 @@ export function HouseHero() {
           <span className="block overflow-hidden">
             <motion.span
               variants={line}
-              className="block font-light uppercase text-ink-0"
-              style={{ fontSize: "clamp(42px, 10vw, 124px)", letterSpacing: "0.14em", lineHeight: 1 }}
+              className="house block text-ink-0"
+              style={{ fontSize: "clamp(42px, 10vw, 124px)", lineHeight: 1 }}
             >
-              VIS&nbsp;MAJOR
+              VIS·MAJOR
             </motion.span>
           </span>
         </motion.h1>
@@ -132,13 +113,13 @@ export function HouseHero() {
         >
           <a
             href="#products"
-            className="caps inline-flex items-center justify-center gap-2.5 rounded-sm border border-ink-0 bg-ink-0 px-9 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
+            className="inline-flex items-center justify-center gap-2.5 rounded-[5px] border border-ink-0 bg-ink-0 px-9 py-[16px] text-[15px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
           >
             Meet the three →
           </a>
           <a
             href="#standard"
-            className="caps inline-flex items-center justify-center rounded-sm border border-ink-0 px-9 py-[18px] text-[13px] font-semibold text-ink-0 transition-colors hover:bg-ink-0 hover:text-paper-0"
+            className="inline-flex items-center justify-center rounded-[5px] border border-ink-0 px-9 py-[16px] text-[15px] font-semibold text-ink-0 transition-colors hover:bg-ink-0 hover:text-paper-0"
           >
             The standard
           </a>

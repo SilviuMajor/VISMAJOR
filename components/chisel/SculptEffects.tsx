@@ -38,7 +38,7 @@ export function SculptEffects() {
                   <span className="caps text-[10px] font-semibold text-ink-3">{e.n}</span>
                   <span
                     className="inline-block h-1.5 w-1.5 rounded-full"
-                    style={{ background: "var(--ember)" }}
+                    style={{ background: "#14130F" }}
                   />
                 </div>
                 <h3 className="caps mt-8 text-[16px] font-bold text-ink-0" style={{ letterSpacing: "0.04em" }}>

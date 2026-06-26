@@ -21,7 +21,7 @@ export function HouseMeaning() {
             className="mt-7 text-ink-0"
             style={{ fontSize: "clamp(21px, 2.6vw, 31px)", lineHeight: 1.45, letterSpacing: "-0.01em" }}
           >
-            <span className="italic">Vis Major</span> &mdash; a greater force. The
+            <span className="serif">Vis·Major</span> &mdash; a greater force. The
             Roman term for a power beyond resistance.
           </p>
           <p className="mt-5 text-[16px] leading-[1.6] text-ink-2 md:text-[17px]">

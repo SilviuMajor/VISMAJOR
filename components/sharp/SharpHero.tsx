@@ -195,7 +195,7 @@ export function SharpHero({ shipMonth }: { shipMonth: string }) {
                       Specimen
                     </span>
 
-                    {/* a single faint mint floor-glow — the one sanctioned accent */}
+                    {/* a single faint ink floor-glow — purely structural depth */}
                     <motion.div
                       aria-hidden
                       initial={{ opacity: 0, scale: 0.8 }}
@@ -208,7 +208,7 @@ export function SharpHero({ shipMonth }: { shipMonth: string }) {
                       style={{
                         x: sheenX,
                         background:
-                          "radial-gradient(circle, rgba(47,158,134,0.20), transparent 64%)",
+                          "radial-gradient(circle, rgba(20,19,15,0.06), transparent 64%)",
                       }}
                       className="pointer-events-none absolute bottom-[14%] left-1/2 z-0 h-[34%] w-[70%] -translate-x-1/2 rounded-full blur-2xl"
                     />
@@ -250,13 +250,13 @@ export function SharpHero({ shipMonth }: { shipMonth: string }) {
           >
             <Magnetic
               href="#buy"
-              className="caps inline-flex items-center justify-center gap-2.5 rounded-sm border border-ink-0 bg-ink-0 px-9 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
+              className="inline-flex items-center justify-center gap-2.5 rounded-[5px] border border-ink-0 bg-ink-0 px-9 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
             >
               Pre-order — £22
             </Magnetic>
             <a
               href="#how"
-              className="caps inline-flex items-center justify-center rounded-sm border border-ink-0 px-9 py-[18px] text-[13px] font-semibold text-ink-0 transition-colors hover:bg-ink-0 hover:text-paper-0"
+              className="inline-flex items-center justify-center rounded-[5px] border border-ink-0 px-9 py-[18px] text-[13px] font-semibold text-ink-0 transition-colors hover:bg-ink-0 hover:text-paper-0"
             >
               The Daily
             </a>
@@ -268,7 +268,7 @@ export function SharpHero({ shipMonth }: { shipMonth: string }) {
             transition={{ duration: 0.6, delay: 1.3 }}
             className="mt-6 caps text-[10.5px] font-medium text-ink-3"
           >
-            <span style={{ color: "var(--mint)" }}>●</span> On the first-batch list · ships {shipMonth}
+            <span style={{ color: "#14130F" }}>●</span> On the first-batch list · ships {shipMonth}
           </motion.p>
         </motion.div>
       </Container>

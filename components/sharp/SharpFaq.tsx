@@ -6,7 +6,7 @@ import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 
 const EASE = [0.2, 0, 0, 1] as const;
-const MINT = "rgba(47,158,134,1)";
+const MINT = "#14130F";
 
 const FAQS = [
   {
@@ -59,7 +59,7 @@ function Row({
         aria-expanded={isOpen}
         className="group flex w-full items-center gap-5 py-6 text-left md:gap-7"
       >
-        {/* big numeral — the one accent (mint), only when open */}
+        {/* big numeral — emphasised in ink, only when open */}
         <span
           className="shrink-0 font-bold tabular-nums transition-colors duration-200"
           style={{
@@ -142,13 +142,13 @@ export function SharpFaq({ shipMonth }: { shipMonth: string }) {
 
               {/* contact card — hairline, not shadow */}
               <a
-                href="mailto:hello@gy-no.co.uk"
+                href="mailto:hello@vismajor.co.uk"
                 className="group mt-8 flex items-center justify-between gap-4 rounded-sm border bg-paper-0 px-5 py-4 transition-colors duration-200 hover:bg-paper-2"
                 style={{ borderColor: "var(--hair-strong)" }}
               >
                 <span className="flex flex-col">
                   <span className="caps text-[10px] font-semibold text-ink-3">Still wondering</span>
-                  <span className="mt-1 text-[15px] font-semibold text-ink-0">hello@gy-no.co.uk</span>
+                  <span className="mt-1 text-[15px] font-semibold text-ink-0">hello@vismajor.co.uk</span>
                 </span>
                 <span
                   aria-hidden

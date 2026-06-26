@@ -35,11 +35,14 @@
   --keyline-inset: 16px;
   /* Shadow (almost none — product only) */
   --shadow-product: 0 46px 80px -44px rgba(20, 19, 15, 0.55);
-  /* Per-product signature accents — one per product, used very sparingly.
-     GY-NO! is cold, CHISEL is warm, SHARP is fresh. */
-  --steel-blue: #378ADD;   /* GY-NO!  — cold / cooling */
-  --ember:      #C16A3C;   /* CHISEL  — warm / massage */
-  --mint:       #2F9E86;   /* SHARP   — fresh / matte  */
+  /* Strictly monochrome — NO brand accent colour. Restraint is the brand.
+     These aliases stay wired to ink so any component asking for an accent
+     renders mono; flip them in one place if a campaign ever needs colour. */
+  --steel-blue: var(--ink-0);
+  --ember:      var(--ink-0);
+  --mint:       var(--ink-0);
+  /* House serif (Cinzel) — the variable is injected by next/font in layout. */
+  --font-serif: var(--font-cinzel), 'Times New Roman', serif;
 }
 
 /* CREAM theme — warm apothecary paper */
@@ -78,9 +81,15 @@ html { scroll-behavior: smooth; }
     text-transform: uppercase;
     letter-spacing: var(--track-caps-loose);
   }
+  /* The VIS·MAJOR house mark + company voice — inscriptional Roman serif. */
   .house {
+    font-family: var(--font-serif);
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: var(--track-house);
+    letter-spacing: 0.18em;
+  }
+  .serif {
+    font-family: var(--font-serif);
   }
   .hair-top { border-top: 1px solid var(--hair); }
   .hair-bottom { border-bottom: 1px solid var(--hair); }

@@ -6,7 +6,7 @@ import { Container } from "@/components/ui/Container";
 import { Counter } from "@/components/ui/Counter";
 import { Reveal } from "@/components/ui/Reveal";
 
-const MINT = "rgba(47,158,134,1)";
+const MINT = "#14130F";
 
 /* Allocation — segmented, SHARP-flavoured. */
 const RESERVED_PCT = 61;

@@ -25,13 +25,6 @@ export function SculptRecovery() {
 
   return (
     <section ref={ref} className="relative overflow-hidden bg-ink-0">
-      {/* faint ember halo (desktop only) */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute right-[8%] top-1/2 z-0 hidden h-[72vh] w-[44vh] -translate-y-1/2 rounded-full blur-3xl sm:block"
-        style={{ background: "radial-gradient(circle, rgba(193,106,60,0.16), transparent 66%)" }}
-      />
-
       {/* figure — desktop: absolute on the right */}
       <motion.div
         style={{ y }}
@@ -95,7 +88,7 @@ export function SculptRecovery() {
               >
                 <span
                   className="inline-block h-1.5 w-1.5 rounded-full"
-                  style={{ background: "#C16A3C" }}
+                  style={{ background: "var(--metal-300)" }}
                 />
                 {t}
               </span>

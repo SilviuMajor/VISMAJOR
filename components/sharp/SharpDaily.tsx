@@ -14,7 +14,7 @@ import {
 import { Container } from "@/components/ui/Container";
 import { SectionHead } from "@/components/ui/Eyebrow";
 
-const MINT = "rgba(47,158,134,1)";
+const MINT = "#14130F";
 
 const STEPS = [
   {
@@ -296,7 +296,7 @@ export function SharpDaily() {
                     <path d="M22 210 L22 224 L36 224" />
                     <path d="M178 210 L178 224 L164 224" />
                   </g>
-                  {/* a small mint registration tick at the cheekbone */}
+                  {/* a small ink registration tick at the cheekbone */}
                   <motion.circle
                     cx={150}
                     cy={140}

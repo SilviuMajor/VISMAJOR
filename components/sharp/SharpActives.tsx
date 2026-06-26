@@ -11,7 +11,7 @@ import {
 } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 
-const MINT = "rgba(47,158,134,1)";
+const MINT = "#14130F";
 
 const ACTIVES = [
   {

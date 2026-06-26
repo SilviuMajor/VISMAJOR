@@ -361,7 +361,7 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
               <button
                 onClick={onPreorder}
                 disabled={loading}
-                className="caps flex-1 rounded-sm border border-ink-0 bg-ink-0 px-6 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1 disabled:opacity-50"
+                className="flex-1 rounded-[5px] border border-ink-0 bg-ink-0 px-6 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1 disabled:opacity-50"
               >
                 {loading ? "Opening Checkout…" : `Pre-order — £${total}`}
               </button>
