@@ -75,10 +75,7 @@ export function HowItWorks() {
           </motion.ol>
 
           {/* Action shot */}
-          <div
-            className="relative flex items-center justify-center border bg-paper-2"
-            style={{ borderColor: "var(--hair)" }}
-          >
+          <div className="relative flex items-center justify-center">
             <span className="absolute left-4 top-3 z-10 caps text-[9px] font-medium text-ink-3">
               On Contact
             </span>

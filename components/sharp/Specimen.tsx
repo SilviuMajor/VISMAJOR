@@ -26,25 +26,16 @@ export function Specimen({
   accentIndex?: boolean;
 }) {
   return (
-    <div
-      className={`relative overflow-hidden border bg-paper-2 ${className}`}
-      style={{ borderColor: "var(--hair)" }}
-    >
-      {/* inner keyline frame */}
-      <div
-        className="pointer-events-none absolute inset-3 z-30 border"
-        style={{ borderColor: "var(--hair-strong)" }}
-        aria-hidden
-      />
-      {/* corner read-outs */}
+    <div className={`relative ${className}`}>
+      {/* corner read-outs — annotations, not a frame */}
       <span
-        className="absolute left-5 top-4 z-40 caps text-[9px] font-medium"
+        className="absolute left-0.5 top-0 z-40 caps text-[9px] font-medium"
         style={{ color: accentIndex ? "#14130F" : "var(--ink-3)" }}
       >
         {index}
       </span>
       {label != null && (
-        <span className="absolute right-5 top-4 z-40 caps text-[9px] font-medium text-ink-3">
+        <span className="absolute right-0.5 top-0 z-40 caps text-[9px] font-medium text-ink-3">
           {label}
         </span>
       )}

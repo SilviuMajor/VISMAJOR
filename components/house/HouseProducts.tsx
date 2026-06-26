@@ -100,14 +100,8 @@ export function HouseProducts() {
             >
               <Link
                 href={p.href}
-                className="group relative flex h-full flex-col overflow-hidden border bg-paper-2 p-7 transition-colors"
-                style={{ borderColor: "var(--hair)" }}
+                className="group relative flex h-full flex-col transition-colors"
               >
-                <span
-                  aria-hidden
-                  className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-[0.06]"
-                  style={{ background: p.accentHex }}
-                />
                 <span
                   aria-hidden
                   className="absolute inset-x-0 top-0 h-[3px] origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"
@@ -128,16 +122,8 @@ export function HouseProducts() {
                   </span>
                 </div>
 
-                {/* glyph specimen panel — where photography will later sit */}
-                <div
-                  className="relative mt-6 flex aspect-[5/4] items-center justify-center border bg-paper-1"
-                  style={{ borderColor: "var(--hair)" }}
-                >
-                  <div
-                    className="pointer-events-none absolute inset-2.5 border"
-                    style={{ borderColor: "var(--hair-strong)" }}
-                    aria-hidden
-                  />
+                {/* glyph specimen — where photography will later sit */}
+                <div className="relative mt-6 flex aspect-[5/4] items-center justify-center">
                   <motion.div
                     initial={false}
                     whileHover={reduce ? undefined : { scale: 1.06, rotate: p.slug === "gy-no" ? 30 : 0 }}

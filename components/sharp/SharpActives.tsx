@@ -242,15 +242,7 @@ export function SharpActives() {
 
             {/* Specimen — a diagrammatic plate that swaps per active */}
             <div className="relative order-1 flex justify-center lg:order-2">
-              <div
-                className="relative aspect-[4/5] w-full max-w-[440px] border bg-paper-2"
-                style={{ borderColor: "var(--hair)" }}
-              >
-                <div
-                  className="pointer-events-none absolute inset-3 z-30 border"
-                  style={{ borderColor: "var(--hair-strong)" }}
-                  aria-hidden
-                />
+              <div className="relative aspect-[4/5] w-full max-w-[440px]">
                 <span className="absolute left-5 top-4 z-40 caps text-[9px] font-medium text-ink-3">
                   SHARP / 003
                 </span>

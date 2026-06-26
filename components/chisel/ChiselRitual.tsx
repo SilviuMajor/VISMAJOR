@@ -183,17 +183,7 @@ export function ChiselRitual() {
 
             {/* RIGHT — the transforming specimen panel */}
             <div className="relative order-1 flex justify-center lg:order-2">
-              <div
-                className="relative aspect-[4/5] w-full max-w-[440px] border bg-paper-2"
-                style={{ borderColor: "var(--hair)" }}
-              >
-                {/* inner keyline frame */}
-                <div
-                  className="pointer-events-none absolute inset-3 z-30 border"
-                  style={{ borderColor: "var(--hair-strong)" }}
-                  aria-hidden
-                />
-
+              <div className="relative aspect-[4/5] w-full max-w-[440px]">
                 {/* corner read-outs */}
                 <span className="absolute left-5 top-4 z-40 caps text-[9px] font-medium text-ink-3">
                   SCULPT / 002

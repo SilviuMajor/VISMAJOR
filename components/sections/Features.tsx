@@ -42,8 +42,7 @@ export function Features() {
         <SectionHead n="01" title="One job. Done well." />
 
         <motion.div
-          className="grid grid-cols-1 gap-px overflow-hidden border sm:grid-cols-2 lg:grid-cols-4"
-          style={{ borderColor: "var(--hair)", backgroundColor: "var(--hair)" }}
+          className="grid grid-cols-1 gap-x-12 gap-y-12 sm:grid-cols-2 lg:grid-cols-4"
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-60px" }}
@@ -63,7 +62,7 @@ export function Features() {
                   transition: { duration: 0.45, ease: [0.2, 0, 0, 1] },
                 },
               }}
-              className="group flex flex-col gap-5 bg-paper-0 p-8 lg:p-9"
+              className="group flex flex-col gap-5"
             >
               <f.Icon
                 size={38}

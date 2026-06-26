@@ -69,13 +69,9 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
         <div id="product" className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-14">
           {/* Sticky gallery */}
           <div className="lg:sticky lg:top-24 lg:self-start">
-            <div
-              className="relative flex aspect-square items-center justify-center overflow-hidden border bg-paper-2"
-              style={{ borderColor: "var(--hair)" }}
-            >
-              <div className="absolute inset-4 z-10 border" style={{ borderColor: "var(--hair-strong)" }} aria-hidden />
-              <span className="absolute left-5 top-4 z-20 caps text-[9px] font-medium text-ink-3">GY-NO! / 001</span>
-              <span className="absolute bottom-4 right-5 z-20 caps text-[9px] font-medium text-ink-3">
+            <div className="relative flex aspect-square items-center justify-center">
+              <span className="absolute left-0.5 top-0 z-20 caps text-[9px] font-medium text-ink-3">GY-NO! / 001</span>
+              <span className="absolute bottom-0 right-0.5 z-20 caps text-[9px] font-medium text-ink-3">
                 {GALLERY[shot].label}
               </span>
               <AnimatePresence mode="wait">
@@ -103,14 +99,17 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
                 <button
                   key={g.src}
                   onClick={() => setShot(i)}
-                  className={`relative flex aspect-square items-center justify-center border bg-paper-2 transition-colors ${
-                    i === shot ? "border-ink-0" : "border-[color:var(--hair)] hover:border-[color:var(--hair-strong)]"
+                  className={`relative flex aspect-square items-center justify-center transition-opacity ${
+                    i === shot ? "opacity-100" : "opacity-40 hover:opacity-100"
                   }`}
                   aria-label={`View ${g.label}`}
                 >
-                  <div className="relative h-[72%] w-[72%]">
+                  <div className="relative h-[82%] w-[82%]">
                     <Image src={g.src} alt="" fill sizes="120px" className="object-contain" />
                   </div>
+                  {i === shot && (
+                    <span className="absolute inset-x-3 bottom-0 h-px bg-ink-0" aria-hidden />
+                  )}
                 </button>
               ))}
             </div>
@@ -183,8 +182,10 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
                     <button
                       key={t.key}
                       onClick={() => setTierKey(t.key)}
-                      className={`relative flex items-center justify-between rounded-sm border px-5 py-4 text-left transition-colors ${
-                        selected ? "border-ink-0 bg-ink-0 text-paper-0" : "border-[color:var(--hair-strong)] bg-transparent text-ink-0 hover:border-ink-0"
+                      className={`relative flex items-center justify-between rounded-sm px-5 py-4 text-left transition-colors ${
+                        selected
+                          ? "bg-ink-0 text-paper-0"
+                          : "bg-[rgba(20,19,15,0.03)] text-ink-0 hover:bg-[rgba(20,19,15,0.06)]"
                       }`}
                     >
                       <span className="flex items-center gap-3">

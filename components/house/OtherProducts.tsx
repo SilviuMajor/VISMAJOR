@@ -31,20 +31,13 @@ export function OtherProducts({ current }: { current: ProductSlug }) {
             <Link
               key={p.slug}
               href={p.href}
-              className="group relative block overflow-hidden border bg-paper-2 p-7 transition-colors md:p-9"
+              className="group relative block border-t pt-7 transition-colors"
               style={{ borderColor: "var(--hair)" }}
             >
-              {/* accent wash on hover */}
+              {/* ink rule grows along the top on hover */}
               <span
                 aria-hidden
-                className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-[0.06]"
-                style={{ background: p.accentHex }}
-              />
-              {/* accent top rule */}
-              <span
-                aria-hidden
-                className="absolute inset-x-0 top-0 h-[3px] origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"
-                style={{ background: p.accentHex }}
+                className="absolute inset-x-0 top-0 h-px origin-left scale-x-0 bg-ink-0 transition-transform duration-300 group-hover:scale-x-100"
               />
 
               <div className="relative flex items-start justify-between gap-4">

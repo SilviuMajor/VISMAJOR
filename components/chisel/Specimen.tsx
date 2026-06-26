@@ -1,11 +1,9 @@
 import { ReactNode } from "react";
 
 /**
- * The house "specimen" frame — a bordered card with an inner keyline and
- * corner read-outs, exactly the GY-NO! treatment (StickyArchitecture / StickyBuy
- * / IngredientsV2). Until real SCULPT photography exists, the centre holds
- * line-art or a labelled placeholder. The frame must read as deliberate and
- * premium, never as a broken image.
+ * The house "specimen" — the product floats open on the page, with the small
+ * corner read-outs kept as editorial spec annotations (text-as-frame). No box:
+ * the old bordered card + inner keyline read as templated, so it's gone.
  */
 export function Specimen({
   children,
@@ -24,39 +22,29 @@ export function Specimen({
   bottomRight?: ReactNode;
   className?: string;
   innerClassName?: string;
-  /** Optional aspect ratio, e.g. "4 / 5". When omitted, the panel sizes to content. */
+  /** Optional aspect ratio, e.g. "4 / 5". When omitted, sizes to content. */
   ratio?: string;
 }) {
   return (
-    <div
-      className={`relative overflow-hidden border bg-paper-2 ${className}`}
-      style={{ borderColor: "var(--hair)" }}
-    >
-      {/* inner keyline frame */}
-      <div
-        className="pointer-events-none absolute inset-3 z-30 border"
-        style={{ borderColor: "var(--hair-strong)" }}
-        aria-hidden
-      />
-
-      {/* corner read-outs */}
+    <div className={`relative ${className}`}>
+      {/* corner read-outs — annotations, not a frame */}
       {topLeft && (
-        <span className="absolute left-5 top-4 z-40 caps text-[9px] font-medium text-ink-3">
+        <span className="absolute left-0.5 top-0 z-40 caps text-[9px] font-medium text-ink-3">
           {topLeft}
         </span>
       )}
       {topRight && (
-        <span className="absolute right-5 top-4 z-40 caps text-[9px] font-medium text-ink-3">
+        <span className="absolute right-0.5 top-0 z-40 caps text-[9px] font-medium text-ink-3">
           {topRight}
         </span>
       )}
       {bottomLeft && (
-        <span className="absolute bottom-4 left-5 z-40 caps text-[9px] font-medium text-ink-3">
+        <span className="absolute bottom-0 left-0.5 z-40 caps text-[9px] font-medium text-ink-3">
           {bottomLeft}
         </span>
       )}
       {bottomRight && (
-        <span className="absolute bottom-4 right-5 z-40 caps text-[9px] font-medium text-ink-3">
+        <span className="absolute bottom-0 right-0.5 z-40 caps text-[9px] font-medium text-ink-3">
           {bottomRight}
         </span>
       )}

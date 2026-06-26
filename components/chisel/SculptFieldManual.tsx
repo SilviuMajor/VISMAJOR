@@ -12,24 +12,7 @@ export function SculptFieldManual() {
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[5fr_7fr] lg:gap-16">
           {/* book specimen placeholder (cover art drops in later) */}
           <Reveal>
-            <div
-              className="relative mx-auto aspect-[3/4] w-full max-w-[320px] border bg-paper-2"
-              style={{ borderColor: "var(--hair)" }}
-            >
-              <div
-                className="pointer-events-none absolute inset-3 border"
-                style={{ borderColor: "var(--hair-strong)" }}
-                aria-hidden
-              />
-              <span className="absolute left-5 top-4 caps text-[9px] font-medium text-ink-3">
-                VIS MAJOR
-              </span>
-              <span
-                className="absolute right-5 top-4 caps text-[9px] font-medium"
-                style={{ color: "#14130F" }}
-              >
-                Included
-              </span>
+            <div className="relative mx-auto aspect-[3/4] w-full max-w-[320px]">
               <div className="flex h-full flex-col items-center justify-center px-8 text-center">
                 <span className="caps-loose text-[10px] font-semibold text-ink-3">The</span>
                 <span
@@ -74,13 +57,12 @@ export function SculptFieldManual() {
               </p>
             </Reveal>
             <Reveal delay={0.08}>
-              <div className="mt-7 flex flex-wrap gap-2">
+              <div className="mt-7 flex flex-wrap gap-x-5 gap-y-2.5">
                 {["Printed & illustrated", "Step-by-step", "By hand or with tools", "Included free"].map(
                   (b) => (
                     <span
                       key={b}
-                      className="caps inline-flex items-center gap-2 rounded-xs border px-3 py-2 text-[10.5px] font-semibold text-ink-0"
-                      style={{ borderColor: "var(--hair-strong)" }}
+                      className="caps inline-flex items-center gap-2 text-[10.5px] font-semibold text-ink-0"
                     >
                       <span className="h-1 w-1 rounded-full" style={{ background: "#14130F" }} />
                       {b}

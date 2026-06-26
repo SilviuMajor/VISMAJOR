@@ -140,15 +140,14 @@ export function SharpFaq({ shipMonth }: { shipMonth: string }) {
                 actually ask about a daily matte moisturiser.
               </p>
 
-              {/* contact card — hairline, not shadow */}
+              {/* contact — a clean inline row, no box */}
               <a
                 href="mailto:hello@vismajor.co.uk"
-                className="group mt-8 flex items-center justify-between gap-4 rounded-sm border bg-paper-0 px-5 py-4 transition-colors duration-200 hover:bg-paper-2"
-                style={{ borderColor: "var(--hair-strong)" }}
+                className="group mt-8 inline-flex items-center gap-3"
               >
                 <span className="flex flex-col">
                   <span className="caps text-[10px] font-semibold text-ink-3">Still wondering</span>
-                  <span className="mt-1 text-[15px] font-semibold text-ink-0">hello@vismajor.co.uk</span>
+                  <span className="mt-1 text-[15px] font-semibold text-ink-0 underline-offset-4 group-hover:underline">hello@vismajor.co.uk</span>
                 </span>
                 <span
                   aria-hidden

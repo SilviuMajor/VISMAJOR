@@ -165,35 +165,7 @@ export function StickyArchitecture() {
 
             {/* Pinned product — the transforming specimen panel */}
             <div className="relative order-1 flex justify-center lg:order-2">
-              <div
-                className="relative mx-auto aspect-[4/5] w-full max-w-[256px] border bg-paper-2 sm:max-w-[320px] lg:max-w-[420px]"
-                style={{ borderColor: "var(--hair)" }}
-              >
-                {/* inner keyline */}
-                <div
-                  className="pointer-events-none absolute inset-3 z-30 border"
-                  style={{ borderColor: "var(--hair-strong)" }}
-                  aria-hidden
-                />
-                {/* corner read-outs */}
-                <span className="absolute left-5 top-4 z-40 caps text-[9px] font-medium text-ink-3">
-                  GY-NO! / 001
-                </span>
-                <div className="absolute right-5 top-4 z-40 h-4 overflow-hidden">
-                  <AnimatePresence mode="wait">
-                    <motion.span
-                      key={ACTIVES[active].cue}
-                      initial={{ opacity: 0, y: 6 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -6 }}
-                      transition={{ duration: 0.3 }}
-                      className="caps block text-[9px] font-medium text-ink-2"
-                    >
-                      {ACTIVES[active].cue}
-                    </motion.span>
-                  </AnimatePresence>
-                </div>
-
+              <div className="relative mx-auto aspect-[4/5] w-full max-w-[256px] sm:max-w-[320px] lg:max-w-[420px]">
                 {/* phase 2 — soft cold wash */}
                 <motion.div
                   aria-hidden

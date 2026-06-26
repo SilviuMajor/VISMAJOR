@@ -62,20 +62,9 @@ export function IngredientsV2() {
           {/* ── Reverse-label specimen ───────────────────────── */}
           <Reveal>
             <div className="lg:sticky lg:top-10">
-              <div
-                className="relative overflow-hidden border bg-paper-2"
-                style={{ borderColor: "var(--hair)" }}
-              >
-                <div
-                  className="pointer-events-none absolute inset-4 z-10 border"
-                  style={{ borderColor: "var(--hair-strong)" }}
-                  aria-hidden
-                />
+              <div className="relative">
                 <span className="absolute left-5 top-4 z-20 caps text-[9px] font-medium text-ink-3">
                   Reverse Panel
-                </span>
-                <span className="absolute right-5 top-4 z-20 caps text-[9px] font-medium text-ink-3">
-                  20ml ℮
                 </span>
                 <div className="relative aspect-[1122/1402]">
                   <Image
@@ -137,13 +126,7 @@ export function IngredientsV2() {
                     Hover to trace
                   </span>
                 </div>
-                <div
-                  className="mt-4 grid grid-cols-1 gap-px overflow-hidden border sm:grid-cols-3"
-                  style={{
-                    borderColor: "var(--hair)",
-                    backgroundColor: "var(--hair)",
-                  }}
-                >
+                <div className="mt-4 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-3">
                   {ACTIVES.map((a) => {
                     const isOn = hover === a.inci;
                     return (
@@ -151,10 +134,7 @@ export function IngredientsV2() {
                         key={a.name}
                         onMouseEnter={() => setHover(a.inci)}
                         onMouseLeave={() => setHover(null)}
-                        className="group relative flex flex-col gap-3 bg-paper-2 p-5 transition-colors duration-200 md:p-6"
-                        style={{
-                          backgroundColor: isOn ? "var(--paper-1)" : undefined,
-                        }}
+                        className="group relative flex flex-col gap-3 transition-colors duration-200"
                       >
                         <div className="flex items-center justify-between">
                           <span className="caps text-[10px] font-semibold text-ink-3">
@@ -228,12 +208,11 @@ export function IngredientsV2() {
 
             {/* Badges */}
             <Reveal delay={0.1}>
-              <div className="mt-7 flex flex-wrap gap-2">
+              <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3">
                 {BADGES.map((b) => (
                   <span
                     key={b}
-                    className="caps inline-flex items-center gap-2 rounded-xs border px-3 py-2 text-[10.5px] font-semibold text-ink-0"
-                    style={{ borderColor: "var(--hair-strong)" }}
+                    className="caps inline-flex items-center gap-2 text-[10.5px] font-semibold text-ink-0"
                   >
                     <span className="h-1 w-1 rounded-full bg-ink-0" />
                     {b}

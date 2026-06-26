@@ -178,21 +178,10 @@ export function SharpHero({ shipMonth }: { shipMonth: string }) {
                   transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut" }}
                   className="relative"
                 >
-                  {/* the photo-free specimen card */}
-                  <div
-                    className="relative h-[42vh] w-[210px] border bg-paper-2 md:h-[50vh] md:w-[268px]"
-                    style={{ borderColor: "var(--hair)" }}
-                  >
-                    <div
-                      className="pointer-events-none absolute inset-3 z-30 border"
-                      style={{ borderColor: "var(--hair-strong)" }}
-                      aria-hidden
-                    />
+                  {/* the photo-free specimen plate — open, no frame */}
+                  <div className="relative h-[42vh] w-[210px] md:h-[50vh] md:w-[268px]">
                     <span className="absolute left-4 top-3 z-40 caps text-[9px] font-medium text-ink-3">
                       SHARP / 003
-                    </span>
-                    <span className="absolute right-4 top-3 z-40 caps text-[9px] font-medium text-ink-3">
-                      Specimen
                     </span>
 
                     {/* a single faint ink floor-glow — purely structural depth */}

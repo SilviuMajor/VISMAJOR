@@ -43,11 +43,11 @@ export function SculptTools() {
           </p>
         </Reveal>
 
-        <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6">
+        <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-14">
           {TOOLS.map((t, i) => (
             <Reveal key={t.t} delay={i * 0.06}>
               <div
-                className="flex h-full flex-col border bg-paper-2 p-7"
+                className="flex h-full flex-col border-t pt-7"
                 style={{ borderColor: "var(--hair)" }}
               >
                 <div className="flex items-center justify-between">

@@ -207,14 +207,15 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
                   <button
                     key={t.key}
                     onClick={() => setTierKey(t.key)}
-                    className={`flex aspect-square items-center justify-center border bg-paper-2 p-2 transition-colors ${
-                      on ? "border-ink-0" : "border-[color:var(--hair)] hover:border-[color:var(--hair-strong)]"
+                    className={`relative flex aspect-square items-center justify-center p-2 transition-opacity ${
+                      on ? "opacity-100" : "opacity-40 hover:opacity-100"
                     }`}
                     aria-label={`Select ${t.label}`}
                   >
                     <span className="pointer-events-none scale-[0.5]">
                       <SpecimenContents contents={t.contents} />
                     </span>
+                    {on && <span className="absolute inset-x-3 bottom-0 h-px bg-ink-0" aria-hidden />}
                   </button>
                 );
               })}
@@ -300,10 +301,10 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
                     <button
                       key={t.key}
                       onClick={() => setTierKey(t.key)}
-                      className={`relative flex items-center justify-between rounded-sm border px-5 py-4 text-left transition-colors ${
+                      className={`relative flex items-center justify-between rounded-sm px-5 py-4 text-left transition-colors ${
                         selected
-                          ? "border-ink-0 bg-ink-0 text-paper-0"
-                          : "border-[color:var(--hair-strong)] bg-transparent text-ink-0 hover:border-ink-0"
+                          ? "bg-ink-0 text-paper-0"
+                          : "bg-[rgba(20,19,15,0.03)] text-ink-0 hover:bg-[rgba(20,19,15,0.06)]"
                       }`}
                     >
                       <span className="flex flex-wrap items-center gap-x-3 gap-y-1.5">

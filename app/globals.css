@@ -3,9 +3,11 @@
 @tailwind utilities;
 
 :root {
-  /* Paper / surfaces — WHITE theme (default) */
+  /* Paper / surfaces — WHITE theme (default).
+     No cream: all light surfaces are pure white. Section rhythm comes from
+     the dark ink bands + whitespace, not from tinted panels. */
   --paper-0: #FFFFFF;   /* page background */
-  --paper-1: #F2F2F0;   /* raised band (stats / faq / house / closing) */
+  --paper-1: #FFFFFF;   /* (was cream) raised bands now read white */
   --paper-2: #FFFFFF;   /* product specimen panel */
   /* Ink */
   --ink-0: #14130F;
