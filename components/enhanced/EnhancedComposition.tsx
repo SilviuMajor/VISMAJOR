@@ -10,7 +10,6 @@ import { EnhancedHero } from "@/components/enhanced/EnhancedHero";
 import { StickyArchitecture } from "@/components/enhanced/StickyArchitecture";
 import { OneJob } from "@/components/enhanced/OneJob";
 import { HorizontalUseBefore } from "@/components/enhanced/HorizontalUseBefore";
-import { HeritageBanner } from "@/components/enhanced/HeritageBanner";
 import { StickyBuy } from "@/components/enhanced/StickyBuy";
 import { NotifyBand } from "@/components/enhanced/NotifyBand";
 import { FinalCta } from "@/components/enhanced/FinalCta";
@@ -49,7 +48,6 @@ export function EnhancedComposition() {
         <FaqV2 shipMonth={shipMonth} />
         <FinalCta shipMonth={shipMonth} />
         <NotifyBand />
-        <HeritageBanner />
         <OtherProducts current="gy-no" />
       </main>
       <Footer />

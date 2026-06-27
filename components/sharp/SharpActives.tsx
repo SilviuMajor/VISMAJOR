@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRef, useState } from "react";
 import {
   AnimatePresence,
@@ -156,20 +157,23 @@ export function SharpActives() {
   return (
     <section id="science" ref={ref} className="relative h-[320vh] bg-paper-1">
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-        {/* faint oversized facet motif presiding behind the panel */}
+        {/* a faint classical figure presiding behind the panel — soft multiply
+            on white, matching the GY-NO! Architecture treatment */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-y-0 right-[-8%] z-0 hidden w-[46vw] items-center sm:flex lg:w-[40vw]"
+          className="pointer-events-none absolute inset-y-0 right-[-6%] z-0 hidden w-[44vw] sm:block lg:w-[38vw]"
         >
-          <svg viewBox="0 0 400 600" className="h-full w-full opacity-[0.5]" preserveAspectRatio="xMidYMid meet">
-            <g stroke="var(--ink-3)" strokeWidth={0.6} fill="none" opacity={0.5}>
-              {/* a large drafting facet — the "sharp" geometry */}
-              <path d="M120 80 L300 140 L300 420 L160 520 L120 360 Z" />
-              <path d="M120 80 L160 220 L300 140" />
-              <path d="M160 220 L160 520" />
-              <path d="M160 220 L300 420" />
-            </g>
-          </svg>
+          <Image
+            src="/figures/gyno.png"
+            alt=""
+            fill
+            sizes="44vw"
+            className="object-contain object-bottom opacity-[0.45] mix-blend-multiply"
+            style={{
+              maskImage: "linear-gradient(to right, transparent, black 42%)",
+              WebkitMaskImage: "linear-gradient(to right, transparent, black 42%)",
+            }}
+          />
         </div>
 
         <Container className="relative z-10 w-full">
