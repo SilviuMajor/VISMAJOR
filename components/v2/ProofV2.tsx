@@ -65,14 +65,14 @@ function RecentlyReserved() {
     <div className="flex items-center gap-3">
       <span className="relative flex h-1.5 w-1.5">
         {!reduce && (
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ink-2 opacity-60" />
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-paper-0/60 opacity-60" />
         )}
-        <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-ink-1" />
+        <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-paper-0" />
       </span>
-      <span className="caps text-[10px] font-semibold text-ink-3">
+      <span className="caps text-[10px] font-semibold text-paper-0/45">
         Recently reserved
       </span>
-      <span className="h-3 w-px bg-[var(--hair-strong)]" aria-hidden />
+      <span className="h-3 w-px bg-[rgba(244,242,236,0.28)]" aria-hidden />
       <span className="relative h-[14px] min-w-[150px] overflow-hidden" aria-live="polite">
         <AnimatePresence mode="wait" initial={false}>
           <motion.span
@@ -81,7 +81,7 @@ function RecentlyReserved() {
             animate={{ y: 0, opacity: 1 }}
             exit={reduce ? { opacity: 0 } : { y: -12, opacity: 0 }}
             transition={{ duration: 0.34, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute inset-0 caps text-[10px] font-semibold text-ink-1"
+            className="absolute inset-0 caps text-[10px] font-semibold text-paper-0/85"
           >
             {person.in} · {person.city}
           </motion.span>
@@ -102,7 +102,7 @@ function AllocationMeter() {
           <motion.span
             key={idx}
             className="h-7 flex-1 rounded-xs"
-            style={{ background: filled ? "var(--ink-0)" : "var(--hair)" }}
+            style={{ background: filled ? "var(--paper-0)" : "rgba(244,242,236,0.18)" }}
             initial={reduce ? false : { opacity: 0, scaleY: 0.4 }}
             whileInView={{ opacity: 1, scaleY: 1 }}
             viewport={{ once: true, margin: "-40px" }}
@@ -124,14 +124,14 @@ export function ProofV2() {
 
   return (
     <section
-      className="overflow-hidden border-y bg-paper-1 py-16 md:py-24"
-      style={{ borderColor: "var(--hair)" }}
+      className="overflow-hidden border-y bg-ink-0 py-16 md:py-24"
+      style={{ borderColor: "rgba(244,242,236,0.14)" }}
     >
       <Container>
         {/* ── Masthead ─────────────────────────────────────────── */}
         <Reveal>
           <div className="flex items-center justify-between gap-4">
-            <span className="caps-loose text-[11px] font-semibold text-ink-2">
+            <span className="caps-loose text-[11px] font-semibold text-paper-0/65">
               The First-Batch List
             </span>
             <RecentlyReserved />
@@ -142,12 +142,12 @@ export function ProofV2() {
         <Reveal delay={0.05}>
           <div
             className="mt-7 grid grid-cols-1 items-end gap-x-10 gap-y-9 border-t pt-8 md:grid-cols-[auto_1fr]"
-            style={{ borderColor: "var(--hair-strong)" }}
+            style={{ borderColor: "rgba(244,242,236,0.28)" }}
           >
             <div>
               <div className="flex items-start gap-3">
                 <span
-                  className="font-extrabold text-ink-0"
+                  className="font-extrabold text-paper-0"
                   style={{
                     fontSize: "clamp(72px, 11vw, 150px)",
                     letterSpacing: "-0.045em",
@@ -156,7 +156,7 @@ export function ProofV2() {
                 >
                   <Counter value={2000} />+
                 </span>
-                <span className="caps mt-2 text-[12px] font-semibold leading-tight text-ink-2">
+                <span className="caps mt-2 text-[12px] font-semibold leading-tight text-paper-0/65">
                   men
                   <br />
                   reserved
@@ -164,7 +164,7 @@ export function ProofV2() {
               </div>
             </div>
 
-            <p className="max-w-sm pb-1 text-[16.5px] leading-[1.6] text-ink-2 md:justify-self-end">
+            <p className="max-w-sm pb-1 text-[16.5px] leading-[1.6] text-paper-0/65 md:justify-self-end">
               Pre-order locks the early-bird price and your place in the queue.
               The first production run is limited.
             </p>
@@ -175,27 +175,27 @@ export function ProofV2() {
         <Reveal delay={0.05}>
           <div className="mt-14">
             <div className="flex items-end justify-between">
-              <span className="caps text-[11px] font-semibold text-ink-1">
+              <span className="caps text-[11px] font-semibold text-paper-0/85">
                 First batch · early-bird allocation
               </span>
               <span className="flex items-baseline gap-2">
                 <span
-                  className="font-extrabold text-ink-0"
+                  className="font-extrabold text-paper-0"
                   style={{ fontSize: "clamp(20px, 2.4vw, 28px)", letterSpacing: "-0.03em" }}
                 >
                   <Counter value={RESERVED_PCT} />%
                 </span>
-                <span className="caps text-[10.5px] font-semibold text-ink-2">reserved</span>
+                <span className="caps text-[10.5px] font-semibold text-paper-0/65">reserved</span>
               </span>
             </div>
             <div className="mt-4">
               <AllocationMeter />
             </div>
             <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
-              <span className="caps text-[10.5px] font-medium text-ink-2">
+              <span className="caps text-[10.5px] font-medium text-paper-0/65">
                 Limited early-bird units left at £24
               </span>
-              <span className="caps text-[10.5px] font-medium text-ink-3">
+              <span className="caps text-[10.5px] font-medium text-paper-0/45">
                 RRP £32 once it ships
               </span>
             </div>
@@ -206,14 +206,14 @@ export function ProofV2() {
         <Reveal delay={0.05}>
           <div
             className="relative mt-14 overflow-hidden border-y py-1"
-            style={{ borderColor: "var(--hair)" }}
+            style={{ borderColor: "rgba(244,242,236,0.12)" }}
           >
             {/* edge fades */}
             <div
               className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 md:w-28"
               style={{
                 background:
-                  "linear-gradient(to right, var(--paper-1), transparent)",
+                  "linear-gradient(to right, var(--ink-0), transparent)",
               }}
               aria-hidden
             />
@@ -221,7 +221,7 @@ export function ProofV2() {
               className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 md:w-28"
               style={{
                 background:
-                  "linear-gradient(to left, var(--paper-1), transparent)",
+                  "linear-gradient(to left, var(--ink-0), transparent)",
               }}
               aria-hidden
             />
@@ -232,14 +232,14 @@ export function ProofV2() {
                     <figure
                       key={group + "-" + i}
                       className="flex w-[78vw] max-w-[460px] shrink-0 flex-col justify-between gap-6 border-r px-7 py-8 md:w-[440px] md:px-9 md:py-9"
-                      style={{ borderColor: "var(--hair)" }}
+                      style={{ borderColor: "rgba(244,242,236,0.12)" }}
                     >
-                      <blockquote className="text-[17.5px] leading-[1.55] text-ink-0">
-                        <span className="mr-1 text-ink-3">&ldquo;</span>
+                      <blockquote className="text-[17.5px] leading-[1.55] text-paper-0">
+                        <span className="mr-1 text-paper-0/45">&ldquo;</span>
                         {qt.q}
-                        <span className="ml-0.5 text-ink-3">&rdquo;</span>
+                        <span className="ml-0.5 text-paper-0/45">&rdquo;</span>
                       </blockquote>
-                      <figcaption className="caps text-[10.5px] font-semibold text-ink-3">
+                      <figcaption className="caps text-[10.5px] font-semibold text-paper-0/45">
                         {qt.a}
                       </figcaption>
                     </figure>
@@ -256,16 +256,16 @@ export function ProofV2() {
             {TRUST.map((t) => (
               <li
                 key={t}
-                className="caps inline-flex items-center gap-2 text-[10px] font-semibold text-ink-2"
+                className="caps inline-flex items-center gap-2 text-[10px] font-semibold text-paper-0/65"
               >
-                <span className="inline-block h-1 w-1 rounded-full bg-ink-3" />
+                <span className="inline-block h-1 w-1 rounded-full bg-paper-0/45" />
                 {t}
               </li>
             ))}
           </ul>
         </Reveal>
 
-        <p className="mt-6 caps text-[10px] font-medium text-ink-3">
+        <p className="mt-6 caps text-[10px] font-medium text-paper-0/45">
           Illustrative pre-launch figures &amp; early feedback · describes feel
           &amp; finish only
         </p>
