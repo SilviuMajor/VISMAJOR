@@ -72,7 +72,7 @@ function RecentlyReserved() {
         )}
         <span className="relative inline-flex h-1.5 w-1.5 rounded-full" style={{ background: MINT }} />
       </span>
-      <span className="caps text-[10px] font-semibold text-paper-0/45">Recently reserved</span>
+      <span className="caps text-[10px] font-semibold text-paper-0">Recently reserved</span>
       <span className="h-3 w-px bg-[rgba(244,242,236,0.28)]" aria-hidden />
       <span className="relative h-[14px] min-w-[150px] overflow-hidden" aria-live="polite">
         <AnimatePresence mode="wait" initial={false}>
@@ -82,7 +82,7 @@ function RecentlyReserved() {
             animate={{ y: 0, opacity: 1 }}
             exit={reduce ? { opacity: 0 } : { y: -12, opacity: 0 }}
             transition={{ duration: 0.34, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute inset-0 caps text-[10px] font-semibold text-paper-0/85"
+            className="absolute inset-0 caps text-[10px] font-semibold text-paper-0"
           >
             {person.in} · {person.city}
           </motion.span>
@@ -131,7 +131,7 @@ export function SharpProof() {
         {/* Masthead */}
         <Reveal>
           <div className="flex items-center justify-between gap-4">
-            <span className="caps-loose text-[11px] font-semibold text-paper-0/65">
+            <span className="caps-loose text-[11px] font-semibold text-paper-0">
               The First-Batch List
             </span>
             <RecentlyReserved />
@@ -145,7 +145,7 @@ export function SharpProof() {
             style={{ borderColor: "rgba(244,242,236,0.28)" }}
           >
             <div>
-              <div className="flex items-start gap-3">
+              <div className="flex items-end gap-3 md:gap-4">
                 <span
                   className="font-extrabold text-paper-0"
                   style={{
@@ -156,18 +156,25 @@ export function SharpProof() {
                 >
                   <Counter value={1400} />+
                 </span>
-                <span className="caps mt-2 text-[12px] font-semibold leading-tight text-paper-0/65">
-                  on the
+                <span
+                  className="font-extrabold uppercase text-paper-0"
+                  style={{
+                    fontSize: "clamp(22px, 3.1vw, 48px)",
+                    letterSpacing: "-0.01em",
+                    lineHeight: 0.9,
+                  }}
+                >
+                  Pre-
                   <br />
-                  list
+                  orders
                 </span>
               </div>
-              <p className="mt-4 caps text-[11px] font-semibold text-paper-0/85">
+              <p className="mt-4 caps text-[11px] font-semibold text-paper-0">
                 The one they reach for at 7am.
               </p>
             </div>
 
-            <p className="max-w-sm pb-1 text-[16.5px] leading-[1.6] text-paper-0/65 md:justify-self-end">
+            <p className="max-w-sm pb-1 text-[16.5px] leading-[1.6] text-paper-0 md:justify-self-end">
               SHARP is built to be a habit, not an occasion. Pre-order locks the
               early-bird price and your place in the first run.
             </p>
@@ -178,7 +185,7 @@ export function SharpProof() {
         <Reveal delay={0.05}>
           <div className="mt-14">
             <div className="flex items-end justify-between">
-              <span className="caps text-[11px] font-semibold text-paper-0/85">
+              <span className="caps text-[11px] font-semibold text-paper-0">
                 First batch · early-bird allocation
               </span>
               <span className="flex items-baseline gap-2">
@@ -188,17 +195,17 @@ export function SharpProof() {
                 >
                   <Counter value={RESERVED_PCT} />%
                 </span>
-                <span className="caps text-[10.5px] font-semibold text-paper-0/65">reserved</span>
+                <span className="caps text-[10.5px] font-semibold text-paper-0">reserved</span>
               </span>
             </div>
             <div className="mt-4">
               <AllocationMeter />
             </div>
             <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
-              <span className="caps text-[10.5px] font-medium text-paper-0/65">
+              <span className="caps text-[10.5px] font-medium text-paper-0">
                 Limited early-bird units left at £22
               </span>
-              <span className="caps text-[10.5px] font-medium text-paper-0/45">
+              <span className="caps text-[10.5px] font-medium text-paper-0">
                 RRP £30 once it ships
               </span>
             </div>
@@ -231,11 +238,11 @@ export function SharpProof() {
                       style={{ borderColor: "rgba(244,242,236,0.12)" }}
                     >
                       <blockquote className="text-[17.5px] leading-[1.55] text-paper-0">
-                        <span className="mr-1 text-paper-0/45">&ldquo;</span>
+                        <span className="mr-1 text-paper-0">&ldquo;</span>
                         {qt.q}
-                        <span className="ml-0.5 text-paper-0/45">&rdquo;</span>
+                        <span className="ml-0.5 text-paper-0">&rdquo;</span>
                       </blockquote>
-                      <figcaption className="caps text-[10.5px] font-semibold text-paper-0/45">
+                      <figcaption className="caps text-[10.5px] font-semibold text-paper-0">
                         {qt.a}
                       </figcaption>
                     </figure>
@@ -252,7 +259,7 @@ export function SharpProof() {
             {TRUST.map((t) => (
               <li
                 key={t}
-                className="caps inline-flex items-center gap-2 text-[10px] font-semibold text-paper-0/65"
+                className="caps inline-flex items-center gap-2 text-[10px] font-semibold text-paper-0"
               >
                 <span className="inline-block h-1 w-1 rounded-full bg-paper-0/45" />
                 {t}
@@ -261,7 +268,7 @@ export function SharpProof() {
           </ul>
         </Reveal>
 
-        <p className="mt-6 caps text-[10px] font-medium text-paper-0/45">
+        <p className="mt-6 caps text-[10px] font-medium text-paper-0">
           Illustrative pre-launch figures &amp; early feedback · describes feel
           &amp; finish only
         </p>
