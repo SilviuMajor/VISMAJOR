@@ -80,13 +80,13 @@ export function EnhancedHero({ shipMonth }: { shipMonth: string }) {
   // ---- cursor parallax ----
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
-  const sx = useSpring(mx, { stiffness: 50, damping: 18, mass: 0.5 });
-  const sy = useSpring(my, { stiffness: 50, damping: 18, mass: 0.5 });
-  const tubeX = useTransform(sx, [-0.5, 0.5], reduce ? [0, 0] : [-18, 18]);
-  const tubeCurY = useTransform(sy, [-0.5, 0.5], reduce ? [0, 0] : [-13, 13]);
-  const tubeRot = useTransform(sx, [-0.5, 0.5], reduce ? [0, 0] : [-5, 5]);
-  const wordPX = useTransform(sx, [-0.5, 0.5], reduce ? [0, 0] : [9, -9]);
-  const glowX = useTransform(sx, [-0.5, 0.5], reduce ? [0, 0] : [14, -14]);
+  const sx = useSpring(mx, { stiffness: 60, damping: 16, mass: 0.5 });
+  const sy = useSpring(my, { stiffness: 60, damping: 16, mass: 0.5 });
+  const tubeX = useTransform(sx, [-0.5, 0.5], reduce ? [0, 0] : [-46, 46]);
+  const tubeCurY = useTransform(sy, [-0.5, 0.5], reduce ? [0, 0] : [-32, 32]);
+  const tubeRot = useTransform(sx, [-0.5, 0.5], reduce ? [0, 0] : [-10, 10]);
+  const wordPX = useTransform(sx, [-0.5, 0.5], reduce ? [0, 0] : [16, -16]);
+  const glowX = useTransform(sx, [-0.5, 0.5], reduce ? [0, 0] : [24, -24]);
 
   const onMove = (e: React.MouseEvent) => {
     const r = ref.current?.getBoundingClientRect();

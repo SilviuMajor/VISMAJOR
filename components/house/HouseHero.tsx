@@ -1,11 +1,13 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, type MouseEvent } from "react";
 import Image from "next/image";
 import {
   motion,
+  useMotionValue,
   useReducedMotion,
   useScroll,
+  useSpring,
   useTransform,
   type Variants,
 } from "framer-motion";
@@ -25,6 +27,25 @@ export function HouseHero() {
   const templeY = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [0, -60]);
   const templeFade = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
+  // cursor parallax — the flagship tube tracks the mouse across the landing
+  const mx = useMotionValue(0);
+  const my = useMotionValue(0);
+  const sx = useSpring(mx, { stiffness: 60, damping: 16, mass: 0.5 });
+  const sy = useSpring(my, { stiffness: 60, damping: 16, mass: 0.5 });
+  const tubeX = useTransform(sx, [-0.5, 0.5], reduce ? [0, 0] : [-44, 44]);
+  const tubeY = useTransform(sy, [-0.5, 0.5], reduce ? [0, 0] : [-28, 28]);
+  const tubeRot = useTransform(sx, [-0.5, 0.5], reduce ? [0, 0] : [-9, 9]);
+  const onMove = (e: MouseEvent) => {
+    const r = ref.current?.getBoundingClientRect();
+    if (!r) return;
+    mx.set((e.clientX - r.left) / r.width - 0.5);
+    my.set((e.clientY - r.top) / r.height - 0.5);
+  };
+  const onLeave = () => {
+    mx.set(0);
+    my.set(0);
+  };
+
   const lines: Variants = {
     hidden: {},
     show: { transition: { staggerChildren: reduce ? 0 : 0.08, delayChildren: 0.12 } },
@@ -39,6 +60,8 @@ export function HouseHero() {
     <section
       ref={ref}
       id="top"
+      onMouseMove={onMove}
+      onMouseLeave={onLeave}
       className="relative flex min-h-[calc(100svh-104px)] flex-col items-center justify-center overflow-hidden py-16"
     >
       {/* the house — a subtle classical temple behind the mark.
@@ -153,19 +176,21 @@ export function HouseHero() {
             className="absolute left-1/2 top-1/2 -z-10 h-[58%] w-[78%] -translate-x-1/2 -translate-y-1/2 rounded-full blur-2xl"
             style={{ background: "radial-gradient(circle, rgba(20,19,15,0.05), transparent 70%)" }}
           />
-          <motion.div
-            animate={reduce ? {} : { y: [0, -9, 0] }}
-            transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut" }}
-            className="relative h-[24vh] min-h-[150px] w-[150px] md:w-[180px]"
-          >
-            <Image
-              src="/product/front.png"
-              alt="GY-NO! — a VIS MAJOR topical"
-              fill
-              priority
-              sizes="200px"
-              className="object-contain drop-shadow-[0_28px_46px_rgba(20,19,15,0.16)]"
-            />
+          <motion.div style={{ x: tubeX, y: tubeY, rotate: tubeRot }}>
+            <motion.div
+              animate={reduce ? {} : { y: [0, -9, 0] }}
+              transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut" }}
+              className="relative h-[24vh] min-h-[150px] w-[150px] md:w-[180px]"
+            >
+              <Image
+                src="/product/front.png"
+                alt="GY-NO! — a VIS MAJOR topical"
+                fill
+                priority
+                sizes="200px"
+                className="object-contain drop-shadow-[0_28px_46px_rgba(20,19,15,0.16)]"
+              />
+            </motion.div>
           </motion.div>
           <span className="mt-4 block caps text-[10px] font-medium text-ink-3">
             GY-NO! — the flagship

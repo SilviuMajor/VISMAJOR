@@ -35,7 +35,7 @@ const ACTIVES = [
   },
 ];
 
-const STEEL = "#14130F"; // mono — accent retired
+const STEEL = "#5FB0E0"; // cooling — light blue (sanctioned effect colour)
 
 // Scattered snowflakes across the specimen panel (viewBox 200 × 250).
 const FLAKES = [
@@ -174,7 +174,7 @@ export function StickyArchitecture() {
                 >
                   <div
                     className="absolute left-1/2 top-1/2 h-[130%] w-[130%] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
-                    style={{ background: "radial-gradient(circle, rgba(20,19,15,0.05), transparent 64%)" }}
+                    style={{ background: "radial-gradient(circle, rgba(95,176,224,0.55), transparent 64%)" }}
                   />
                 </motion.div>
 
@@ -211,7 +211,7 @@ export function StickyArchitecture() {
                   style={{ opacity: reduce ? 0 : snowOpacity, rotate: snowRot }}
                   preserveAspectRatio="xMidYMid meet"
                 >
-                  <g stroke={STEEL} strokeWidth={1.1} fill="none" strokeLinecap="round">
+                  <g stroke={STEEL} strokeWidth={1.5} fill="none" strokeLinecap="round">
                     {FLAKES.map((f, i) => (
                       <Flake key={i} i={i} prog={snowDraw} x={f.x} y={f.y} s={f.s} />
                     ))}
@@ -262,17 +262,17 @@ export function StickyArchitecture() {
 }
 
 /* Forked lightning that strikes over the tube during the Caffeine phase —
-   strictly mono: ink bolts with a faint ink glow on the white panel.
-   Steady (no flicker) when reduced. */
-const AMBER = "#14130F";
-const VOLT = "#14130F";
-const CORE = "#14130F";
+   electric yellow bolts (amber glow, pale-hot core) on the white panel.
+   Strikes often so it's caught even on a quick scroll. Steady when reduced. */
+const AMBER = "#F59E0B"; // amber glow
+const VOLT = "#FFC61A"; // electric yellow bolt
+const CORE = "#FFF6D6"; // pale-hot core
 const STRIKE_TIMES = [0, 0.04, 0.1, 0.18, 0.3, 1];
 
 const STRIKES = [
   {
-    delay: 0.1,
-    period: 2.1,
+    delay: 0.0,
+    period: 1.3,
     paths: [
       "M101 6 L94 34 L112 56 L97 88 L118 116 L101 150 L114 186 L99 236",
       "M118 116 L140 134 L131 160",
@@ -280,21 +280,46 @@ const STRIKES = [
     ],
   },
   {
-    delay: 0.9,
-    period: 2.5,
+    delay: 0.4,
+    period: 1.5,
     paths: ["M154 26 L139 58 L160 84 L144 118 L159 150", "M160 84 L178 92"],
   },
   {
-    delay: 1.7,
-    period: 2.3,
+    delay: 0.8,
+    period: 1.4,
     paths: ["M48 30 L63 60 L47 88 L66 116 L52 146", "M47 88 L30 98"],
+  },
+  {
+    delay: 1.15,
+    period: 1.6,
+    paths: ["M132 12 L141 42 L124 66 L143 96 L129 128", "M124 66 L108 76"],
   },
 ];
 
 function Lightning({ reduce }: { reduce: boolean | null }) {
   return (
     <>
-      {/* storm flash removed — strictly mono ink bolts on the white panel */}
+      {/* storm flash — a faint yellow panel pulse synced to the strikes, so
+          the lightning lands even on a quick first scroll-through */}
+      {!reduce && (
+        <motion.div
+          aria-hidden
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(circle at 50% 40%, rgba(255,198,26,0.30), transparent 72%)",
+          }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0, 0.95, 0.15, 0.75, 0] }}
+          transition={{
+            duration: 0.5,
+            times: [0, 0.05, 0.13, 0.22, 1],
+            repeat: Infinity,
+            repeatDelay: 0.85,
+            ease: "easeOut",
+          }}
+        />
+      )}
       <svg
         viewBox="0 0 200 250"
         preserveAspectRatio="xMidYMid meet"
