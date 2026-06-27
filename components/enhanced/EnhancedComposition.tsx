@@ -40,8 +40,8 @@ export function EnhancedComposition() {
         <ProductQuote latin="Mens sana in corpore sano" translation="a sound mind in a sound body." />
         <Ticker />
         <StickyArchitecture />
-        <OneJob />
         <HorizontalUseBefore />
+        <OneJob />
         <ProofV2 />
         <StickyBuy shipMonth={shipMonth} />
         <IsIsnt />
