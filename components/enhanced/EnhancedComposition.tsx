@@ -7,6 +7,7 @@ import { StickyBuyBar } from "@/components/ui/StickyBuyBar";
 
 import { ScrollProgress } from "@/components/enhanced/ScrollProgress";
 import { EnhancedHero } from "@/components/enhanced/EnhancedHero";
+import { FirstBatchStrip } from "@/components/enhanced/FirstBatchStrip";
 import { StickyArchitecture } from "@/components/enhanced/StickyArchitecture";
 import { OneJob } from "@/components/enhanced/OneJob";
 import { HorizontalUseBefore } from "@/components/enhanced/HorizontalUseBefore";
@@ -36,6 +37,7 @@ export function EnhancedComposition() {
       <Header crumb="GY-NO!" />
       <main>
         <EnhancedHero shipMonth={shipMonth} />
+        <FirstBatchStrip shipMonth={shipMonth} />
         <ProductQuote latin="Mens sana in corpore sano" translation="a sound mind in a sound body." />
         <Ticker />
         <StickyArchitecture />

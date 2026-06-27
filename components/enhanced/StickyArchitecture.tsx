@@ -88,23 +88,24 @@ export function StickyArchitecture() {
 
   return (
     <section id="science" ref={ref} className="relative h-[320vh] bg-paper-1">
-      <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-        {/* classical figure presiding over the actives */}
+      <div className="sticky top-0 flex h-screen items-center overflow-hidden pb-24 sm:pb-0">
+        {/* classical figure presiding over the actives — visible on mobile too,
+            fainter so it sits behind the copy */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-y-0 right-[-10%] z-0 hidden w-[52vw] sm:right-[-4%] sm:block sm:w-[46vw] lg:w-[40vw]"
+          className="pointer-events-none absolute inset-y-0 right-[-18%] z-0 w-[80vw] sm:right-[-4%] sm:w-[46vw] lg:w-[40vw]"
         >
           <Image
             src="/figures/gyno-2.png"
             alt=""
             fill
-            sizes="46vw"
-            className="object-contain object-bottom opacity-[0.5] mix-blend-multiply"
+            sizes="(max-width: 640px) 80vw, 46vw"
+            className="object-contain object-bottom opacity-[0.28] mix-blend-multiply sm:opacity-[0.5]"
           />
         </div>
 
         <Container className="relative z-10 w-full">
-          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          <div className="grid grid-cols-1 items-center gap-6 sm:gap-10 lg:grid-cols-2 lg:gap-16">
             {/* Narrative */}
             <div className="order-2 lg:order-1">
               <div className="flex items-center gap-3.5">
@@ -114,7 +115,7 @@ export function StickyArchitecture() {
                 </span>
               </div>
 
-              <div className="relative mt-7 min-h-[150px] md:mt-8 md:min-h-[230px]">
+              <div className="relative mt-5 min-h-[104px] md:mt-8 md:min-h-[230px]">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={active}
@@ -128,11 +129,11 @@ export function StickyArchitecture() {
                     </span>
                     <h3
                       className="mt-2 font-extrabold uppercase text-ink-0"
-                      style={{ fontSize: "clamp(36px, 6vw, 86px)", letterSpacing: "-0.03em", lineHeight: 0.95 }}
+                      style={{ fontSize: "clamp(30px, 6vw, 86px)", letterSpacing: "-0.03em", lineHeight: 0.95 }}
                     >
                       {ACTIVES[active].name}
                     </h3>
-                    <p className="mt-5 max-w-md text-[18px] leading-[1.65] text-ink-1">
+                    <p className="mt-4 max-w-md text-[15.5px] leading-[1.55] text-ink-1 sm:mt-5 sm:text-[18px] sm:leading-[1.65]">
                       {ACTIVES[active].line}
                     </p>
                   </motion.div>
@@ -140,22 +141,22 @@ export function StickyArchitecture() {
               </div>
 
               {/* Rail */}
-              <div className="mt-10 flex items-stretch gap-5">
-                <div className="relative w-px bg-[var(--hair)]">
+              <div className="mt-6 flex items-stretch gap-5 sm:mt-10">
+                <div className="relative w-px bg-[var(--hair-strong)]">
                   <motion.div
                     style={{ scaleY: railScale }}
                     className="absolute inset-0 origin-top bg-ink-0"
                   />
                 </div>
-                <ul className="flex flex-col gap-4">
+                <ul className="flex flex-col gap-3.5">
                   {ACTIVES.map((a, i) => (
                     <li
                       key={a.n}
-                      className={`caps flex items-baseline gap-3 text-[12px] font-semibold transition-colors duration-300 ${
-                        i === active ? "text-ink-0" : "text-ink-3"
+                      className={`caps flex items-baseline gap-3 text-[13px] font-semibold transition-colors duration-300 ${
+                        i === active ? "text-ink-0" : "text-ink-2"
                       }`}
                     >
-                      <span className="text-[10px]">{a.n}</span>
+                      <span className="text-[11px]">{a.n}</span>
                       {a.name}
                     </li>
                   ))}
@@ -165,7 +166,7 @@ export function StickyArchitecture() {
 
             {/* Pinned product — the transforming specimen panel */}
             <div className="relative order-1 flex justify-center lg:order-2">
-              <div className="relative mx-auto aspect-[4/5] w-full max-w-[256px] sm:max-w-[320px] lg:max-w-[420px]">
+              <div className="relative mx-auto aspect-[4/5] w-full max-w-[180px] sm:max-w-[320px] lg:max-w-[420px]">
                 {/* phase 2 — soft cold wash */}
                 <motion.div
                   aria-hidden

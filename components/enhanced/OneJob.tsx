@@ -45,15 +45,15 @@ export function OneJob() {
           Architecture one, but on the opposite side for variety */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -bottom-[5%] left-[-9%] z-0 hidden w-[32vw] sm:block lg:w-[25vw]"
+        className="pointer-events-none absolute -bottom-[5%] left-[-12%] z-0 w-[52vw] sm:left-[-9%] sm:w-[32vw] lg:w-[25vw]"
       >
         <Image
           src="/figures/gyno-3.png"
           alt=""
           width={1122}
           height={1402}
-          sizes="32vw"
-          className="h-auto w-full opacity-[0.12] mix-blend-multiply"
+          sizes="(max-width: 640px) 52vw, 32vw"
+          className="h-auto w-full opacity-[0.16] mix-blend-multiply sm:opacity-[0.12]"
           style={{
             maskImage: "linear-gradient(to bottom, transparent, black 50%)",
             WebkitMaskImage: "linear-gradient(to bottom, transparent, black 50%)",
