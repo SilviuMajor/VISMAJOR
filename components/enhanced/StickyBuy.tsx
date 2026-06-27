@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow, SectionHead } from "@/components/ui/Eyebrow";
 import { Countdown } from "@/components/enhanced/Countdown";
+import { useCart } from "@/lib/cart";
 
 type Tier = {
   key: "1" | "2" | "3";
@@ -34,32 +35,23 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
   const [tierKey, setTierKey] = useState<Tier["key"]>("2");
   const [qty, setQty] = useState(1);
   const [shot, setShot] = useState(0);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const { add } = useCart();
 
   const tier = useMemo(() => TIERS.find((t) => t.key === tierKey) ?? TIERS[0], [tierKey]);
   const total = tier.price * qty;
   const saving = tier.reg ? (tier.reg - tier.price) * qty : 0;
   const pct = tier.reg ? Math.round((1 - tier.price / tier.reg) * 100) : 0;
 
-  const onPreorder = async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      const res = await fetch("/api/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ product: "gy-no", tier: tier.key }),
-      });
-      const data = await res.json();
-      if (data?.url) window.location.href = data.url;
-      else setError(data?.error ?? "Could not start checkout. Try again.");
-    } catch {
-      setError("Network error. Try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
+  const onAdd = () =>
+    add({
+      id: `gy-no:${tier.key}`,
+      product: "gy-no",
+      productName: "GY-NO!",
+      tier: tier.key,
+      tierLabel: tier.label,
+      price: tier.price,
+      qty,
+    });
 
   return (
     <section id="buy" className="py-16 md:py-24">
@@ -229,11 +221,10 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
                 <button onClick={() => setQty(qty + 1)} className="px-4 py-3 text-base font-semibold hover:bg-ink-0/5" aria-label="Increase quantity">+</button>
               </div>
               <button
-                onClick={onPreorder}
-                disabled={loading}
-                className="flex-1 rounded-[5px] border border-ink-0 bg-ink-0 px-6 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1 disabled:opacity-50"
+                onClick={onAdd}
+                className="flex-1 rounded-[5px] border border-ink-0 bg-ink-0 px-6 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
               >
-                {loading ? "Opening Checkout…" : `Pre-order — £${total}`}
+                {`Add to basket — £${total}`}
               </button>
             </div>
             <div className="mt-3 flex items-center justify-between">
@@ -246,7 +237,6 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
                 </span>
               )}
             </div>
-            {error && <p className="mt-2 text-[12px] text-ink-0">{error}</p>}
 
             {/* spec */}
             <div className="mt-12">

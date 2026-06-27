@@ -34,7 +34,11 @@ export function HeritageBanner() {
           alt="A classical figure — the standard"
           fill
           sizes="48vw"
-          className="object-contain object-bottom opacity-90 invert mix-blend-screen"
+          className="object-contain object-bottom opacity-[0.42] invert mix-blend-screen"
+          style={{
+            maskImage: "linear-gradient(to bottom, black 28%, transparent 86%)",
+            WebkitMaskImage: "linear-gradient(to bottom, black 28%, transparent 86%)",
+          }}
         />
       </motion.div>
 
@@ -46,6 +50,16 @@ export function HeritageBanner() {
           background:
             "linear-gradient(90deg, rgba(20,19,15,0.9) 0%, rgba(20,19,15,0.55) 42%, rgba(20,19,15,0.05) 72%, transparent 100%)",
         }}
+      />
+
+      {/* edge fades — ease the dark band into the white sections above & below */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 z-[15] h-16 bg-gradient-to-b from-paper-0 to-transparent sm:h-32"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-[15] h-16 bg-gradient-to-t from-paper-0 to-transparent sm:h-32"
       />
 
       <Container className="relative z-20">
@@ -72,7 +86,11 @@ export function HeritageBanner() {
               alt=""
               fill
               sizes="100vw"
-              className="object-contain object-center opacity-90 invert mix-blend-screen"
+              className="object-contain object-center opacity-50 invert mix-blend-screen"
+              style={{
+                maskImage: "linear-gradient(to bottom, transparent, black 22%, black 80%, transparent)",
+                WebkitMaskImage: "linear-gradient(to bottom, transparent, black 22%, black 80%, transparent)",
+              }}
             />
           </div>
         </div>

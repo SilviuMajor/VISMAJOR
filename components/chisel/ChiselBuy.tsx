@@ -7,6 +7,7 @@ import { Eyebrow, SectionHead } from "@/components/ui/Eyebrow";
 import { Countdown } from "@/components/enhanced/Countdown";
 import { Specimen, PlaceholderNote } from "@/components/chisel/Specimen";
 import { CreamTube, SteelTool, EMBER } from "@/components/chisel/Art";
+import { useCart } from "@/lib/cart";
 
 /**
  * Pre-order SCULPT. The cream is the product; the steel tools are optional
@@ -112,32 +113,23 @@ function SpecimenContents({ contents }: { contents: Tier["contents"] }) {
 export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
   const [tierKey, setTierKey] = useState<TierKey>("1");
   const [qty, setQty] = useState(1);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const { add } = useCart();
 
   const tier = useMemo(() => TIERS.find((t) => t.key === tierKey) ?? TIERS[0], [tierKey]);
   const total = tier.price * qty;
   const saving = (tier.reg - tier.price) * qty;
   const pct = Math.round((1 - tier.price / tier.reg) * 100);
 
-  const onPreorder = async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      const res = await fetch("/api/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ product: "sculpt", tier: tier.key }),
-      });
-      const data = await res.json();
-      if (data?.url) window.location.href = data.url;
-      else setError(data?.error ?? "Could not start checkout. Try again.");
-    } catch {
-      setError("Network error. Try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
+  const onAdd = () =>
+    add({
+      id: `sculpt:${tier.key}`,
+      product: "sculpt",
+      productName: "SCULPT",
+      tier: tier.key,
+      tierLabel: tier.label,
+      price: tier.price,
+      qty,
+    });
 
   const topRightLabel =
     tier.contents === "cream"
@@ -360,11 +352,10 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
                 </button>
               </div>
               <button
-                onClick={onPreorder}
-                disabled={loading}
-                className="flex-1 rounded-[5px] border border-ink-0 bg-ink-0 px-6 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1 disabled:opacity-50"
+                onClick={onAdd}
+                className="flex-1 rounded-[5px] border border-ink-0 bg-ink-0 px-6 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
               >
-                {loading ? "Opening Checkout…" : `Pre-order — £${total}`}
+                {`Add to basket — £${total}`}
               </button>
             </div>
             <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
@@ -377,7 +368,6 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
                 </span>
               )}
             </div>
-            {error && <p className="mt-2 text-[12px] text-ink-0">{error}</p>}
 
             {/* spec */}
             <div className="mt-12">

@@ -1,8 +1,6 @@
 import { Announcement } from "@/components/nav/Announcement";
 import { Header } from "@/components/nav/Header";
 import { Ticker } from "@/components/sections/Ticker";
-import { Features } from "@/components/sections/Features";
-import { HowItWorks } from "@/components/sections/HowItWorks";
 import { IsIsnt } from "@/components/sections/IsIsnt";
 import { Footer } from "@/components/sections/Footer";
 import { StickyBuyBar } from "@/components/ui/StickyBuyBar";
@@ -10,6 +8,7 @@ import { StickyBuyBar } from "@/components/ui/StickyBuyBar";
 import { ScrollProgress } from "@/components/enhanced/ScrollProgress";
 import { EnhancedHero } from "@/components/enhanced/EnhancedHero";
 import { StickyArchitecture } from "@/components/enhanced/StickyArchitecture";
+import { OneJob } from "@/components/enhanced/OneJob";
 import { HorizontalUseBefore } from "@/components/enhanced/HorizontalUseBefore";
 import { HeritageBanner } from "@/components/enhanced/HeritageBanner";
 import { StickyBuy } from "@/components/enhanced/StickyBuy";
@@ -41,9 +40,8 @@ export function EnhancedComposition() {
         <ProductQuote latin="Mens sana in corpore sano" translation="a sound mind in a sound body." />
         <Ticker />
         <StickyArchitecture />
-        <Features />
+        <OneJob />
         <HorizontalUseBefore />
-        <HowItWorks />
         <ProofV2 />
         <StickyBuy shipMonth={shipMonth} />
         <IsIsnt />

@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Hanken_Grotesk, Cinzel } from "next/font/google";
 import "./globals.css";
+import { CartProvider } from "@/lib/cart";
+import { CartDrawer } from "@/components/cart/CartDrawer";
 
 const hanken = Hanken_Grotesk({
   subsets: ["latin"],
@@ -50,7 +52,10 @@ export default function RootLayout({
       className={`${hanken.variable} ${cinzel.variable}`}
     >
       <body className="font-display bg-paper-0 text-ink-0 antialiased">
-        {children}
+        <CartProvider>
+          {children}
+          <CartDrawer />
+        </CartProvider>
       </body>
     </html>
   );

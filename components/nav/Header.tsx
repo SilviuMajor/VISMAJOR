@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
+import { CartButton } from "@/components/cart/CartButton";
 
 export type NavLink = { href: string; label: string };
 
@@ -90,6 +91,9 @@ export function Header({
             </a>
           )}
 
+          {/* basket — slides out the cart drawer */}
+          <CartButton />
+
           {/* mobile menu toggle */}
           <button
             type="button"
@@ -153,6 +157,9 @@ export function Header({
                   {cta.label}
                 </a>
               )}
+              <div onClick={() => setOpen(false)}>
+                <CartButton variant="mobile" />
+              </div>
             </Container>
           </motion.div>
         )}
