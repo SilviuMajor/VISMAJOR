@@ -5,6 +5,7 @@ import { StickyBuyBar } from "@/components/ui/StickyBuyBar";
 import { ScrollProgress } from "@/components/enhanced/ScrollProgress";
 import { OtherProducts } from "@/components/house/OtherProducts";
 import { ProductQuote } from "@/components/house/ProductQuote";
+import { FirstBatchStrip } from "@/components/enhanced/FirstBatchStrip";
 
 import { SharpHero } from "@/components/sharp/SharpHero";
 import { SharpTicker } from "@/components/sharp/SharpTicker";
@@ -48,6 +49,7 @@ export function SharpComposition() {
       />
       <main>
         <SharpHero shipMonth={shipMonth} />
+        <FirstBatchStrip count="1,400+" shipMonth={shipMonth} />
         <ProductQuote latin="Cotidie" translation="every day." />
         <SharpTicker />
         <SharpDaily />

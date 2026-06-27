@@ -251,14 +251,6 @@ export function SharpHero({ shipMonth }: { shipMonth: string }) {
             </a>
           </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 1.3 }}
-            className="mt-6 caps text-[10.5px] font-medium text-ink-3"
-          >
-            <span style={{ color: "#14130F" }}>●</span> On the first-batch list · ships {shipMonth}
-          </motion.p>
         </motion.div>
       </Container>
 

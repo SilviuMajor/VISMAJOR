@@ -11,7 +11,7 @@ import {
   type Variants,
 } from "framer-motion";
 import { Container } from "@/components/ui/Container";
-import { CreamTube, SteelTool, EMBER } from "@/components/chisel/Art";
+import { CreamTube, SteelTool } from "@/components/chisel/Art";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 const WORD = ["S", "C", "U", "L", "P", "T"];
@@ -274,15 +274,6 @@ export function ChiselHero({ shipMonth }: { shipMonth: string }) {
             </a>
           </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 1.3 }}
-            className="mt-6 caps text-[10.5px] font-medium text-ink-3"
-          >
-            <span style={{ color: EMBER }}>●</span> First-batch list open · ships{" "}
-            {shipMonth}
-          </motion.p>
         </motion.div>
       </Container>
 
