@@ -48,7 +48,6 @@ const ACTIVES = [
     role: "A smooth, conditioned look.",
   },
 ];
-const ACTIVE_KEYS = ACTIVES.map((a) => a.inci);
 
 export function IngredientsV2() {
   const [hover, setHover] = useState<string | null>(null);
@@ -118,14 +117,9 @@ export function IngredientsV2() {
             {/* Hero actives */}
             <Reveal delay={0.08}>
               <div className="mt-9">
-                <div className="flex items-center justify-between">
-                  <span className="caps text-[10px] font-semibold text-ink-2">
-                    Three actives, doing the work
-                  </span>
-                  <span className="caps text-[9.5px] font-medium text-ink-3">
-                    Hover to trace
-                  </span>
-                </div>
+                <span className="caps text-[10px] font-semibold text-ink-2">
+                  Three actives, doing the work
+                </span>
                 <div className="mt-4 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-3">
                   {ACTIVES.map((a) => {
                     const isOn = hover === a.inci;
@@ -166,46 +160,6 @@ export function IngredientsV2() {
               </div>
             </Reveal>
 
-            {/* Inline INCI key — actives traceable, full deck below */}
-            <Reveal delay={0.1}>
-              <div className="mt-7">
-                <span className="caps text-[10px] font-semibold text-ink-2">
-                  Full formula · INCI
-                </span>
-                <p className="mt-3 text-[14px] leading-[2] text-ink-2">
-                  {INCI_LIST.map((token, i) => {
-                    const isActive = ACTIVE_KEYS.includes(token);
-                    const isOn = hover === token;
-                    return (
-                      <span key={token}>
-                        <span
-                          className="transition-colors duration-200"
-                          style={{
-                            color: isOn
-                              ? "var(--ink-0)"
-                              : isActive
-                              ? "var(--ink-1)"
-                              : undefined,
-                            fontWeight: isActive ? 600 : 400,
-                            borderBottom: isActive
-                              ? `1px solid ${
-                                  isOn
-                                    ? "var(--ink-0)"
-                                    : "var(--hair-strong)"
-                                }`
-                              : "none",
-                          }}
-                        >
-                          {token}
-                        </span>
-                        {i < INCI_LIST.length - 1 ? ", " : "."}
-                      </span>
-                    );
-                  })}
-                </p>
-              </div>
-            </Reveal>
-
             {/* Badges */}
             <Reveal delay={0.1}>
               <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3">
@@ -221,7 +175,7 @@ export function IngredientsV2() {
               </div>
             </Reveal>
 
-            {/* Accordion — full INCI, directions, warnings */}
+            {/* Accordion — full INCI, directions */}
             <Reveal delay={0.1}>
               <div className="mt-9">
                 <Accordion
@@ -240,10 +194,6 @@ export function IngredientsV2() {
                     {
                       q: "Directions",
                       a: "Apply a thin layer to clean, dry skin. Massage in until absorbed. Apply as needed. Avoid contact with eyes. For external use only.",
-                    },
-                    {
-                      q: "Warnings",
-                      a: "Patch test before first use. Discontinue if irritation occurs. Avoid broken skin. Keep out of reach of children. Store below 25°C.",
                     },
                   ]}
                 />
