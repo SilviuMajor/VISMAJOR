@@ -65,6 +65,17 @@
   letter-spacing: -0.006em;
 }
 
+/* Hybrid mockup — the house serif (Cinzel) for DISPLAY type (headings + the
+   heavy show-pieces) and Hanken for body/UI. The middle option. */
+.font-hybrid h1,
+.font-hybrid h2,
+.font-hybrid h3,
+.font-hybrid h4,
+.font-hybrid .font-extrabold {
+  font-family: var(--font-cinzel);
+  letter-spacing: -0.01em;
+}
+
 html, body {
   background: var(--paper-0);
   color: var(--ink-0);
