@@ -166,7 +166,7 @@ export function StickyArchitecture() {
 
             {/* Pinned product — the transforming specimen panel */}
             <div className="relative order-1 flex justify-center lg:order-2">
-              <div className="relative mx-auto aspect-[4/5] w-full max-w-[180px] sm:max-w-[320px] lg:max-w-[420px]">
+              <div className="relative mx-auto aspect-[4/5] w-full max-w-[290px] sm:max-w-[320px] lg:max-w-[420px]">
                 {/* phase 2 — soft cold wash */}
                 <motion.div
                   aria-hidden
@@ -184,7 +184,7 @@ export function StickyArchitecture() {
                   style={{ y: productY, scale: productScale }}
                   className="absolute inset-0 z-20 flex items-center justify-center"
                 >
-                  <div className="relative h-[78%] w-[60%]">
+                  <div className="relative h-[90%] w-[76%] sm:h-[78%] sm:w-[60%]">
                     <Image
                       src="/product/front.png"
                       alt="GY-NO! Nipple Tightening Cream"
