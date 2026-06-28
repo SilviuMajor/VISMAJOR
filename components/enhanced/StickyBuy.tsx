@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
@@ -31,11 +31,72 @@ const GALLERY = [
   { src: "/product/detail.png", label: "Detail" },
 ];
 
+/* ── Detail tabs ──────────────────────────────────────────────────
+   Specification, plus Ingredients + Origin folded in (the old standalone
+   section). Each tab defaults the gallery to a fitting shot: Ingredients →
+   the rear label (where the INCI is printed); Origin → the open tube. */
+const SPEC_TABS = [
+  { key: "spec", label: "Specification", shot: 0 },
+  { key: "ingredients", label: "Ingredients", shot: 1 },
+  { key: "origin", label: "Origin", shot: 2 },
+] as const;
+type SpecTabKey = (typeof SPEC_TABS)[number]["key"];
+
+const ACTIVES = [
+  { name: "Caffeine", role: "For an awake, toned-feeling finish." },
+  { name: "Menthol", role: "A clean cooling hit on contact." },
+  { name: "Niacinamide", role: "A smooth, conditioned look." },
+];
+
+const INCI_LIST = [
+  "Aqua",
+  "Glycerin",
+  "Menthol",
+  "Caffeine",
+  "Polyacrylate Crosspolymer-6",
+  "Niacinamide",
+  "Aloe Barbadensis Leaf Juice Powder",
+  "Butylene Glycol",
+  "Carbomer",
+  "Phenoxyethanol",
+  "Caprylyl Glycol",
+  "Ethylhexylglycerin",
+  "Parfum",
+];
+const INCI = INCI_LIST.join(", ") + ".";
+
+const ORIGIN_ROWS: [string, string][] = [
+  ["Origin", "United Kingdom"],
+  ["Batch reference", "GY-NO · 001 · UK"],
+  ["Standards", "UK Cosmetic Regulation"],
+];
+const BADGES = ["Made in the UK", "Cosmetic-Grade", "Cruelty-Free", "Vegan"];
+
 export function StickyBuy({ shipMonth }: { shipMonth: string }) {
   const [tierKey, setTierKey] = useState<Tier["key"]>("2");
   const [qty, setQty] = useState(1);
   const [shot, setShot] = useState(0);
+  const [specTab, setSpecTab] = useState<SpecTabKey>("spec");
   const { add } = useCart();
+
+  // Switching tab also defaults the gallery to that tab's shot.
+  const selectSpecTab = (t: (typeof SPEC_TABS)[number]) => {
+    setSpecTab(t.key);
+    setShot(t.shot);
+  };
+
+  // Header nav "Ingredients" → #ingredients: open that tab (+ rear shot) on arrival.
+  useEffect(() => {
+    const sync = () => {
+      if (window.location.hash === "#ingredients") {
+        setSpecTab("ingredients");
+        setShot(1);
+      }
+    };
+    sync();
+    window.addEventListener("hashchange", sync);
+    return () => window.removeEventListener("hashchange", sync);
+  }, []);
 
   const tier = useMemo(() => TIERS.find((t) => t.key === tierKey) ?? TIERS[0], [tierKey]);
   const total = tier.price * qty;
@@ -238,21 +299,121 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
               )}
             </div>
 
-            {/* spec */}
-            <div className="mt-12">
-              <SectionHead n="—" title="Specification" />
-              {[
-                ["Net Quantity", tier.unitLabel],
-                ["Finish", "Matte · Lightly Fragranced"],
-                ["Onset", "Within Minutes"],
-                ["Duration", "Up to 1 Hour (Temporary)"],
-                ["Made By", "Vis Major · UK"],
-              ].map(([k, v]) => (
-                <div key={k} className="flex items-center justify-between border-b py-3" style={{ borderColor: "var(--hair)" }}>
-                  <span className="caps text-[11px] font-semibold text-ink-2">{k}</span>
-                  <span className="caps text-[11px] font-semibold text-ink-0">{v}</span>
-                </div>
-              ))}
+            {/* Details — tabbed: specification / ingredients / origin.
+                Selecting a tab also swings the gallery to a fitting shot.
+                #ingredients anchors the header nav here. */}
+            <div id="ingredients" className="mt-12 scroll-mt-28">
+              <div
+                className="flex flex-wrap gap-x-7 gap-y-2 border-b"
+                style={{ borderColor: "var(--hair-strong)" }}
+                role="tablist"
+                aria-label="Product details"
+              >
+                {SPEC_TABS.map((t) => {
+                  const active = specTab === t.key;
+                  return (
+                    <button
+                      key={t.key}
+                      role="tab"
+                      aria-selected={active}
+                      onClick={() => selectSpecTab(t)}
+                      className={`relative -mb-px pb-3 caps text-[11px] font-semibold transition-colors ${
+                        active ? "text-ink-0" : "text-ink-3 hover:text-ink-1"
+                      }`}
+                    >
+                      {t.label}
+                      {active && (
+                        <span className="absolute inset-x-0 bottom-0 h-0.5 bg-ink-0" aria-hidden />
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+
+              <motion.div
+                key={specTab}
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.25, ease: [0.2, 0, 0, 1] }}
+                className="mt-6"
+                role="tabpanel"
+              >
+                {specTab === "spec" &&
+                  (
+                    [
+                      ["Net Quantity", tier.unitLabel],
+                      ["Finish", "Matte · Lightly Fragranced"],
+                      ["Onset", "Within Minutes"],
+                      ["Duration", "Up to 1 Hour (Temporary)"],
+                      ["Made By", "Vis Major · UK"],
+                    ] as [string, string][]
+                  ).map(([k, v]) => (
+                    <div key={k} className="flex items-center justify-between border-b py-3" style={{ borderColor: "var(--hair)" }}>
+                      <span className="caps text-[11px] font-semibold text-ink-2">{k}</span>
+                      <span className="caps text-[11px] font-semibold text-ink-0">{v}</span>
+                    </div>
+                  ))}
+
+                {specTab === "ingredients" && (
+                  <div className="space-y-7">
+                    <p className="text-[15px] leading-[1.6] text-ink-1">
+                      A water-based formula with caffeine, a menthol cooling complex
+                      and a film-forming tightening system — matte, lightly fragranced.
+                    </p>
+                    <div>
+                      <span className="caps text-[10px] font-semibold text-ink-3">Three actives</span>
+                      <div className="mt-3">
+                        {ACTIVES.map((a) => (
+                          <div
+                            key={a.name}
+                            className="flex items-baseline justify-between gap-5 border-b py-3"
+                            style={{ borderColor: "var(--hair)" }}
+                          >
+                            <span className="caps text-[11px] font-semibold text-ink-0">{a.name}</span>
+                            <span className="text-right text-[12.5px] leading-[1.4] text-ink-2">{a.role}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <div>
+                      <span className="caps text-[10px] font-semibold text-ink-3">Full formula · INCI</span>
+                      <p className="mt-2.5 text-[12.5px] leading-[1.75] text-ink-2">{INCI}</p>
+                    </div>
+                    <div>
+                      <span className="caps text-[10px] font-semibold text-ink-3">Directions</span>
+                      <p className="mt-2.5 text-[13.5px] leading-[1.6] text-ink-1">
+                        Apply a thin layer to clean, dry skin. Massage in until absorbed.
+                        Apply as needed. Avoid contact with eyes. For external use only.
+                      </p>
+                    </div>
+                  </div>
+                )}
+
+                {specTab === "origin" && (
+                  <div className="space-y-7">
+                    <p className="text-[15px] leading-[1.6] text-ink-1">
+                      Made in the United Kingdom and manufactured to UK cosmetic
+                      standards. No parabens. No sulphates. Never tested on animals.
+                    </p>
+                    <div>
+                      {ORIGIN_ROWS.map(([k, v]) => (
+                        <div key={k} className="flex items-center justify-between border-b py-3" style={{ borderColor: "var(--hair)" }}>
+                          <span className="caps text-[11px] font-semibold text-ink-2">{k}</span>
+                          <span className="caps text-[11px] font-semibold text-ink-0">{v}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <ul className="flex flex-wrap gap-x-5 gap-y-2.5">
+                      {BADGES.map((b) => (
+                        <li key={b} className="caps inline-flex items-center gap-2 text-[10px] font-semibold text-ink-2">
+                          <span className="inline-block h-1 w-1 rounded-full bg-ink-0" />
+                          {b}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </motion.div>
             </div>
           </div>
         </div>

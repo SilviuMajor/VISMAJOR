@@ -54,28 +54,6 @@
   --paper-2: #FFFFFF;
 }
 
-/* House-font mockup — flips the default UI/body font to the Cinzel serif,
-   then tunes for it: Cinzel is a wide inscriptional face, so the caps tracking
-   (set for Hanken) is pulled in, body is nudged tighter, and weights are kept
-   honest (Cinzel ships 400–900). */
-.font-house {
-  --font-display: var(--font-cinzel);
-  --track-caps: 0.14em;
-  --track-caps-loose: 0.2em;
-  letter-spacing: -0.006em;
-}
-
-/* Hybrid mockup — the house serif (Cinzel) for DISPLAY type (headings + the
-   heavy show-pieces) and Hanken for body/UI. The middle option. */
-.font-hybrid h1,
-.font-hybrid h2,
-.font-hybrid h3,
-.font-hybrid h4,
-.font-hybrid .font-extrabold {
-  font-family: var(--font-cinzel);
-  letter-spacing: -0.01em;
-}
-
 html, body {
   background: var(--paper-0);
   color: var(--ink-0);

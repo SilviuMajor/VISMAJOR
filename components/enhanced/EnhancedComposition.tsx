@@ -19,7 +19,6 @@ import { ProductQuote } from "@/components/house/ProductQuote";
 
 // Selected v2 renditions (chosen from /compare)
 import { ProofV2 } from "@/components/v2/ProofV2";
-import { IngredientsV2 } from "@/components/v2/IngredientsV2";
 import { FaqV2 } from "@/components/v2/FaqV2";
 
 /**
@@ -46,7 +45,6 @@ export function EnhancedComposition() {
         <ProofV2 />
         <StickyBuy shipMonth={shipMonth} />
         <IsIsnt />
-        <IngredientsV2 />
         <FaqV2 shipMonth={shipMonth} />
         <FinalCta shipMonth={shipMonth} />
         <NotifyBand />
