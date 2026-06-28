@@ -1,29 +1,14 @@
 "use client";
 
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { Counter } from "@/components/ui/Counter";
 import { Reveal } from "@/components/ui/Reveal";
-
-const MINT = "#F4F2EC";
 
 /* Allocation — segmented, SHARP-flavoured. */
 const RESERVED_PCT = 61;
 const SEGMENTS = 40;
 const FILLED = Math.round((RESERVED_PCT / 100) * SEGMENTS);
-
-/* Illustrative pre-launch roster — initials + city only, no real data. */
-const ROSTER = [
-  { in: "AC", city: "London" },
-  { in: "MR", city: "Manchester" },
-  { in: "JT", city: "Leeds" },
-  { in: "DB", city: "Bristol" },
-  { in: "SK", city: "Glasgow" },
-  { in: "PW", city: "Newcastle" },
-  { in: "OL", city: "Cardiff" },
-  { in: "HN", city: "Brighton" },
-];
 
 const QUOTES = [
   {
@@ -47,50 +32,6 @@ const TRUST = [
   "Fragrance-Light",
   "30-Day Returns",
 ];
-
-/* Rolling "recently reserved" line. */
-function RecentlyReserved() {
-  const reduce = useReducedMotion();
-  const [i, setI] = useState(0);
-
-  useEffect(() => {
-    if (reduce) return;
-    const id = setInterval(() => setI((n) => (n + 1) % ROSTER.length), 2600);
-    return () => clearInterval(id);
-  }, [reduce]);
-
-  const person = ROSTER[i];
-
-  return (
-    <div className="flex items-center gap-3">
-      <span className="relative flex h-1.5 w-1.5">
-        {!reduce && (
-          <span
-            className="absolute inline-flex h-full w-full animate-ping rounded-full opacity-60"
-            style={{ background: MINT }}
-          />
-        )}
-        <span className="relative inline-flex h-1.5 w-1.5 rounded-full" style={{ background: MINT }} />
-      </span>
-      <span className="caps text-[10px] font-semibold text-paper-0">Recently reserved</span>
-      <span className="h-3 w-px bg-[rgba(244,242,236,0.28)]" aria-hidden />
-      <span className="relative h-[14px] min-w-[150px] overflow-hidden" aria-live="polite">
-        <AnimatePresence mode="wait" initial={false}>
-          <motion.span
-            key={i}
-            initial={reduce ? false : { y: 12, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={reduce ? { opacity: 0 } : { y: -12, opacity: 0 }}
-            transition={{ duration: 0.34, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute inset-0 caps text-[10px] font-semibold text-paper-0"
-          >
-            {person.in} · {person.city}
-          </motion.span>
-        </AnimatePresence>
-      </span>
-    </div>
-  );
-}
 
 /* Segmented allocation meter. */
 function AllocationMeter() {
@@ -120,11 +61,12 @@ function AllocationMeter() {
 }
 
 export function SharpProof() {
+  const reduce = useReducedMotion();
   const marqueeQuotes = [...QUOTES, ...QUOTES];
 
   return (
     <section
-      className="overflow-hidden border-y bg-ink-0 py-16 md:py-24"
+      className="overflow-hidden border-y bg-ink-0 py-14 md:py-20"
       style={{ borderColor: "rgba(244,242,236,0.14)" }}
     >
       <Container>
@@ -134,14 +76,24 @@ export function SharpProof() {
             <span className="caps-loose text-[11px] font-semibold text-paper-0">
               The First-Batch List
             </span>
-            <RecentlyReserved />
+            <span className="flex items-center gap-2">
+              <span className="relative flex h-1.5 w-1.5">
+                {!reduce && (
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-paper-0/60" />
+                )}
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-paper-0" />
+              </span>
+              <span className="caps text-[10px] font-semibold text-paper-0/70">
+                Early-bird open
+              </span>
+            </span>
           </div>
         </Reveal>
 
         {/* Hero stat ledger — the daily-driver angle */}
         <Reveal delay={0.05}>
           <div
-            className="mt-7 grid grid-cols-1 items-end gap-x-10 gap-y-9 border-t pt-8 md:grid-cols-[auto_1fr]"
+            className="mt-6 grid grid-cols-1 items-end gap-x-12 gap-y-7 border-t pt-7 lg:grid-cols-[auto_1fr]"
             style={{ borderColor: "rgba(244,242,236,0.28)" }}
           >
             <div>
@@ -174,16 +126,19 @@ export function SharpProof() {
               </p>
             </div>
 
-            <p className="max-w-sm pb-1 text-[16.5px] leading-[1.6] text-paper-0 md:justify-self-end">
-              SHARP is built to be a habit, not an occasion. Pre-order locks the
-              early-bird price and your place in the first run.
+            <p className="max-w-md pb-1 text-[16.5px] leading-[1.6] text-paper-0 lg:justify-self-end">
+              Deliveries start <span className="font-semibold">September 2026</span>.
+              Order now to lock the early-bird{" "}
+              <span className="font-semibold">£22</span> — it rises to{" "}
+              <span className="text-paper-0/45 line-through">£30</span> at launch
+              — and hold your place in a limited first run.
             </p>
           </div>
         </Reveal>
 
         {/* Allocation meter */}
         <Reveal delay={0.05}>
-          <div className="mt-14">
+          <div className="mt-10">
             <div className="flex items-end justify-between">
               <span className="caps text-[11px] font-semibold text-paper-0">
                 First batch · early-bird allocation
@@ -202,11 +157,11 @@ export function SharpProof() {
               <AllocationMeter />
             </div>
             <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
-              <span className="caps text-[10.5px] font-medium text-paper-0">
-                Limited early-bird units left at £22
+              <span className="caps text-[10.5px] font-medium text-paper-0/70">
+                Limited first-batch units
               </span>
-              <span className="caps text-[10.5px] font-medium text-paper-0">
-                RRP £30 once it ships
+              <span className="caps text-[10.5px] font-medium text-paper-0/70">
+                Price rises at launch
               </span>
             </div>
           </div>
@@ -215,7 +170,7 @@ export function SharpProof() {
         {/* Quote marquee */}
         <Reveal delay={0.05}>
           <div
-            className="relative mt-14 overflow-hidden border-y py-1"
+            className="relative mt-10 overflow-hidden border-y py-1"
             style={{ borderColor: "rgba(244,242,236,0.12)" }}
           >
             <div
@@ -234,15 +189,13 @@ export function SharpProof() {
                   {marqueeQuotes.map((qt, i) => (
                     <figure
                       key={group + "-" + i}
-                      className="flex w-[78vw] max-w-[460px] shrink-0 flex-col justify-between gap-6 border-r px-7 py-8 md:w-[440px] md:px-9 md:py-9"
+                      className="flex w-[78vw] max-w-[440px] shrink-0 flex-col justify-between gap-5 border-r px-7 py-6 md:w-[420px] md:px-9"
                       style={{ borderColor: "rgba(244,242,236,0.12)" }}
                     >
-                      <blockquote className="text-[17.5px] leading-[1.55] text-paper-0">
-                        <span className="mr-1 text-paper-0">&ldquo;</span>
-                        {qt.q}
-                        <span className="ml-0.5 text-paper-0">&rdquo;</span>
+                      <blockquote className="text-[16.5px] leading-[1.5] text-paper-0">
+                        &ldquo;{qt.q}&rdquo;
                       </blockquote>
-                      <figcaption className="caps text-[10.5px] font-semibold text-paper-0">
+                      <figcaption className="caps text-[10.5px] font-semibold text-paper-0/70">
                         {qt.a}
                       </figcaption>
                     </figure>
@@ -255,11 +208,11 @@ export function SharpProof() {
 
         {/* Trust ledger */}
         <Reveal delay={0.05}>
-          <ul className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-3">
+          <ul className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-3">
             {TRUST.map((t) => (
               <li
                 key={t}
-                className="caps inline-flex items-center gap-2 text-[10px] font-semibold text-paper-0"
+                className="caps inline-flex items-center gap-2 text-[10px] font-semibold text-paper-0/70"
               >
                 <span className="inline-block h-1 w-1 rounded-full bg-paper-0/45" />
                 {t}
@@ -267,11 +220,6 @@ export function SharpProof() {
             ))}
           </ul>
         </Reveal>
-
-        <p className="mt-6 caps text-[10px] font-medium text-paper-0">
-          Illustrative pre-launch figures &amp; early feedback · describes feel
-          &amp; finish only
-        </p>
       </Container>
     </section>
   );
