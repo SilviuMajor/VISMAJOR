@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { Container } from "@/components/ui/Container";
-import { SteelTool } from "@/components/chisel/Art";
+import { ToolPhoto } from "@/components/steel/ToolPhoto";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 const WORD = ["S", "T", "E", "E", "L"];
@@ -18,7 +18,7 @@ const letter: Variants = {
 
 /**
  * STEEL hero — the standalone tools line. The wordmark rises letter by letter;
- * the two weighted bars lie crossed beneath it as the hero specimen.
+ * the three tools fan out beneath it as the hero specimen.
  */
 export function SteelHero({ priceFrom }: { priceFrom: string }) {
   const reduce = useReducedMotion();
@@ -40,11 +40,9 @@ export function SteelHero({ priceFrom }: { priceFrom: string }) {
           <span className="h-px w-8 bg-[var(--hair-strong)]" />
         </motion.div>
 
-        {/* giant kinetic wordmark + the two bars */}
+        {/* giant kinetic wordmark + the three tools */}
         <div className="relative mt-6 flex w-full flex-1 flex-col items-center justify-center overflow-hidden">
-          <motion.h1
-            className="pointer-events-none relative z-0 w-full select-none text-center font-bold uppercase font-serif leading-[0.9] tracking-[-0.05em] text-ink-0"
-          >
+          <motion.h1 className="pointer-events-none relative z-0 w-full select-none text-center font-bold uppercase font-serif leading-[0.9] tracking-[-0.04em] text-ink-0">
             <motion.span
               variants={wordContainer}
               initial="hidden"
@@ -66,29 +64,32 @@ export function SteelHero({ priceFrom }: { priceFrom: string }) {
             </motion.span>
           </motion.h1>
 
-          {/* the two weighted bars — long behind, short in front, crossed */}
+          {/* the three tools — fanned, axe leading */}
           <motion.div
             initial={reduce ? false : { y: 60, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.95, delay: 0.55, ease: EASE }}
-            className="relative z-10 -mt-[7vw] flex w-full items-center justify-center"
+            className="relative z-10 -mt-[5vw] flex w-full items-center justify-center"
           >
             <motion.div
               animate={reduce ? {} : { y: [0, -7, 0] }}
               transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut" }}
-              className="relative w-[min(560px,86vw)]"
+              className="relative flex w-[min(640px,92vw)] items-center justify-center"
             >
               {/* floor glow */}
               <div
                 aria-hidden
-                className="pointer-events-none absolute bottom-[6%] left-1/2 h-[26%] w-[64%] -translate-x-1/2 rounded-full blur-2xl"
+                className="pointer-events-none absolute bottom-[4%] left-1/2 h-[24%] w-[66%] -translate-x-1/2 rounded-full blur-2xl"
                 style={{ background: "radial-gradient(circle, rgba(20,19,15,0.10), transparent 64%)" }}
               />
-              <div className="absolute left-1/2 top-1/2 w-[78%] -translate-x-1/2 -translate-y-[58%] rotate-[-9deg]">
-                <SteelTool className="h-auto w-full" warmth={0} />
+              <div className="relative h-[22vh] max-h-[230px] w-[30%] -rotate-[14deg] translate-y-[8%]">
+                <ToolPhoto tool="sword" sizes="220px" />
               </div>
-              <div className="relative w-[54%] translate-y-[34%] translate-x-[26%] rotate-[8deg]">
-                <SteelTool className="h-auto w-full" warmth={0} />
+              <div className="relative z-10 -mx-[3%] h-[30vh] max-h-[320px] w-[42%] -rotate-[3deg]">
+                <ToolPhoto tool="axe" sizes="320px" priority />
+              </div>
+              <div className="relative h-[20vh] max-h-[210px] w-[34%] rotate-[13deg] translate-y-[12%]">
+                <ToolPhoto tool="dagger" sizes="220px" />
               </div>
             </motion.div>
           </motion.div>
@@ -103,7 +104,7 @@ export function SteelHero({ priceFrom }: { priceFrom: string }) {
         >
           <p className="max-w-lg text-[16px] leading-[1.6] text-ink-1 md:text-[18px]">
             Weighted, machined steel — for massage, recovery and working tension
-            out of the muscle. The Axe and the Sword: two profiles, many edges.
+            out of the muscle. The Sword, the Axe and the Dagger: many edges, one job.
           </p>
           <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
             <a

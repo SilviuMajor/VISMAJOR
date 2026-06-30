@@ -1,7 +1,7 @@
-// STEEL — the house's standalone tools line (route /steel). Two weighted steel
-// massage & therapy tools — The Axe and The Sword — presented on their own
-// (they also ship as optional add-ons inside the SCULPT bundles). Server
-// component; interactive parts are the client components imported below.
+// STEEL — the house's standalone tools line (route /steel). Three weighted
+// steel massage & therapy tools — The Sword, The Axe and The Dagger —
+// presented on their own (they also ship as optional add-ons inside the SCULPT
+// bundles). Server component; interactive parts imported below.
 
 import Link from "next/link";
 import { Announcement } from "@/components/nav/Announcement";
@@ -14,7 +14,7 @@ import { ProductQuote } from "@/components/house/ProductQuote";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHead } from "@/components/ui/Eyebrow";
-import { SteelTool } from "@/components/chisel/Art";
+import { ToolPhoto, type ToolKey } from "@/components/steel/ToolPhoto";
 
 import { SteelHero } from "@/components/steel/SteelHero";
 import { SteelBuy } from "@/components/steel/SteelBuy";
@@ -26,20 +26,27 @@ const NAV = [
   { href: "#buy", label: "Pre-order" },
 ];
 
-const RANGE = [
+const RANGE: { key: ToolKey; n: string; name: string; use: string; body: string }[] = [
   {
+    key: "sword",
     n: "01",
     name: "The Sword",
     use: "Carve · jaw, neck, close work",
     body: "A blade with a fine point and a long flat edge. Carve close along the jaw and neck, drain with the flat, or work a knot with the tip — multiple edges, the precise one.",
-    w: "58%",
   },
   {
+    key: "axe",
     n: "02",
     name: "The Axe",
     use: "Reach · traps, back, deep pressure",
     body: "A heavier head with a hooked edge and a broad face. Reach the traps and back, press deep into the big muscles, hook into a tight band — multiple edges, the powerful one.",
-    w: "84%",
+  },
+  {
+    key: "dagger",
+    n: "03",
+    name: "The Dagger",
+    use: "Detail · fascia, tendons, knots",
+    body: "A scalloped comb-edge with a pointed tip. Comb along the fascia and tendons, pinpoint a knot, or drain with the smooth back — multiple edges, the detailed one.",
   },
 ];
 
@@ -76,26 +83,23 @@ export function SteelComposition() {
         {/* ── The range ─────────────────────────────────────────── */}
         <section id="range" className="scroll-mt-24 border-t py-16 md:py-24" style={{ borderColor: "var(--hair)" }}>
           <Container>
-            <SectionHead n="01" title="Two profiles. Many edges." />
+            <SectionHead n="01" title="Three tools. Many edges." />
             <p className="mt-5 max-w-xl text-[16.5px] leading-[1.65] text-ink-1">
-              The same machined steel in two profiles — the Sword for carving and
-              close, controlled work, the Axe for reach and deep pressure across
-              the back and traps. Each carries several edges, so one tool covers
-              many strokes. Buy one, or take the pair.
+              Machined steel in three profiles — the Sword for carving and close
+              control, the Axe for reach and deep pressure, the Dagger for fascia
+              and fine detail. Each carries several edges, so the tools cover many
+              strokes. Buy one, or take the set.
             </p>
 
-            <div className="mt-12 grid grid-cols-1 gap-x-14 gap-y-12 md:grid-cols-2">
+            <div className="mt-12 grid grid-cols-1 gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
               {RANGE.map((t, i) => (
                 <Reveal key={t.name} delay={i * 0.06}>
                   <div className="flex h-full flex-col border-t pt-7" style={{ borderColor: "var(--hair)" }}>
-                    {/* tool plate */}
-                    <div className="flex h-[150px] items-center">
-                      <div style={{ width: t.w }} className="-rotate-[8deg]">
-                        <SteelTool className="h-auto w-full" warmth={0} />
-                      </div>
+                    <div className="relative h-[170px] w-full">
+                      <ToolPhoto tool={t.key} sizes="(max-width: 768px) 80vw, 360px" />
                     </div>
                     <div className="mt-6 flex items-center justify-between">
-                      <h3 className="font-bold uppercase font-serif text-ink-0" style={{ fontSize: "clamp(26px,3vw,38px)", letterSpacing: "-0.01em" }}>
+                      <h3 className="font-bold uppercase font-serif text-ink-0" style={{ fontSize: "clamp(24px,2.6vw,34px)", letterSpacing: "-0.01em" }}>
                         {t.name}
                       </h3>
                       <span className="caps font-mono text-[10px] font-medium text-ink-3">{t.n}</span>
@@ -122,8 +126,8 @@ export function SteelComposition() {
                     and the cold keeps worked muscle calm. Tools made to last a
                     lifetime — not a routine.
                   </p>
-                  <div className="mt-8 w-[78%] max-w-[360px] -rotate-[8deg]">
-                    <SteelTool className="h-auto w-full" warmth={0} />
+                  <div className="relative mt-8 h-[150px] w-[78%] max-w-[360px]">
+                    <ToolPhoto tool="axe" sizes="360px" />
                   </div>
                 </div>
               </Reveal>
@@ -191,10 +195,8 @@ export function SteelComposition() {
                     <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                   </span>
                 </div>
-                <div className="flex justify-center md:justify-end">
-                  <div className="w-[68%] max-w-[300px] -rotate-[8deg]">
-                    <SteelTool className="h-auto w-full" warmth={0} />
-                  </div>
+                <div className="relative h-[150px] w-full md:h-[180px]">
+                  <ToolPhoto tool="sword" sizes="320px" />
                 </div>
               </div>
             </Link>

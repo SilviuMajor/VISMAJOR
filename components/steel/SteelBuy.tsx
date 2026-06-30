@@ -4,11 +4,11 @@ import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow, SectionHead } from "@/components/ui/Eyebrow";
-import { SteelTool } from "@/components/chisel/Art";
+import { ToolPhoto, type ToolKey } from "@/components/steel/ToolPhoto";
 import { useCart } from "@/lib/cart";
 
 type Tier = {
-  key: "sword" | "axe" | "pair";
+  key: "sword" | "axe" | "dagger" | "set";
   label: string;
   unitLabel: string;
   price: number;
@@ -21,7 +21,8 @@ type Tier = {
 const TIERS: Tier[] = [
   { key: "sword", label: "The Sword", unitLabel: "Control blade", price: 24, reg: 34 },
   { key: "axe", label: "The Axe", unitLabel: "Reach tool", price: 30, reg: 42, note: "Most chosen" },
-  { key: "pair", label: "The Pair", unitLabel: "Axe + Sword", price: 48, reg: 66, note: "Best value" },
+  { key: "dagger", label: "The Dagger", unitLabel: "Detail scraper", price: 26, reg: 36 },
+  { key: "set", label: "The Set", unitLabel: "All three", price: 66, reg: 96, note: "Best value" },
 ];
 
 const SPECS: Record<Tier["key"], [string, string][]> = {
@@ -37,31 +38,42 @@ const SPECS: Record<Tier["key"], [string, string][]> = {
     ["Edges", "Hooked edge · broad face"],
     ["Material", "Machined stainless steel"],
   ],
-  pair: [
-    ["In the set", "The Axe + The Sword"],
+  dagger: [
+    ["In the set", "1 × The Dagger"],
+    ["Best for", "Detail · fascia · knots"],
+    ["Edges", "Scalloped comb · point"],
+    ["Material", "Machined stainless steel"],
+  ],
+  set: [
+    ["In the set", "Axe + Sword + Dagger"],
     ["Best for", "The whole body"],
     ["Edges", "Every profile"],
     ["Material", "Machined stainless steel"],
   ],
 };
 
-/** The selected tier's tools, drawn at the right reach. */
+/** The selected tier's tool(s) as product shots. */
 function ToolArt({ tier }: { tier: Tier["key"] }) {
-  if (tier === "pair") {
+  if (tier === "set") {
     return (
-      <div className="relative w-[78%]">
-        <div className="w-full -rotate-[8deg]">
-          <SteelTool className="h-auto w-full" warmth={0} />
+      <div className="grid h-full w-full grid-rows-[1.1fr_1fr] gap-2">
+        <div className="relative">
+          <ToolPhoto tool="axe" sizes="320px" />
         </div>
-        <div className="mt-6 w-[62%] translate-x-[30%] rotate-[6deg]">
-          <SteelTool className="h-auto w-full" warmth={0} />
+        <div className="grid grid-cols-2 gap-3">
+          <div className="relative">
+            <ToolPhoto tool="sword" sizes="160px" />
+          </div>
+          <div className="relative">
+            <ToolPhoto tool="dagger" sizes="160px" />
+          </div>
         </div>
       </div>
     );
   }
   return (
-    <div className={`-rotate-[10deg] ${tier === "axe" ? "w-[82%]" : "w-[58%]"}`}>
-      <SteelTool className="h-auto w-full" warmth={0} />
+    <div className="relative h-full w-full">
+      <ToolPhoto tool={tier as ToolKey} sizes="(max-width: 1024px) 70vw, 480px" priority />
     </div>
   );
 }
@@ -109,7 +121,7 @@ export function SteelBuy({ shipMonth }: { shipMonth: string }) {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 1.03 }}
                   transition={{ duration: 0.3, ease: [0.2, 0, 0, 1] }}
-                  className="flex w-[80%] items-center justify-center"
+                  className="flex h-[88%] w-[88%] items-center justify-center"
                 >
                   <ToolArt tier={tier.key} />
                 </motion.div>
