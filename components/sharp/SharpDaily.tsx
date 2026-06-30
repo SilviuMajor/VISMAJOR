@@ -137,17 +137,17 @@ export function SharpDaily() {
                 style={{ borderColor: "var(--hair)" }}
               >
                 <div className="flex items-end justify-between">
-                  <span className="caps text-[10px] font-semibold text-ink-2">
+                  <span className="caps text-[10px] font-medium text-ink-2">
                     Shine index
                   </span>
                   <span className="flex items-baseline gap-1.5 tabular-nums">
                     <span
-                      className="font-extrabold text-ink-0"
+                      className="font-mono font-bold text-ink-0"
                       style={{ fontSize: "clamp(22px, 2.6vw, 30px)", letterSpacing: "-0.03em" }}
                     >
                       {shinePct}
                     </span>
-                    <span className="caps text-[10px] font-semibold text-ink-3">/ 100</span>
+                    <span className="caps font-mono text-[10px] font-medium text-ink-3">/ 100</span>
                   </span>
                 </div>
                 <div
@@ -172,7 +172,7 @@ export function SharpDaily() {
             <div className="relative order-1 flex justify-center lg:order-2">
               <div className="relative aspect-[4/5] w-full max-w-[460px]">
                 {/* corner read-outs */}
-                <span className="absolute left-5 top-4 z-40 caps text-[9px] font-medium text-ink-3">
+                <span className="absolute left-5 top-4 z-40 caps font-mono text-[9px] font-medium text-ink-3">
                   STONE / 003
                 </span>
                 <div className="absolute right-5 top-4 z-40 h-4 overflow-hidden">

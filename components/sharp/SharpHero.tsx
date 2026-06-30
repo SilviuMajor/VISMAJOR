@@ -131,7 +131,7 @@ export function SharpHero({ shipMonth }: { shipMonth: string }) {
           className="flex items-center gap-3.5"
         >
           <span className="h-px w-7 bg-[var(--hair-strong)]" />
-          <span className="caps-loose text-[11px] font-semibold text-ink-2">
+          <span className="caps-loose text-[11px] font-medium text-ink-2">
             The Matte Daily · No. 003
           </span>
           <span className="h-px w-7 bg-[var(--hair-strong)]" />
@@ -142,7 +142,7 @@ export function SharpHero({ shipMonth }: { shipMonth: string }) {
           {/* wordmark — letter by letter, crisp and tight */}
           <motion.h1
             style={{ scale: wordScale, y: wordScrollY, x: wordPX, opacity: wordOpacity }}
-            className="pointer-events-none relative z-0 w-full select-none text-center font-extrabold uppercase leading-[0.9] tracking-[-0.05em] text-ink-0"
+            className="pointer-events-none relative z-0 w-full select-none text-center font-serif font-bold uppercase leading-[0.9] tracking-[-0.05em] text-ink-0"
           >
             <motion.span
               variants={wordContainer}
@@ -180,7 +180,7 @@ export function SharpHero({ shipMonth }: { shipMonth: string }) {
                 >
                   {/* the photo-free specimen plate — open, no frame */}
                   <div className="relative h-[42vh] w-[210px] md:h-[50vh] md:w-[268px]">
-                    <span className="absolute left-4 top-3 z-40 caps text-[9px] font-medium text-ink-3">
+                    <span className="absolute left-4 top-3 z-40 caps font-mono text-[9px] font-medium text-ink-3">
                       STONE / 003
                     </span>
 
@@ -218,7 +218,7 @@ export function SharpHero({ shipMonth }: { shipMonth: string }) {
           <motion.p
             {...fadeUp}
             transition={{ duration: 0.6, delay: 0.95, ease: EASE }}
-            className="caps text-[13px] font-semibold text-ink-1 md:text-[15px]"
+            className="caps text-[13px] font-medium text-ink-1 md:text-[15px]"
           >
             Kill the Shine. Define the Look.
           </motion.p>

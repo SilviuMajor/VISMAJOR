@@ -54,7 +54,7 @@ export default function CheckoutPage() {
         ) : (
           <>
             <h1
-              className="mt-10 font-extrabold uppercase text-ink-0"
+              className="mt-10 font-bold uppercase text-ink-0"
               style={{ fontSize: "clamp(34px, 4.4vw, 52px)", lineHeight: 0.95, letterSpacing: "-0.01em" }}
             >
               Checkout

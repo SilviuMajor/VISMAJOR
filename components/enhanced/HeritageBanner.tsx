@@ -66,13 +66,13 @@ export function HeritageBanner() {
         <div className="flex flex-col justify-center py-20 sm:min-h-screen sm:py-28">
           <div className="flex items-center gap-3.5">
             <span className="h-px w-8 bg-paper-0/45" />
-            <span className="caps-loose text-[11px] font-semibold text-paper-0/75">
+            <span className="caps-loose text-[11px] font-medium text-paper-0/75">
               The Standard
             </span>
           </div>
           <TextReveal
             as="h2"
-            className="mt-7 font-extrabold uppercase text-paper-0 text-[clamp(36px,6vw,96px)] leading-[0.92] tracking-[-0.03em]"
+            className="mt-7 font-bold uppercase text-paper-0 text-[clamp(36px,6vw,96px)] leading-[0.92] tracking-[-0.03em]"
             lines={["Cool. Firm.", "Composed."]}
           />
           <p className="mt-7 max-w-md text-[16.5px] leading-[1.6] text-paper-0/70">

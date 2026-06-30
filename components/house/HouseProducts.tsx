@@ -68,12 +68,12 @@ export function HouseProducts() {
       <Container>
         <div className="flex items-center gap-3.5">
           <span className="h-px w-7 bg-[var(--hair-strong)]" />
-          <span className="caps-loose text-[11px] font-semibold text-ink-2">
+          <span className="caps-loose text-[11px] font-medium text-ink-2">
             The House · Three topicals
           </span>
         </div>
         <h2
-          className="mt-5 max-w-3xl font-extrabold uppercase text-ink-0"
+          className="mt-5 max-w-3xl font-bold uppercase text-ink-0"
           style={{ fontSize: "clamp(30px, 4.6vw, 64px)", letterSpacing: "-0.03em", lineHeight: 0.98 }}
         >
           One job each. Done well.
@@ -109,9 +109,9 @@ export function HouseProducts() {
                 />
 
                 <div className="relative flex items-center justify-between">
-                  <span className="caps text-[10px] font-semibold text-ink-3">{p.index}</span>
+                  <span className="caps font-mono text-[10px] font-medium text-ink-3">{p.index}</span>
                   <span
-                    className="caps inline-flex items-center gap-1.5 text-[10px] font-semibold"
+                    className="caps inline-flex items-center gap-1.5 text-[10px] font-medium"
                     style={{ color: p.accentHex }}
                   >
                     <span
@@ -137,12 +137,12 @@ export function HouseProducts() {
                 </div>
 
                 <div
-                  className="relative mt-7 font-extrabold uppercase text-ink-0"
+                  className="relative mt-7 font-serif font-bold uppercase text-ink-0"
                   style={{ fontSize: "clamp(30px, 3.4vw, 42px)", letterSpacing: "-0.02em", lineHeight: 0.95 }}
                 >
                   {p.wordmark}
                 </div>
-                <div className="relative mt-2.5 caps text-[11.5px] font-semibold text-ink-1">
+                <div className="relative mt-2.5 caps text-[11.5px] font-medium text-ink-1">
                   {p.category}
                 </div>
                 <p className="relative mt-4 flex-1 text-[14.5px] leading-[1.6] text-ink-2">
@@ -153,10 +153,10 @@ export function HouseProducts() {
                   className="relative mt-7 flex items-center justify-between border-t pt-5"
                   style={{ borderColor: "var(--hair)" }}
                 >
-                  <span className="caps text-[11px] font-semibold text-ink-3">
+                  <span className="caps font-mono text-[11px] font-medium text-ink-3">
                     Pre-order from £{p.priceFrom}
                   </span>
-                  <span className="caps inline-flex items-center gap-2 text-[11px] font-semibold text-ink-0">
+                  <span className="caps inline-flex items-center gap-2 text-[11px] font-medium text-ink-0">
                     View
                     <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                   </span>

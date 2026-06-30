@@ -14,7 +14,7 @@ export function SculptWhatItDoes() {
             </span>
           </div>
           <h2
-            className="mt-5 max-w-3xl font-extrabold uppercase text-ink-0"
+            className="mt-5 max-w-3xl font-bold uppercase text-ink-0"
             style={{ fontSize: "clamp(30px, 4.4vw, 60px)", letterSpacing: "-0.03em", lineHeight: 0.98 }}
           >
             Worked by hand. Sharpened by steel.

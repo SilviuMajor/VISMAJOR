@@ -44,7 +44,7 @@ export function HeroKinetic() {
           <motion.h1
             {...up}
             transition={{ duration: 0.7, ease }}
-            className="w-full select-none overflow-hidden text-center font-extrabold uppercase leading-[0.8] tracking-[-0.04em] text-ink-0"
+            className="w-full select-none overflow-hidden text-center font-bold uppercase leading-[0.8] tracking-[-0.04em] text-ink-0"
             style={{ fontSize: "clamp(66px, 19vw, 280px)" }}
           >
             <span className="block whitespace-nowrap">GY-NO!</span>
@@ -75,7 +75,7 @@ export function HeroCinematic() {
           <span className="h-px w-8 bg-paper-0/50" />
           <span className="caps-loose text-[11px] font-semibold text-paper-0/80">A Superior Force · Est. MMXXVI</span>
         </motion.div>
-        <motion.h1 {...up} transition={{ duration: 0.8, ease }} className="mt-5 font-extrabold uppercase text-paper-0" style={{ fontSize: "clamp(64px, 12vw, 180px)", lineHeight: 0.86, letterSpacing: "-0.04em" }}>
+        <motion.h1 {...up} transition={{ duration: 0.8, ease }} className="mt-5 font-bold uppercase text-paper-0" style={{ fontSize: "clamp(64px, 12vw, 180px)", lineHeight: 0.86, letterSpacing: "-0.04em" }}>
           GY-NO!
         </motion.h1>
         <motion.p {...up} transition={{ duration: 0.7, ease }} className="mt-5 max-w-lg text-[16px] leading-[1.6] text-paper-0/85 md:text-[18px]">
@@ -100,7 +100,7 @@ export function HeroEditorial() {
               <span className="h-px w-7 bg-[var(--hair-strong)]" />
               <span className="caps-loose text-[11px] font-semibold text-ink-2">Nipple Tightening Cream</span>
             </motion.div>
-            <motion.h1 {...up} transition={{ duration: 0.7, ease }} className="mt-6 font-extrabold uppercase text-ink-0" style={{ fontSize: "clamp(48px, 6.5vw, 92px)", lineHeight: 0.92, letterSpacing: "-0.035em" }}>
+            <motion.h1 {...up} transition={{ duration: 0.7, ease }} className="mt-6 font-bold uppercase text-ink-0" style={{ fontSize: "clamp(48px, 6.5vw, 92px)", lineHeight: 0.92, letterSpacing: "-0.035em" }}>
               Cool.<br />Firm.<br />Composed.
             </motion.h1>
             <motion.p {...up} transition={{ duration: 0.7, ease }} className="mt-7 max-w-md text-[17px] leading-[1.6] text-ink-1">
@@ -132,7 +132,7 @@ export function HeroStatement() {
         <motion.p {...up} transition={{ duration: 0.5, ease }} className="caps-loose text-[11px] font-semibold text-paper-0/60">
           GY-NO! · Nipple Tightening Cream
         </motion.p>
-        <motion.h1 {...up} transition={{ duration: 0.8, ease }} className="mt-7 font-extrabold uppercase" style={{ fontSize: "clamp(46px, 8.5vw, 132px)", lineHeight: 0.9, letterSpacing: "-0.04em" }}>
+        <motion.h1 {...up} transition={{ duration: 0.8, ease }} className="mt-7 font-bold uppercase" style={{ fontSize: "clamp(46px, 8.5vw, 132px)", lineHeight: 0.9, letterSpacing: "-0.04em" }}>
           Instant<br />confidence.<br /><span className="text-paper-0/45">Maximum stiffness.</span>
         </motion.h1>
         <motion.div {...up} transition={{ duration: 0.7, ease }} className="mt-10 flex items-center gap-8">
@@ -162,7 +162,7 @@ export function HeroPlinth() {
         <motion.div {...up} transition={{ duration: 0.9, ease }} className="relative mt-8 h-[46vh] w-[230px] md:w-[280px]">
           <Image src="/product/angle.png" alt="GY-NO! tube" fill priority sizes="300px" className="object-contain drop-shadow-[0_30px_50px_rgba(20,19,15,0.20)]" />
         </motion.div>
-        <motion.h1 {...up} transition={{ duration: 0.7, ease }} className="mt-8 font-extrabold uppercase text-ink-0" style={{ fontSize: "clamp(34px, 4.4vw, 64px)", letterSpacing: "-0.025em", lineHeight: 1 }}>
+        <motion.h1 {...up} transition={{ duration: 0.7, ease }} className="mt-8 font-bold uppercase text-ink-0" style={{ fontSize: "clamp(34px, 4.4vw, 64px)", letterSpacing: "-0.025em", lineHeight: 1 }}>
           Cool. Firm. Composed.
         </motion.h1>
         <motion.p {...up} transition={{ duration: 0.7, ease }} className="mt-5 max-w-md text-[15px] leading-[1.6] text-ink-2">

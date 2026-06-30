@@ -11,20 +11,20 @@ export function FinalCta({ shipMonth }: { shipMonth: string }) {
       <Container>
         <div className="flex items-center gap-3.5">
           <span className="h-px w-8 bg-paper-0/40" />
-          <span className="caps-loose text-[11px] font-semibold text-paper-0/70">
+          <span className="caps-loose text-[11px] font-medium text-paper-0/70">
             First batch · ships {shipMonth}
           </span>
         </div>
 
         <TextReveal
           as="h2"
-          className="mt-8 font-extrabold uppercase text-paper-0 text-[clamp(46px,9vw,140px)] leading-[0.9] tracking-[-0.035em]"
+          className="mt-8 font-bold uppercase text-paper-0 text-[clamp(46px,9vw,140px)] leading-[0.9] tracking-[-0.035em]"
           lines={["Your edge,", "in a tube."]}
         />
 
         <div className="mt-12 flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
           <div>
-            <span className="caps text-[10px] font-semibold text-paper-0/50">
+            <span className="caps text-[10px] font-medium text-paper-0/50">
               Launch price locks at pre-order
             </span>
             <div className="mt-4">
@@ -47,7 +47,7 @@ export function FinalCta({ shipMonth }: { shipMonth: string }) {
             </a>
             <a
               href="#notify"
-              className="caps text-[11px] font-semibold text-paper-0/60 underline-offset-4 transition-colors hover:text-paper-0 hover:underline"
+              className="caps text-[11px] font-medium text-paper-0/60 underline-offset-4 transition-colors hover:text-paper-0 hover:underline"
             >
               or join the list
             </a>

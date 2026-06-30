@@ -8,7 +8,7 @@ import { SteelTool } from "@/components/chisel/Art";
 import { useCart } from "@/lib/cart";
 
 type Tier = {
-  key: "short" | "long" | "pair";
+  key: "sword" | "axe" | "pair";
   label: string;
   unitLabel: string;
   price: number;
@@ -17,35 +17,35 @@ type Tier = {
 };
 
 // Standalone pre-order prices (placeholder — confirm with Silviu). The SCULPT
-// bundles still add the same bars on top of the cream at a set discount.
+// bundles still add the same tools on top of the cream at a set discount.
 const TIERS: Tier[] = [
-  { key: "short", label: "Short Steel", unitLabel: "Control bar", price: 24, reg: 34 },
-  { key: "long", label: "Long Steel", unitLabel: "Reach bar", price: 30, reg: 42, note: "Most chosen" },
-  { key: "pair", label: "The Pair", unitLabel: "Both bars", price: 48, reg: 66, note: "Best value" },
+  { key: "sword", label: "The Sword", unitLabel: "Control blade", price: 24, reg: 34 },
+  { key: "axe", label: "The Axe", unitLabel: "Reach tool", price: 30, reg: 42, note: "Most chosen" },
+  { key: "pair", label: "The Pair", unitLabel: "Axe + Sword", price: 48, reg: 66, note: "Best value" },
 ];
 
 const SPECS: Record<Tier["key"], [string, string][]> = {
-  short: [
-    ["In the set", "1 × Short bar"],
-    ["Best for", "Jaw · neck · forearms"],
-    ["Length", "Approx. 120mm"],
+  sword: [
+    ["In the set", "1 × The Sword"],
+    ["Best for", "Carving · close control"],
+    ["Edges", "Point · flat · hook"],
     ["Material", "Machined stainless steel"],
   ],
-  long: [
-    ["In the set", "1 × Long bar"],
-    ["Best for", "Chest · back · legs"],
-    ["Length", "Approx. 175mm"],
+  axe: [
+    ["In the set", "1 × The Axe"],
+    ["Best for", "Reach · deep pressure"],
+    ["Edges", "Hooked edge · broad face"],
     ["Material", "Machined stainless steel"],
   ],
   pair: [
-    ["In the set", "Short + Long bars"],
+    ["In the set", "The Axe + The Sword"],
     ["Best for", "The whole body"],
-    ["Length", "120mm + 175mm"],
+    ["Edges", "Every profile"],
     ["Material", "Machined stainless steel"],
   ],
 };
 
-/** The selected tier's bars, drawn at the right reach. */
+/** The selected tier's tools, drawn at the right reach. */
 function ToolArt({ tier }: { tier: Tier["key"] }) {
   if (tier === "pair") {
     return (
@@ -60,14 +60,14 @@ function ToolArt({ tier }: { tier: Tier["key"] }) {
     );
   }
   return (
-    <div className={`-rotate-[10deg] ${tier === "long" ? "w-[82%]" : "w-[58%]"}`}>
+    <div className={`-rotate-[10deg] ${tier === "axe" ? "w-[82%]" : "w-[58%]"}`}>
       <SteelTool className="h-auto w-full" warmth={0} />
     </div>
   );
 }
 
 export function SteelBuy({ shipMonth }: { shipMonth: string }) {
-  const [tierKey, setTierKey] = useState<Tier["key"]>("long");
+  const [tierKey, setTierKey] = useState<Tier["key"]>("axe");
   const [qty, setQty] = useState(1);
   const { add } = useCart();
 
@@ -96,7 +96,7 @@ export function SteelBuy({ shipMonth }: { shipMonth: string }) {
           {/* specimen */}
           <div className="lg:sticky lg:top-24 lg:self-start">
             <div className="relative flex aspect-square items-center justify-center">
-              <span className="absolute left-0.5 top-0 z-20 caps text-[9px] font-medium text-ink-3">
+              <span className="absolute left-0.5 top-0 z-20 caps font-mono text-[9px] font-medium text-ink-3">
                 STEEL / IV
               </span>
               <span className="absolute bottom-0 right-0.5 z-20 caps text-[9px] font-medium text-ink-3">
@@ -121,36 +121,36 @@ export function SteelBuy({ shipMonth }: { shipMonth: string }) {
           <div>
             <Eyebrow>STEEL · No. IV</Eyebrow>
             <h2
-              className="mt-4 font-extrabold uppercase text-ink-0"
-              style={{ fontSize: "clamp(48px, 5.4vw, 72px)", lineHeight: 0.9, letterSpacing: "-0.01em" }}
+              className="mt-4 font-bold uppercase font-serif text-ink-0"
+              style={{ fontSize: "clamp(48px, 5.4vw, 72px)", lineHeight: 0.92, letterSpacing: "-0.01em" }}
             >
               {tier.label}
             </h2>
             <div className="caps mt-4 text-[15px] font-medium text-ink-1">
-              Weighted massage &amp; therapy bar
+              Weighted massage &amp; therapy tool
             </div>
             <p className="mt-5 max-w-md text-[18px] leading-[1.65] text-ink-1">
-              Cold, machined steel with a contoured edge and a knurled grip.
-              Heavy enough to do the work for you — drained, eased and worked,
-              by hand or with the cream.
+              Cold, machined steel with several contoured edges. Heavy enough to
+              do the work for you — carve, drain, hook and press, by hand or with
+              the cream.
             </p>
 
             {/* price */}
             <div className="mt-7 flex items-end justify-between gap-4 border-t pt-6" style={{ borderColor: "var(--hair)" }}>
               <div>
-                <span className="caps inline-flex items-center gap-2 text-[10px] font-semibold text-ink-3">
+                <span className="caps inline-flex items-center gap-2 text-[10px] font-medium text-ink-3">
                   <span className="inline-block h-1.5 w-1.5 rounded-full bg-ink-0" />
                   Early-bird pre-order
                 </span>
                 <div className="mt-3 flex items-baseline gap-3">
                   <span
-                    className="font-extrabold text-ink-0"
-                    style={{ fontSize: "clamp(36px, 4.4vw, 52px)", letterSpacing: "-0.02em", lineHeight: 1 }}
+                    className="font-mono font-bold text-ink-0"
+                    style={{ fontSize: "clamp(34px, 4.2vw, 48px)", letterSpacing: "-0.02em", lineHeight: 1 }}
                   >
                     £{tier.price}
                   </span>
-                  <span className="text-[18px] text-ink-3 line-through">£{tier.reg}</span>
-                  <span className="caps rounded-xs bg-ink-0 px-2 py-1 text-[9px] font-semibold text-paper-0">
+                  <span className="font-mono text-[18px] text-ink-3 line-through">£{tier.reg}</span>
+                  <span className="caps rounded-xs bg-ink-0 px-2 py-1 text-[9px] font-medium text-paper-0">
                     Save {pct}%
                   </span>
                 </div>
@@ -162,7 +162,7 @@ export function SteelBuy({ shipMonth }: { shipMonth: string }) {
 
             {/* tier selector */}
             <div className="mt-8">
-              <div className="caps text-[10px] font-semibold text-ink-3">Choose your steel</div>
+              <div className="caps text-[10px] font-medium text-ink-3">Choose your steel</div>
               <div className="mt-3 flex flex-col gap-2.5">
                 {TIERS.map((t) => {
                   const selected = t.key === tier.key;
@@ -184,10 +184,10 @@ export function SteelBuy({ shipMonth }: { shipMonth: string }) {
                         >
                           {selected && <span className="h-1.5 w-1.5 rounded-full bg-paper-0" />}
                         </span>
-                        <span className="caps text-[13px] font-semibold">{t.label}</span>
+                        <span className="caps text-[13px] font-medium">{t.label}</span>
                         {t.note && (
                           <span
-                            className={`caps rounded-xs px-2 py-0.5 text-[8.5px] font-semibold ${
+                            className={`caps rounded-xs px-2 py-0.5 text-[8.5px] font-medium ${
                               selected ? "bg-paper-0 text-ink-0" : "bg-ink-0 text-paper-0"
                             }`}
                           >
@@ -196,10 +196,10 @@ export function SteelBuy({ shipMonth }: { shipMonth: string }) {
                         )}
                       </span>
                       <span className="flex items-baseline gap-2">
-                        <span className={`text-[12px] line-through ${selected ? "text-paper-0/45" : "text-ink-3"}`}>
+                        <span className={`font-mono text-[12px] line-through ${selected ? "text-paper-0/45" : "text-ink-3"}`}>
                           £{t.reg}
                         </span>
-                        <span className="text-[16px] font-semibold">£{t.price}</span>
+                        <span className="font-mono text-[16px] font-bold">£{t.price}</span>
                       </span>
                     </button>
                   );
@@ -211,7 +211,7 @@ export function SteelBuy({ shipMonth }: { shipMonth: string }) {
             <div className="mt-6 flex items-center gap-4">
               <div className="flex items-center rounded-sm border border-ink-0">
                 <button onClick={() => setQty(Math.max(1, qty - 1))} className="px-4 py-3 text-base font-semibold hover:bg-ink-0/5" aria-label="Decrease quantity">−</button>
-                <span className="min-w-[2rem] text-center font-semibold">{qty}</span>
+                <span className="min-w-[2rem] text-center font-mono font-semibold">{qty}</span>
                 <button onClick={() => setQty(qty + 1)} className="px-4 py-3 text-base font-semibold hover:bg-ink-0/5" aria-label="Increase quantity">+</button>
               </div>
               <button
@@ -226,7 +226,7 @@ export function SteelBuy({ shipMonth }: { shipMonth: string }) {
                 Ships {shipMonth} · Free UK delivery · 30-day returns
               </p>
               {saving > 0 && (
-                <span className="caps text-[10.5px] font-semibold text-ink-0">
+                <span className="caps text-[10.5px] font-medium text-ink-0">
                   You save £{saving} ({pct}% off)
                 </span>
               )}
@@ -237,8 +237,8 @@ export function SteelBuy({ shipMonth }: { shipMonth: string }) {
               <SectionHead n="—" title="Specification" />
               {SPECS[tier.key].map(([k, v]) => (
                 <div key={k} className="flex items-center justify-between border-b py-3" style={{ borderColor: "var(--hair)" }}>
-                  <span className="caps text-[11px] font-semibold text-ink-2">{k}</span>
-                  <span className="caps text-[11px] font-semibold text-ink-0">{v}</span>
+                  <span className="caps text-[11px] font-medium text-ink-2">{k}</span>
+                  <span className="caps font-mono text-[11px] font-medium text-ink-0">{v}</span>
                 </div>
               ))}
             </div>

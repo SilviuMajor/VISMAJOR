@@ -26,12 +26,12 @@ export function SculptTools() {
         <Reveal>
           <div className="flex items-center gap-3.5">
             <span className="h-px w-7 bg-[var(--hair-strong)]" />
-            <span className="caps-loose text-[11px] font-semibold text-ink-2">
+            <span className="caps-loose text-[11px] font-medium text-ink-2">
               The Tools · Optional
             </span>
           </div>
           <h2
-            className="mt-5 max-w-2xl font-extrabold uppercase text-ink-0"
+            className="mt-5 max-w-2xl font-bold uppercase text-ink-0"
             style={{ fontSize: "clamp(28px, 4.2vw, 56px)", letterSpacing: "-0.03em", lineHeight: 0.98 }}
           >
             Add steel, if you want more.
@@ -61,7 +61,7 @@ export function SculptTools() {
                   />
                 </div>
                 <span
-                  className="caps mt-2 text-[10px] font-semibold"
+                  className="caps mt-2 text-[10px] font-medium"
                   style={{ color: "#14130F" }}
                 >
                   {t.use}
@@ -75,7 +75,7 @@ export function SculptTools() {
         <Reveal>
           <Link
             href="/steel"
-            className="caps group mt-12 inline-flex items-center gap-2 border-t pt-6 text-[11px] font-semibold text-ink-0"
+            className="caps group mt-12 inline-flex items-center gap-2 border-t pt-6 text-[11px] font-medium text-ink-0"
             style={{ borderColor: "var(--hair)" }}
           >
             See the full steel range

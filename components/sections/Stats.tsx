@@ -26,7 +26,7 @@ export function Stats() {
               style={{ borderColor: "var(--hair)" }}
             >
               <div
-                className="flex items-baseline font-extrabold text-ink-0"
+                className="flex items-baseline font-mono font-bold text-ink-0"
                 style={{ fontSize: "clamp(40px, 5vw, 64px)", letterSpacing: "-0.03em" }}
               >
                 {s.prefix && (

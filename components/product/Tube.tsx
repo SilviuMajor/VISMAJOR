@@ -69,7 +69,7 @@ export function Tube({ width = 220, label = "cream", className = "" }: TubeProps
           </span>
           <div className="mt-auto">
             <span
-              className="block font-extrabold text-ink-0"
+              className="block font-bold text-ink-0"
               style={{
                 fontSize: width * 0.135,
                 letterSpacing: "0.02em",

@@ -40,7 +40,7 @@ export function ProductQuote({
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.9, delay: 0.35, ease: "easeOut" }}
-          className="caps-loose mt-5 text-center text-[10.5px] font-semibold text-ink-3"
+          className="caps-loose mt-5 text-center text-[10.5px] font-medium text-ink-3"
         >
           {translation}
         </motion.p>

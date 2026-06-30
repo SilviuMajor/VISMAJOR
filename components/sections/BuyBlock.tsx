@@ -139,7 +139,7 @@ export function BuyBlock({ shipMonth }: { shipMonth: string }) {
           <Reveal delay={0.05}>
             <Eyebrow>GY-NO! · 001</Eyebrow>
             <h2
-              className="mt-4 font-extrabold uppercase text-ink-0"
+              className="mt-4 font-bold uppercase text-ink-0"
               style={{ fontSize: "clamp(56px, 6vw, 76px)", lineHeight: 0.9, letterSpacing: "0.01em" }}
             >
               GY-NO!
@@ -161,7 +161,7 @@ export function BuyBlock({ shipMonth }: { shipMonth: string }) {
 
             {/* Size selector */}
             <div className="mt-9">
-              <div className="caps text-[10px] font-semibold text-ink-3">Size</div>
+              <div className="caps text-[10px] font-medium text-ink-3">Size</div>
               <div className="mt-3 flex gap-2.5">
                 {TIERS.map((t) => {
                   const selected = t.key === tier.key;
@@ -178,16 +178,16 @@ export function BuyBlock({ shipMonth }: { shipMonth: string }) {
                     >
                       {t.note && (
                         <span
-                          className={`absolute -top-2 left-1/2 -translate-x-1/2 whitespace-nowrap px-1.5 py-0.5 caps text-[8px] font-semibold ${
+                          className={`absolute -top-2 left-1/2 -translate-x-1/2 whitespace-nowrap px-1.5 py-0.5 caps text-[8px] font-medium ${
                             selected ? "bg-paper-0 text-ink-0" : "bg-ink-0 text-paper-0"
                           }`}
                         >
                           {t.note}
                         </span>
                       )}
-                      <span className="caps text-[12px] font-semibold">{t.label}</span>
+                      <span className="caps text-[12px] font-medium">{t.label}</span>
                       <span
-                        className={`text-[11px] font-medium ${
+                        className={`font-mono text-[11px] font-medium ${
                           selected ? "text-paper-0/70" : "text-ink-3"
                         }`}
                       >
@@ -209,7 +209,7 @@ export function BuyBlock({ shipMonth }: { shipMonth: string }) {
                 >
                   −
                 </button>
-                <span className="min-w-[2rem] text-center font-semibold">{qty}</span>
+                <span className="min-w-[2rem] text-center font-mono font-semibold">{qty}</span>
                 <button
                   onClick={() => setQty(qty + 1)}
                   className="px-4 py-3 text-base font-semibold text-ink-0 transition-colors hover:bg-ink-0/5"
@@ -221,7 +221,7 @@ export function BuyBlock({ shipMonth }: { shipMonth: string }) {
               <button
                 onClick={onPreorder}
                 disabled={loading}
-                className="caps flex-1 rounded-sm border border-ink-0 bg-ink-0 px-6 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1 disabled:opacity-50"
+                className="caps flex-1 rounded-sm border border-ink-0 bg-ink-0 px-6 py-[18px] text-[13px] font-medium text-paper-0 transition-colors hover:bg-ink-1 disabled:opacity-50"
               >
                 {loading ? "Opening Checkout…" : `Pre-order — £${total}`}
               </button>
@@ -253,7 +253,7 @@ export function BuyBlock({ shipMonth }: { shipMonth: string }) {
 function Chip({ children }: { children: React.ReactNode }) {
   return (
     <span
-      className="caps inline-flex items-center rounded-xs border px-3 py-1.5 text-[11px] font-semibold text-ink-0"
+      className="caps inline-flex items-center rounded-xs border px-3 py-1.5 text-[11px] font-medium text-ink-0"
       style={{ borderColor: "var(--hair-strong)" }}
     >
       {children}
@@ -267,8 +267,8 @@ function Spec({ k, v }: { k: string; v: string }) {
       className="flex items-center justify-between border-b py-3"
       style={{ borderColor: "var(--hair)" }}
     >
-      <span className="caps text-[11px] font-semibold text-ink-2">{k}</span>
-      <span className="caps text-[11px] font-semibold text-ink-0">{v}</span>
+      <span className="caps text-[11px] font-medium text-ink-2">{k}</span>
+      <span className="caps font-mono text-[11px] font-medium text-ink-0">{v}</span>
     </div>
   );
 }
@@ -332,7 +332,7 @@ function NotifyMe() {
           <button
             type="submit"
             disabled={status === "loading"}
-            className="caps inline-flex items-center justify-center rounded-sm border border-ink-0 bg-ink-0 px-7 py-[14px] text-[12px] font-semibold text-paper-0 transition-colors hover:bg-ink-1 disabled:opacity-50"
+            className="caps inline-flex items-center justify-center rounded-sm border border-ink-0 bg-ink-0 px-7 py-[14px] text-[12px] font-medium text-paper-0 transition-colors hover:bg-ink-1 disabled:opacity-50"
           >
             {status === "loading" ? "Adding…" : "Notify Me"}
           </button>

@@ -98,7 +98,7 @@ export function ProofV2() {
           >
             <div className="flex items-end gap-3 md:gap-5">
               <span
-                className="font-extrabold text-paper-0"
+                className="font-bold text-paper-0"
                 style={{
                   fontSize: "clamp(70px, 10.5vw, 142px)",
                   letterSpacing: "-0.045em",
@@ -108,7 +108,7 @@ export function ProofV2() {
                 <Counter value={2000} />+
               </span>
               <span
-                className="font-extrabold uppercase text-paper-0"
+                className="font-bold uppercase text-paper-0"
                 style={{
                   fontSize: "clamp(23px, 3.4vw, 52px)",
                   letterSpacing: "-0.01em",
@@ -140,7 +140,7 @@ export function ProofV2() {
               </span>
               <span className="flex items-baseline gap-2">
                 <span
-                  className="font-extrabold text-paper-0"
+                  className="font-bold text-paper-0"
                   style={{ fontSize: "clamp(20px, 2.4vw, 28px)", letterSpacing: "-0.03em" }}
                 >
                   <Counter value={RESERVED_PCT} />%

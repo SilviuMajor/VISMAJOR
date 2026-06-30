@@ -51,12 +51,12 @@ export function HorizontalUseBefore() {
         <Container className="py-20 md:py-24">
           <div className="flex items-center gap-3.5">
             <span className="h-px w-8 bg-paper-0/40" />
-            <span className="caps-loose text-[11px] font-semibold text-paper-0/70">
+            <span className="caps-loose text-[11px] font-medium text-paper-0/70">
               Use Before
             </span>
           </div>
           <h2
-            className="mt-6 font-extrabold uppercase text-paper-0"
+            className="mt-6 font-bold uppercase text-paper-0"
             style={{ fontSize: "clamp(40px, 11vw, 76px)", letterSpacing: "-0.03em", lineHeight: 0.95 }}
           >
             Four moments.
@@ -90,7 +90,7 @@ export function HorizontalUseBefore() {
               Whenever you want to feel
             </p>
             <p
-              className="mt-3 font-extrabold uppercase text-paper-0"
+              className="mt-3 font-bold uppercase text-paper-0"
               style={{ fontSize: "clamp(40px, 12vw, 68px)", letterSpacing: "-0.025em", lineHeight: 1 }}
             >
               Sharper.
@@ -121,7 +121,7 @@ export function HorizontalUseBefore() {
               </span>
             </div>
             <h2
-              className="mt-7 font-extrabold uppercase text-paper-0"
+              className="mt-7 font-bold uppercase text-paper-0"
               style={{ fontSize: "clamp(40px, 6vw, 92px)", letterSpacing: "-0.03em", lineHeight: 0.92 }}
             >
               Four
@@ -161,7 +161,7 @@ export function HorizontalUseBefore() {
               Whenever you want to feel
             </p>
             <p
-              className="mt-3 font-extrabold uppercase text-paper-0"
+              className="mt-3 font-bold uppercase text-paper-0"
               style={{ fontSize: "clamp(34px, 4.4vw, 68px)", letterSpacing: "-0.025em", lineHeight: 1 }}
             >
               Sharper.

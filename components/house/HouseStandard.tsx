@@ -44,12 +44,12 @@ export function HouseStandard() {
         <div className="flex flex-col justify-center py-20 sm:min-h-screen sm:py-28">
           <div className="flex items-center gap-3.5">
             <span className="h-px w-8 bg-[var(--hair-strong)]" />
-            <span className="caps-loose text-[11px] font-semibold text-ink-2">
+            <span className="caps-loose text-[11px] font-medium text-ink-2">
               The Standard
             </span>
           </div>
           <h2
-            className="mt-7 font-extrabold uppercase text-ink-0"
+            className="mt-7 font-bold uppercase text-ink-0"
             style={{ fontSize: "clamp(40px, 6.5vw, 104px)", lineHeight: 0.9, letterSpacing: "-0.03em" }}
           >
             One job.
@@ -69,7 +69,7 @@ export function HouseStandard() {
                   className="inline-block h-2 w-2 rounded-full"
                   style={{ background: "var(--ink-3)" }}
                 />
-                <span className="caps text-[11.5px] font-semibold text-ink-1 transition-colors group-hover:text-ink-0">
+                <span className="caps text-[11.5px] font-medium text-ink-1 transition-colors group-hover:text-ink-0">
                   {p.wordmark}
                 </span>
               </a>

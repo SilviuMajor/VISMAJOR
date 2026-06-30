@@ -56,7 +56,7 @@ export default function ExplorePage() {
             <span className="h-px w-7 bg-[var(--hair-strong)]" />
             <span className="caps-loose text-[11px] font-semibold text-ink-2">Explore · Hero Directions</span>
           </div>
-          <h1 className="mt-6 max-w-3xl font-extrabold uppercase text-ink-0" style={{ fontSize: "clamp(34px, 5vw, 68px)", letterSpacing: "-0.03em", lineHeight: 0.96 }}>
+          <h1 className="mt-6 max-w-3xl font-bold uppercase text-ink-0" style={{ fontSize: "clamp(34px, 5vw, 68px)", letterSpacing: "-0.03em", lineHeight: 0.96 }}>
             Five takes on the first section.
           </h1>
           <p className="mt-6 max-w-xl text-[16px] leading-[1.6] text-ink-1">

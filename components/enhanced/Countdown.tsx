@@ -48,13 +48,13 @@ export function Countdown({
         <div key={it.l} className="flex items-center gap-3">
           <div className="flex flex-col items-center">
             <span
-              className={`font-extrabold tabular-nums ${isPaper ? "text-paper-0" : "text-ink-0"}`}
+              className={`font-bold tabular-nums font-mono ${isPaper ? "text-paper-0" : "text-ink-0"}`}
               style={{ fontSize: "clamp(30px, 4vw, 52px)", letterSpacing: "-0.02em", lineHeight: 1 }}
             >
               {mounted ? String(it.v).padStart(2, "0") : "––"}
             </span>
             <span
-              className={`caps mt-2 text-[9.5px] font-semibold ${isPaper ? "text-paper-0/50" : "text-ink-3"}`}
+              className={`caps mt-2 text-[9.5px] font-medium ${isPaper ? "text-paper-0/50" : "text-ink-3"}`}
             >
               {it.l}
             </span>

@@ -34,7 +34,7 @@ export function SteelHero({ priceFrom }: { priceFrom: string }) {
           className="flex items-center justify-center gap-3.5"
         >
           <span className="h-px w-8 bg-[var(--hair-strong)]" />
-          <span className="caps-loose text-[11px] font-semibold text-ink-2">
+          <span className="caps-loose text-[11px] font-medium text-ink-2">
             Massage &amp; Therapy · Machined Steel
           </span>
           <span className="h-px w-8 bg-[var(--hair-strong)]" />
@@ -43,7 +43,7 @@ export function SteelHero({ priceFrom }: { priceFrom: string }) {
         {/* giant kinetic wordmark + the two bars */}
         <div className="relative mt-6 flex w-full flex-1 flex-col items-center justify-center overflow-hidden">
           <motion.h1
-            className="pointer-events-none relative z-0 w-full select-none text-center font-extrabold uppercase leading-[0.9] tracking-[-0.05em] text-ink-0"
+            className="pointer-events-none relative z-0 w-full select-none text-center font-bold uppercase font-serif leading-[0.9] tracking-[-0.05em] text-ink-0"
           >
             <motion.span
               variants={wordContainer}
@@ -103,7 +103,7 @@ export function SteelHero({ priceFrom }: { priceFrom: string }) {
         >
           <p className="max-w-lg text-[16px] leading-[1.6] text-ink-1 md:text-[18px]">
             Weighted, machined steel — for massage, recovery and working tension
-            out of the muscle. Two bars, sized for control and for reach.
+            out of the muscle. The Axe and the Sword: two profiles, many edges.
           </p>
           <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
             <a

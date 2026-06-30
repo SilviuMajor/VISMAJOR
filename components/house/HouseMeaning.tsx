@@ -12,7 +12,7 @@ export function HouseMeaning() {
         <div className="mx-auto max-w-3xl text-center">
           <div className="flex items-center justify-center gap-3.5">
             <span className="h-px w-7 bg-[var(--hair-strong)]" />
-            <span className="caps-loose text-[11px] font-semibold text-ink-2">
+            <span className="caps-loose text-[11px] font-medium text-ink-2">
               Meaning
             </span>
             <span className="h-px w-7 bg-[var(--hair-strong)]" />
@@ -49,7 +49,7 @@ export function HouseVirtues() {
                   className="h-1 w-1 rounded-full bg-[var(--hair-strong)]"
                 />
               )}
-              <span className="caps-loose text-[12px] font-semibold text-ink-2 md:text-[13px]">
+              <span className="caps-loose text-[12px] font-medium text-ink-2 md:text-[13px]">
                 {v}
               </span>
             </Fragment>

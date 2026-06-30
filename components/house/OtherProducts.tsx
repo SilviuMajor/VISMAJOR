@@ -42,7 +42,7 @@ export function OtherProducts({ current }: { current: ProductSlug }) {
           </span>
         </div>
         <h2
-          className="mt-5 max-w-2xl font-extrabold uppercase text-ink-0"
+          className="mt-5 max-w-2xl font-bold uppercase text-ink-0"
           style={{ fontSize: "clamp(28px, 4vw, 52px)", letterSpacing: "-0.03em", lineHeight: 0.98 }}
         >
           One standard, three jobs.
@@ -80,7 +80,7 @@ export function OtherProducts({ current }: { current: ProductSlug }) {
                   </div>
 
                   <div
-                    className="mt-8 font-extrabold uppercase text-ink-0"
+                    className="mt-8 font-serif font-bold uppercase text-ink-0"
                     style={{ fontSize: "clamp(32px, 4.6vw, 56px)", letterSpacing: "-0.02em", lineHeight: 0.94 }}
                   >
                     {p.wordmark}
@@ -97,7 +97,7 @@ export function OtherProducts({ current }: { current: ProductSlug }) {
                       View {p.wordmark}
                       <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                     </span>
-                    <span className="caps text-[11px] font-semibold text-ink-3">
+                    <span className="caps font-mono text-[11px] font-medium text-ink-3">
                       Pre-order from £{p.priceFrom}
                     </span>
                   </div>

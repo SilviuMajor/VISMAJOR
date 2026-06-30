@@ -70,7 +70,7 @@ export function Header({
             VIS·MAJOR
           </a>
           {crumb && (
-            <span className="caps text-[10px] font-semibold text-ink-3">
+            <span className="caps font-serif text-[10px] font-medium text-ink-3">
               <span className="mr-2 text-ink-3/60">/</span>
               {crumb}
             </span>

@@ -29,13 +29,13 @@ export function Specimen({
     <div className={`relative ${className}`}>
       {/* corner read-outs — annotations, not a frame */}
       <span
-        className="absolute left-0.5 top-0 z-40 caps text-[9px] font-medium"
+        className="absolute left-0.5 top-0 z-40 caps font-mono text-[9px] font-medium"
         style={{ color: accentIndex ? "#14130F" : "var(--ink-3)" }}
       >
         {index}
       </span>
       {label != null && (
-        <span className="absolute right-0.5 top-0 z-40 caps text-[9px] font-medium text-ink-3">
+        <span className="absolute right-0.5 top-0 z-40 caps font-mono text-[9px] font-medium text-ink-3">
           {label}
         </span>
       )}

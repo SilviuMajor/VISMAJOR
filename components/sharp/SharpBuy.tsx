@@ -143,7 +143,7 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
           {/* Sticky specimen gallery (photo-free) */}
           <div className="lg:sticky lg:top-24 lg:self-start">
             <div className="relative flex aspect-square items-center justify-center">
-              <span className="absolute left-0.5 top-0 z-40 caps text-[9px] font-medium text-ink-3">STONE / 003</span>
+              <span className="absolute left-0.5 top-0 z-40 caps font-mono text-[9px] font-medium text-ink-3">STONE / 003</span>
               <span className="absolute bottom-0 right-0.5 z-40 caps text-[9px] font-medium text-ink-3">
                 {VIEWS[view].caption}
               </span>
@@ -186,7 +186,7 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
           <div>
             <Eyebrow>STONE · 003</Eyebrow>
             <h2
-              className="mt-4 font-extrabold uppercase text-ink-0"
+              className="mt-4 font-serif font-bold uppercase text-ink-0"
               style={{ fontSize: "clamp(56px, 6vw, 76px)", lineHeight: 0.9, letterSpacing: "-0.02em" }}
             >
               STONE
@@ -204,22 +204,22 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
               style={{ borderColor: "var(--hair)" }}
             >
               <div>
-                <span className="caps inline-flex items-center gap-2 text-[10px] font-semibold text-ink-3">
+                <span className="caps inline-flex items-center gap-2 text-[10px] font-medium text-ink-3">
                   <span className="inline-block h-1.5 w-1.5 rounded-full" style={{ background: MINT }} />
                   Early-bird pre-order
                 </span>
                 <div className="mt-3 flex items-baseline gap-3">
                   <span
-                    className="font-extrabold text-ink-0"
+                    className="font-mono font-bold text-ink-0"
                     style={{ fontSize: "clamp(36px, 4.4vw, 52px)", letterSpacing: "-0.02em", lineHeight: 1 }}
                   >
                     £{tier.price}
                   </span>
                   {tier.reg && (
-                    <span className="text-[18px] text-ink-3 line-through">£{tier.reg}</span>
+                    <span className="font-mono text-[18px] text-ink-3 line-through">£{tier.reg}</span>
                   )}
                   {pct > 0 && (
-                    <span className="caps rounded-xs bg-ink-0 px-2 py-1 text-[9px] font-semibold text-paper-0">
+                    <span className="caps rounded-xs bg-ink-0 px-2 py-1 text-[9px] font-medium text-paper-0">
                       Save {pct}%
                     </span>
                   )}
@@ -232,7 +232,7 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
 
             {/* Countdown — price-rise urgency */}
             <div className="mt-6 border-y py-6" style={{ borderColor: "var(--hair)" }}>
-              <span className="caps text-[10px] font-semibold text-ink-3">
+              <span className="caps text-[10px] font-medium text-ink-3">
                 Pre-order price rises to RRP in
               </span>
               <div className="mt-4">
@@ -242,7 +242,7 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
 
             {/* size selector with savings */}
             <div className="mt-8">
-              <div className="caps text-[10px] font-semibold text-ink-3">Size</div>
+              <div className="caps text-[10px] font-medium text-ink-3">Size</div>
               <div className="mt-3 flex flex-col gap-2.5">
                 {TIERS.map((t) => {
                   const selected = t.key === tier.key;
@@ -264,10 +264,10 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
                         >
                           {selected && <span className="h-1.5 w-1.5 rounded-full bg-paper-0" />}
                         </span>
-                        <span className="caps text-[13px] font-semibold">{t.label}</span>
+                        <span className="caps font-mono text-[13px] font-medium">{t.label}</span>
                         {t.note && (
                           <span
-                            className={`caps rounded-xs px-2 py-0.5 text-[8.5px] font-semibold ${
+                            className={`caps rounded-xs px-2 py-0.5 text-[8.5px] font-medium ${
                               selected ? "bg-paper-0 text-ink-0" : "bg-ink-0 text-paper-0"
                             }`}
                           >
@@ -277,11 +277,11 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
                       </span>
                       <span className="flex items-baseline gap-2">
                         {t.reg && (
-                          <span className={`text-[12px] line-through ${selected ? "text-paper-0/45" : "text-ink-3"}`}>
+                          <span className={`font-mono text-[12px] line-through ${selected ? "text-paper-0/45" : "text-ink-3"}`}>
                             £{t.reg}
                           </span>
                         )}
-                        <span className="text-[16px] font-semibold">£{t.price}</span>
+                        <span className="font-mono text-[16px] font-semibold">£{t.price}</span>
                       </span>
                     </button>
                   );
@@ -320,7 +320,7 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
                 Ships {shipMonth} · Free UK delivery · 30-day returns
               </p>
               {saving > 0 && (
-                <span className="caps text-[10.5px] font-semibold text-ink-0">
+                <span className="caps text-[10.5px] font-medium text-ink-0">
                   You save £{saving} ({pct}% off)
                 </span>
               )}
@@ -338,8 +338,8 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
                 ["Made By", "Vis Major · UK"],
               ].map(([k, v]) => (
                 <div key={k} className="flex items-center justify-between border-b py-3" style={{ borderColor: "var(--hair)" }}>
-                  <span className="caps text-[11px] font-semibold text-ink-2">{k}</span>
-                  <span className="caps text-[11px] font-semibold text-ink-0">{v}</span>
+                  <span className="caps text-[11px] font-medium text-ink-2">{k}</span>
+                  <span className="caps font-mono text-[11px] font-medium text-ink-0">{v}</span>
                 </div>
               ))}
             </div>

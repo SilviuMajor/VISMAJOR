@@ -31,7 +31,7 @@ export function Hero({ shipMonth }: { shipMonth: string }) {
 
             <TextReveal
               as="h1"
-              className="mt-7 font-extrabold uppercase text-ink-0 text-[clamp(46px,7vw,86px)] leading-[0.94] tracking-[-0.035em]"
+              className="mt-7 font-bold uppercase text-ink-0 text-[clamp(46px,7vw,86px)] leading-[0.94] tracking-[-0.035em]"
               delay={0.15}
               lines={["Instant", "Confidence.", "Maximum", "Stiffness."]}
             />

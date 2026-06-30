@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Hanken_Grotesk, Cinzel } from "next/font/google";
+import { Hanken_Grotesk, Cinzel, Courier_Prime } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/lib/cart";
 import { CartDrawer } from "@/components/cart/CartDrawer";
@@ -11,11 +11,19 @@ const hanken = Hanken_Grotesk({
   display: "swap",
 });
 
-// House typeface — inscriptional Roman serif for the VIS·MAJOR mark + voice.
+// House typeface — inscriptional Roman serif for the VIS·MAJOR mark + wordmarks.
 const cinzel = Cinzel({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
   variable: "--font-cinzel",
+  display: "swap",
+});
+
+// Data typeface — typewriter mono for net qty, batch, EAN, prices, specs.
+const courier = Courier_Prime({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-mono",
   display: "swap",
 });
 
@@ -49,7 +57,7 @@ export default function RootLayout({
       lang="en"
       data-theme="white"
       suppressHydrationWarning
-      className={`${hanken.variable} ${cinzel.variable}`}
+      className={`${hanken.variable} ${cinzel.variable} ${courier.variable}`}
     >
       <body className="font-display bg-paper-0 text-ink-0 antialiased">
         <CartProvider>

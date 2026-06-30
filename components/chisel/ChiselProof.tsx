@@ -74,7 +74,7 @@ export function ChiselProof() {
         {/* Masthead */}
         <Reveal>
           <div className="flex items-center justify-between gap-4">
-            <span className="caps-loose text-[11px] font-semibold text-paper-0">
+            <span className="caps-loose text-[11px] font-medium text-paper-0">
               The First-Batch List
             </span>
             <span className="flex items-center gap-2">
@@ -84,7 +84,7 @@ export function ChiselProof() {
                 )}
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-paper-0" />
               </span>
-              <span className="caps text-[10px] font-semibold text-paper-0/70">
+              <span className="caps text-[10px] font-medium text-paper-0/70">
                 Early-bird open
               </span>
             </span>
@@ -99,7 +99,7 @@ export function ChiselProof() {
           >
             <div className="flex items-end gap-3 md:gap-5">
               <span
-                className="font-extrabold text-paper-0"
+                className="font-bold font-mono text-paper-0"
                 style={{
                   fontSize: "clamp(70px, 10.5vw, 142px)",
                   letterSpacing: "-0.045em",
@@ -109,7 +109,7 @@ export function ChiselProof() {
                 <Counter value={1400} />+
               </span>
               <span
-                className="font-extrabold uppercase text-paper-0"
+                className="font-bold uppercase text-paper-0"
                 style={{
                   fontSize: "clamp(23px, 3.4vw, 52px)",
                   letterSpacing: "-0.01em",
@@ -125,8 +125,8 @@ export function ChiselProof() {
             <p className="max-w-md pb-1 text-[16.5px] leading-[1.6] text-paper-0 lg:justify-self-end">
               Deliveries start <span className="font-semibold">September 2026</span>.
               Order now to lock the early-bird{" "}
-              <span className="font-semibold">£28</span> — it rises to{" "}
-              <span className="text-paper-0/45 line-through">£38</span> at launch
+              <span className="font-semibold font-mono">£28</span> — it rises to{" "}
+              <span className="text-paper-0/45 line-through font-mono">£38</span> at launch
               — and hold your place in a limited first run.
             </p>
           </div>
@@ -136,17 +136,17 @@ export function ChiselProof() {
         <Reveal delay={0.05}>
           <div className="mt-10">
             <div className="flex items-end justify-between">
-              <span className="caps text-[11px] font-semibold text-paper-0">
+              <span className="caps text-[11px] font-medium text-paper-0">
                 First steel-tool run · early-bird allocation
               </span>
               <span className="flex items-baseline gap-2">
                 <span
-                  className="font-extrabold text-paper-0"
+                  className="font-bold font-mono text-paper-0"
                   style={{ fontSize: "clamp(20px, 2.4vw, 28px)", letterSpacing: "-0.03em" }}
                 >
                   <Counter value={RESERVED_PCT} />%
                 </span>
-                <span className="caps text-[10.5px] font-semibold text-paper-0">reserved</span>
+                <span className="caps text-[10.5px] font-medium text-paper-0">reserved</span>
               </span>
             </div>
             <div className="mt-4">
@@ -191,7 +191,7 @@ export function ChiselProof() {
                       <blockquote className="text-[16.5px] leading-[1.5] text-paper-0">
                         &ldquo;{qt.q}&rdquo;
                       </blockquote>
-                      <figcaption className="caps text-[10.5px] font-semibold text-paper-0/70">
+                      <figcaption className="caps text-[10.5px] font-medium text-paper-0/70">
                         {qt.a}
                       </figcaption>
                     </figure>
@@ -208,7 +208,7 @@ export function ChiselProof() {
             {TRUST.map((t) => (
               <li
                 key={t}
-                className="caps inline-flex items-center gap-2 text-[10px] font-semibold text-paper-0/70"
+                className="caps inline-flex items-center gap-2 text-[10px] font-medium text-paper-0/70"
               >
                 <span className="inline-block h-1 w-1 rounded-full bg-paper-0/45" />
                 {t}

@@ -37,7 +37,7 @@ export function Proof() {
               </span>
               <div className="mt-4 flex items-baseline gap-3">
                 <span
-                  className="font-extrabold text-ink-0"
+                  className="font-bold text-ink-0"
                   style={{ fontSize: "clamp(64px, 9vw, 124px)", letterSpacing: "-0.035em", lineHeight: 0.86 }}
                 >
                   <Counter value={2000} />+

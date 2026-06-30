@@ -40,6 +40,8 @@ const config: Config = {
       fontFamily: {
         sans: ["var(--font-display)", "system-ui", "sans-serif"],
         display: ["var(--font-display)", "system-ui", "sans-serif"],
+        serif: ["var(--font-serif)", "Times New Roman", "serif"], // Cinzel — house mark + product wordmarks
+        mono: ["var(--font-mono)", "Courier New", "monospace"], // Courier Prime — data / specs / numerals
       },
       letterSpacing: {
         wordmark: "0.04em",

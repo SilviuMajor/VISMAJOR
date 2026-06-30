@@ -12,7 +12,7 @@ export function Eyebrow({
       className={`flex items-center gap-3.5 ${center ? "justify-center" : ""}`}
     >
       <span className="h-px w-7 bg-[var(--hair-strong)]" />
-      <span className="caps-loose text-[11px] font-semibold text-ink-2">
+      <span className="caps-loose text-[11px] font-medium text-ink-2">
         {children}
       </span>
       {center && <span className="h-px w-7 bg-[var(--hair-strong)]" />}

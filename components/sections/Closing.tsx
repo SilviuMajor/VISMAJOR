@@ -21,7 +21,7 @@ export function Closing({ shipMonth }: { shipMonth: string }) {
 
             <TextReveal
               as="h2"
-              className="mt-7 font-extrabold uppercase text-ink-0 text-[clamp(40px,6vw,80px)] leading-[0.96] tracking-[-0.03em]"
+              className="mt-7 font-bold uppercase text-ink-0 text-[clamp(40px,6vw,80px)] leading-[0.96] tracking-[-0.03em]"
               lines={["Your edge,", "in a tube."]}
             />
 

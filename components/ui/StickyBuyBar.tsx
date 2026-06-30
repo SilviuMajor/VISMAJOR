@@ -43,10 +43,10 @@ export function StickyBuyBar({
         >
           <div className="flex items-center justify-between gap-4 px-5 py-3">
             <div className="flex flex-col">
-              <span className="caps text-[9.5px] font-semibold text-ink-3">
+              <span className="caps font-serif text-[9.5px] font-medium text-ink-3">
                 {label}
               </span>
-              <span className="text-[13px] font-semibold text-ink-0">
+              <span className="font-mono text-[13px] font-semibold text-ink-0">
                 Pre-order from {priceFrom}
               </span>
             </div>

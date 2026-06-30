@@ -9,7 +9,7 @@ export default function NotFound() {
           VIS·MAJOR
         </Link>
         <p
-          className="mt-10 font-extrabold text-ink-0"
+          className="mt-10 font-bold text-ink-0"
           style={{ fontSize: "clamp(72px, 16vw, 150px)", lineHeight: 0.86, letterSpacing: "-0.045em" }}
         >
           404

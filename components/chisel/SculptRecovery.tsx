@@ -56,7 +56,7 @@ export function SculptRecovery() {
             </span>
           </div>
           <h2
-            className="mt-7 font-extrabold uppercase text-ink-0"
+            className="mt-7 font-bold uppercase text-ink-0"
             style={{ fontSize: "clamp(40px, 6.5vw, 100px)", lineHeight: 0.9, letterSpacing: "-0.03em" }}
           >
             Carved,

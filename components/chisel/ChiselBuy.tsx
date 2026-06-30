@@ -218,7 +218,7 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
           <div>
             <Eyebrow>SCULPT · 002</Eyebrow>
             <h2
-              className="mt-4 font-extrabold uppercase text-ink-0"
+              className="mt-4 font-bold uppercase font-serif text-ink-0"
               style={{ fontSize: "clamp(52px, 6vw, 76px)", lineHeight: 0.9, letterSpacing: "0.01em" }}
             >
               SCULPT
@@ -239,7 +239,7 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
               style={{ borderColor: "var(--hair)" }}
             >
               <div>
-                <span className="caps inline-flex items-center gap-2 text-[10px] font-semibold text-ink-3">
+                <span className="caps inline-flex items-center gap-2 text-[10px] font-medium text-ink-3">
                   <span
                     className="inline-block h-1.5 w-1.5 rounded-full"
                     style={{ background: EMBER }}
@@ -248,14 +248,14 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
                 </span>
                 <div className="mt-3 flex items-baseline gap-3">
                   <span
-                    className="font-extrabold text-ink-0"
+                    className="font-bold font-mono text-ink-0"
                     style={{ fontSize: "clamp(36px, 4.4vw, 52px)", letterSpacing: "-0.02em", lineHeight: 1 }}
                   >
                     £{tier.price}
                   </span>
-                  <span className="text-[18px] text-ink-3 line-through">£{tier.reg}</span>
+                  <span className="text-[18px] text-ink-3 line-through font-mono">£{tier.reg}</span>
                   {pct > 0 && (
-                    <span className="caps rounded-xs bg-ink-0 px-2 py-1 text-[9px] font-semibold text-paper-0">
+                    <span className="caps rounded-xs bg-ink-0 px-2 py-1 text-[9px] font-medium text-paper-0">
                       Save {pct}%
                     </span>
                   )}
@@ -268,7 +268,7 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
 
             {/* Countdown — price-rise urgency */}
             <div className="mt-6 border-y py-6" style={{ borderColor: "var(--hair)" }}>
-              <span className="caps text-[10px] font-semibold text-ink-3">
+              <span className="caps text-[10px] font-medium text-ink-3">
                 Pre-order price rises to RRP in
               </span>
               <div className="mt-4">
@@ -278,7 +278,7 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
 
             {/* cream first, tools optional */}
             <div className="mt-8">
-              <div className="caps text-[10px] font-semibold text-ink-3">
+              <div className="caps text-[10px] font-medium text-ink-3">
                 The cream — add tools if you want
               </div>
               <p className="mt-2 max-w-md text-[13px] leading-[1.5] text-ink-2">
@@ -308,11 +308,11 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
                           >
                             {selected && <span className="h-1.5 w-1.5 rounded-full bg-paper-0" />}
                           </span>
-                          <span className="caps text-[13px] font-semibold">{t.label}</span>
+                          <span className="caps text-[13px] font-medium">{t.label}</span>
                         </span>
                         {t.badge && (
                           <span
-                            className={`caps rounded-xs px-2 py-0.5 text-[8.5px] font-semibold ${
+                            className={`caps rounded-xs px-2 py-0.5 text-[8.5px] font-medium ${
                               selected ? "bg-paper-0 text-ink-0" : "bg-ink-0 text-paper-0"
                             }`}
                           >
@@ -321,10 +321,10 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
                         )}
                       </span>
                       <span className="flex shrink-0 items-baseline gap-2 pl-3">
-                        <span className={`text-[12px] line-through ${selected ? "text-paper-0/45" : "text-ink-3"}`}>
+                        <span className={`text-[12px] line-through font-mono ${selected ? "text-paper-0/45" : "text-ink-3"}`}>
                           £{t.reg}
                         </span>
-                        <span className="text-[16px] font-semibold">£{t.price}</span>
+                        <span className="text-[16px] font-semibold font-mono">£{t.price}</span>
                       </span>
                     </button>
                   );
@@ -363,7 +363,7 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
                 Ships {shipMonth} · Free UK delivery · 30-day returns
               </p>
               {saving > 0 && (
-                <span className="caps text-[10.5px] font-semibold text-ink-0">
+                <span className="caps text-[10.5px] font-medium text-ink-0">
                   You save £{saving} ({pct}% off)
                 </span>
               )}
@@ -395,8 +395,8 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
                   className="flex items-center justify-between border-b py-3"
                   style={{ borderColor: "var(--hair)" }}
                 >
-                  <span className="caps text-[11px] font-semibold text-ink-2">{k}</span>
-                  <span className="caps text-[11px] font-semibold text-ink-0">{v}</span>
+                  <span className="caps text-[11px] font-medium text-ink-2">{k}</span>
+                  <span className="caps text-[11px] font-medium font-mono text-ink-0">{v}</span>
                 </div>
               ))}
             </div>

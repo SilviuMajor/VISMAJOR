@@ -123,7 +123,7 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
           {/* Sticky gallery */}
           <div className="lg:sticky lg:top-24 lg:self-start">
             <div className="relative flex aspect-square items-center justify-center">
-              <span className="absolute left-0.5 top-0 z-20 caps text-[9px] font-medium text-ink-3">GY-NO! / 001</span>
+              <span className="absolute left-0.5 top-0 z-20 caps text-[9px] font-medium font-mono text-ink-3">GY-NO! / 001</span>
               <span className="absolute bottom-0 right-0.5 z-20 caps text-[9px] font-medium text-ink-3">
                 {GALLERY[shot].label}
               </span>
@@ -172,7 +172,7 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
           <div>
             <Eyebrow>GY-NO! · 001</Eyebrow>
             <h2
-              className="mt-4 font-extrabold uppercase text-ink-0"
+              className="mt-4 font-bold uppercase font-serif text-ink-0"
               style={{ fontSize: "clamp(56px, 6vw, 76px)", lineHeight: 0.9, letterSpacing: "0.01em" }}
             >
               GY-NO!
@@ -189,22 +189,22 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
               style={{ borderColor: "var(--hair)" }}
             >
               <div>
-                <span className="caps inline-flex items-center gap-2 text-[10px] font-semibold text-ink-3">
+                <span className="caps inline-flex items-center gap-2 text-[10px] font-medium text-ink-3">
                   <span className="inline-block h-1.5 w-1.5 rounded-full bg-ink-0" />
                   Early-bird pre-order
                 </span>
                 <div className="mt-3 flex items-baseline gap-3">
                   <span
-                    className="font-extrabold text-ink-0"
+                    className="font-bold font-mono text-ink-0"
                     style={{ fontSize: "clamp(36px, 4.4vw, 52px)", letterSpacing: "-0.02em", lineHeight: 1 }}
                   >
                     £{tier.price}
                   </span>
                   {tier.reg && (
-                    <span className="text-[18px] text-ink-3 line-through">£{tier.reg}</span>
+                    <span className="text-[18px] text-ink-3 line-through font-mono">£{tier.reg}</span>
                   )}
                   {pct > 0 && (
-                    <span className="caps rounded-xs bg-ink-0 px-2 py-1 text-[9px] font-semibold text-paper-0">
+                    <span className="caps rounded-xs bg-ink-0 px-2 py-1 text-[9px] font-medium text-paper-0">
                       Save {pct}%
                     </span>
                   )}
@@ -217,7 +217,7 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
 
             {/* Countdown — price-rise urgency */}
             <div className="mt-6 border-y py-6" style={{ borderColor: "var(--hair)" }}>
-              <span className="caps text-[10px] font-semibold text-ink-3">
+              <span className="caps text-[10px] font-medium text-ink-3">
                 Pre-order price rises to RRP in
               </span>
               <div className="mt-4">
@@ -227,7 +227,7 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
 
             {/* size selector with savings */}
             <div className="mt-8">
-              <div className="caps text-[10px] font-semibold text-ink-3">Size</div>
+              <div className="caps text-[10px] font-medium text-ink-3">Size</div>
               <div className="mt-3 flex flex-col gap-2.5">
                 {TIERS.map((t) => {
                   const selected = t.key === tier.key;
@@ -249,10 +249,10 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
                         >
                           {selected && <span className="h-1.5 w-1.5 rounded-full bg-paper-0" />}
                         </span>
-                        <span className="caps text-[13px] font-semibold">{t.label}</span>
+                        <span className="caps text-[13px] font-medium font-mono">{t.label}</span>
                         {t.note && (
                           <span
-                            className={`caps rounded-xs px-2 py-0.5 text-[8.5px] font-semibold ${
+                            className={`caps rounded-xs px-2 py-0.5 text-[8.5px] font-medium ${
                               selected ? "bg-paper-0 text-ink-0" : "bg-ink-0 text-paper-0"
                             }`}
                           >
@@ -262,11 +262,11 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
                       </span>
                       <span className="flex items-baseline gap-2">
                         {t.reg && (
-                          <span className={`text-[12px] line-through ${selected ? "text-paper-0/45" : "text-ink-3"}`}>
+                          <span className={`text-[12px] line-through font-mono ${selected ? "text-paper-0/45" : "text-ink-3"}`}>
                             £{t.reg}
                           </span>
                         )}
-                        <span className="text-[16px] font-semibold">£{t.price}</span>
+                        <span className="text-[16px] font-semibold font-mono">£{t.price}</span>
                       </span>
                     </button>
                   );
@@ -293,7 +293,7 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
                 Ships {shipMonth} · Free UK delivery · 30-day returns
               </p>
               {saving > 0 && (
-                <span className="caps text-[10.5px] font-semibold text-ink-0">
+                <span className="caps text-[10.5px] font-medium text-ink-0">
                   You save £{saving} ({pct}% off)
                 </span>
               )}
@@ -317,7 +317,7 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
                       role="tab"
                       aria-selected={active}
                       onClick={() => selectSpecTab(t)}
-                      className={`relative -mb-px pb-3 caps text-[11px] font-semibold transition-colors ${
+                      className={`relative -mb-px pb-3 caps text-[11px] font-medium transition-colors ${
                         active ? "text-ink-0" : "text-ink-3 hover:text-ink-1"
                       }`}
                     >
@@ -349,8 +349,8 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
                     ] as [string, string][]
                   ).map(([k, v]) => (
                     <div key={k} className="flex items-center justify-between border-b py-3" style={{ borderColor: "var(--hair)" }}>
-                      <span className="caps text-[11px] font-semibold text-ink-2">{k}</span>
-                      <span className="caps text-[11px] font-semibold text-ink-0">{v}</span>
+                      <span className="caps text-[11px] font-medium text-ink-2">{k}</span>
+                      <span className="caps text-[11px] font-medium font-mono text-ink-0">{v}</span>
                     </div>
                   ))}
 
@@ -361,7 +361,7 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
                       and a film-forming tightening system — matte, lightly fragranced.
                     </p>
                     <div>
-                      <span className="caps text-[10px] font-semibold text-ink-3">Three actives</span>
+                      <span className="caps text-[10px] font-medium text-ink-3">Three actives</span>
                       <div className="mt-3">
                         {ACTIVES.map((a) => (
                           <div
@@ -369,18 +369,18 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
                             className="flex items-baseline justify-between gap-5 border-b py-3"
                             style={{ borderColor: "var(--hair)" }}
                           >
-                            <span className="caps text-[11px] font-semibold text-ink-0">{a.name}</span>
+                            <span className="caps text-[11px] font-medium text-ink-0">{a.name}</span>
                             <span className="text-right text-[12.5px] leading-[1.4] text-ink-2">{a.role}</span>
                           </div>
                         ))}
                       </div>
                     </div>
                     <div>
-                      <span className="caps text-[10px] font-semibold text-ink-3">Full formula · INCI</span>
+                      <span className="caps text-[10px] font-medium text-ink-3">Full formula · INCI</span>
                       <p className="mt-2.5 text-[12.5px] leading-[1.75] text-ink-2">{INCI}</p>
                     </div>
                     <div>
-                      <span className="caps text-[10px] font-semibold text-ink-3">Directions</span>
+                      <span className="caps text-[10px] font-medium text-ink-3">Directions</span>
                       <p className="mt-2.5 text-[13.5px] leading-[1.6] text-ink-1">
                         Apply a thin layer to clean, dry skin. Massage in until absorbed.
                         Apply as needed. Avoid contact with eyes. For external use only.
@@ -398,14 +398,14 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
                     <div>
                       {ORIGIN_ROWS.map(([k, v]) => (
                         <div key={k} className="flex items-center justify-between border-b py-3" style={{ borderColor: "var(--hair)" }}>
-                          <span className="caps text-[11px] font-semibold text-ink-2">{k}</span>
-                          <span className="caps text-[11px] font-semibold text-ink-0">{v}</span>
+                          <span className="caps text-[11px] font-medium text-ink-2">{k}</span>
+                          <span className="caps text-[11px] font-medium font-mono text-ink-0">{v}</span>
                         </div>
                       ))}
                     </div>
                     <ul className="flex flex-wrap gap-x-5 gap-y-2.5">
                       {BADGES.map((b) => (
-                        <li key={b} className="caps inline-flex items-center gap-2 text-[10px] font-semibold text-ink-2">
+                        <li key={b} className="caps inline-flex items-center gap-2 text-[10px] font-medium text-ink-2">
                           <span className="inline-block h-1 w-1 rounded-full bg-ink-0" />
                           {b}
                         </li>

@@ -182,7 +182,7 @@ export function SharpActives() {
             <div className="order-2 lg:order-1">
               <div className="flex items-center gap-3.5">
                 <span className="h-px w-7 bg-[var(--hair-strong)]" />
-                <span className="caps-loose text-[11px] font-semibold text-ink-2">
+                <span className="caps-loose text-[11px] font-medium text-ink-2">
                   The Formula
                 </span>
               </div>
@@ -197,7 +197,7 @@ export function SharpActives() {
                     transition={{ duration: 0.4, ease: [0.2, 0, 0, 1] }}
                   >
                     <div className="flex items-center gap-3">
-                      <span className="block font-extrabold text-ink-3" style={{ fontSize: 22 }}>
+                      <span className="block font-bold text-ink-3" style={{ fontSize: 22 }}>
                         {ACTIVES[active].n}
                       </span>
                       <span
@@ -208,7 +208,7 @@ export function SharpActives() {
                       </span>
                     </div>
                     <h3
-                      className="mt-2 font-extrabold uppercase text-ink-0"
+                      className="mt-2 font-bold uppercase text-ink-0"
                       style={{ fontSize: "clamp(30px, 5.4vw, 78px)", letterSpacing: "-0.03em", lineHeight: 0.95 }}
                     >
                       {ACTIVES[active].name}

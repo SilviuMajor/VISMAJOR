@@ -131,7 +131,7 @@ export function EnhancedHero({ shipMonth }: { shipMonth: string }) {
           className="flex items-center gap-3.5"
         >
           <span className="h-px w-7 bg-[var(--hair-strong)]" />
-          <span className="caps-loose text-[11px] font-semibold text-ink-2">
+          <span className="caps-loose text-[11px] font-medium text-ink-2">
             Topicals for Men · Est. MMXXVI
           </span>
           <span className="h-px w-7 bg-[var(--hair-strong)]" />
@@ -156,7 +156,7 @@ export function EnhancedHero({ shipMonth }: { shipMonth: string }) {
           {/* wordmark — letter by letter */}
           <motion.h1
             style={{ scale: wordScale, y: wordScrollY, x: wordPX, opacity: wordOpacity }}
-            className="pointer-events-none relative z-0 w-full select-none text-center font-extrabold uppercase leading-[0.92] tracking-[-0.04em] text-ink-0"
+            className="pointer-events-none relative z-0 w-full select-none text-center font-bold uppercase font-serif leading-[0.92] tracking-[-0.04em] text-ink-0"
           >
             <motion.span
               variants={wordContainer}
@@ -214,7 +214,7 @@ export function EnhancedHero({ shipMonth }: { shipMonth: string }) {
           <motion.p
             {...fadeUp}
             transition={{ duration: 0.6, delay: 0.95, ease: EASE }}
-            className="caps text-[13px] font-semibold text-ink-1 md:text-[15px]"
+            className="caps text-[13px] font-medium text-ink-1 md:text-[15px]"
           >
             Instant Confidence. Cool &amp; Composed.
           </motion.p>

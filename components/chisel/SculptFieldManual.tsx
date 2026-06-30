@@ -14,9 +14,9 @@ export function SculptFieldManual() {
           <Reveal>
             <div className="relative mx-auto aspect-[3/4] w-full max-w-[320px]">
               <div className="flex h-full flex-col items-center justify-center px-8 text-center">
-                <span className="caps-loose text-[10px] font-semibold text-ink-3">The</span>
+                <span className="caps-loose text-[10px] font-medium text-ink-3">The</span>
                 <span
-                  className="mt-2 font-extrabold uppercase text-ink-0"
+                  className="mt-2 font-bold uppercase text-ink-0"
                   style={{ fontSize: "clamp(30px, 4vw, 46px)", letterSpacing: "-0.02em", lineHeight: 0.95 }}
                 >
                   Field
@@ -36,12 +36,12 @@ export function SculptFieldManual() {
             <Reveal>
               <div className="flex items-center gap-3.5">
                 <span className="h-px w-7 bg-[var(--hair-strong)]" />
-                <span className="caps-loose text-[11px] font-semibold text-ink-2">
+                <span className="caps-loose text-[11px] font-medium text-ink-2">
                   Free with every order
                 </span>
               </div>
               <h2
-                className="mt-5 font-extrabold uppercase text-ink-0"
+                className="mt-5 font-bold uppercase text-ink-0"
                 style={{ fontSize: "clamp(30px, 4.4vw, 60px)", letterSpacing: "-0.03em", lineHeight: 0.98 }}
               >
                 The Field Manual.
@@ -62,7 +62,7 @@ export function SculptFieldManual() {
                   (b) => (
                     <span
                       key={b}
-                      className="caps inline-flex items-center gap-2 text-[10.5px] font-semibold text-ink-0"
+                      className="caps inline-flex items-center gap-2 text-[10.5px] font-medium text-ink-0"
                     >
                       <span className="h-1 w-1 rounded-full" style={{ background: "#14130F" }} />
                       {b}

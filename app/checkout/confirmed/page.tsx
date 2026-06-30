@@ -39,7 +39,7 @@ function Confirmed() {
           </svg>
 
           <h1
-            className="mt-8 font-extrabold uppercase text-ink-0"
+            className="mt-8 font-bold uppercase text-ink-0"
             style={{ fontSize: "clamp(30px, 4vw, 46px)", lineHeight: 0.98, letterSpacing: "-0.01em" }}
           >
             Pre-order reserved.

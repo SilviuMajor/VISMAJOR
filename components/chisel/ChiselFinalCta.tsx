@@ -18,7 +18,7 @@ export function ChiselFinalCta({ shipMonth }: { shipMonth: string }) {
 
         <TextReveal
           as="h2"
-          className="mt-8 font-extrabold uppercase text-paper-0 text-[clamp(42px,9vw,140px)] leading-[0.9] tracking-[-0.035em]"
+          className="mt-8 font-bold uppercase text-paper-0 text-[clamp(42px,9vw,140px)] leading-[0.9] tracking-[-0.035em]"
           lines={["Work it.", "Read sharp."]}
         />
 
