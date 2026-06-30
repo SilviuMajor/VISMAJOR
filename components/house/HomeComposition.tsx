@@ -24,6 +24,7 @@ export function HomeComposition() {
           { href: "/gy-no", label: "GY-NO!" },
           { href: "/sculpt", label: "SCULPT" },
           { href: "/stone", label: "STONE" },
+          { href: "/steel", label: "STEEL" },
         ]}
         cta={{ href: "#products", label: "Pre-order" }}
       />

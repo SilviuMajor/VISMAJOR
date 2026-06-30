@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 
@@ -70,6 +71,17 @@ export function SculptTools() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal>
+          <Link
+            href="/steel"
+            className="caps group mt-12 inline-flex items-center gap-2 border-t pt-6 text-[11px] font-semibold text-ink-0"
+            style={{ borderColor: "var(--hair)" }}
+          >
+            See the full steel range
+            <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+          </Link>
+        </Reveal>
       </Container>
     </section>
   );

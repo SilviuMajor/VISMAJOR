@@ -53,6 +53,18 @@ export function Footer() {
                   </a>
                 </li>
               ))}
+              <li>
+                <a
+                  href="/steel"
+                  className="caps inline-flex items-center gap-2 text-[11.5px] font-semibold text-paper-0/90 transition-colors hover:text-paper-0"
+                >
+                  <span
+                    className="inline-block h-1.5 w-1.5 rounded-full"
+                    style={{ background: "var(--metal-300)" }}
+                  />
+                  STEEL
+                </a>
+              </li>
             </ul>
           </div>
 
