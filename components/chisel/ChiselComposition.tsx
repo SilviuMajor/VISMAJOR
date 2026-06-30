@@ -27,13 +27,6 @@ import { ChiselFaq } from "@/components/chisel/ChiselFaq";
 import { ChiselFinalCta } from "@/components/chisel/ChiselFinalCta";
 import { ChiselNotify } from "@/components/chisel/ChiselNotify";
 
-const NAV = [
-  { href: "#how", label: "The Ritual" },
-  { href: "#science", label: "The Cream" },
-  { href: "#buy", label: "Pre-order" },
-  { href: "#faq", label: "FAQ" },
-];
-
 export function ChiselComposition() {
   const shipMonth = process.env.PREORDER_SHIP_MONTH ?? "September 2026";
 
@@ -44,7 +37,7 @@ export function ChiselComposition() {
         message={`SCULPT · the Contour & Recovery Cream · pre-order · first batch ships ${shipMonth}`}
         messageShort={`SCULPT · pre-order · ships ${shipMonth}`}
       />
-      <Header crumb="SCULPT" nav={NAV} cta={{ href: "#buy", label: "Pre-order" }} />
+      <Header crumb="SCULPT" cta={{ href: "#buy", label: "Pre-order" }} />
       <main>
         <ChiselHero shipMonth={shipMonth} />
         <FirstBatchStrip count="1,400+" shipMonth={shipMonth} />

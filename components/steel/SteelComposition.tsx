@@ -19,13 +19,6 @@ import { ToolPhoto, type ToolKey } from "@/components/steel/ToolPhoto";
 import { SteelHero } from "@/components/steel/SteelHero";
 import { SteelBuy } from "@/components/steel/SteelBuy";
 
-const NAV = [
-  { href: "#range", label: "The Range" },
-  { href: "#craft", label: "The Steel" },
-  { href: "#use", label: "How to Use" },
-  { href: "#buy", label: "Pre-order" },
-];
-
 const RANGE: { key: ToolKey; n: string; name: string; use: string; body: string }[] = [
   {
     key: "sword",
@@ -74,7 +67,7 @@ export function SteelComposition() {
         message={`STEEL · the massage & therapy tools · pre-order · first batch ships ${shipMonth}`}
         messageShort={`STEEL · pre-order · ships ${shipMonth}`}
       />
-      <Header crumb="STEEL" nav={NAV} cta={{ href: "#buy", label: "Pre-order" }} />
+      <Header crumb="STEEL" cta={{ href: "#buy", label: "Pre-order" }} />
       <main>
         <SteelHero priceFrom="£24" />
         <FirstBatchStrip count="600+" shipMonth={shipMonth} />

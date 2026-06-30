@@ -29,12 +29,6 @@ import { SharpNotify } from "@/components/sharp/SharpNotify";
 export function SharpComposition() {
   const shipMonth = process.env.PREORDER_SHIP_MONTH ?? "September 2026";
 
-  const NAV = [
-    { href: "#how", label: "The Daily" },
-    { href: "#science", label: "Actives" },
-    { href: "#faq", label: "FAQ" },
-  ];
-
   return (
     <>
       <ScrollProgress />
@@ -44,7 +38,6 @@ export function SharpComposition() {
       />
       <Header
         crumb="STONE"
-        nav={NAV}
         cta={{ href: "#buy", label: "Pre-order" }}
       />
       <main>

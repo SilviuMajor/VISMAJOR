@@ -17,18 +17,18 @@ export function SculptWhatItDoes() {
             className="mt-5 max-w-3xl font-bold uppercase text-ink-0"
             style={{ fontSize: "clamp(30px, 4.4vw, 60px)", letterSpacing: "-0.03em", lineHeight: 0.98 }}
           >
-            Worked by hand. Sharpened by steel.
+            For the body you train.
           </h2>
         </Reveal>
         <Reveal delay={0.05}>
           <p className="mt-6 max-w-3xl text-[18px] leading-[1.7] text-ink-1 md:text-[19px]">
-            SCULPT brings the massage techniques of sports therapy to your own
-            bathroom. The cream works into the skin in slow, deliberate strokes —
-            drawn from myofascial and lymphatic-style massage — to leave skin
-            looking firmer, smoother and more defined, and muscles feeling worked
-            and recovered. Work it by hand, or add the weighted steel tools for
-            more. It&rsquo;s not magic, and it&rsquo;s not permanent. It&rsquo;s
-            technique — refined into a ritual you can run in five minutes.
+            SCULPT is a recovery massage cream for men who train. Work it deep
+            into worked, tired muscle — by hand, or with the weighted steel tools
+            — in slow, deliberate strokes drawn from sports massage and myofascial
+            release. Used alongside your training, it eases the muscle, supports
+            recovery between sessions, and leaves a hard-trained body looking
+            firmer and more defined. Not magic, not permanent — technique,
+            refined into a five-minute ritual.
           </p>
         </Reveal>
       </Container>

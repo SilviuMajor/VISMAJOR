@@ -20,12 +20,6 @@ export function HomeComposition() {
         messageShort="Three topicals · Now on pre-order"
       />
       <Header
-        nav={[
-          { href: "/gy-no", label: "GY-NO!" },
-          { href: "/sculpt", label: "SCULPT" },
-          { href: "/stone", label: "STONE" },
-          { href: "/steel", label: "STEEL" },
-        ]}
         cta={{ href: "#products", label: "Pre-order" }}
       />
       <main>

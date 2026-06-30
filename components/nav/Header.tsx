@@ -7,21 +7,21 @@ import { CartButton } from "@/components/cart/CartButton";
 
 export type NavLink = { href: string; label: string };
 
-const DEFAULT_NAV: NavLink[] = [
-  { href: "#product", label: "Product" },
-  { href: "#how", label: "Science" },
-  { href: "#ingredients", label: "Ingredients" },
-  { href: "#faq", label: "FAQ" },
+// The house product list — identical on every page so the nav never jumps.
+// Only the active marker + the page's Pre-order target change per page.
+const PRODUCT_NAV: NavLink[] = [
+  { href: "/gy-no", label: "GY-NO!" },
+  { href: "/sculpt", label: "SCULPT" },
+  { href: "/stone", label: "STONE" },
+  { href: "/steel", label: "STEEL" },
 ];
 
 export function Header({
-  nav = DEFAULT_NAV,
   cta = { href: "#buy", label: "Pre-order" },
   crumb,
 }: {
-  nav?: NavLink[];
   cta?: { href: string; label: string } | null;
-  /** A small product name shown next to the house wordmark, e.g. "GY-NO!". */
+  /** The current product name, e.g. "GY-NO!" — marks the active nav item. */
   crumb?: string;
 }) {
   const [hidden, setHidden] = useState(false);
@@ -42,15 +42,21 @@ export function Header({
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const navItem = (href: string, label: string) => (
-    <a
-      key={href + label}
-      href={href}
-      className="caps pb-0.5 text-[11.5px] font-semibold text-ink-2 transition-colors hover:text-ink-0"
-    >
-      {label}
-    </a>
-  );
+  const navItem = (n: NavLink) => {
+    const active = !!crumb && n.label === crumb;
+    return (
+      <a
+        key={n.href}
+        href={n.href}
+        aria-current={active ? "page" : undefined}
+        className={`caps pb-0.5 text-[11.5px] font-medium transition-colors ${
+          active ? "text-ink-0" : "text-ink-3 hover:text-ink-0"
+        }`}
+      >
+        {n.label}
+      </a>
+    );
+  };
 
   return (
     <motion.header
@@ -78,7 +84,7 @@ export function Header({
         </div>
 
         <nav className="hidden items-center gap-7 md:flex">
-          {nav.map((n) => navItem(n.href, n.label))}
+          {PRODUCT_NAV.map((n) => navItem(n))}
         </nav>
 
         <div className="flex items-center gap-2.5">
@@ -136,17 +142,23 @@ export function Header({
           >
             <Container className="pb-5 pt-1">
               <nav className="flex flex-col">
-                {nav.map((n) => (
-                  <a
-                    key={n.href + n.label}
-                    href={n.href}
-                    onClick={() => setOpen(false)}
-                    className="caps border-t py-4 text-[13px] font-semibold text-ink-1 transition-colors hover:text-ink-0"
-                    style={{ borderColor: "var(--hair)" }}
-                  >
-                    {n.label}
-                  </a>
-                ))}
+                {PRODUCT_NAV.map((n) => {
+                  const active = !!crumb && n.label === crumb;
+                  return (
+                    <a
+                      key={n.href}
+                      href={n.href}
+                      onClick={() => setOpen(false)}
+                      aria-current={active ? "page" : undefined}
+                      className={`caps border-t py-4 text-[13px] font-medium transition-colors ${
+                        active ? "text-ink-0" : "text-ink-2 hover:text-ink-0"
+                      }`}
+                      style={{ borderColor: "var(--hair)" }}
+                    >
+                      {n.label}
+                    </a>
+                  );
+                })}
               </nav>
               {cta && (
                 <a

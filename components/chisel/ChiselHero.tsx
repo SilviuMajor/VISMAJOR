@@ -249,10 +249,10 @@ export function ChiselHero({ shipMonth }: { shipMonth: string }) {
             transition={{ duration: 0.6, delay: 1.05, ease: EASE }}
             className="mt-4 max-w-xl text-[16px] leading-[1.6] text-ink-2 md:text-[18px]"
           >
-            A massage cream for men, worked into the body in the techniques
-            athletes and therapists have used for generations — for skin that
-            looks firmer, feels worked, and reads sharper. Use it by hand, or with
-            the SCULPT steel tools.
+            A recovery massage cream for men who train. Work it deep into the
+            muscle — by hand, or with the steel tools — to ease worked muscle, aid
+            recovery between sessions, and keep a hard-trained body looking firm
+            and defined.
           </motion.p>
 
           <motion.div
