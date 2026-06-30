@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
 
 /**
- * A deliberate, premium photo-free "specimen" frame. SHARP ships before any
+ * A deliberate, premium photo-free "specimen" frame. STONE ships before any
  * photography exists, so every product surface is a labelled placeholder:
- * an inner keyline frame, corner read-outs ("SHARP / 003", a spec), and a
+ * an inner keyline frame, corner read-outs ("STONE / 003", a spec), and a
  * tasteful line-art tube rendered in pure CSS/SVG. It should read as an
  * apothecary plate, never as a broken image.
  *
@@ -13,7 +13,7 @@ import { ReactNode } from "react";
 export function Specimen({
   children,
   label = "50ml",
-  index = "SHARP / 003",
+  index = "STONE / 003",
   className = "",
   innerClassName = "",
   accentIndex = false,
@@ -45,7 +45,7 @@ export function Specimen({
 }
 
 /**
- * Line-art rendering of the SHARP jar/tube — a low, wide matte bottle with a
+ * Line-art rendering of the STONE jar/tube — a low, wide matte bottle with a
  * flat cap, drawn in hairlines. Stands in for the hero shot. Pure SVG so it
  * scales crisply and respects the monochrome palette. `shine` (0..1) draws a
  * specular streak that the daily mechanic can recede to nothing.
@@ -94,7 +94,7 @@ export function SharpBottle({
         fill="var(--ink-0)"
         style={{ fontFamily: "var(--font-display), system-ui, sans-serif" }}
       >
-        SHARP
+        STONE
       </text>
       <line x1={80} y1={142} x2={120} y2={142} stroke="var(--hair-strong)" strokeWidth={0.8} />
       <text

@@ -33,7 +33,7 @@ const ACTIVES = [
     n: "03",
     name: "Smooth Finish",
     tag: "The blur",
-    line: "A soft-focus smoothing agent evens the surface, so light sits flat and features read sharper.",
+    line: "A soft-focus smoothing agent evens the surface, so light sits flat and features read more defined.",
     diagram: "smooth",
   },
 ];
@@ -248,7 +248,7 @@ export function SharpActives() {
             <div className="relative order-1 flex justify-center lg:order-2">
               <div className="relative aspect-[4/5] w-full max-w-[200px] sm:max-w-[300px] lg:max-w-[440px]">
                 <span className="absolute left-5 top-4 z-40 caps text-[9px] font-medium text-ink-3">
-                  SHARP / 003
+                  STONE / 003
                 </span>
                 <div className="absolute right-5 top-4 z-40 h-4 overflow-hidden">
                   <AnimatePresence mode="wait">

@@ -5,7 +5,7 @@ import { Container } from "@/components/ui/Container";
 import { Counter } from "@/components/ui/Counter";
 import { Reveal } from "@/components/ui/Reveal";
 
-/* Allocation — segmented, SHARP-flavoured. */
+/* Allocation — segmented, STONE-flavoured. */
 const RESERVED_PCT = 61;
 const SEGMENTS = 40;
 const FILLED = Math.round((RESERVED_PCT / 100) * SEGMENTS);
@@ -20,7 +20,7 @@ const QUOTES = [
     a: "Early tester · Manchester",
   },
   {
-    q: "Skin looks sharper somehow — less shiny, more defined. It's become part of the routine.",
+    q: "Skin looks cleaner somehow — less shiny, more defined. It's become part of the routine.",
     a: "Early tester · Leeds",
   },
 ];

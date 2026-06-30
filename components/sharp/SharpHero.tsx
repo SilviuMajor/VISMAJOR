@@ -14,7 +14,7 @@ import { Container } from "@/components/ui/Container";
 import { SharpBottle } from "@/components/sharp/Specimen";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
-const WORD = ["S", "H", "A", "R", "P"];
+const WORD = ["S", "T", "O", "N", "E"];
 
 /* A button that leans toward the cursor — the house's magnetic CTA. */
 function Magnetic({
@@ -181,7 +181,7 @@ export function SharpHero({ shipMonth }: { shipMonth: string }) {
                   {/* the photo-free specimen plate — open, no frame */}
                   <div className="relative h-[42vh] w-[210px] md:h-[50vh] md:w-[268px]">
                     <span className="absolute left-4 top-3 z-40 caps text-[9px] font-medium text-ink-3">
-                      SHARP / 003
+                      STONE / 003
                     </span>
 
                     {/* a single faint ink floor-glow — purely structural depth */}
@@ -220,7 +220,7 @@ export function SharpHero({ shipMonth }: { shipMonth: string }) {
             transition={{ duration: 0.6, delay: 0.95, ease: EASE }}
             className="caps text-[13px] font-semibold text-ink-1 md:text-[15px]"
           >
-            Kill the Shine. Sharpen the Look.
+            Kill the Shine. Define the Look.
           </motion.p>
           <motion.p
             {...fadeUp}
@@ -228,7 +228,7 @@ export function SharpHero({ shipMonth }: { shipMonth: string }) {
             className="mt-4 max-w-lg text-[16px] leading-[1.6] text-ink-2 md:text-[18px]"
           >
             A lightweight daily face moisturiser for men. Hydrates, sets to a
-            clean matte finish, and sharpens the look of your features. The one
+            clean matte finish, and defines the look of your features. The one
             you reach for every morning.
           </motion.p>
 

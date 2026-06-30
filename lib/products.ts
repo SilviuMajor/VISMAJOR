@@ -2,7 +2,7 @@
 // summary, the cross-link band and per-page metadata. Claim-safe by design:
 // every line describes feel or look only — never a medical or anatomical claim.
 
-export type ProductSlug = "gy-no" | "sculpt" | "sharp";
+export type ProductSlug = "gy-no" | "sculpt" | "stone";
 
 export interface Product {
   slug: ProductSlug;
@@ -52,13 +52,13 @@ export const PRODUCTS: Product[] = [
     accentHex: "#14130F",
   },
   {
-    slug: "sharp",
-    href: "/sharp",
+    slug: "stone",
+    href: "/stone",
     index: "003",
-    wordmark: "SHARP",
+    wordmark: "STONE",
     category: "Matte Daily Moisturiser",
     short:
-      "A lightweight daily moisturiser that kills shine and sharpens the look of your features.",
+      "A lightweight daily moisturiser that kills shine and defines the look of your features.",
     signature: "Matte",
     priceFrom: 22,
     rrpFrom: 30,

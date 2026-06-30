@@ -19,9 +19,9 @@ import { SharpFinalCta } from "@/components/sharp/SharpFinalCta";
 import { SharpNotify } from "@/components/sharp/SharpNotify";
 
 /**
- * SHARP — the house's third product. The everyday, matte member of VIS MAJOR.
+ * STONE — the house's third product. The everyday, matte member of VIS MAJOR.
  * Same shell as the flagship (ScrollProgress, Announcement, Header, OtherProducts,
- * Footer, StickyBuyBar) but a wholly SHARP-specific body: a shine-to-matte
+ * Footer, StickyBuyBar) but a wholly STONE-specific body: a shine-to-matte
  * mechanic, an oil-control actives rail, and a daily-driver pre-order panel.
  *
  * Claim-safe by design: every line describes feel and look only.
@@ -43,7 +43,7 @@ export function SharpComposition() {
         messageShort={`Pre-order · ships ${shipMonth}`}
       />
       <Header
-        crumb="SHARP"
+        crumb="STONE"
         nav={NAV}
         cta={{ href: "#buy", label: "Pre-order" }}
       />
@@ -61,9 +61,9 @@ export function SharpComposition() {
         <SharpFinalCta shipMonth={shipMonth} />
         <SharpNotify />
       </main>
-      <OtherProducts current="sharp" />
+      <OtherProducts current="stone" />
       <Footer />
-      <StickyBuyBar priceFrom="£22" label="SHARP · 50ml" href="#buy" />
+      <StickyBuyBar priceFrom="£22" label="STONE · 50ml" href="#buy" />
     </>
   );
 }

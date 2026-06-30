@@ -28,8 +28,8 @@ const CATALOG: Record<
       "4": { label: "The Full Set", amount: 6400 },
     },
   },
-  sharp: {
-    name: "SHARP Matte Daily Moisturiser",
+  stone: {
+    name: "STONE Matte Daily Moisturiser",
     tiers: {
       "1": { label: "50ml", amount: 2200 },
       "2": { label: "100ml", amount: 3800 },
@@ -51,7 +51,7 @@ export async function POST(req: Request) {
     return NextResponse.json(
       {
         error:
-          "Invalid request body. Expecting { product?: 'gy-no'|'sculpt'|'sharp', tier: a valid tier key }.",
+          "Invalid request body. Expecting { product?: 'gy-no'|'sculpt'|'stone', tier: a valid tier key }.",
       },
       { status: 400 }
     );

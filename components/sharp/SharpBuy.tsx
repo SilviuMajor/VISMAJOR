@@ -28,7 +28,7 @@ const TIERS: Tier[] = [
 ];
 
 /* Photo-free specimen "views" — line-art plates standing in for product shots.
-   Each renders the SHARP bottle with a different read-out so the gallery feels
+   Each renders the STONE bottle with a different read-out so the gallery feels
    like a real spec sheet, never a broken image. */
 const VIEWS: { key: string; label: string; caption: string; shine: number }[] = [
   { key: "front", label: "Front", caption: "Front · matte jar", shine: 0.16 },
@@ -126,8 +126,8 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
   const onAdd = () =>
     add({
       id: `sharp:${tier.key}`,
-      product: "sharp",
-      productName: "SHARP",
+      product: "stone",
+      productName: "STONE",
       tier: tier.key,
       tierLabel: tier.label,
       price: tier.price,
@@ -137,13 +137,13 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
   return (
     <section id="buy" className="py-16 md:py-24">
       <Container>
-        <SectionHead n="02" title="Pre-order SHARP" />
+        <SectionHead n="02" title="Pre-order STONE" />
 
         <div id="product" className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-14">
           {/* Sticky specimen gallery (photo-free) */}
           <div className="lg:sticky lg:top-24 lg:self-start">
             <div className="relative flex aspect-square items-center justify-center">
-              <span className="absolute left-0.5 top-0 z-40 caps text-[9px] font-medium text-ink-3">SHARP / 003</span>
+              <span className="absolute left-0.5 top-0 z-40 caps text-[9px] font-medium text-ink-3">STONE / 003</span>
               <span className="absolute bottom-0 right-0.5 z-40 caps text-[9px] font-medium text-ink-3">
                 {VIEWS[view].caption}
               </span>
@@ -184,17 +184,17 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
 
           {/* Scrolling buy details */}
           <div>
-            <Eyebrow>SHARP · 003</Eyebrow>
+            <Eyebrow>STONE · 003</Eyebrow>
             <h2
               className="mt-4 font-extrabold uppercase text-ink-0"
               style={{ fontSize: "clamp(56px, 6vw, 76px)", lineHeight: 0.9, letterSpacing: "-0.02em" }}
             >
-              SHARP
+              STONE
             </h2>
             <div className="caps mt-4 text-[15px] font-medium text-ink-1">Matte Daily Moisturiser</div>
             <p className="mt-5 max-w-md text-[18px] leading-[1.65] text-ink-1">
               A lightweight daily face moisturiser for men. Hydrates, sets to a
-              clean matte finish, and sharpens the look of your features. Use it
+              clean matte finish, and defines the look of your features. Use it
               every morning — never greasy, no shine.
             </p>
 

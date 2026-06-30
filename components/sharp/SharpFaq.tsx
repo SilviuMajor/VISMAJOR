@@ -11,7 +11,7 @@ const MINT = "#14130F";
 const FAQS = [
   {
     q: "Matte finish or dewy?",
-    a: "Matte. SHARP sets to a clean, flat finish and controls shine — no wet or dewy sheen, no greasy look.",
+    a: "Matte. STONE sets to a clean, flat finish and controls shine — no wet or dewy sheen, no greasy look.",
   },
   {
     q: "When do I use it — morning or night?",

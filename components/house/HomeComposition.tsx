@@ -23,7 +23,7 @@ export function HomeComposition() {
         nav={[
           { href: "/gy-no", label: "GY-NO!" },
           { href: "/sculpt", label: "SCULPT" },
-          { href: "/sharp", label: "SHARP" },
+          { href: "/stone", label: "STONE" },
         ]}
         cta={{ href: "#products", label: "Pre-order" }}
       />

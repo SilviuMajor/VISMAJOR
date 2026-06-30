@@ -16,7 +16,7 @@ export function SharpIsIsnt() {
               style={{ fontSize: "clamp(23px, 2.6vw, 33px)", letterSpacing: "0.005em", lineHeight: 1.12 }}
             >
               A lightweight daily moisturiser that hydrates, holds a clean matte
-              finish, and sharpens the look of your features.
+              finish, and defines the look of your features.
             </p>
           </Reveal>
           <Reveal delay={0.08}>

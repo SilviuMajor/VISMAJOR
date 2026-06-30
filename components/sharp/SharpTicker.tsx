@@ -6,7 +6,7 @@ const ITEMS = [
   "Lightweight Hydration",
   "Use Every Morning",
   "Never Greasy",
-  "The Look of Sharper Features",
+  "The Look of Defined Features",
   "Made in the UK",
   "For Men",
 ];

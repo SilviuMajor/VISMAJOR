@@ -5,6 +5,8 @@ const nextConfig = {
     return [
       // CHISEL was repositioned and renamed to SCULPT.
       { source: "/chisel", destination: "/sculpt", permanent: true },
+      // SHARP was renamed to STONE.
+      { source: "/sharp", destination: "/stone", permanent: true },
     ];
   },
 };

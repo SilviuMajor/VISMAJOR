@@ -21,7 +21,7 @@ export function SharpNotify() {
       const res = await fetch("/api/notify", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, product: "sharp" }),
+        body: JSON.stringify({ email, product: "stone" }),
       });
       const data = await res.json();
       if (data?.ok) {
@@ -53,7 +53,7 @@ export function SharpNotify() {
               first-batch list.
             </h3>
             <p className="mt-4 max-w-md text-[16.5px] leading-[1.6] text-ink-2">
-              One email when SHARP ships. No marketing fluff.
+              One email when STONE ships. No marketing fluff.
             </p>
           </div>
           <form onSubmit={submit} className="flex w-full flex-col gap-3 self-end sm:flex-row">

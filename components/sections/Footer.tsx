@@ -29,7 +29,7 @@ export function Footer() {
             </p>
             <p className="mt-7 max-w-[440px] text-[10px] leading-[1.8] text-ink-3">
               Cosmetic use only. Temporary effect. Not a treatment for any
-              medical condition. GY-NO!, SCULPT and SHARP are products of Vis
+              medical condition. GY-NO!, SCULPT and STONE are products of Vis
               Major.
             </p>
           </div>

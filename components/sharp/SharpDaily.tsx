@@ -32,7 +32,7 @@ const STEPS = [
   {
     n: "03",
     title: "Matte",
-    body: "Sets to a clean, flat finish. Shine controlled; features look sharper.",
+    body: "Sets to a clean, flat finish. Shine controlled; features look more defined.",
     cue: "Matte",
   },
 ];
@@ -78,7 +78,7 @@ export function SharpDaily() {
   );
   const meterFill = useTransform(shineSpring, [0.04, 1], ["6%", "100%"]);
 
-  // The "sharpen": a crisp edge/facet that resolves as it goes matte.
+  // The "definition": a crisp edge/facet that resolves as it goes matte.
   const facetDraw = useTransform(scrollYProgress, [0.5, 0.92], [0, 1]);
   const facetOpacity = useTransform(scrollYProgress, [0.46, 0.6, 1], [0, 1, 1]);
 
@@ -173,7 +173,7 @@ export function SharpDaily() {
               <div className="relative aspect-[4/5] w-full max-w-[460px]">
                 {/* corner read-outs */}
                 <span className="absolute left-5 top-4 z-40 caps text-[9px] font-medium text-ink-3">
-                  SHARP / 003
+                  STONE / 003
                 </span>
                 <div className="absolute right-5 top-4 z-40 h-4 overflow-hidden">
                   <AnimatePresence mode="wait">
@@ -252,8 +252,8 @@ export function SharpDaily() {
                   />
                 </div>
 
-                {/* THE SHARPEN — a crisp facet/edge that resolves once matte,
-                    the "look of sharper features" rendered as drafting line-art */}
+                {/* THE DEFINITION — a crisp facet/edge that resolves once matte,
+                    the "look of defined features" rendered as drafting line-art */}
                 <motion.svg
                   aria-hidden
                   viewBox="0 0 200 250"

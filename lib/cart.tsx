@@ -14,7 +14,7 @@ import {
   type ReactNode,
 } from "react";
 
-export type CartProductSlug = "gy-no" | "sculpt" | "sharp";
+export type CartProductSlug = "gy-no" | "sculpt" | "stone";
 
 export interface CartItem {
   id: string; // `${product}:${tier}`
