@@ -17,7 +17,7 @@ export function FirstBatchStrip({
       <Container>
         <p className="flex items-center justify-center gap-2.5 text-center text-[11px] font-bold uppercase leading-none tracking-[0.14em]">
           <span className="inline-block h-1.5 w-1.5 rounded-full bg-paper-0" />
-          {count} pre-orders
+          <span className="font-mono">{count}</span> pre-orders
         </p>
       </Container>
     </div>

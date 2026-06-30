@@ -98,7 +98,7 @@ export function ProofV2() {
           >
             <div className="flex items-end gap-3 md:gap-5">
               <span
-                className="font-bold text-paper-0"
+                className="font-mono font-bold text-paper-0"
                 style={{
                   fontSize: "clamp(70px, 10.5vw, 142px)",
                   letterSpacing: "-0.045em",
@@ -124,8 +124,8 @@ export function ProofV2() {
             <p className="max-w-md pb-1 text-[16.5px] leading-[1.6] text-paper-0 lg:justify-self-end">
               Deliveries start <span className="font-semibold">September 2026</span>.
               Order now to lock the early-bird{" "}
-              <span className="font-semibold">£24</span> — it rises to{" "}
-              <span className="text-paper-0/45 line-through">£32</span> at launch
+              <span className="font-mono font-semibold">£24</span> — it rises to{" "}
+              <span className="font-mono text-paper-0/45 line-through">£32</span> at launch
               — and hold your place in a limited first run.
             </p>
           </div>
@@ -140,7 +140,7 @@ export function ProofV2() {
               </span>
               <span className="flex items-baseline gap-2">
                 <span
-                  className="font-bold text-paper-0"
+                  className="font-mono font-bold text-paper-0"
                   style={{ fontSize: "clamp(20px, 2.4vw, 28px)", letterSpacing: "-0.03em" }}
                 >
                   <Counter value={RESERVED_PCT} />%
