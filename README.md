@@ -1,8 +1,8 @@
-# GY-NO! · VIS MAJOR
+# PECTUS · VIS MAJOR
 
-A single-page pre-order site for **GY-NO! Nipple Tightening Cream** — by **VIS MAJOR** (performance topicals for men).
+A single-page pre-order site for **PECTUS Nipple Tightening Cream** — by **VIS MAJOR** (performance topicals for men).
 
-Built to the **GY-NO! Design System** handoff bundle: strictly monochrome,
+Built to the **PECTUS Design System** handoff bundle: strictly monochrome,
 warm-ink-on-warm-paper apothecary, Hanken Grotesk only, all-caps
 wide-tracked labels, matte-white tube with matte-black base. No accent
 colour. No emoji. Roman numerals on dates.
@@ -14,7 +14,7 @@ Stack: Next.js 14 (App Router), Tailwind CSS, Framer Motion, Hanken Grotesk
 
 | Route | What it is |
 | ----- | ---------- |
-| `/` | **The site.** Enhanced + animated, white-locked — kinetic GY-NO! hero, pinned "Architecture" scroll, horizontal Use-Before, comparison table, the redesigned first-batch proof (reservation bar), early-bird sticky buy, then "Your edge, in a tube." → "Join the first-batch list" → the classical **"Cool. Firm. Composed."** temple banner. |
+| `/` | **The site.** Enhanced + animated, white-locked — kinetic PECTUS hero, pinned "Architecture" scroll, horizontal Use-Before, comparison table, the redesigned first-batch proof (reservation bar), early-bird sticky buy, then "Your edge, in a tube." → "Join the first-batch list" → the classical **"Cool. Firm. Composed."** temple banner. |
 | `/explore` | Concept gallery — five alternative hero/first-section directions (Kinetic, Cinematic Classical, Editorial Split, Statement Type, Centred Plinth) to choose from. Not linked from the live site. |
 
 Single composition: `components/enhanced/EnhancedComposition.tsx`. Concepts:
@@ -62,7 +62,7 @@ original warm apothecary paper, where the white specimen cards pop.
 | hairlines    | 0.14α/0.30α| Borders — almost never shadows                       |
 
 Typography: **Hanken Grotesk** only. Hierarchy from **size + weight + tracking**:
-- Product wordmark `GY-NO!` — 800, `0.01em`
+- Product wordmark `PECTUS` — Cinzel serif, 700
 - House wordmark `VIS MAJOR` — 300, `0.28em`, uppercase
 - Labels / eyebrows — 500–600, `0.22–0.34em`, uppercase
 - Body — 400, `1.6` line-height, sentence case
@@ -76,7 +76,7 @@ for long body. Imperatives and claims, hedged honestly.
 "INSTANT CONFIDENCE. MAXIMUM STIFFNESS."
 **No:** emoji, slang, hype words ("revolutionary"), medical claims.
 
-The `!` lives only in `GY-NO!` and stays there.
+PECTUS carries no `!` — the exclamation GY-NO! had was dropped in the rename.
 
 ## Page composition
 
