@@ -12,6 +12,7 @@ import {
   type Variants,
 } from "framer-motion";
 import { Container } from "@/components/ui/Container";
+import { RomanBehind } from "@/components/ui/RomanBehind";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 const WORD = ["P", "E", "C", "T", "U", "S"];
@@ -122,7 +123,8 @@ export function EnhancedHero({ shipMonth }: { shipMonth: string }) {
       onMouseLeave={onLeave}
       className="relative flex min-h-[calc(100svh-104px)] flex-col items-center overflow-hidden py-4 md:py-6"
     >
-      <Container className="relative flex w-full flex-1 flex-col items-center justify-center">
+      <RomanBehind figure="/figures/athlete.png" side="left" opacity={0.07} />
+      <Container className="relative z-10 flex w-full flex-1 flex-col items-center justify-center">
         {/* eyebrow */}
         <motion.div
           {...fadeUp}

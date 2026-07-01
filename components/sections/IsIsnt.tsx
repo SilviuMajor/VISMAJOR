@@ -1,11 +1,13 @@
 import { Container } from "@/components/ui/Container";
 import { SectionHead } from "@/components/ui/Eyebrow";
 import { Reveal } from "@/components/ui/Reveal";
+import { RomanBehind } from "@/components/ui/RomanBehind";
 
 export function IsIsnt() {
   return (
-    <section className="py-16 md:py-24">
-      <Container>
+    <section className="relative overflow-hidden py-16 md:py-24">
+      <RomanBehind figure="/figures/general.png" side="right" />
+      <Container className="relative z-10">
         <SectionHead n="04" title="Honesty." />
 
         <div className="grid grid-cols-1 gap-y-12 md:grid-cols-2 md:gap-x-16">
