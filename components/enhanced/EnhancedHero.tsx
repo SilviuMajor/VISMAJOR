@@ -156,14 +156,14 @@ export function EnhancedHero({ shipMonth }: { shipMonth: string }) {
           {/* wordmark — letter by letter */}
           <motion.h1
             style={{ scale: wordScale, y: wordScrollY, x: wordPX, opacity: wordOpacity }}
-            className="pointer-events-none relative z-0 w-full select-none text-center font-bold uppercase font-serif leading-[0.92] tracking-[-0.04em] text-ink-0"
+            className="pointer-events-none relative z-0 w-full select-none text-center font-normal uppercase font-serif leading-[0.92] tracking-[0.03em] text-ink-0"
           >
             <motion.span
               variants={wordContainer}
               initial="hidden"
               animate="show"
-              className="inline-flex whitespace-nowrap"
-              style={{ fontSize: "clamp(66px, 20vw, 300px)" }}
+              className="inline-flex justify-center whitespace-nowrap"
+              style={{ fontSize: "clamp(54px, 15.5vw, 214px)" }}
             >
               {WORD.map((c, i) => (
                 <span
