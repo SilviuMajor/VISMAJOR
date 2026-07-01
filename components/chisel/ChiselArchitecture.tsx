@@ -15,7 +15,7 @@ import { CreamTube, EMBER } from "@/components/chisel/Art";
 
 /**
  * THE ARCHITECTURE (id="science") — a pinned scroll sequence at the calibre of
- * GY-NO!'s StickyArchitecture, with SCULPT's own execution: three actives, an
+ * PECTUS's StickyArchitecture, with SCULPT's own execution: three actives, an
  * active rail, and an ember accent that builds on the pinned cream as you pass
  * through the phases. Claim-safe: every line is feel & finish only.
  */

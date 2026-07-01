@@ -82,7 +82,7 @@ export function HowItWorks() {
             <Parallax amount={20} className="w-full px-6 py-8">
               <ProductShot
                 src="/product/squeeze.png"
-                alt="GY-NO! cream being dispensed from the tube"
+                alt="PECTUS cream being dispensed from the tube"
                 melt
                 sizes="(max-width: 1024px) 80vw, 420px"
               />

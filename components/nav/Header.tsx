@@ -10,7 +10,7 @@ export type NavLink = { href: string; label: string };
 // The house product list — identical on every page so the nav never jumps.
 // Only the active marker + the page's Pre-order target change per page.
 const PRODUCT_NAV: NavLink[] = [
-  { href: "/gy-no", label: "GY-NO!" },
+  { href: "/pectus", label: "PECTUS" },
   { href: "/sculpt", label: "SCULPT" },
   { href: "/stone", label: "STONE" },
   { href: "/steel", label: "STEEL" },
@@ -21,7 +21,7 @@ export function Header({
   crumb,
 }: {
   cta?: { href: string; label: string } | null;
-  /** The current product name, e.g. "GY-NO!" — marks the active nav item. */
+  /** The current product name, e.g. "PECTUS" — marks the active nav item. */
   crumb?: string;
 }) {
   const [hidden, setHidden] = useState(false);

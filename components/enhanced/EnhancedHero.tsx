@@ -14,7 +14,7 @@ import {
 import { Container } from "@/components/ui/Container";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
-const WORD = ["G", "Y", "-", "N", "O", "!"];
+const WORD = ["P", "E", "C", "T", "U", "S"];
 
 /* A button that leans toward the cursor — subtle, premium. */
 function Magnetic({
@@ -194,7 +194,7 @@ export function EnhancedHero({ shipMonth }: { shipMonth: string }) {
                 >
                   <Image
                     src="/product/front.png"
-                    alt="GY-NO! Nipple Tightening Cream"
+                    alt="PECTUS Nipple Tightening Cream"
                     fill
                     priority
                     sizes="280px"

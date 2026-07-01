@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 export function StickyBuyBar({
   priceFrom,
-  label = "GY-NO! · 20ml",
+  label = "PECTUS · 20ml",
   href = "#buy",
 }: {
   priceFrom: string;

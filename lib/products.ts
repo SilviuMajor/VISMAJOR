@@ -2,13 +2,13 @@
 // summary, the cross-link band and per-page metadata. Claim-safe by design:
 // every line describes feel or look only — never a medical or anatomical claim.
 
-export type ProductSlug = "gy-no" | "sculpt" | "stone";
+export type ProductSlug = "pectus" | "sculpt" | "stone";
 
 export interface Product {
   slug: ProductSlug;
   href: string;
   index: string; // "001"
-  wordmark: string; // "GY-NO!"
+  wordmark: string; // "PECTUS"
   category: string; // "Nipple Tightening Cream"
   /** One-line summary for cards + the cross-link band. */
   short: string;
@@ -24,10 +24,10 @@ export interface Product {
 
 export const PRODUCTS: Product[] = [
   {
-    slug: "gy-no",
-    href: "/gy-no",
+    slug: "pectus",
+    href: "/pectus",
     index: "001",
-    wordmark: "GY-NO!",
+    wordmark: "PECTUS",
     category: "Nipple Tightening Cream",
     short:
       "Cools and tightens in minutes. Up to one hour of temporary firmness, undetectable under a shirt.",

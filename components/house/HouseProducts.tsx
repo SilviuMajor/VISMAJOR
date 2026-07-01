@@ -18,7 +18,7 @@ function Glyph({ slug, hex }: { slug: ProductSlug; hex: string }) {
     strokeLinejoin: "round" as const,
   };
 
-  if (slug === "gy-no") {
+  if (slug === "pectus") {
     return (
       <svg {...common} strokeWidth={1.4}>
         {[0, 60, 120, 180, 240, 300].map((a) => (
@@ -126,7 +126,7 @@ export function HouseProducts() {
                 <div className="relative mt-6 flex aspect-[5/4] items-center justify-center">
                   <motion.div
                     initial={false}
-                    whileHover={reduce ? undefined : { scale: 1.06, rotate: p.slug === "gy-no" ? 30 : 0 }}
+                    whileHover={reduce ? undefined : { scale: 1.06, rotate: p.slug === "pectus" ? 30 : 0 }}
                     transition={{ duration: 0.5, ease: [0.2, 0, 0, 1] }}
                   >
                     <Glyph slug={p.slug} hex={p.accentHex} />

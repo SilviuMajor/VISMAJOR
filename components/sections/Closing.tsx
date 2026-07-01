@@ -56,7 +56,7 @@ export function Closing({ shipMonth }: { shipMonth: string }) {
             <div className="mx-auto max-w-[320px]">
               <ProductShot
                 src="/product/front-cap.png"
-                alt="GY-NO! Nipple Tightening Cream tube"
+                alt="PECTUS Nipple Tightening Cream tube"
                 melt={false}
                 sizes="360px"
                 imgClassName="drop-shadow-[0_26px_44px_rgba(20,19,15,0.18)]"

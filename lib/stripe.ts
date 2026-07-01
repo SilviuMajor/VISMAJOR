@@ -15,10 +15,10 @@ export function getStripe(): Stripe | null {
 import type { ProductSlug } from "@/lib/products";
 
 // Map a product + tier to the env var holding its Stripe Price ID.
-// GY-NO! keeps its original env names for backward compatibility; the rest
+// PECTUS keeps its original env names for backward compatibility; the rest
 // follow STRIPE_PRICE_<PRODUCT>_<TIER> (e.g. STRIPE_PRICE_SCULPT_2).
 export function priceEnvFor(product: ProductSlug, tier: string): string {
-  if (product === "gy-no") {
+  if (product === "pectus") {
     const map: Record<string, string> = {
       "1": "STRIPE_PRICE_1_TUBE",
       "2": "STRIPE_PRICE_2_TUBES",

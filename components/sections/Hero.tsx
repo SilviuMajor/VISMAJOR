@@ -93,7 +93,7 @@ export function Hero({ shipMonth }: { shipMonth: string }) {
               aria-hidden
             />
             <span className="absolute left-5 top-4 z-20 caps text-[9px] font-medium text-ink-3">
-              GY-NO! / 001
+              PECTUS / 001
             </span>
             <span className="absolute bottom-4 right-5 z-20 caps text-[9px] font-medium text-ink-3">
               20ml ℮
@@ -103,7 +103,7 @@ export function Hero({ shipMonth }: { shipMonth: string }) {
               <div className="mx-auto max-w-[340px]">
                 <ProductShot
                   src="/product/front.png"
-                  alt="GY-NO! Nipple Tightening Cream — 20ml tube"
+                  alt="PECTUS Nipple Tightening Cream — 20ml tube"
                   priority
                   melt={false}
                   sizes="(max-width: 1024px) 80vw, 420px"

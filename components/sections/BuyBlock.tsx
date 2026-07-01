@@ -66,7 +66,7 @@ export function BuyBlock({ shipMonth }: { shipMonth: string }) {
   return (
     <section id="buy" className="py-16 md:py-24">
       <Container>
-        <SectionHead n="03" title="Pre-order GY-NO!" />
+        <SectionHead n="03" title="Pre-order PECTUS" />
 
         <div id="product" className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-14">
           {/* Gallery */}
@@ -81,7 +81,7 @@ export function BuyBlock({ shipMonth }: { shipMonth: string }) {
                 aria-hidden
               />
               <span className="absolute left-5 top-4 z-20 caps text-[9px] font-medium text-ink-3">
-                GY-NO! / 001
+                PECTUS / 001
               </span>
               <span className="absolute bottom-4 right-5 z-20 caps text-[9px] font-medium text-ink-3">
                 {GALLERY[shot].label}
@@ -97,7 +97,7 @@ export function BuyBlock({ shipMonth }: { shipMonth: string }) {
                 >
                   <Image
                     src={GALLERY[shot].src}
-                    alt={`GY-NO! — ${GALLERY[shot].label}`}
+                    alt={`PECTUS — ${GALLERY[shot].label}`}
                     fill
                     sizes="(max-width: 1024px) 80vw, 520px"
                     className="object-contain"
@@ -137,12 +137,12 @@ export function BuyBlock({ shipMonth }: { shipMonth: string }) {
 
           {/* Buy box */}
           <Reveal delay={0.05}>
-            <Eyebrow>GY-NO! · 001</Eyebrow>
+            <Eyebrow>PECTUS · 001</Eyebrow>
             <h2
               className="mt-4 font-bold uppercase text-ink-0"
               style={{ fontSize: "clamp(56px, 6vw, 76px)", lineHeight: 0.9, letterSpacing: "0.01em" }}
             >
-              GY-NO!
+              PECTUS
             </h2>
             <div className="caps mt-4 text-[15px] font-medium text-ink-1">
               Nipple Tightening Cream

@@ -184,7 +184,7 @@ export function HouseHero() {
             >
               <Image
                 src="/product/front.png"
-                alt="GY-NO! — a VIS MAJOR topical"
+                alt="PECTUS — a VIS MAJOR topical"
                 fill
                 priority
                 sizes="200px"
@@ -193,7 +193,7 @@ export function HouseHero() {
             </motion.div>
           </motion.div>
           <span className="mt-4 block caps text-[10px] font-medium text-ink-3">
-            GY-NO! — the flagship
+            PECTUS — the flagship
           </span>
         </motion.div>
       </Container>

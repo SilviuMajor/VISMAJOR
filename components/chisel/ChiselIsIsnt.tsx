@@ -3,7 +3,7 @@ import { SectionHead } from "@/components/ui/Eyebrow";
 import { Reveal } from "@/components/ui/Reveal";
 
 /**
- * Claim-safety panel — the SCULPT rendition of GY-NO!'s IsIsnt. Cosmetic and
+ * Claim-safety panel — the SCULPT rendition of PECTUS's IsIsnt. Cosmetic and
  * temporary only: it describes feel and look, never fat loss, weight loss,
  * body re-composition, or any permanent/anatomical change. The optional steel
  * tools are massage bars, not medical devices.

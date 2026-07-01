@@ -9,7 +9,7 @@ import { HouseStandard } from "@/components/house/HouseStandard";
 
 /**
  * The VIS MAJOR house landing (/). Summarises the three products and routes
- * into each. The flagship GY-NO! page now lives at /gy-no.
+ * into each. The flagship PECTUS page now lives at /pectus.
  */
 export function HomeComposition() {
   return (

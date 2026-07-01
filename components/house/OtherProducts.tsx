@@ -5,10 +5,10 @@ import { others, type ProductSlug } from "@/lib/products";
 import { CreamTube } from "@/components/chisel/Art";
 import { SharpBottle } from "@/components/sharp/Specimen";
 
-/** Each product's own visual — GY-NO! has a real tube shot; SCULPT and STONE
+/** Each product's own visual — PECTUS has a real tube shot; SCULPT and STONE
  *  use their line-art renderings until photography exists. */
 function ProductArt({ slug }: { slug: ProductSlug }) {
-  if (slug === "gy-no") {
+  if (slug === "pectus") {
     return (
       <Image
         src="/product/front.png"

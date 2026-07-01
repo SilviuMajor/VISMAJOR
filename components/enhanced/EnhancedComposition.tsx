@@ -22,7 +22,7 @@ import { ProofV2 } from "@/components/v2/ProofV2";
 import { FaqV2 } from "@/components/v2/FaqV2";
 
 /**
- * The locked enhanced site (white). Kinetic GY-NO! hero, pinned Architecture,
+ * The locked enhanced site (white). Kinetic PECTUS hero, pinned Architecture,
  * horizontal Use-Before, comparison, proof, the classical "Cool. Firm.
  * Composed." banner, then the sticky buy and close.
  */
@@ -33,7 +33,7 @@ export function EnhancedComposition() {
     <>
       <ScrollProgress />
       <Announcement shipMonth={shipMonth} />
-      <Header crumb="GY-NO!" />
+      <Header crumb="PECTUS" />
       <main>
         <EnhancedHero shipMonth={shipMonth} />
         <FirstBatchStrip shipMonth={shipMonth} />
@@ -48,10 +48,10 @@ export function EnhancedComposition() {
         <FaqV2 shipMonth={shipMonth} />
         <FinalCta shipMonth={shipMonth} />
         <NotifyBand />
-        <OtherProducts current="gy-no" />
+        <OtherProducts current="pectus" />
       </main>
       <Footer />
-      <StickyBuyBar priceFrom="£24" label="GY-NO! · 20ml" />
+      <StickyBuyBar priceFrom="£24" label="PECTUS · 20ml" />
     </>
   );
 }

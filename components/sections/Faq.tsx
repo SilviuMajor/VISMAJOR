@@ -51,10 +51,10 @@ export function Faq({ shipMonth }: { shipMonth: string }) {
             <p className="mt-6 max-w-sm text-[16.5px] leading-[1.6] text-ink-2">
               First batch ships {shipMonth}. Anything else, write to{" "}
               <a
-                href="mailto:hello@gy-no.co.uk"
+                href="mailto:hello@vismajor.co.uk"
                 className="text-ink-0 underline underline-offset-4 hover:text-ink-1"
               >
-                hello@gy-no.co.uk
+                hello@vismajor.co.uk
               </a>
               .
             </p>

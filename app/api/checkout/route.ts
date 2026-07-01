@@ -11,8 +11,8 @@ const CATALOG: Record<
   ProductSlug,
   { name: string; tiers: Record<string, { label: string; amount: number }> }
 > = {
-  "gy-no": {
-    name: "GY-NO! Nipple Tightening Cream",
+  "pectus": {
+    name: "PECTUS Nipple Tightening Cream",
     tiers: {
       "1": { label: "20ml", amount: 2400 },
       "2": { label: "40ml", amount: 4200 },
@@ -44,14 +44,14 @@ export async function POST(req: Request) {
   try {
     const body = await req.json();
     tier = String(body?.tier);
-    product = (body?.product ?? "gy-no") as ProductSlug;
+    product = (body?.product ?? "pectus") as ProductSlug;
     if (!CATALOG[product]) throw new Error("Bad product");
     if (!CATALOG[product].tiers[tier]) throw new Error("Bad tier");
   } catch {
     return NextResponse.json(
       {
         error:
-          "Invalid request body. Expecting { product?: 'gy-no'|'sculpt'|'stone', tier: a valid tier key }.",
+          "Invalid request body. Expecting { product?: 'pectus'|'sculpt'|'stone', tier: a valid tier key }.",
       },
       { status: 400 }
     );

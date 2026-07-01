@@ -14,12 +14,12 @@ import {
   type ReactNode,
 } from "react";
 
-export type CartProductSlug = "gy-no" | "sculpt" | "stone" | "steel";
+export type CartProductSlug = "pectus" | "sculpt" | "stone" | "steel";
 
 export interface CartItem {
   id: string; // `${product}:${tier}`
   product: CartProductSlug;
-  productName: string; // e.g. "GY-NO!"
+  productName: string; // e.g. "PECTUS"
   tier: string; // tier key, e.g. "2"
   tierLabel: string; // human label, e.g. "40ml"
   price: number; // whole £, per unit

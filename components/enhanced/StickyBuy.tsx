@@ -67,7 +67,7 @@ const INCI = INCI_LIST.join(", ") + ".";
 
 const ORIGIN_ROWS: [string, string][] = [
   ["Origin", "United Kingdom"],
-  ["Batch reference", "GY-NO · 001 · UK"],
+  ["Batch reference", "PECTUS · 001 · UK"],
   ["Standards", "UK Cosmetic Regulation"],
 ];
 const BADGES = ["Made in the UK", "Cosmetic-Grade", "Cruelty-Free", "Vegan"];
@@ -105,9 +105,9 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
 
   const onAdd = () =>
     add({
-      id: `gy-no:${tier.key}`,
-      product: "gy-no",
-      productName: "GY-NO!",
+      id: `pectus:${tier.key}`,
+      product: "pectus",
+      productName: "PECTUS",
       tier: tier.key,
       tierLabel: tier.label,
       price: tier.price,
@@ -117,13 +117,13 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
   return (
     <section id="buy" className="py-16 md:py-24">
       <Container>
-        <SectionHead n="04" title="Pre-order GY-NO!" />
+        <SectionHead n="04" title="Pre-order PECTUS" />
 
         <div id="product" className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-14">
           {/* Sticky gallery */}
           <div className="lg:sticky lg:top-24 lg:self-start">
             <div className="relative flex aspect-square items-center justify-center">
-              <span className="absolute left-0.5 top-0 z-20 caps text-[9px] font-medium font-mono text-ink-3">GY-NO! / 001</span>
+              <span className="absolute left-0.5 top-0 z-20 caps text-[9px] font-medium font-mono text-ink-3">PECTUS / 001</span>
               <span className="absolute bottom-0 right-0.5 z-20 caps text-[9px] font-medium text-ink-3">
                 {GALLERY[shot].label}
               </span>
@@ -138,7 +138,7 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
                 >
                   <Image
                     src={GALLERY[shot].src}
-                    alt={`GY-NO! — ${GALLERY[shot].label}`}
+                    alt={`PECTUS — ${GALLERY[shot].label}`}
                     fill
                     sizes="(max-width: 1024px) 80vw, 520px"
                     className="object-contain"
@@ -170,12 +170,12 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
 
           {/* Scrolling buy details */}
           <div>
-            <Eyebrow>GY-NO! · 001</Eyebrow>
+            <Eyebrow>PECTUS · 001</Eyebrow>
             <h2
               className="mt-4 font-bold uppercase font-serif text-ink-0"
               style={{ fontSize: "clamp(56px, 6vw, 76px)", lineHeight: 0.9, letterSpacing: "0.01em" }}
             >
-              GY-NO!
+              PECTUS
             </h2>
             <div className="caps mt-4 text-[15px] font-medium text-ink-1">Nipple Tightening Cream</div>
             <p className="mt-5 max-w-md text-[18px] leading-[1.65] text-ink-1">

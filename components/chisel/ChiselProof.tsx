@@ -7,7 +7,7 @@ import { Reveal } from "@/components/ui/Reveal";
 
 /* ── Allocation ───────────────────────────────────────────────────
    The constraint here is the optional *steel tools* — each one is machined,
-   so the first run is small. Distinct from GY-NO!'s units angle. */
+   so the first run is small. Distinct from PECTUS's units angle. */
 const RESERVED_PCT = 74;
 const SEGMENTS = 40;
 const FILLED = Math.round((RESERVED_PCT / 100) * SEGMENTS);

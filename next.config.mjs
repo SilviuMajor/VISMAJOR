@@ -7,6 +7,8 @@ const nextConfig = {
       { source: "/chisel", destination: "/sculpt", permanent: true },
       // SHARP was renamed to STONE.
       { source: "/sharp", destination: "/stone", permanent: true },
+      // GY-NO! was renamed to PECTUS.
+      { source: "/gy-no", destination: "/pectus", permanent: true },
     ];
   },
 };

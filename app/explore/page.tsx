@@ -8,11 +8,11 @@ import {
 } from "@/components/explore/Heroes";
 
 export const metadata = {
-  title: "GY-NO! — Landing Concepts · VIS MAJOR",
+  title: "PECTUS — Landing Concepts · VIS MAJOR",
 };
 
 const CONCEPTS = [
-  { n: "01", name: "Kinetic Wordmark", desc: "The live hero — giant GY-NO! with the product tucked in.", Comp: HeroKinetic },
+  { n: "01", name: "Kinetic Wordmark", desc: "The live hero — giant PECTUS with the product tucked in.", Comp: HeroKinetic },
   { n: "02", name: "Cinematic Classical", desc: "Full-bleed temple scene, product in-frame, white type.", Comp: HeroCinematic },
   { n: "03", name: "Editorial Split", desc: "Type left, the new angled product on a specimen card right.", Comp: HeroEditorial },
   { n: "04", name: "Statement Type", desc: "Type-forward on ink, product as a small accent.", Comp: HeroStatement },
