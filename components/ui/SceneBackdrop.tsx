@@ -11,6 +11,7 @@ export function SceneBackdrop({
   opacity = 0.2,
   position = "object-center",
   veil = true,
+  veilStrength = 0.7,
   className = "",
 }: {
   src: string;
@@ -19,6 +20,8 @@ export function SceneBackdrop({
   position?: string;
   /** soft white centre veil so the wordmark stays legible over busy scenes. */
   veil?: boolean;
+  /** 0–1 opacity of the centre veil; lower = the scene reads more strongly. */
+  veilStrength?: number;
   className?: string;
 }) {
   return (
@@ -39,8 +42,7 @@ export function SceneBackdrop({
         <div
           className="absolute inset-0"
           style={{
-            background:
-              "radial-gradient(ellipse 62% 52% at 50% 46%, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 68%)",
+            background: `radial-gradient(ellipse 62% 52% at 50% 46%, rgba(255,255,255,${veilStrength}) 0%, rgba(255,255,255,0) 68%)`,
           }}
         />
       )}

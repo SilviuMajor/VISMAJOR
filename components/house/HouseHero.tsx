@@ -60,7 +60,7 @@ export function HouseHero() {
           Centering lives on the wrapper; parallax on the inner element, so
           Framer's transform doesn't clobber the -translate centering. */}
       {/* the house — the classical temple scene behind the mark */}
-      <SceneBackdrop src="/scenes/home.png" opacity={0.22} position="object-center" />
+      <SceneBackdrop src="/scenes/home.png" opacity={0.44} veilStrength={0.4} position="object-center" />
 
       <Container className="relative z-10 flex flex-col items-center text-center">
         {/* eyebrow */}
