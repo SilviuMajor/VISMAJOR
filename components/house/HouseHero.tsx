@@ -93,7 +93,7 @@ export function HouseHero() {
             <motion.span
               variants={line}
               className="house block whitespace-nowrap text-ink-0"
-              style={{ fontSize: "clamp(50px, 12.5vw, 184px)", lineHeight: 0.92, fontWeight: 400 }}
+              style={{ fontSize: "clamp(50px, 12.5vw, 184px)", lineHeight: 0.92, fontWeight: 600 }}
             >
               VIS·MAJOR
             </motion.span>
