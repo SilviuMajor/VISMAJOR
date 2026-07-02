@@ -33,7 +33,7 @@ export function SharpComposition() {
     <>
       <ScrollProgress />
       <Announcement
-        message={`Pre-order · the natural cleanser · first batch ships ${shipMonth} · free UK delivery`}
+        message={`Pre-order · the matte cleanser · first batch ships ${shipMonth} · free UK delivery`}
         messageShort={`Pre-order · ships ${shipMonth}`}
       />
       <Header
@@ -43,7 +43,7 @@ export function SharpComposition() {
       <main>
         <SharpHero shipMonth={shipMonth} />
         <FirstBatchStrip count="1,400+" shipMonth={shipMonth} />
-        <ProductQuote latin="Cotidie" translation="every day." />
+        <ProductQuote latin="Tabula rasa" translation="a clean slate." />
         <SharpTicker />
         <SharpDaily />
         <SharpActives />
@@ -56,7 +56,7 @@ export function SharpComposition() {
       </main>
       <OtherProducts current="stone" />
       <Footer />
-      <StickyBuyBar priceFrom="£22" label="STONE · 50ml" href="#buy" />
+      <StickyBuyBar priceFrom="£22" label="STONE · 100ml" href="#buy" />
     </>
   );
 }

@@ -12,7 +12,7 @@ import { ReactNode } from "react";
  */
 export function Specimen({
   children,
-  label = "50ml",
+  label = "100ml",
   index = "STONE / 003",
   className = "",
   innerClassName = "",
@@ -106,7 +106,7 @@ export function SharpBottle({
         fill="var(--ink-2)"
         style={{ fontFamily: "var(--font-display), system-ui, sans-serif" }}
       >
-        CLAY & CHARCOAL CLEANSER
+        MATTE CLEANSER
       </text>
       <text
         x={100}
@@ -117,7 +117,7 @@ export function SharpBottle({
         fill="var(--ink-3)"
         style={{ fontFamily: "var(--font-display), system-ui, sans-serif" }}
       >
-        50 ML ℮
+        100 ML ℮
       </text>
 
       {/* specular streak — the "shine". Fades as the daily mechanic mattes off. */}

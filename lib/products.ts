@@ -56,9 +56,9 @@ export const PRODUCTS: Product[] = [
     href: "/stone",
     index: "003",
     wordmark: "STONE",
-    category: "Clay & Charcoal Cleanser",
+    category: "Matte Cleanser",
     short:
-      "A natural clay-and-charcoal cleanser that lifts the day's oil and grime — skin left clean, fresh, and matte.",
+      "A natural matte cleanser — clay, charcoal and mint that lift the day's oil and grime, then rinse away for skin left clean, fresh, and matte.",
     signature: "Matte",
     priceFrom: 22,
     rrpFrom: 30,

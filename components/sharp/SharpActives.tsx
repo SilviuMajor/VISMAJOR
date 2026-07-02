@@ -31,9 +31,9 @@ const ACTIVES = [
   },
   {
     n: "03",
-    name: "Clean Finish",
-    tag: "The reset",
-    line: "A gentle, non-stripping cleanse rinses clear and returns skin to a fresh, matte slate.",
+    name: "Peppermint",
+    tag: "The finish",
+    line: "A touch of natural peppermint leaves a cool, fresh finish as it rinses — gentle and sulphate-free, never stripping.",
     diagram: "smooth",
   },
 ];

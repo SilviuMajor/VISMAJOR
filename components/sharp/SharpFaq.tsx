@@ -19,11 +19,11 @@ const FAQS = [
   },
   {
     q: "Will it suit my skin?",
-    a: "It's a natural clay-and-charcoal cleanser designed for all skin types, with men's skin in mind. As with any new cosmetic, patch test before first use.",
+    a: "It's a natural, sulphate-free clay-and-charcoal cleanser designed for all skin types, with men's skin in mind. As with any new cosmetic, patch test before first use.",
   },
   {
     q: "Is it fragranced?",
-    a: "Only lightly. A clean, fresh, low-key scent that settles quickly and isn't perfumey.",
+    a: "A cool hit of natural peppermint as you cleanse, then it rinses away — nothing perfumey left on the skin.",
   },
   {
     q: "Does it leave any residue?",

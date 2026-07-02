@@ -23,7 +23,7 @@ export function SharpIsIsnt() {
               className="mt-6 max-w-md font-semibold text-ink-0"
               style={{ fontSize: "clamp(21px, 2.3vw, 30px)", lineHeight: 1.3, letterSpacing: "-0.01em" }}
             >
-              A natural cosmetic cleanser — clay and charcoal that lift the day's
+              A natural cosmetic cleanser: clay and charcoal that lift the day's
               oil and grime, for skin left clean, fresh, and matte.
             </p>
           </Reveal>
@@ -33,8 +33,8 @@ export function SharpIsIsnt() {
               className="mt-6 max-w-md font-semibold text-ink-2"
               style={{ fontSize: "clamp(21px, 2.3vw, 30px)", lineHeight: 1.3, letterSpacing: "-0.01em" }}
             >
-              A treatment. Stone strips away what the day leaves behind; it does
-              not treat the skin, but returns it to a clean slate.
+              A cure. Stone strips away what the day leaves behind; it does not
+              treat the skin, only returns it to a clean slate.
             </p>
           </Reveal>
         </div>

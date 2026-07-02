@@ -22,9 +22,9 @@ type Tier = {
 // `price` = early-bird pre-order. `reg` = RRP at launch. These MUST match the
 // server amounts in app/api/checkout/route.ts (sharp): 2200 / 3800 / 4000.
 const TIERS: Tier[] = [
-  { key: "1", label: "50ml", unitLabel: "50ml", price: 22, reg: 30 },
-  { key: "2", label: "100ml", unitLabel: "100ml", price: 38, reg: 52, note: "Most chosen" },
-  { key: "3", label: "2 × 50ml", unitLabel: "2 × 50ml", price: 40, reg: 60, note: "Best value" },
+  { key: "1", label: "100ml", unitLabel: "100ml", price: 22, reg: 30 },
+  { key: "2", label: "200ml", unitLabel: "200ml", price: 38, reg: 52, note: "Most chosen" },
+  { key: "3", label: "2 × 100ml", unitLabel: "2 × 100ml", price: 40, reg: 60, note: "Best value" },
 ];
 
 /* Photo-free specimen "views" — line-art plates standing in for product shots.
@@ -191,11 +191,14 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
             >
               STONE
             </h2>
-            <div className="caps mt-4 text-[15px] font-medium text-ink-1">Clay &amp; Charcoal Cleanser</div>
+            <div className="caps mt-4 text-[15px] font-medium text-ink-1">Matte Cleanser</div>
+            <p className="mt-1.5 caps text-[11px] font-medium text-ink-3">
+              With clay, charcoal &amp; mint — sulphate-free
+            </p>
             <p className="mt-5 max-w-md text-[18px] leading-[1.65] text-ink-1">
-              A natural clay-and-charcoal cleanser for men. It lifts the day's
-              oil and grime and leaves skin clean, fresh, and matte — a clean
-              slate, morning or night.
+              A natural matte cleanser for men — clay, charcoal and mint that
+              lift the day's oil and grime, then rinse away for a clean, fresh,
+              matte finish. Wash-off, daily.
             </p>
 
             {/* Early-bird price callout */}
@@ -331,9 +334,11 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
               <SectionHead n="—" title="Specification" />
               {[
                 ["Net Quantity", tier.unitLabel],
-                ["Type", "Clay & Charcoal Cleanser"],
-                ["Finish", "Matte · Fragrance-Light"],
-                ["Use", "Morning or Night"],
+                ["Type", "Matte Cleanser · Wash-Off"],
+                ["Actives", "Clay · Charcoal · Mint"],
+                ["Finish", "Clean · Matte · Cool"],
+                ["Free From", "Sulphates"],
+                ["Use", "Daily · Morning or Night"],
                 ["Skin", "All Skin Types · Men"],
                 ["Made By", "Vis Major · UK"],
               ].map(([k, v]) => (
@@ -342,6 +347,42 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
                   <span className="caps font-mono text-[11px] font-medium text-ink-0">{v}</span>
                 </div>
               ))}
+            </div>
+
+            {/* directions · ingredients · warnings */}
+            <div className="mt-12 space-y-7">
+              <div>
+                <span className="caps text-[11px] font-semibold text-ink-2">Directions</span>
+                <p className="mt-2.5 max-w-md text-[14px] leading-[1.6] text-ink-2">
+                  Massage a small amount onto wet skin, working into a light
+                  lather. Rinse thoroughly with warm water. Use daily, morning or
+                  night.
+                </p>
+              </div>
+              <div>
+                <span className="caps text-[11px] font-semibold text-ink-2">Ingredients</span>
+                <p className="mt-2.5 max-w-md text-[14px] leading-[1.6] text-ink-1">
+                  With clay, charcoal &amp; mint — sulphate-free.
+                </p>
+                <p className="mt-2 max-w-md text-[12px] leading-[1.6] text-ink-3">
+                  Aqua, Coco-Glucoside, Sodium Cocoyl Isethionate, Kaolin,
+                  Bentonite, Glycerin, Charcoal Powder, Hamamelis Virginiana
+                  (Witch Hazel) Extract, Mentha Piperita (Peppermint) Oil, Aloe
+                  Barbadensis Leaf Juice Powder, Sodium Chloride, Citric Acid,
+                  Phenoxyethanol, Caprylyl Glycol, Ethylhexylglycerin, Parfum.
+                </p>
+                <p className="mt-1.5 caps text-[9.5px] font-medium text-ink-3">
+                  Full INCI · formulator to confirm
+                </p>
+              </div>
+              <div>
+                <span className="caps text-[11px] font-semibold text-ink-2">Warnings</span>
+                <p className="mt-2.5 max-w-md text-[14px] leading-[1.6] text-ink-2">
+                  For external use only. Avoid contact with eyes — rinse if
+                  contact occurs. Patch test before first use; discontinue if
+                  irritation occurs. Keep out of reach of children.
+                </p>
+              </div>
             </div>
           </div>
         </div>

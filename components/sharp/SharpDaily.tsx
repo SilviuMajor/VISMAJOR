@@ -19,8 +19,8 @@ const MINT = "#14130F";
 const STEPS = [
   {
     n: "01",
-    title: "Work in",
-    body: "A coin of cleanser, worked over damp skin — morning or night.",
+    title: "Lather",
+    body: "A small amount massaged onto wet skin, worked into a light lather — morning or night.",
     cue: "Oil",
   },
   {
@@ -32,7 +32,7 @@ const STEPS = [
   {
     n: "03",
     title: "Rinse",
-    body: "Rinse clean. Skin left fresh, and matte — a clean slate.",
+    body: "Rinse clean with warm water — skin left fresh, cool, and matte.",
     cue: "Matte",
   },
 ];

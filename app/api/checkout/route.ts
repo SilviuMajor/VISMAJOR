@@ -29,11 +29,11 @@ const CATALOG: Record<
     },
   },
   stone: {
-    name: "STONE Clay & Charcoal Cleanser",
+    name: "STONE Matte Cleanser",
     tiers: {
-      "1": { label: "50ml", amount: 2200 },
-      "2": { label: "100ml", amount: 3800 },
-      "3": { label: "2 × 50ml", amount: 4000 },
+      "1": { label: "100ml", amount: 2200 },
+      "2": { label: "200ml", amount: 3800 },
+      "3": { label: "2 × 100ml", amount: 4000 },
     },
   },
 };

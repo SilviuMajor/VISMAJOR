@@ -1,12 +1,12 @@
 import { Marquee } from "@/components/ui/Marquee";
 
 const ITEMS = [
-  "Clay & Charcoal",
+  "Clay · Charcoal · Mint",
   "Lifts Oil & Grime",
   "Clean, Fresh, Matte",
-  "Morning or Night",
-  "Non-Stripping",
-  "A Clean Slate",
+  "Sulphate-Free",
+  "Lathers & Rinses Off",
+  "Cool Mint Finish",
   "Made in the UK",
   "For Men",
 ];
