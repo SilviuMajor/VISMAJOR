@@ -6,27 +6,19 @@ import {
   motion,
   useMotionValue,
   useReducedMotion,
-  useScroll,
   useSpring,
   useTransform,
   type Variants,
 } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { PRODUCTS } from "@/lib/products";
-import { Temple } from "@/components/house/Temple";
+import { SceneBackdrop } from "@/components/ui/SceneBackdrop";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 export function HouseHero() {
   const reduce = useReducedMotion();
   const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-  const templeY = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [0, -60]);
-  const templeFade = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
-
   // cursor parallax — the flagship tube tracks the mouse across the landing
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
@@ -67,11 +59,8 @@ export function HouseHero() {
       {/* the house — a subtle classical temple behind the mark.
           Centering lives on the wrapper; parallax on the inner element, so
           Framer's transform doesn't clobber the -translate centering. */}
-      <div className="pointer-events-none absolute left-1/2 top-1/2 z-0 w-[min(1040px,118vw)] -translate-x-1/2 -translate-y-1/2">
-        <motion.div aria-hidden style={{ y: templeY, opacity: templeFade }}>
-          <Temple className="h-auto w-full opacity-[0.05]" />
-        </motion.div>
-      </div>
+      {/* the house — the classical temple scene behind the mark */}
+      <SceneBackdrop src="/scenes/home.png" opacity={0.22} position="object-center" />
 
       <Container className="relative z-10 flex flex-col items-center text-center">
         {/* eyebrow */}
@@ -104,7 +93,7 @@ export function HouseHero() {
         <motion.p
           {...fadeUp}
           transition={{ duration: 0.7, delay: 0.6, ease: EASE }}
-          className="serif mt-5 uppercase text-ink-1"
+          className="mt-5 uppercase text-ink-1"
           style={{
             fontSize: "clamp(12px, 1.5vw, 17px)",
             letterSpacing: "0.4em",

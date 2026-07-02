@@ -11,6 +11,7 @@ import {
   type Variants,
 } from "framer-motion";
 import { Container } from "@/components/ui/Container";
+import { SceneBackdrop } from "@/components/ui/SceneBackdrop";
 import { CreamTube, SteelTool } from "@/components/chisel/Art";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -123,7 +124,8 @@ export function ChiselHero({ shipMonth }: { shipMonth: string }) {
       onMouseLeave={onLeave}
       className="relative flex min-h-[calc(100svh-104px)] flex-col items-center overflow-hidden py-4 md:py-6"
     >
-      <Container className="relative flex w-full flex-1 flex-col items-center justify-center">
+      <SceneBackdrop src="/scenes/sculpt.png" opacity={0.22} />
+      <Container className="relative z-10 flex w-full flex-1 flex-col items-center justify-center">
         {/* eyebrow */}
         <motion.div
           {...fadeUp}

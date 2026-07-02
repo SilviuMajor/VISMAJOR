@@ -12,7 +12,7 @@ import {
   type Variants,
 } from "framer-motion";
 import { Container } from "@/components/ui/Container";
-import { RomanBehind } from "@/components/ui/RomanBehind";
+import { SceneBackdrop } from "@/components/ui/SceneBackdrop";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 const WORD = ["P", "E", "C", "T", "U", "S"];
@@ -123,7 +123,7 @@ export function EnhancedHero({ shipMonth }: { shipMonth: string }) {
       onMouseLeave={onLeave}
       className="relative flex min-h-[calc(100svh-104px)] flex-col items-center overflow-hidden py-4 md:py-6"
     >
-      <RomanBehind figure="/figures/athlete.png" side="left" opacity={0.13} />
+      <SceneBackdrop src="/scenes/pectus.png" opacity={0.22} />
       <Container className="relative z-10 flex w-full flex-1 flex-col items-center justify-center">
         {/* eyebrow */}
         <motion.div
@@ -192,7 +192,7 @@ export function EnhancedHero({ shipMonth }: { shipMonth: string }) {
                 <motion.div
                   animate={reduce ? {} : { y: [0, -9, 0] }}
                   transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                  className="relative h-[42vh] w-[208px] md:h-[52vh] md:w-[286px]"
+                  className="relative h-[34vh] w-[184px] md:h-[42vh] md:w-[248px]"
                 >
                   <Image
                     src="/product/front.png"
