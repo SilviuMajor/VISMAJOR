@@ -22,13 +22,13 @@ export function HouseStandard() {
       className="relative overflow-hidden border-y"
       style={{ borderColor: "var(--hair)" }}
     >
-      {/* David — desktop: absolute on the right, soft grey figure on white */}
+      {/* Classical figure — desktop: absolute on the right, soft grey figure on white */}
       <motion.div
         style={{ y }}
         className="pointer-events-none absolute inset-y-0 right-[-2%] z-0 hidden w-[48vw] sm:block lg:w-[42vw]"
       >
         <Image
-          src="/figures/david.png"
+          src="/figures/general.png"
           alt="A classical figure — the standard"
           fill
           sizes="48vw"
@@ -79,7 +79,7 @@ export function HouseStandard() {
           {/* figure — mobile: in flow, below the copy */}
           <div className="relative mt-12 h-[46vh] w-full sm:hidden">
             <Image
-              src="/figures/david.png"
+              src="/figures/general.png"
               alt=""
               fill
               sizes="100vw"
