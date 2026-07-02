@@ -112,7 +112,7 @@ export function FaqV2({ shipMonth }: { shipMonth: string }) {
 
   return (
     <section
-      className="relative overflow-hidden border-y bg-paper-1 py-16 md:py-24"
+      className="relative overflow-hidden border-y py-16 md:py-24"
       style={{ borderColor: "var(--hair)" }}
     >
       <RomanBehind figure="/figures/gyno-2.png" side="left" />

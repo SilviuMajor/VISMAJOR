@@ -33,7 +33,7 @@ export function SharpComposition() {
     <>
       <ScrollProgress />
       <Announcement
-        message={`Pre-order · the matte daily · first batch ships ${shipMonth} · free UK delivery`}
+        message={`Pre-order · the natural cleanser · first batch ships ${shipMonth} · free UK delivery`}
         messageShort={`Pre-order · ships ${shipMonth}`}
       />
       <Header

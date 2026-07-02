@@ -33,7 +33,7 @@ export function OtherProducts({ current }: { current: ProductSlug }) {
   const rest = others(current);
 
   return (
-    <section className="border-t bg-paper-1 py-20 md:py-28" style={{ borderColor: "var(--hair)" }}>
+    <section className="border-t py-20 md:py-28" style={{ borderColor: "var(--hair)" }}>
       <Container>
         <div className="flex items-center gap-3.5">
           <span className="h-px w-7 bg-[var(--hair-strong)]" />

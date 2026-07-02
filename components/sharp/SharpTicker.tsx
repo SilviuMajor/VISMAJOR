@@ -1,12 +1,12 @@
 import { Marquee } from "@/components/ui/Marquee";
 
 const ITEMS = [
-  "Matte Finish",
-  "Controls Shine",
-  "Lightweight Hydration",
-  "Use Every Morning",
-  "Never Greasy",
-  "The Look of Defined Features",
+  "Clay & Charcoal",
+  "Lifts Oil & Grime",
+  "Clean, Fresh, Matte",
+  "Morning or Night",
+  "Non-Stripping",
+  "A Clean Slate",
   "Made in the UK",
   "For Men",
 ];

@@ -106,7 +106,7 @@ export function SharpBottle({
         fill="var(--ink-2)"
         style={{ fontFamily: "var(--font-display), system-ui, sans-serif" }}
       >
-        MATTE DAILY MOISTURISER
+        CLAY & CHARCOAL CLEANSER
       </text>
       <text
         x={100}

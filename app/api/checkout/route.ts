@@ -29,7 +29,7 @@ const CATALOG: Record<
     },
   },
   stone: {
-    name: "STONE Matte Daily Moisturiser",
+    name: "STONE Clay & Charcoal Cleanser",
     tiers: {
       "1": { label: "50ml", amount: 2200 },
       "2": { label: "100ml", amount: 3800 },

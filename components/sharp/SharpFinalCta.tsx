@@ -19,7 +19,7 @@ export function SharpFinalCta({ shipMonth }: { shipMonth: string }) {
         <TextReveal
           as="h2"
           className="mt-8 font-bold uppercase text-paper-0 text-[clamp(46px,9vw,140px)] leading-[0.9] tracking-[-0.035em]"
-          lines={["Matte.", "Every morning."]}
+          lines={["Clean slate.", "Every day."]}
         />
 
         <div className="mt-12 flex flex-col gap-10 md:flex-row md:items-end md:justify-between">

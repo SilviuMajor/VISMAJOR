@@ -56,9 +56,9 @@ export const PRODUCTS: Product[] = [
     href: "/stone",
     index: "003",
     wordmark: "STONE",
-    category: "Matte Daily Moisturiser",
+    category: "Clay & Charcoal Cleanser",
     short:
-      "A lightweight daily moisturiser that kills shine and defines the look of your features.",
+      "A natural clay-and-charcoal cleanser that lifts the day's oil and grime — skin left clean, fresh, and matte.",
     signature: "Matte",
     priceFrom: 22,
     rrpFrom: 30,

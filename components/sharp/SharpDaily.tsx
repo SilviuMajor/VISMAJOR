@@ -19,20 +19,20 @@ const MINT = "#14130F";
 const STEPS = [
   {
     n: "01",
-    title: "Apply",
-    body: "A pea of cream, smoothed over a clean face each morning.",
-    cue: "Shine",
+    title: "Work in",
+    body: "A coin of cleanser, worked over damp skin — morning or night.",
+    cue: "Oil",
   },
   {
     n: "02",
-    title: "Absorb",
-    body: "It sinks in fast and weightless — no film, no slip, no grease.",
-    cue: "Absorbing",
+    title: "Lift",
+    body: "Clay and charcoal draw the day's oil and grime up and out.",
+    cue: "Lifting",
   },
   {
     n: "03",
-    title: "Matte",
-    body: "Sets to a clean, flat finish. Shine controlled; features look more defined.",
+    title: "Rinse",
+    body: "Rinse clean. Skin left fresh, and matte — a clean slate.",
     cue: "Matte",
   },
 ];
@@ -138,7 +138,7 @@ export function SharpDaily() {
               >
                 <div className="flex items-end justify-between">
                   <span className="caps text-[10px] font-medium text-ink-2">
-                    Shine index
+                    Oil index
                   </span>
                   <span className="flex items-baseline gap-1.5 tabular-nums">
                     <span

@@ -19,7 +19,7 @@ export function ProductQuote({
   const reduce = useReducedMotion();
 
   return (
-    <section className="border-b bg-paper-0" style={{ borderColor: "var(--hair)" }}>
+    <section className="border-b" style={{ borderColor: "var(--hair)" }}>
       <Container className="py-12 md:py-16">
         <motion.p
           initial={{ opacity: 0, y: reduce ? 0 : 18 }}

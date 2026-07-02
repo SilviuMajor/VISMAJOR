@@ -58,7 +58,7 @@ function PlateArt({ kind, shine }: { kind: string; shine: number }) {
         />
         <path d="M64 142 Q96 120 132 140" fill="none" stroke="rgba(255,255,255,0.9)" strokeWidth={2} opacity={shine} />
         <text x={100} y={206} textAnchor="middle" fontSize={6} letterSpacing="2" fill="var(--ink-3)" style={{ fontFamily: "var(--font-display), sans-serif" }}>
-          MATTE · NON-GREASY
+          CLEAN · MATTE
         </text>
       </svg>
     );
@@ -191,11 +191,11 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
             >
               STONE
             </h2>
-            <div className="caps mt-4 text-[15px] font-medium text-ink-1">Matte Daily Moisturiser</div>
+            <div className="caps mt-4 text-[15px] font-medium text-ink-1">Clay &amp; Charcoal Cleanser</div>
             <p className="mt-5 max-w-md text-[18px] leading-[1.65] text-ink-1">
-              A lightweight daily face moisturiser for men. Hydrates, sets to a
-              clean matte finish, and defines the look of your features. Use it
-              every morning — never greasy, no shine.
+              A natural clay-and-charcoal cleanser for men. It lifts the day's
+              oil and grime and leaves skin clean, fresh, and matte — a clean
+              slate, morning or night.
             </p>
 
             {/* Early-bird price callout */}
@@ -331,9 +331,9 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
               <SectionHead n="—" title="Specification" />
               {[
                 ["Net Quantity", tier.unitLabel],
-                ["Type", "Daily Face Moisturiser"],
+                ["Type", "Clay & Charcoal Cleanser"],
                 ["Finish", "Matte · Fragrance-Light"],
-                ["Use", "Every Morning · AM"],
+                ["Use", "Morning or Night"],
                 ["Skin", "All Skin Types · Men"],
                 ["Made By", "Vis Major · UK"],
               ].map(([k, v]) => (

@@ -12,15 +12,15 @@ const FILLED = Math.round((RESERVED_PCT / 100) * SEGMENTS);
 
 const QUOTES = [
   {
-    q: "It's the one I reach for at 7am. On in five seconds, matte all morning, no shine by lunch.",
+    q: "Thirty seconds at the sink, morning and night. The day comes straight off — skin feels clean, never tight.",
     a: "Early tester · London",
   },
   {
-    q: "Lightweight in a way most men's creams aren't. Sinks in, no grease, just a clean flat finish.",
+    q: "Cuts the grime most face washes leave behind. Rinses clear, no squeaky-tight pull, just fresh skin.",
     a: "Early tester · Manchester",
   },
   {
-    q: "Skin looks cleaner somehow — less shiny, more defined. It's become part of the routine.",
+    q: "Skin looks clearer somehow — less shine, more life. It's become part of the routine.",
     a: "Early tester · Leeds",
   },
 ];

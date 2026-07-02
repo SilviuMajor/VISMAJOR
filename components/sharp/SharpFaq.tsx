@@ -10,16 +10,16 @@ const MINT = "#14130F";
 
 const FAQS = [
   {
-    q: "Matte finish or dewy?",
-    a: "Matte. STONE sets to a clean, flat finish and controls shine — no wet or dewy sheen, no greasy look.",
+    q: "How does it leave skin?",
+    a: "Clean, fresh, and matte. STONE lifts the day's oil and grime without stripping — no greasy film, no shine.",
   },
   {
     q: "When do I use it — morning or night?",
-    a: "It's built for the morning. A pea-size amount on a clean face is all it takes. You can use it in the evening too if you like, but the matte finish is made for the day ahead.",
+    a: "Either. A coin of cleanser worked over damp skin, then rinsed clean — morning to start fresh, or night to lift the day away.",
   },
   {
     q: "Will it suit my skin?",
-    a: "It's a lightweight daily moisturiser designed for all skin types, with men's skin in mind. As with any new cosmetic, patch test before first use.",
+    a: "It's a natural clay-and-charcoal cleanser designed for all skin types, with men's skin in mind. As with any new cosmetic, patch test before first use.",
   },
   {
     q: "Is it fragranced?",
@@ -137,7 +137,7 @@ export function SharpFaq({ shipMonth }: { shipMonth: string }) {
 
               <p className="mt-6 max-w-sm text-[16.5px] leading-[1.6] text-ink-2">
                 No fine print, no mystery. The honest answers to what people
-                actually ask about a daily matte moisturiser.
+                actually ask about a natural daily cleanser.
               </p>
 
               {/* contact — a clean inline row, no box */}

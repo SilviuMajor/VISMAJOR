@@ -17,23 +17,23 @@ const MINT = "#14130F";
 const ACTIVES = [
   {
     n: "01",
-    name: "Shine Control",
-    tag: "The mattifier",
-    line: "An oil-absorbing mineral complex drinks up surface shine and holds an even, flat finish through the day.",
+    name: "Kaolin Clay",
+    tag: "The draw",
+    line: "A fine natural clay draws the day's oil and grime up and out of the pores, leaving an even, matte surface.",
     diagram: "absorb",
   },
   {
     n: "02",
-    name: "Light Hydration",
-    tag: "The water layer",
-    line: "A weightless water-and-glycerin base hydrates without any film or slip. It sinks in and disappears.",
+    name: "Activated Charcoal",
+    tag: "The lift",
+    line: "Activated charcoal binds to grime and lifts it away on the rinse — nothing left behind but clean skin.",
     diagram: "hydrate",
   },
   {
     n: "03",
-    name: "Smooth Finish",
-    tag: "The blur",
-    line: "A soft-focus smoothing agent evens the surface, so light sits flat and features read more defined.",
+    name: "Clean Finish",
+    tag: "The reset",
+    line: "A gentle, non-stripping cleanse rinses clear and returns skin to a fresh, matte slate.",
     diagram: "smooth",
   },
 ];

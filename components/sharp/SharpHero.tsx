@@ -134,7 +134,7 @@ export function SharpHero({ shipMonth }: { shipMonth: string }) {
         >
           <span className="h-px w-7 bg-[var(--hair-strong)]" />
           <span className="caps-loose text-[11px] font-medium text-ink-2">
-            The Matte Daily · No. 003
+            The Natural Cleanser · No. 003
           </span>
           <span className="h-px w-7 bg-[var(--hair-strong)]" />
         </motion.div>
@@ -222,16 +222,16 @@ export function SharpHero({ shipMonth }: { shipMonth: string }) {
             transition={{ duration: 0.6, delay: 0.95, ease: EASE }}
             className="caps text-[13px] font-medium text-ink-1 md:text-[15px]"
           >
-            Kill the Shine. Define the Look.
+            Lift the Day. Clean Slate.
           </motion.p>
           <motion.p
             {...fadeUp}
             transition={{ duration: 0.6, delay: 1.05, ease: EASE }}
             className="mt-4 max-w-lg text-[16px] leading-[1.6] text-ink-2 md:text-[18px]"
           >
-            A lightweight daily face moisturiser for men. Hydrates, sets to a
-            clean matte finish, and defines the look of your features. The one
-            you reach for every morning.
+            A natural clay-and-charcoal cleanser for men. It lifts the day's oil
+            and grime and leaves skin clean, fresh, and matte — a clean slate,
+            morning or night.
           </motion.p>
 
           <motion.div
