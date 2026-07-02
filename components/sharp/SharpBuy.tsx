@@ -186,7 +186,7 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
           <div>
             <Eyebrow>STONE · 003</Eyebrow>
             <h2
-              className="mt-4 font-serif font-bold uppercase text-ink-0"
+              className="mt-4 font-serif font-semibold uppercase text-ink-0"
               style={{ fontSize: "clamp(56px, 6vw, 76px)", lineHeight: 0.9, letterSpacing: "-0.02em" }}
             >
               STONE

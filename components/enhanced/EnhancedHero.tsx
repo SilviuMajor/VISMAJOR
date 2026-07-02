@@ -123,7 +123,7 @@ export function EnhancedHero({ shipMonth }: { shipMonth: string }) {
       onMouseLeave={onLeave}
       className="relative flex min-h-[calc(100svh-104px)] flex-col items-center overflow-hidden py-4 md:py-6"
     >
-      <RomanBehind figure="/figures/athlete.png" side="left" opacity={0.07} />
+      <RomanBehind figure="/figures/athlete.png" side="left" opacity={0.13} />
       <Container className="relative z-10 flex w-full flex-1 flex-col items-center justify-center">
         {/* eyebrow */}
         <motion.div
@@ -158,7 +158,7 @@ export function EnhancedHero({ shipMonth }: { shipMonth: string }) {
           {/* wordmark — letter by letter */}
           <motion.h1
             style={{ scale: wordScale, y: wordScrollY, x: wordPX, opacity: wordOpacity }}
-            className="pointer-events-none relative z-0 w-full select-none text-center font-bold uppercase font-serif leading-[0.92] tracking-[0.02em] text-ink-0"
+            className="pointer-events-none relative z-0 w-full select-none text-center font-semibold uppercase font-serif leading-[0.92] tracking-[0.02em] text-ink-0"
           >
             <motion.span
               variants={wordContainer}
@@ -196,7 +196,7 @@ export function EnhancedHero({ shipMonth }: { shipMonth: string }) {
                 >
                   <Image
                     src="/product/front.png"
-                    alt="PECTUS Nipple Tightening Cream"
+                    alt="PECTUS Cooling Chest Primer"
                     fill
                     priority
                     sizes="280px"

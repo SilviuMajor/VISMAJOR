@@ -80,7 +80,7 @@ export function OtherProducts({ current }: { current: ProductSlug }) {
                   </div>
 
                   <div
-                    className="mt-8 font-serif font-bold uppercase text-ink-0"
+                    className="mt-8 font-serif font-semibold uppercase text-ink-0"
                     style={{ fontSize: "clamp(32px, 4.6vw, 56px)", letterSpacing: "-0.02em", lineHeight: 0.94 }}
                   >
                     {p.wordmark}

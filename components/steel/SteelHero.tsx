@@ -42,7 +42,7 @@ export function SteelHero({ priceFrom }: { priceFrom: string }) {
 
         {/* giant kinetic wordmark + the three tools */}
         <div className="relative mt-6 flex w-full flex-1 flex-col items-center justify-center overflow-hidden">
-          <motion.h1 className="pointer-events-none relative z-0 w-full select-none text-center font-bold uppercase font-serif leading-[0.9] tracking-[-0.04em] text-ink-0">
+          <motion.h1 className="pointer-events-none relative z-0 w-full select-none text-center font-semibold uppercase font-serif leading-[0.9] tracking-[-0.04em] text-ink-0">
             <motion.span
               variants={wordContainer}
               initial="hidden"

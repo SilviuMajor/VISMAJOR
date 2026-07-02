@@ -133,7 +133,7 @@ export function SteelBuy({ shipMonth }: { shipMonth: string }) {
           <div>
             <Eyebrow>STEEL · No. IV</Eyebrow>
             <h2
-              className="mt-4 font-bold uppercase font-serif text-ink-0"
+              className="mt-4 font-semibold uppercase font-serif text-ink-0"
               style={{ fontSize: "clamp(48px, 5.4vw, 72px)", lineHeight: 0.92, letterSpacing: "-0.01em" }}
             >
               {tier.label}

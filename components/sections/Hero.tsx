@@ -103,7 +103,7 @@ export function Hero({ shipMonth }: { shipMonth: string }) {
               <div className="mx-auto max-w-[340px]">
                 <ProductShot
                   src="/product/front.png"
-                  alt="PECTUS Nipple Tightening Cream — 20ml tube"
+                  alt="PECTUS Cooling Chest Primer — 20ml tube"
                   priority
                   melt={false}
                   sizes="(max-width: 1024px) 80vw, 420px"

@@ -12,7 +12,7 @@ const aluminium =
   "linear-gradient(90deg,#d8d5cc 0%,#f3f1ea 16%,#ffffff 44%,#ffffff 56%,#eeebe4 82%,#d4d1c8 100%)";
 
 export function Tube({ width = 220, label = "cream", className = "" }: TubeProps) {
-  const labelText = label === "cream" ? "Nipple\nTightening Cream" : "Nipple Balm";
+  const labelText = label === "cream" ? "Cooling\nChest Primer" : "Recovery Balm";
   const subline = label === "cream" ? "With Caffeine & Menthol Agents" : "Soothe + Protect";
   const netQty = label === "cream" ? "20ml ℮" : "8g ℮";
 

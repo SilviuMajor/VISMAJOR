@@ -92,7 +92,7 @@ export function SteelComposition() {
                       <ToolPhoto tool={t.key} sizes="(max-width: 768px) 80vw, 360px" />
                     </div>
                     <div className="mt-6 flex items-center justify-between">
-                      <h3 className="font-bold uppercase font-serif text-ink-0" style={{ fontSize: "clamp(24px,2.6vw,34px)", letterSpacing: "-0.01em" }}>
+                      <h3 className="font-semibold uppercase font-serif text-ink-0" style={{ fontSize: "clamp(24px,2.6vw,34px)", letterSpacing: "-0.01em" }}>
                         {t.name}
                       </h3>
                       <span className="caps font-mono text-[10px] font-medium text-ink-3">{t.n}</span>

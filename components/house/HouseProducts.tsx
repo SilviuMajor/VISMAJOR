@@ -137,7 +137,7 @@ export function HouseProducts() {
                 </div>
 
                 <div
-                  className="relative mt-7 font-serif font-bold uppercase text-ink-0"
+                  className="relative mt-7 font-serif font-semibold uppercase text-ink-0"
                   style={{ fontSize: "clamp(30px, 3.4vw, 42px)", letterSpacing: "-0.02em", lineHeight: 0.95 }}
                 >
                   {p.wordmark}

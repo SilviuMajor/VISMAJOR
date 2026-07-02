@@ -142,7 +142,7 @@ export function SharpHero({ shipMonth }: { shipMonth: string }) {
           {/* wordmark — letter by letter, crisp and tight */}
           <motion.h1
             style={{ scale: wordScale, y: wordScrollY, x: wordPX, opacity: wordOpacity }}
-            className="pointer-events-none relative z-0 w-full select-none text-center font-serif font-bold uppercase leading-[0.9] tracking-[-0.05em] text-ink-0"
+            className="pointer-events-none relative z-0 w-full select-none text-center font-serif font-semibold uppercase leading-[0.9] tracking-[-0.05em] text-ink-0"
           >
             <motion.span
               variants={wordContainer}

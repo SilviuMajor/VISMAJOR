@@ -218,7 +218,7 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
           <div>
             <Eyebrow>SCULPT · 002</Eyebrow>
             <h2
-              className="mt-4 font-bold uppercase font-serif text-ink-0"
+              className="mt-4 font-semibold uppercase font-serif text-ink-0"
               style={{ fontSize: "clamp(52px, 6vw, 76px)", lineHeight: 0.9, letterSpacing: "0.01em" }}
             >
               SCULPT

@@ -98,7 +98,7 @@ export function HeroEditorial() {
           <div className="order-2 lg:order-1">
             <motion.div {...up} transition={{ duration: 0.5, ease }} className="flex items-center gap-3.5">
               <span className="h-px w-7 bg-[var(--hair-strong)]" />
-              <span className="caps-loose text-[11px] font-semibold text-ink-2">Nipple Tightening Cream</span>
+              <span className="caps-loose text-[11px] font-semibold text-ink-2">Cooling Chest Primer</span>
             </motion.div>
             <motion.h1 {...up} transition={{ duration: 0.7, ease }} className="mt-6 font-bold uppercase text-ink-0" style={{ fontSize: "clamp(48px, 6.5vw, 92px)", lineHeight: 0.92, letterSpacing: "-0.035em" }}>
               Cool.<br />Firm.<br />Composed.
@@ -130,7 +130,7 @@ export function HeroStatement() {
     <section className="relative flex min-h-[86vh] items-center overflow-hidden bg-ink-0 py-16 text-paper-0">
       <Container className="relative">
         <motion.p {...up} transition={{ duration: 0.5, ease }} className="caps-loose text-[11px] font-semibold text-paper-0/60">
-          PECTUS · Nipple Tightening Cream
+          PECTUS · Cooling Chest Primer
         </motion.p>
         <motion.h1 {...up} transition={{ duration: 0.8, ease }} className="mt-7 font-bold uppercase" style={{ fontSize: "clamp(46px, 8.5vw, 132px)", lineHeight: 0.9, letterSpacing: "-0.04em" }}>
           Instant<br />confidence.<br /><span className="text-paper-0/45">Maximum stiffness.</span>

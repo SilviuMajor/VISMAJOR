@@ -172,12 +172,12 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
           <div>
             <Eyebrow>PECTUS · 001</Eyebrow>
             <h2
-              className="mt-4 font-bold uppercase font-serif text-ink-0"
+              className="mt-4 font-semibold uppercase font-serif text-ink-0"
               style={{ fontSize: "clamp(56px, 6vw, 76px)", lineHeight: 0.9, letterSpacing: "0.01em" }}
             >
               PECTUS
             </h2>
-            <div className="caps mt-4 text-[15px] font-medium text-ink-1">Nipple Tightening Cream</div>
+            <div className="caps mt-4 text-[15px] font-medium text-ink-1">Cooling Chest Primer</div>
             <p className="mt-5 max-w-md text-[18px] leading-[1.65] text-ink-1">
               Works in minutes. Up to one hour of temporary firmness. With caffeine
               and menthol agents — matte, lightly fragranced, undetectable.

@@ -31,7 +31,7 @@ export function SectionHead({
     <div className="mb-9 flex items-baseline gap-4">
       <span className="text-[13px] font-medium text-ink-3">{n}</span>
       <h3
-        className="m-0 font-bold font-serif tracking-tight text-ink-0"
+        className="m-0 font-semibold font-serif tracking-tight text-ink-0"
         style={{ fontSize: "clamp(24px, 3vw, 34px)", letterSpacing: "-0.02em" }}
       >
         {title}

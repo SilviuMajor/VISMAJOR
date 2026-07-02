@@ -9,7 +9,7 @@ export interface Product {
   href: string;
   index: string; // "001"
   wordmark: string; // "PECTUS"
-  category: string; // "Nipple Tightening Cream"
+  category: string; // "Cooling Chest Primer"
   /** One-line summary for cards + the cross-link band. */
   short: string;
   /** The signature sensation, one word, for tags. */
@@ -28,7 +28,7 @@ export const PRODUCTS: Product[] = [
     href: "/pectus",
     index: "001",
     wordmark: "PECTUS",
-    category: "Nipple Tightening Cream",
+    category: "Cooling Chest Primer",
     short:
       "Cools and tightens in minutes. Up to one hour of temporary firmness, undetectable under a shirt.",
     signature: "Cool",

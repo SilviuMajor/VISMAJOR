@@ -160,7 +160,7 @@ export function ChiselHero({ shipMonth }: { shipMonth: string }) {
           {/* wordmark — letter by letter */}
           <motion.h1
             style={{ scale: wordScale, y: wordScrollY, x: wordPX, opacity: wordOpacity }}
-            className="pointer-events-none relative z-0 w-full select-none text-center font-bold uppercase font-serif leading-[0.92] tracking-[-0.04em] text-ink-0"
+            className="pointer-events-none relative z-0 w-full select-none text-center font-semibold uppercase font-serif leading-[0.92] tracking-[-0.04em] text-ink-0"
           >
             <motion.span
               variants={wordContainer}

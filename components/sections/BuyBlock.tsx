@@ -145,7 +145,7 @@ export function BuyBlock({ shipMonth }: { shipMonth: string }) {
               PECTUS
             </h2>
             <div className="caps mt-4 text-[15px] font-medium text-ink-1">
-              Nipple Tightening Cream
+              Cooling Chest Primer
             </div>
             <p className="mt-5 max-w-md text-[17px] leading-[1.6] text-ink-1">
               Works in minutes. Up to one hour of temporary firmness. With

@@ -41,23 +41,22 @@ export function OneJob() {
 
   return (
     <section id="how" className="relative overflow-hidden py-16 md:py-24">
-      {/* a classical figure, facing in — faint multiply on white, like the
-          Architecture one, but on the opposite side for variety */}
+      {/* the David — the same "standard" figure from the VIS MAJOR home,
+          grounded on the left, soft multiply on white, fading toward the copy */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -bottom-[5%] left-[-12%] z-0 w-[52vw] sm:left-[-9%] sm:w-[32vw] lg:w-[25vw]"
+        className="pointer-events-none absolute bottom-0 left-[-10%] z-0 aspect-[3/4] w-[56vw] sm:left-[-6%] sm:w-[36vw] lg:w-[28vw]"
+        style={{
+          maskImage: "linear-gradient(to right, black 42%, transparent 96%)",
+          WebkitMaskImage: "linear-gradient(to right, black 42%, transparent 96%)",
+        }}
       >
         <Image
-          src="/figures/gyno-3.png"
+          src="/figures/david.png"
           alt=""
-          width={1122}
-          height={1402}
-          sizes="(max-width: 640px) 52vw, 32vw"
-          className="h-auto w-full opacity-[0.16] mix-blend-multiply sm:opacity-[0.12]"
-          style={{
-            maskImage: "linear-gradient(to bottom, transparent, black 50%)",
-            WebkitMaskImage: "linear-gradient(to bottom, transparent, black 50%)",
-          }}
+          fill
+          sizes="(max-width: 640px) 56vw, 30vw"
+          className="object-contain object-bottom opacity-[0.42] mix-blend-multiply sm:opacity-[0.5]"
         />
       </div>
 

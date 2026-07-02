@@ -12,7 +12,7 @@ const CATALOG: Record<
   { name: string; tiers: Record<string, { label: string; amount: number }> }
 > = {
   "pectus": {
-    name: "PECTUS Nipple Tightening Cream",
+    name: "PECTUS Cooling Chest Primer",
     tiers: {
       "1": { label: "20ml", amount: 2400 },
       "2": { label: "40ml", amount: 4200 },

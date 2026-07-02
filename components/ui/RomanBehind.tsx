@@ -9,7 +9,7 @@ import Image from "next/image";
 export function RomanBehind({
   figure,
   side = "right",
-  opacity = 0.12,
+  opacity = 0.22,
   className = "",
 }: {
   figure: string;
