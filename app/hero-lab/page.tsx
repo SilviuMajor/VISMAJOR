@@ -3,10 +3,6 @@ import { HeroNiche } from "@/components/herolab/HeroNiche";
 import { HeroTypeWindow } from "@/components/herolab/HeroTypeWindow";
 import { HeroPlate } from "@/components/herolab/HeroPlate";
 import { HeroColossus } from "@/components/herolab/HeroColossus";
-import { HeroDiorama } from "@/components/herolab/HeroDiorama";
-import { HeroSeal } from "@/components/herolab/HeroSeal";
-import { HeroUnveiling } from "@/components/herolab/HeroUnveiling";
-import { HeroTurntable } from "@/components/herolab/HeroTurntable";
 import { HeroUnderline } from "@/components/herolab/HeroUnderline";
 
 export const metadata: Metadata = {
@@ -19,10 +15,6 @@ const CONCEPTS = [
   { n: "03", name: "Type Window", el: <HeroTypeWindow /> },
   { n: "04", name: "The Plate", el: <HeroPlate /> },
   { n: "06", name: "Kinetic Name", el: <HeroColossus /> },
-  { n: "07", name: "The Diorama", el: <HeroDiorama /> },
-  { n: "09", name: "The Seal", el: <HeroSeal /> },
-  { n: "10", name: "The Unveiling", el: <HeroUnveiling /> },
-  { n: "11", name: "The Turntable", el: <HeroTurntable /> },
   { n: "12", name: "Pectus · underline", el: <HeroUnderline /> },
 ];
 
