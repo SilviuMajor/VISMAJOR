@@ -24,17 +24,18 @@ export function HeroTypeWindow() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
 
-  // the letter-holes grow (moderately — via font-size, centred on the anchor)…
-  const maskFontSize = useTransform(scrollYProgress, [0, 0.42], reduce ? [300, 300] : [300, 1150]);
+  // the word holds at its readable size for a beat (time to read it), then the
+  // letter-holes grow (moderately — via font-size, centred on the anchor)…
+  const maskFontSize = useTransform(scrollYProgress, [0, 0.22, 0.55], reduce ? [300, 300, 300] : [300, 300, 1150]);
   // …while the dark field dissolves, so the reveal is smooth (no black gaps)
-  const fieldOpacity = useTransform(scrollYProgress, [0.18, 0.46], [1, 0]);
+  const fieldOpacity = useTransform(scrollYProgress, [0.26, 0.52], [1, 0]);
   // then a white veil fully covers the bright temple (the resolve brings its own)
-  const veilOpacity = useTransform(scrollYProgress, [0.44, 0.64], [0, 1]);
+  const veilOpacity = useTransform(scrollYProgress, [0.5, 0.68], [0, 1]);
   // and the product hero fades up
-  const heroOpacity = useTransform(scrollYProgress, [0.5, 0.72], [0, 1]);
-  const heroY = useTransform(scrollYProgress, [0.5, 0.72], reduce ? [0, 0] : [26, 0]);
-  // intro chrome clears immediately
-  const introOpacity = useTransform(scrollYProgress, [0, 0.1], [1, 0]);
+  const heroOpacity = useTransform(scrollYProgress, [0.54, 0.74], [0, 1]);
+  const heroY = useTransform(scrollYProgress, [0.54, 0.74], reduce ? [0, 0] : [26, 0]);
+  // intro chrome stays through the read, then clears
+  const introOpacity = useTransform(scrollYProgress, [0.14, 0.24], [1, 0]);
 
   return (
     <section ref={ref} className="relative bg-paper-0" style={{ height: "320vh" }}>
