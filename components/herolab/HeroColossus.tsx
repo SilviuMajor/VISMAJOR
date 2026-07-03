@@ -63,7 +63,10 @@ export function HeroColossus() {
           </motion.div>
         </motion.div>
 
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.7 }} className="serif mt-8 text-ink-1" style={{ fontSize: "clamp(16px, 2vw, 23px)", letterSpacing: "0.02em" }}>
+        <motion.h1 initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.62, ease: EASE }} className="house mt-8 text-ink-0" style={{ fontSize: "clamp(34px, 6vw, 72px)", letterSpacing: "0.16em", fontWeight: 600, lineHeight: 1 }}>
+          PECTUS
+        </motion.h1>
+        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.78 }} className="serif mt-4 text-ink-1" style={{ fontSize: "clamp(16px, 2vw, 23px)", letterSpacing: "0.02em" }}>
           The Cooling Chest Primer.
         </motion.p>
         <motion.a href="#buy" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.85, ease: EASE }} className="mt-6 inline-flex rounded-[5px] bg-ink-0 px-9 py-[16px] text-[14px] font-semibold text-paper-0 transition-colors hover:bg-ink-1">

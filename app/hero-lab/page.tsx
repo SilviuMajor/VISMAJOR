@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import { HeroNiche } from "@/components/herolab/HeroNiche";
 import { HeroTypeWindow } from "@/components/herolab/HeroTypeWindow";
 import { HeroPlate } from "@/components/herolab/HeroPlate";
-import { HeroOculus } from "@/components/herolab/HeroOculus";
 import { HeroColossus } from "@/components/herolab/HeroColossus";
 import { HeroDiorama } from "@/components/herolab/HeroDiorama";
-import { HeroTypeReveal } from "@/components/herolab/HeroTypeReveal";
+import { HeroSeal } from "@/components/herolab/HeroSeal";
+import { HeroUnveiling } from "@/components/herolab/HeroUnveiling";
+import { HeroTurntable } from "@/components/herolab/HeroTurntable";
 
 export const metadata: Metadata = {
   title: "PECTUS — hero concepts",
@@ -16,10 +17,11 @@ const CONCEPTS = [
   { n: "02", name: "The Niche", el: <HeroNiche /> },
   { n: "03", name: "Type Window", el: <HeroTypeWindow /> },
   { n: "04", name: "The Plate", el: <HeroPlate /> },
-  { n: "05", name: "The Oculus", el: <HeroOculus /> },
   { n: "06", name: "Kinetic Name", el: <HeroColossus /> },
   { n: "07", name: "The Diorama", el: <HeroDiorama /> },
-  { n: "08", name: "Type Reveal (word only)", el: <HeroTypeReveal /> },
+  { n: "09", name: "The Seal", el: <HeroSeal /> },
+  { n: "10", name: "The Unveiling", el: <HeroUnveiling /> },
+  { n: "11", name: "The Turntable", el: <HeroTurntable /> },
 ];
 
 /**

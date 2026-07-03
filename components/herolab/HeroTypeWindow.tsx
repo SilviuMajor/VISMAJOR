@@ -28,8 +28,8 @@ export function HeroTypeWindow() {
   const maskFontSize = useTransform(scrollYProgress, [0, 0.42], reduce ? [300, 300] : [300, 1150]);
   // …while the dark field dissolves, so the reveal is smooth (no black gaps)
   const fieldOpacity = useTransform(scrollYProgress, [0.18, 0.46], [1, 0]);
-  // then a white veil dims the temple to a faint backdrop
-  const veilOpacity = useTransform(scrollYProgress, [0.44, 0.66], [0, 0.86]);
+  // then a white veil fully covers the bright temple (the resolve brings its own)
+  const veilOpacity = useTransform(scrollYProgress, [0.44, 0.64], [0, 1]);
   // and the product hero fades up
   const heroOpacity = useTransform(scrollYProgress, [0.5, 0.72], [0, 1]);
   const heroY = useTransform(scrollYProgress, [0.5, 0.72], reduce ? [0, 0] : [26, 0]);
@@ -88,9 +88,13 @@ export function HeroTypeWindow() {
           Scroll
         </motion.span>
 
-        {/* the resolved product hero (Cold Open) */}
+        {/* the resolved product hero — a faithful Cold Open, with its own faint backdrop */}
         <motion.div style={{ opacity: heroOpacity, y: heroY }} className="absolute inset-0 z-30 flex flex-col items-center justify-center px-6 text-center">
-          <Container className="flex flex-col items-center">
+          <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+            <Image src="/scenes/pectus.png" alt="" fill sizes="100vw" className="object-cover object-center mix-blend-multiply" style={{ opacity: 0.46 }} />
+            <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 58% 54% at 50% 48%, rgba(255,255,255,0.58) 0%, rgba(255,255,255,0) 70%)" }} />
+          </div>
+          <Container className="relative flex flex-col items-center">
             <span className="caps-loose text-[11px] font-semibold text-ink-2">Cooling Chest Primer</span>
             <div className="relative mt-8 flex items-center justify-center">
               {!reduce &&

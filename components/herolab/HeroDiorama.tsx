@@ -52,11 +52,11 @@ export function HeroDiorama() {
       onMouseLeave={onLeave}
       className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden bg-paper-0 py-20"
     >
-      {/* deepest — the temple */}
+      {/* deepest — the pectus hero scene, at the Niche's visibility */}
       <motion.div aria-hidden style={{ x: bgX, y: bgY }} className="pointer-events-none absolute inset-0 z-0 scale-110 overflow-hidden">
-        <Image src="/scenes/home.png" alt="" fill priority sizes="100vw" className="object-cover object-center mix-blend-multiply" style={{ opacity: 0.3 }} />
+        <Image src="/scenes/pectus.png" alt="" fill priority sizes="100vw" className="object-cover object-center mix-blend-multiply" style={{ opacity: 0.46 }} />
       </motion.div>
-      <div aria-hidden className="pointer-events-none absolute inset-0 z-0" style={{ background: "radial-gradient(ellipse 56% 58% at 50% 50%, rgba(255,255,255,0.74) 0%, rgba(255,255,255,0) 70%)" }} />
+      <div aria-hidden className="pointer-events-none absolute inset-0 z-0" style={{ background: "radial-gradient(ellipse 58% 54% at 50% 48%, rgba(255,255,255,0.58) 0%, rgba(255,255,255,0) 70%)" }} />
 
       {/* closest — the colonnade, framing the edges */}
       <motion.div aria-hidden style={{ x: fgX, y: fgY }} className="pointer-events-none absolute inset-0 z-20 scale-125 overflow-hidden">

@@ -100,7 +100,7 @@ export function HeroNiche() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.9, ease: EASE }}
           className="house mt-7 text-ink-0"
-          style={{ fontSize: "clamp(46px, 7.8vw, 104px)", letterSpacing: "0.14em", fontWeight: 600, lineHeight: 0.96 }}
+          style={{ fontSize: "clamp(36px, 6vw, 78px)", letterSpacing: "0.14em", fontWeight: 600, lineHeight: 0.98 }}
         >
           PECTUS
         </motion.h1>
