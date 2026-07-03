@@ -24,7 +24,7 @@ const ACTIVES = [
   {
     n: "01",
     name: "Slip Complex",
-    line: "A slip and glide complex that lets the cream work smoothly — a long, even slip so you can massage an area by hand or with the tools.",
+    line: "A slip and glide complex that lets the cream work smoothly — a long, even slip so you can massage an area by hand or with the tool.",
   },
   {
     n: "02",

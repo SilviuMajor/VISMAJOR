@@ -68,7 +68,7 @@ export function SculptRecovery() {
             for as long as there have been athletes — worked into tired muscle
             after training to ease it and bring it back. SCULPT is the cream that
             makes it a ritual you can run yourself: a slip medium that lets the
-            strokes glide, by hand or with the steel tools. Work it in after the
+            strokes glide, by hand or with the steel tool. Work it in after the
             session, when the muscle is worked hardest. The massage does what
             massage does. The cream makes it part of the routine — and leaves skin
             looking firmer and more defined.

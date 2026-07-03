@@ -4,18 +4,18 @@ import { Reveal } from "@/components/ui/Reveal";
 
 const TOOLS = [
   {
-    t: "The Short Tool",
+    t: "The Fine Edge",
     use: "Control · jaw, neck, forearms",
-    b: "A compact weighted bar with a contoured edge, for detail and control on the smaller lines of the face and arms.",
+    b: "A fine point and contoured edge on the tool, for detail and control on the smaller lines of the face and arms.",
   },
   {
-    t: "The Long Tool",
+    t: "The Long Edge",
     use: "Reach · chest, back, legs",
-    b: "A longer weighted bar for reach and leverage across the broad planes — chest, back and legs.",
+    b: "The long flat edge of the tool, for reach and leverage across the broad planes — chest, back and legs.",
   },
 ];
 
-/** "The Tools (optional)" — the steel tools are an add-on, never the product. */
+/** "The Tool (optional)" — the steel tool is an add-on, never the product. */
 export function SculptTools() {
   return (
     <section
@@ -27,7 +27,7 @@ export function SculptTools() {
           <div className="flex items-center gap-3.5">
             <span className="h-px w-7 bg-[var(--hair-strong)]" />
             <span className="caps-loose text-[11px] font-medium text-ink-2">
-              The Tools · Optional
+              The Tool · Optional
             </span>
           </div>
           <h2
@@ -37,9 +37,9 @@ export function SculptTools() {
             Add steel, if you want more.
           </h2>
           <p className="mt-5 max-w-xl text-[16.5px] leading-[1.6] text-ink-1">
-            The cream is the product. The SCULPT steel tools are an optional
-            add-on for anyone who wants more from the ritual — weighted steel with
-            a contoured edge, made for massage and for working the cream in. Not
+            The cream is the product. The SCULPT steel tool is an optional
+            add-on for anyone who wants more from the ritual — one weighted blade
+            with several edges, made for massage and for working the cream in. Not
             medical, not a treatment.
           </p>
         </Reveal>
@@ -78,7 +78,7 @@ export function SculptTools() {
             className="caps group mt-12 inline-flex items-center gap-2 border-t pt-6 text-[11px] font-medium text-ink-0"
             style={{ borderColor: "var(--hair)" }}
           >
-            See the full steel range
+            See STEEL
             <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
           </Link>
         </Reveal>

@@ -55,7 +55,7 @@ const CONFIG: Record<MaskProduct, MaskConfig> = {
     eyebrow: "Massage & Recovery Cream · No. II",
     tagline: "The Contour & Recovery Cream",
     description:
-      "A recovery massage cream for men who train. Work it deep — by hand, or with the steel tools — to ease worked muscle and keep a hard-trained body firm and defined.",
+      "A recovery massage cream for men who train. Work it deep — by hand, or with the steel tool — to ease worked muscle and keep a hard-trained body firm and defined.",
     price: "from £28",
     primaryHref: "#buy",
     secondary: "The Ritual",
@@ -79,13 +79,13 @@ const CONFIG: Record<MaskProduct, MaskConfig> = {
     scene: "/scenes/steel.png",
     sceneObjectMobile: "object-center",
     eyebrow: "Massage & Therapy · Machined Steel",
-    tagline: "Many Edges. One Job.",
+    tagline: "Many Edges. One Tool.",
     description:
-      "Weighted, machined steel — for massage, recovery and working tension out of the muscle. The Sword, the Axe and the Dagger.",
-    price: "from £24",
+      "One weighted, machined-steel blade — several contoured edges for massage, recovery and working tension out of the muscle. By hand, or with the SCULPT cream.",
+    price: "£24",
     primaryHref: "#buy",
-    secondary: "The Range",
-    secondaryHref: "#range",
+    secondary: "The Edges",
+    secondaryHref: "#edges",
   },
 };
 
@@ -126,7 +126,7 @@ function Magnetic({
 }
 
 /* The signature object that underlines each word — a PNG for PECTUS, the house's
-   drawn tube/bottle for SCULPT/STONE, the flagship Axe for STEEL. */
+   drawn tube/bottle for SCULPT/STONE, the single steel blade for STEEL. */
 function ProductVisual({ product, reduce }: { product: MaskProduct; reduce: boolean | null }) {
   switch (product) {
     case "sculpt":
@@ -143,8 +143,8 @@ function ProductVisual({ product, reduce }: { product: MaskProduct; reduce: bool
       );
     case "steel":
       return (
-        <div className="relative h-[30vh] w-[240px] md:h-[36vh] md:w-[316px]">
-          <ToolPhoto tool="axe" sizes="360px" priority />
+        <div className="relative h-[30vh] w-[300px] md:h-[36vh] md:w-[390px]">
+          <ToolPhoto tool="sword" sizes="420px" priority />
         </div>
       );
     default:

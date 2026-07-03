@@ -10,17 +10,15 @@ import { CreamTube, SteelTool, EMBER } from "@/components/chisel/Art";
 import { useCart } from "@/lib/cart";
 
 /**
- * Pre-order SCULPT. The cream is the product; the steel tools are optional
- * upgrades. Same StickyBuy logic (loading/error, POST /api/checkout, redirect).
+ * Pre-order SCULPT. The cream is the product; the steel tool is an optional
+ * upgrade. Same StickyBuy logic (loading/error, POST /api/checkout, redirect).
  *
  * Display tiers match the server CATALOG amounts EXACTLY (app/api/checkout):
- *   "1" The Cream             → £28  (RRP £38)
- *   "2" Cream + Short Tool    → £44  (RRP £60)  — Control
- *   "3" Cream + Long Tool     → £48  (RRP £66)  — Reach
- *   "4" The Full Set          → £64  (RRP £92)  — Best value
+ *   "1" The Cream        → £28  (RRP £38)
+ *   "2" Cream + Steel    → £46  (RRP £64)  — the cream + the one steel tool
  */
 
-type TierKey = "1" | "2" | "3" | "4";
+type TierKey = "1" | "2";
 
 type Tier = {
   key: TierKey;
@@ -30,7 +28,7 @@ type Tier = {
   reg: number;
   badge?: string;
   /** which objects the specimen shows */
-  contents: "cream" | "short" | "long" | "full";
+  contents: "cream" | "steel";
 };
 
 const TIERS: Tier[] = [
@@ -44,30 +42,12 @@ const TIERS: Tier[] = [
   },
   {
     key: "2",
-    label: "Cream + Short Tool",
-    unitLabel: "Cream + Short Steel",
-    price: 44,
-    reg: 60,
-    badge: "Control",
-    contents: "short",
-  },
-  {
-    key: "3",
-    label: "Cream + Long Tool",
-    unitLabel: "Cream + Long Steel",
-    price: 48,
-    reg: 66,
-    badge: "Reach",
-    contents: "long",
-  },
-  {
-    key: "4",
-    label: "The Full Set",
-    unitLabel: "Cream + Both Tools",
-    price: 64,
-    reg: 92,
-    badge: "Best value",
-    contents: "full",
+    label: "Cream + Steel",
+    unitLabel: "Cream + The Steel Tool",
+    price: 46,
+    reg: 64,
+    badge: "Complete the ritual",
+    contents: "steel",
   },
 ];
 
@@ -79,31 +59,13 @@ function SpecimenContents({ contents }: { contents: Tier["contents"] }) {
       </div>
     );
   }
-  if (contents === "full") {
-    return (
-      <div className="flex w-[86%] items-end justify-center gap-2">
-        <div className="relative h-[56%] w-[32%] min-h-[200px]">
-          <CreamTube className="h-full w-full" />
-        </div>
-        <div className="flex flex-col items-center gap-2.5">
-          <div className="relative w-[120px] -rotate-[14deg]">
-            <SteelTool className="h-auto w-full" warmth={0.14} />
-          </div>
-          <div className="relative w-[152px] -rotate-[14deg]">
-            <SteelTool className="h-auto w-full" warmth={0.14} />
-          </div>
-        </div>
-      </div>
-    );
-  }
-  // short or long — cream + one tool, sized by reach
-  const toolW = contents === "long" ? "60%" : "44%";
+  // steel — the cream + the one steel tool
   return (
     <div className="flex w-[82%] items-end justify-center gap-2">
       <div className="relative h-[56%] w-[40%] min-h-[200px]">
         <CreamTube className="h-full w-full" />
       </div>
-      <div className="relative mb-4 -rotate-[14deg]" style={{ width: toolW }}>
+      <div className="relative mb-4 -rotate-[14deg]" style={{ width: "54%" }}>
         <SteelTool className="h-auto w-full" warmth={0.14} />
       </div>
     </div>
@@ -131,14 +93,7 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
       qty,
     });
 
-  const topRightLabel =
-    tier.contents === "cream"
-      ? "Cream"
-      : tier.contents === "short"
-      ? "+ Short"
-      : tier.contents === "long"
-      ? "+ Long"
-      : "Full Set";
+  const topRightLabel = tier.contents === "cream" ? "Cream" : "+ Steel";
 
   return (
     <section id="buy" className="py-16 md:py-24">
@@ -193,7 +148,7 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
             </Specimen>
 
             {/* tier chips under the specimen */}
-            <div className="mt-3 grid grid-cols-4 gap-3">
+            <div className="mt-3 grid grid-cols-2 gap-3">
               {TIERS.map((t) => {
                 const on = t.key === tier.key;
                 return (
@@ -229,9 +184,9 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
             </div>
             <p className="mt-5 max-w-md text-[18px] leading-[1.65] text-ink-1">
               A massage &amp; recovery cream, worked into the body by hand or with
-              the optional steel tools — for skin that looks firmer, feels worked,
-              and reads sharper. The cream is the product; the tools are optional
-              upgrades.
+              the optional steel tool — for skin that looks firmer, feels worked,
+              and reads sharper. The cream is the product; the tool is an optional
+              upgrade.
             </p>
 
             {/* Early-bird price callout */}
@@ -277,13 +232,13 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
               </div>
             </div>
 
-            {/* cream first, tools optional */}
+            {/* cream first, steel optional */}
             <div className="mt-8">
               <div className="caps text-[10px] font-medium text-ink-3">
-                The cream — add tools if you want
+                The cream — add the steel if you want
               </div>
               <p className="mt-2 max-w-md text-[13px] leading-[1.5] text-ink-2">
-                The cream is the product. The steel tools are optional upgrades.
+                The cream is the product. The steel tool is an optional upgrade.
                 Every option ships with <b className="font-semibold text-ink-1">The Field Manual</b> — the
                 illustrated movement guide.
               </p>
@@ -378,16 +333,12 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
                 ["The cream", "50ml · Massage & Recovery"],
                 ["Finish", "Matte · Lightly Fragranced"],
                 [
-                  "Steel tools",
+                  "Steel tool",
                   tier.contents === "cream"
                     ? "Optional add-on (not included)"
-                    : tier.contents === "full"
-                    ? "Short + Long · Weighted Steel"
-                    : tier.contents === "long"
-                    ? "Long · Weighted Steel"
-                    : "Short · Weighted Steel",
+                    : "Included · Weighted Steel",
                 ],
-                ["Worked", "By Hand, or with the Steel Tools"],
+                ["Worked", "By hand, or with the steel tool"],
                 ["Look & feel", "Firmer, Smoother, Worked (Temporary)"],
                 ["Made By", "Vis Major · UK"],
               ].map(([k, v]) => (

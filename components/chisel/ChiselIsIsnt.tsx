@@ -6,7 +6,7 @@ import { Reveal } from "@/components/ui/Reveal";
  * "Honesty." — SCULPT rendition, matching the shared is/isn't look (top+bottom
  * rules, breathing room). Cosmetic and temporary only: it describes feel and
  * look, never fat loss, weight loss, body re-composition, or any permanent /
- * anatomical change. The steel tools are massage bars, not medical devices.
+ * anatomical change. The steel tool is a massage tool, not a medical device.
  */
 export function ChiselIsIsnt() {
   return (
@@ -45,8 +45,8 @@ export function ChiselIsIsnt() {
 
         <p className="mt-10 max-w-3xl text-[13px] leading-[1.6] text-paper-0/55">
           SCULPT changes how skin looks and feels for a while; it doesn't change
-          your body. The optional steel tools are for massage and for working the
-          cream in — they are not a treatment for any condition.
+          your body. The optional steel tool is for massage and for working the
+          cream in — it is not a treatment for any condition.
         </p>
       </Container>
     </section>

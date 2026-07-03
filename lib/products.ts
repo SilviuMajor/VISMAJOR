@@ -44,7 +44,7 @@ export const PRODUCTS: Product[] = [
     wordmark: "SCULPT",
     category: "Contour & Recovery Cream",
     short:
-      "A massage cream for men, worked in by hand or with the optional steel tools — for skin that looks firmer and feels worked.",
+      "A massage cream for men, worked in by hand or with the optional steel tool — for skin that looks firmer and feels worked.",
     signature: "Worked",
     priceFrom: 28,
     rrpFrom: 38,

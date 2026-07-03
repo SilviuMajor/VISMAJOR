@@ -6,7 +6,7 @@ const ITEMS = [
   "Glide, Work, Recover",
   "A More Defined Look",
   "Firmer-Looking Skin",
-  "Optional Steel Tools",
+  "Optional Steel Tool",
   "Made in the UK",
   "Temporary by Design",
   "For Men",

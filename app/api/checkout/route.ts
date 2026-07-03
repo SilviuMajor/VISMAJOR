@@ -23,9 +23,7 @@ const CATALOG: Record<
     name: "SCULPT Contour & Recovery Cream",
     tiers: {
       "1": { label: "The Cream", amount: 2800 },
-      "2": { label: "Cream + Short Tool", amount: 4400 },
-      "3": { label: "Cream + Long Tool", amount: 4800 },
-      "4": { label: "The Full Set", amount: 6400 },
+      "2": { label: "Cream + Steel", amount: 4600 },
     },
   },
   stone: {

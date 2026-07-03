@@ -14,8 +14,8 @@ const FAQS = [
     a: "Work a thin layer into the skin and massage the area in slow, firm strokes — jaw down to neck, across the chest, along the midsection. The cream gives a long slip so you can keep working without dragging. About a minute per area is plenty. It's drawn from myofascial- and lymphatic-style massage technique.",
   },
   {
-    q: "Do I need the steel tools, or can I use my hands?",
-    a: "Your hands are all you need — the cream is the product and works on its own. The steel tools are an optional upgrade: their weight gives you more pressure and a contoured edge when you want more than your hands. Optional, never required.",
+    q: "Do I need the steel tool, or can I use my hands?",
+    a: "Your hands are all you need — the cream is the product and works on its own. The steel tool is an optional upgrade: its weight gives you more pressure and several contoured edges when you want more than your hands. Optional, never required.",
   },
   {
     q: "What does it do to how my skin looks and feels?",
@@ -34,12 +34,12 @@ const FAQS = [
     a: "No. SCULPT is a cosmetic. It changes how the skin looks and feels for a short time — it is not fat loss or weight loss, and it does not alter your body in any way. The effect washes off.",
   },
   {
-    q: "Are the steel tools included?",
-    a: "It depends on the set. The Cream-only tier is the cream by itself — the full product. The other tiers add the optional weighted steel tools. You can see exactly what's in each set on the pre-order panel.",
+    q: "Is the steel tool included?",
+    a: "It depends on the set. The Cream-only tier is the cream by itself — the full product. The other tiers add the optional weighted steel tool. You can see exactly what's in each set on the pre-order panel.",
   },
   {
     q: "When will my pre-order ship?",
-    a: "The first batch ships in the launch month shown at checkout. Because each optional tool is machined to order the first run is limited — you'll get confirmation and tracking by email.",
+    a: "The first batch ships in the launch month shown at checkout. Because the optional tool is machined to order the first run is limited — you'll get confirmation and tracking by email.",
   },
 ];
 
@@ -142,7 +142,7 @@ export function ChiselFaq({ shipMonth }: { shipMonth: string }) {
               </h3>
 
               <p className="mt-6 max-w-sm text-[16.5px] leading-[1.6] text-ink-2">
-                How to work it in, by hand or with the optional tools, and how
+                How to work it in, by hand or with the optional tool, and how
                 long the look holds. The honest answers, upfront.
               </p>
 
