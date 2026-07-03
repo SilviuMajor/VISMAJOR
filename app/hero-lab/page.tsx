@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { HeroColdOpen } from "@/components/herolab/HeroColdOpen";
 import { HeroNiche } from "@/components/herolab/HeroNiche";
 import { HeroTypeWindow } from "@/components/herolab/HeroTypeWindow";
+import { HeroPlate } from "@/components/herolab/HeroPlate";
+import { HeroSpecimen } from "@/components/herolab/HeroSpecimen";
+import { HeroCast } from "@/components/herolab/HeroCast";
 
 export const metadata: Metadata = {
   title: "PECTUS — hero concepts",
@@ -12,6 +15,9 @@ const CONCEPTS = [
   { n: "01", name: "Cold Open", el: <HeroColdOpen /> },
   { n: "02", name: "The Niche", el: <HeroNiche /> },
   { n: "03", name: "Type Window", el: <HeroTypeWindow /> },
+  { n: "04", name: "The Plate", el: <HeroPlate /> },
+  { n: "05", name: "The Specimen", el: <HeroSpecimen /> },
+  { n: "06", name: "The Cast", el: <HeroCast /> },
 ];
 
 /**
