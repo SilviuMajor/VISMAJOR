@@ -16,7 +16,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SectionHead } from "@/components/ui/Eyebrow";
 import { ToolPhoto, type ToolKey } from "@/components/steel/ToolPhoto";
 
-import { SteelHero } from "@/components/steel/SteelHero";
+import { HeroTypeWindow } from "@/components/herolab/HeroTypeWindow";
 import { SteelBuy } from "@/components/steel/SteelBuy";
 
 const RANGE: { key: ToolKey; n: string; name: string; use: string; body: string }[] = [
@@ -69,7 +69,7 @@ export function SteelComposition() {
       />
       <Header crumb="STEEL" cta={{ href: "#buy", label: "Pre-order" }} />
       <main>
-        <SteelHero priceFrom="£24" />
+        <HeroTypeWindow product="steel" overlayAlwaysOn />
         <FirstBatchStrip count="600+" shipMonth={shipMonth} />
         <ProductQuote latin="Ferrum ferro acuitur" translation="iron is sharpened by iron." />
 

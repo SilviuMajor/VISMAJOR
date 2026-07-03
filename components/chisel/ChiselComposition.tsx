@@ -11,7 +11,7 @@ import { OtherProducts } from "@/components/house/OtherProducts";
 import { ProductQuote } from "@/components/house/ProductQuote";
 import { FirstBatchStrip } from "@/components/enhanced/FirstBatchStrip";
 
-import { ChiselHero } from "@/components/chisel/ChiselHero";
+import { HeroTypeWindow } from "@/components/herolab/HeroTypeWindow";
 import { ChiselTicker } from "@/components/chisel/ChiselTicker";
 import { SculptWhatItDoes } from "@/components/chisel/SculptWhatItDoes";
 import { SculptEffects } from "@/components/chisel/SculptEffects";
@@ -39,7 +39,7 @@ export function ChiselComposition() {
       />
       <Header crumb="SCULPT" cta={{ href: "#buy", label: "Pre-order" }} />
       <main>
-        <ChiselHero shipMonth={shipMonth} />
+        <HeroTypeWindow product="sculpt" overlayAlwaysOn />
         <FirstBatchStrip count="1,400+" shipMonth={shipMonth} />
         <ProductQuote latin="Labor omnia vincit" translation="work conquers all." />
         <ChiselTicker />

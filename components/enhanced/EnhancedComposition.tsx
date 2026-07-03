@@ -38,9 +38,9 @@ export function EnhancedComposition() {
       <main>
         <HeroTypeWindow overlayAlwaysOn />
         <FirstBatchStrip shipMonth={shipMonth} />
-        <ProductQuote latin="Mens sana in corpore sano" translation="a sound mind in a sound body." />
-        <Ticker />
         <StickyArchitecture />
+        <Ticker />
+        <ProductQuote latin="Mens sana in corpore sano" translation="a sound mind in a sound body." />
         <HorizontalUseBefore />
         <OneJob />
         <ProofV2 />

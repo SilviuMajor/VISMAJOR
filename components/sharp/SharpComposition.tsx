@@ -7,7 +7,7 @@ import { OtherProducts } from "@/components/house/OtherProducts";
 import { ProductQuote } from "@/components/house/ProductQuote";
 import { FirstBatchStrip } from "@/components/enhanced/FirstBatchStrip";
 
-import { SharpHero } from "@/components/sharp/SharpHero";
+import { HeroTypeWindow } from "@/components/herolab/HeroTypeWindow";
 import { SharpTicker } from "@/components/sharp/SharpTicker";
 import { SharpDaily } from "@/components/sharp/SharpDaily";
 import { SharpActives } from "@/components/sharp/SharpActives";
@@ -41,7 +41,7 @@ export function SharpComposition() {
         cta={{ href: "#buy", label: "Pre-order" }}
       />
       <main>
-        <SharpHero shipMonth={shipMonth} />
+        <HeroTypeWindow product="stone" overlayAlwaysOn />
         <FirstBatchStrip count="1,400+" shipMonth={shipMonth} />
         <ProductQuote latin="Tabula rasa" translation="a clean slate." />
         <SharpTicker />
