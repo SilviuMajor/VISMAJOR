@@ -66,9 +66,9 @@ export function HeroTypeWindow({ overlayAlwaysOn = false }: { overlayAlwaysOn?: 
   const uid = useId().replace(/:/g, "");
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
 
-  // the word holds at its readable size for a beat, then the letter-holes grow…
-  const maskFontSize = useTransform(scrollYProgress, [0, 0.22, 0.55], reduce ? [300, 300, 300] : [300, 300, 1150]);
-  const maskFontSizeM = useTransform(scrollYProgress, [0, 0.22, 0.55], reduce ? [96, 96, 96] : [96, 96, 360]);
+  // the holes hold at their readable size, then the whole field scales up — a GPU
+  // transform (not font-size), so the reveal stays smooth on mobile and PC…
+  const maskScale = useTransform(scrollYProgress, [0, 0.22, 0.55], reduce ? [1, 1, 1] : [1, 1, 4.4]);
   // …while the dark field dissolves (smooth, no black gaps)
   const fieldOpacity = useTransform(scrollYProgress, [0.26, 0.52], [1, 0]);
   // a white veil covers the bright temple (only when it isn't kept faint already)
@@ -109,29 +109,33 @@ export function HeroTypeWindow({ overlayAlwaysOn = false }: { overlayAlwaysOn?: 
           {overlayAlwaysOn && <div className="absolute inset-0" style={{ background: VEIL }} />}
         </div>
 
-        {/* the dark field with PECTUS knocked out — portrait (mobile) + landscape */}
-        <motion.svg aria-hidden style={{ opacity: fieldOpacity }} className="absolute inset-0 z-10 h-full w-full md:hidden" viewBox="0 0 440 900" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <mask id={`m-${uid}`}>
-              <rect width="440" height="900" fill="white" />
-              <motion.text x="220" y="466" textAnchor="middle" dominantBaseline="middle" fill="black" style={{ fontFamily: "var(--font-cinzel)", fontWeight: 600, letterSpacing: 3, fontSize: maskFontSizeM }}>
-                PECTUS
-              </motion.text>
-            </mask>
-          </defs>
-          <rect width="440" height="900" fill="#14130F" mask={`url(#m-${uid})`} />
-        </motion.svg>
-        <motion.svg aria-hidden style={{ opacity: fieldOpacity }} className="absolute inset-0 z-10 hidden h-full w-full md:block" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <mask id={`d-${uid}`}>
-              <rect width="1440" height="900" fill="white" />
-              <motion.text x="720" y="470" textAnchor="middle" dominantBaseline="middle" fill="black" style={{ fontFamily: "var(--font-cinzel)", fontWeight: 600, letterSpacing: 6, fontSize: maskFontSize }}>
-                PECTUS
-              </motion.text>
-            </mask>
-          </defs>
-          <rect width="1440" height="900" fill="#14130F" mask={`url(#d-${uid})`} />
-        </motion.svg>
+        {/* the dark field with PECTUS knocked out. The field + holes scale together
+            as one GPU transform (not font-size) so the reveal is smooth; the field
+            also dissolves. Portrait mask on mobile, landscape on desktop. */}
+        <motion.div aria-hidden style={{ opacity: fieldOpacity, scale: maskScale }} className="absolute inset-0 z-10 will-change-transform">
+          <svg className="h-full w-full md:hidden" viewBox="0 0 440 900" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <mask id={`m-${uid}`}>
+                <rect width="440" height="900" fill="white" />
+                <text x="220" y="466" textAnchor="middle" dominantBaseline="middle" fill="black" style={{ fontFamily: "var(--font-cinzel)", fontWeight: 600, letterSpacing: 3, fontSize: 96 }}>
+                  PECTUS
+                </text>
+              </mask>
+            </defs>
+            <rect width="440" height="900" fill="#14130F" mask={`url(#m-${uid})`} />
+          </svg>
+          <svg className="hidden h-full w-full md:block" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <mask id={`d-${uid}`}>
+                <rect width="1440" height="900" fill="white" />
+                <text x="720" y="470" textAnchor="middle" dominantBaseline="middle" fill="black" style={{ fontFamily: "var(--font-cinzel)", fontWeight: 600, letterSpacing: 6, fontSize: 300 }}>
+                  PECTUS
+                </text>
+              </mask>
+            </defs>
+            <rect width="1440" height="900" fill="#14130F" mask={`url(#d-${uid})`} />
+          </svg>
+        </motion.div>
 
         {/* white veil — only when it fades in after the reveal */}
         {!overlayAlwaysOn && <motion.div aria-hidden style={{ opacity: veilOpacity }} className="absolute inset-0 z-20 bg-paper-0" />}
