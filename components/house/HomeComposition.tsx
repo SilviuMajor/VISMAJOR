@@ -6,6 +6,7 @@ import { HouseHero } from "@/components/house/HouseHero";
 import { HouseMeaning, HouseVirtues } from "@/components/house/HouseMeaning";
 import { HouseProducts } from "@/components/house/HouseProducts";
 import { HouseStandard } from "@/components/house/HouseStandard";
+import { ProductQuote } from "@/components/house/ProductQuote";
 
 /**
  * The VIS MAJOR house landing (/). Summarises the three products and routes
@@ -24,6 +25,7 @@ export function HomeComposition() {
       />
       <main>
         <HouseHero />
+        <ProductQuote latin="Fortes fortuna adiuvat" translation="fortune favours the strong." />
         <HouseMeaning />
         <HouseVirtues />
         <HouseProducts />

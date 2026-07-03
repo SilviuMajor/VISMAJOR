@@ -16,6 +16,7 @@ import { NotifyBand } from "@/components/enhanced/NotifyBand";
 import { FinalCta } from "@/components/enhanced/FinalCta";
 import { OtherProducts } from "@/components/house/OtherProducts";
 import { ProductQuote } from "@/components/house/ProductQuote";
+import { SceneSection } from "@/components/ui/SceneSection";
 
 // Selected v2 renditions (chosen from /compare)
 import { ProofV2 } from "@/components/v2/ProofV2";
@@ -37,18 +38,30 @@ export function EnhancedComposition() {
       <main>
         <EnhancedHero shipMonth={shipMonth} />
         <FirstBatchStrip shipMonth={shipMonth} />
-        <ProductQuote latin="Mens sana in corpore sano" translation="a sound mind in a sound body." />
+        <SceneSection scene="/scenes/hall.png">
+          <ProductQuote latin="Mens sana in corpore sano" translation="a sound mind in a sound body." />
+        </SceneSection>
         <Ticker />
         <StickyArchitecture />
         <HorizontalUseBefore />
         <OneJob />
         <ProofV2 />
-        <StickyBuy shipMonth={shipMonth} />
-        <IsIsnt />
-        <FaqV2 shipMonth={shipMonth} />
+        <SceneSection scene="/scenes/home.png">
+          <StickyBuy shipMonth={shipMonth} />
+        </SceneSection>
+        <SceneSection scene="/scenes/stone.png">
+          <IsIsnt />
+        </SceneSection>
+        <SceneSection scene="/scenes/sculpt.png">
+          <FaqV2 shipMonth={shipMonth} />
+        </SceneSection>
         <FinalCta shipMonth={shipMonth} />
-        <NotifyBand />
-        <OtherProducts current="pectus" />
+        <SceneSection scene="/scenes/extra.png">
+          <NotifyBand />
+        </SceneSection>
+        <SceneSection scene="/scenes/hall.png">
+          <OtherProducts current="pectus" />
+        </SceneSection>
       </main>
       <Footer />
       <StickyBuyBar priceFrom="£24" label="PECTUS · 20ml" />

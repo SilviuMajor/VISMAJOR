@@ -1,59 +1,29 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { PRODUCTS, type ProductSlug } from "@/lib/products";
+import { CreamTube } from "@/components/chisel/Art";
+import { SharpBottle } from "@/components/sharp/Specimen";
 
-/* A minimal line-art mark per product — stands in, on-brand, for the
-   photography to come. Cool snowflake / warm chisel / sharp facet. */
-function Glyph({ slug, hex }: { slug: ProductSlug; hex: string }) {
-  const common = {
-    width: 66,
-    height: 66,
-    viewBox: "0 0 80 80",
-    fill: "none",
-    stroke: hex,
-    strokeLinecap: "round" as const,
-    strokeLinejoin: "round" as const,
-  };
-
+/* The product's own shot for the shop grid — PECTUS uses its real tube photo;
+   SCULPT / STONE use their line-art specimens until photography lands. */
+function ProductImage({ slug }: { slug: ProductSlug }) {
   if (slug === "pectus") {
     return (
-      <svg {...common} strokeWidth={1.4}>
-        {[0, 60, 120, 180, 240, 300].map((a) => (
-          <g key={a} transform={`rotate(${a} 40 40)`}>
-            <path d="M40 40 L40 13" />
-            <path d="M40 21 L46 15" />
-            <path d="M40 21 L34 15" />
-          </g>
-        ))}
-        <circle cx={40} cy={40} r={3} fill={hex} stroke="none" />
-      </svg>
+      <Image
+        src="/product/front.png"
+        alt="PECTUS tube"
+        width={220}
+        height={330}
+        className="h-[82%] w-auto object-contain drop-shadow-[0_18px_32px_rgba(20,19,15,0.14)]"
+      />
     );
   }
-
-  if (slug === "sculpt") {
-    return (
-      <svg {...common} strokeWidth={1.6}>
-        {/* the steel tool — a sculpting blade */}
-        <path d="M33 14 L47 14 L47 58 L33 47 Z" />
-        <path d="M40 49 L47 55" strokeWidth={1.1} />
-        {/* the contour it works */}
-        <path d="M18 67 Q40 59 62 69" strokeWidth={1.2} opacity={0.85} />
-        <path d="M52 40 L58 38" strokeWidth={1.1} opacity={0.7} />
-        <path d="M54 47 L60 46" strokeWidth={1.1} opacity={0.7} />
-      </svg>
-    );
-  }
-
-  // sharp — a crisp four-point facet
-  return (
-    <svg {...common} strokeWidth={1.5}>
-      <path d="M40 8 L45 35 L72 40 L45 45 L40 72 L35 45 L8 40 L35 35 Z" />
-      <circle cx={40} cy={40} r={2.4} fill={hex} stroke="none" />
-    </svg>
-  );
+  if (slug === "sculpt") return <CreamTube className="h-[80%] w-auto" />;
+  return <SharpBottle className="h-[76%] w-auto" />;
 }
 
 export function HouseProducts() {
@@ -122,16 +92,17 @@ export function HouseProducts() {
                   </span>
                 </div>
 
-                {/* glyph specimen — where photography will later sit */}
-                <div className="relative mt-6 flex aspect-[5/4] items-center justify-center">
+                {/* product shot — shop-style */}
+                <div className="relative mt-6 flex aspect-[4/5] items-center justify-center overflow-hidden">
                   <motion.div
                     initial={false}
-                    whileHover={reduce ? undefined : { scale: 1.06, rotate: p.slug === "pectus" ? 30 : 0 }}
+                    whileHover={reduce ? undefined : { scale: 1.04, y: -5 }}
                     transition={{ duration: 0.5, ease: [0.2, 0, 0, 1] }}
+                    className="flex h-full w-full items-center justify-center"
                   >
-                    <Glyph slug={p.slug} hex={p.accentHex} />
+                    <ProductImage slug={p.slug} />
                   </motion.div>
-                  <span className="absolute bottom-3 left-4 caps text-[8.5px] font-medium text-ink-3">
+                  <span className="absolute bottom-2 left-0 caps text-[8.5px] font-medium text-ink-3">
                     VIS MAJOR / {p.index}
                   </span>
                 </div>
