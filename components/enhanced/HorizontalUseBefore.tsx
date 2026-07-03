@@ -46,7 +46,7 @@ export function HorizontalUseBefore() {
   });
 
   return (
-    <section id="moments" ref={sectionRef} className="relative bg-ink-0 text-paper-0 lg:h-[300vh]">
+    <section id="moments" ref={sectionRef} className="relative bg-ink-0 text-paper-0 lg:h-[600vh]">
       {/* ---- Mobile / tablet: a clean vertical stack ---- */}
       <div className="lg:hidden">
         <Container className="py-20 md:py-24">
