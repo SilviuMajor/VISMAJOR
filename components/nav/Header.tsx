@@ -16,6 +16,12 @@ const PRODUCT_NAV: NavLink[] = [
   { href: "/steel", label: "STEEL" },
 ];
 
+/**
+ * Concept 03 — "Inscription". The mark, a hairline rule and wide-tracked links
+ * grouped to the left; a dated right side (Est · MMXXVI), the outlined Pre-order
+ * and the basket. Classical, airy. Keeps the real behaviour: sticky, hide on
+ * scroll-down, active-marking via `crumb`, the cart drawer, and the mobile menu.
+ */
 export function Header({
   cta = { href: "#buy", label: "Pre-order" },
   crumb,
@@ -49,9 +55,10 @@ export function Header({
         key={n.href}
         href={n.href}
         aria-current={active ? "page" : undefined}
-        className={`caps pb-0.5 text-[11.5px] font-medium transition-colors ${
+        className={`caps-loose text-[10.5px] font-medium transition-colors ${
           active ? "text-ink-0" : "text-ink-3 hover:text-ink-0"
         }`}
+        style={{ letterSpacing: "0.22em" }}
       >
         {n.label}
       </a>
@@ -66,32 +73,35 @@ export function Header({
         scrolled || open ? "border-b border-[var(--hair)]" : "border-b border-transparent"
       }`}
     >
-      <Container className="flex h-[68px] items-center justify-between">
-        <div className="flex items-baseline gap-2.5">
+      <Container className="flex h-[78px] items-center justify-between">
+        {/* left — mark · hairline rule · wide-tracked links */}
+        <div className="flex items-center gap-5">
           <a
             href="/"
             onClick={() => setOpen(false)}
-            className="house text-[15px] text-ink-0"
+            className="house text-[16px] text-ink-0"
+            style={{ letterSpacing: "0.2em" }}
           >
             VIS·MAJOR
           </a>
-          {crumb && (
-            <span className="caps font-serif text-[10px] font-medium text-ink-3">
-              <span className="mr-2 text-ink-3/60">/</span>
-              {crumb}
-            </span>
-          )}
+          <span className="hidden h-5 w-px bg-[var(--hair-strong)] md:block" />
+          <nav className="hidden items-center gap-6 md:flex">
+            {PRODUCT_NAV.map((n) => navItem(n))}
+          </nav>
         </div>
 
-        <nav className="hidden items-center gap-7 md:flex">
-          {PRODUCT_NAV.map((n) => navItem(n))}
-        </nav>
-
-        <div className="flex items-center gap-2.5">
+        {/* right — dated · pre-order · basket · (mobile menu) */}
+        <div className="flex items-center gap-3 md:gap-5">
+          <span
+            className="hidden caps-loose text-[10px] font-medium text-ink-3 lg:inline"
+            style={{ letterSpacing: "0.22em" }}
+          >
+            Est · MMXXVI
+          </span>
           {cta && (
             <a
               href={cta.href}
-              className="hidden items-center gap-2 rounded-[5px] border border-[var(--hair-strong)] px-3 py-1.5 text-[12px] font-semibold text-ink-0 transition-colors hover:bg-ink-0 hover:text-paper-0 md:inline-flex"
+              className="hidden items-center rounded-[5px] border border-ink-0 px-4 py-1.5 text-[11px] font-semibold text-ink-0 transition-colors hover:bg-ink-0 hover:text-paper-0 md:inline-flex"
             >
               {cta.label}
             </a>
@@ -150,10 +160,10 @@ export function Header({
                       href={n.href}
                       onClick={() => setOpen(false)}
                       aria-current={active ? "page" : undefined}
-                      className={`caps border-t py-4 text-[13px] font-medium transition-colors ${
+                      className={`caps-loose border-t py-4 text-[13px] font-medium transition-colors ${
                         active ? "text-ink-0" : "text-ink-2 hover:text-ink-0"
                       }`}
-                      style={{ borderColor: "var(--hair)" }}
+                      style={{ borderColor: "var(--hair)", letterSpacing: "0.18em" }}
                     >
                       {n.label}
                     </a>
