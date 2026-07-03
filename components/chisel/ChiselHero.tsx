@@ -266,7 +266,7 @@ export function ChiselHero({ shipMonth }: { shipMonth: string }) {
               href="#buy"
               className="inline-flex items-center justify-center gap-2.5 rounded-[5px] border border-ink-0 bg-ink-0 px-9 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
             >
-              Pre-order — from <span className="num">£28</span>
+              Pre-order — from £28
             </Magnetic>
             <a
               href="#how"

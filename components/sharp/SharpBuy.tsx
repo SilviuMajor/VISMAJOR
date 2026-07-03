@@ -142,9 +142,9 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
         <div id="product" className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-14">
           {/* Sticky specimen gallery (photo-free) */}
           <div className="lg:sticky lg:top-24 lg:self-start">
-            <div className="relative flex aspect-square items-center justify-center">
-              <span className="absolute left-0.5 top-0 z-40 caps font-mono text-[9px] font-medium text-ink-3">STONE / 003</span>
-              <span className="absolute bottom-0 right-0.5 z-40 caps text-[9px] font-medium text-ink-3">
+            <div className="relative flex aspect-square items-center justify-center rounded-[4px] bg-paper-0" style={{ boxShadow: "0 28px 64px -32px rgba(20,19,15,0.38)" }}>
+              <span className="absolute left-3 top-2.5 z-40 caps font-mono text-[9px] font-medium text-ink-3">STONE / 003</span>
+              <span className="absolute bottom-2.5 right-3 z-40 caps text-[9px] font-medium text-ink-3">
                 {VIEWS[view].caption}
               </span>
               <AnimatePresence mode="wait">
@@ -213,7 +213,7 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
                 </span>
                 <div className="mt-3 flex items-baseline gap-3">
                   <span
-                    className="font-mono font-bold text-ink-0"
+                    className="num font-bold text-ink-0"
                     style={{ fontSize: "clamp(36px, 4.4vw, 52px)", letterSpacing: "-0.02em", lineHeight: 1 }}
                   >
                     £{tier.price}
@@ -284,7 +284,7 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
                             £{t.reg}
                           </span>
                         )}
-                        <span className="num text-[16px] font-semibold">£{t.price}</span>
+                        <span className="font-mono text-[16px] font-semibold">£{t.price}</span>
                       </span>
                     </button>
                   );
@@ -315,7 +315,7 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
                 onClick={onAdd}
                 className="flex-1 rounded-[5px] border border-ink-0 bg-ink-0 px-6 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
               >
-                Add to basket — <span className="num font-semibold">£{total}</span>
+                Add to basket — <span className="font-semibold">£{total}</span>
               </button>
             </div>
             <div className="mt-3 flex items-center justify-between">
@@ -344,7 +344,7 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
               ].map(([k, v]) => (
                 <div key={k} className="flex items-center justify-between border-b py-3" style={{ borderColor: "var(--hair)" }}>
                   <span className="caps text-[11px] font-medium text-ink-2">{k}</span>
-                  <span className="caps font-mono text-[11px] font-medium text-ink-0">{v}</span>
+                  <span className="caps text-[11px] font-medium text-ink-0">{v}</span>
                 </div>
               ))}
             </div>

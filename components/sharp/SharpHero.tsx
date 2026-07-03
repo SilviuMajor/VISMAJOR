@@ -243,7 +243,7 @@ export function SharpHero({ shipMonth }: { shipMonth: string }) {
               href="#buy"
               className="inline-flex items-center justify-center gap-2.5 rounded-[5px] border border-ink-0 bg-ink-0 px-9 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
             >
-              Pre-order — <span className="num">£22</span>
+              Pre-order — £22
             </Magnetic>
             <a
               href="#how"

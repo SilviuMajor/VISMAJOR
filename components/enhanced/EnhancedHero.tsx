@@ -238,7 +238,7 @@ export function EnhancedHero({ shipMonth }: { shipMonth: string }) {
               href="#buy"
               className="inline-flex items-center justify-center gap-2.5 rounded-[5px] border border-ink-0 bg-ink-0 px-9 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
             >
-              Pre-order — <span className="num">£24</span>
+              Pre-order — £24
             </Magnetic>
             <a
               href="#science"

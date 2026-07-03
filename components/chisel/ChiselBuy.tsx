@@ -149,6 +149,7 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
           {/* Sticky specimen — reflects the chosen kit */}
           <div className="lg:sticky lg:top-24 lg:self-start">
             <Specimen
+              className="rounded-[4px] bg-paper-0 shadow-[0_28px_64px_-32px_rgba(20,19,15,0.38)]"
               ratio="1 / 1"
               topLeft="SCULPT / 002"
               topRight={
@@ -248,7 +249,7 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
                 </span>
                 <div className="mt-3 flex items-baseline gap-3">
                   <span
-                    className="font-bold font-mono text-ink-0"
+                    className="num font-bold text-ink-0"
                     style={{ fontSize: "clamp(36px, 4.4vw, 52px)", letterSpacing: "-0.02em", lineHeight: 1 }}
                   >
                     £{tier.price}
@@ -324,7 +325,7 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
                         <span className={`text-[12px] line-through font-mono ${selected ? "text-paper-0/45" : "text-ink-3"}`}>
                           £{t.reg}
                         </span>
-                        <span className="text-[16px] font-semibold num">£{t.price}</span>
+                        <span className="text-[16px] font-semibold font-mono">£{t.price}</span>
                       </span>
                     </button>
                   );
@@ -355,7 +356,7 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
                 onClick={onAdd}
                 className="flex-1 rounded-[5px] border border-ink-0 bg-ink-0 px-6 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
               >
-                Add to basket — <span className="num font-semibold">£{total}</span>
+                Add to basket — <span className="font-semibold">£{total}</span>
               </button>
             </div>
             <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
@@ -396,7 +397,7 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
                   style={{ borderColor: "var(--hair)" }}
                 >
                   <span className="caps text-[11px] font-medium text-ink-2">{k}</span>
-                  <span className="caps text-[11px] font-medium font-mono text-ink-0">{v}</span>
+                  <span className="caps text-[11px] font-medium text-ink-0">{v}</span>
                 </div>
               ))}
             </div>

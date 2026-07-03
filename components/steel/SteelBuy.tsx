@@ -107,11 +107,11 @@ export function SteelBuy({ shipMonth }: { shipMonth: string }) {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-14">
           {/* specimen */}
           <div className="lg:sticky lg:top-24 lg:self-start">
-            <div className="relative flex aspect-square items-center justify-center">
-              <span className="absolute left-0.5 top-0 z-20 caps font-mono text-[9px] font-medium text-ink-3">
+            <div className="relative flex aspect-square items-center justify-center rounded-[4px] bg-paper-0" style={{ boxShadow: "0 28px 64px -32px rgba(20,19,15,0.38)" }}>
+              <span className="absolute left-3 top-2.5 z-20 caps font-mono text-[9px] font-medium text-ink-3">
                 STEEL / IV
               </span>
-              <span className="absolute bottom-0 right-0.5 z-20 caps text-[9px] font-medium text-ink-3">
+              <span className="absolute bottom-2.5 right-3 z-20 caps text-[9px] font-medium text-ink-3">
                 {tier.label}
               </span>
               <AnimatePresence mode="wait">
@@ -156,7 +156,7 @@ export function SteelBuy({ shipMonth }: { shipMonth: string }) {
                 </span>
                 <div className="mt-3 flex items-baseline gap-3">
                   <span
-                    className="font-mono font-bold text-ink-0"
+                    className="num font-bold text-ink-0"
                     style={{ fontSize: "clamp(34px, 4.2vw, 48px)", letterSpacing: "-0.02em", lineHeight: 1 }}
                   >
                     £{tier.price}
@@ -211,7 +211,7 @@ export function SteelBuy({ shipMonth }: { shipMonth: string }) {
                         <span className={`font-mono text-[12px] line-through ${selected ? "text-paper-0/45" : "text-ink-3"}`}>
                           £{t.reg}
                         </span>
-                        <span className="num text-[16px] font-bold">£{t.price}</span>
+                        <span className="font-mono text-[16px] font-bold">£{t.price}</span>
                       </span>
                     </button>
                   );
@@ -230,7 +230,7 @@ export function SteelBuy({ shipMonth }: { shipMonth: string }) {
                 onClick={onAdd}
                 className="flex-1 rounded-[5px] border border-ink-0 bg-ink-0 px-6 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
               >
-                Add to basket — <span className="num font-semibold">£{total}</span>
+                Add to basket — <span className="font-semibold">£{total}</span>
               </button>
             </div>
             <div className="mt-3 flex items-center justify-between">
@@ -250,7 +250,7 @@ export function SteelBuy({ shipMonth }: { shipMonth: string }) {
               {SPECS[tier.key].map(([k, v]) => (
                 <div key={k} className="flex items-center justify-between border-b py-3" style={{ borderColor: "var(--hair)" }}>
                   <span className="caps text-[11px] font-medium text-ink-2">{k}</span>
-                  <span className="caps font-mono text-[11px] font-medium text-ink-0">{v}</span>
+                  <span className="caps text-[11px] font-medium text-ink-0">{v}</span>
                 </div>
               ))}
             </div>

@@ -122,9 +122,12 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
         <div id="product" className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-14">
           {/* Sticky gallery */}
           <div className="lg:sticky lg:top-24 lg:self-start">
-            <div className="relative flex aspect-square items-center justify-center">
-              <span className="absolute left-0.5 top-0 z-20 caps text-[9px] font-medium font-mono text-ink-3">PECTUS / 001</span>
-              <span className="absolute bottom-0 right-0.5 z-20 caps text-[9px] font-medium text-ink-3">
+            <div
+              className="relative flex aspect-square items-center justify-center rounded-[4px] bg-paper-0"
+              style={{ boxShadow: "0 28px 64px -32px rgba(20,19,15,0.38)" }}
+            >
+              <span className="absolute left-3 top-2.5 z-20 caps text-[9px] font-medium font-mono text-ink-3">PECTUS / 001</span>
+              <span className="absolute bottom-2.5 right-3 z-20 caps text-[9px] font-medium text-ink-3">
                 {GALLERY[shot].label}
               </span>
               <AnimatePresence mode="wait">
@@ -262,11 +265,11 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
                       </span>
                       <span className="flex items-baseline gap-2">
                         {t.reg && (
-                          <span className={`num-tab text-[13px] line-through ${selected ? "text-paper-0/45" : "text-ink-3"}`}>
+                          <span className={`text-[12px] line-through font-mono ${selected ? "text-paper-0/45" : "text-ink-3"}`}>
                             £{t.reg}
                           </span>
                         )}
-                        <span className="num-tab text-[17px] font-semibold">£{t.price}</span>
+                        <span className="text-[16px] font-semibold font-mono">£{t.price}</span>
                       </span>
                     </button>
                   );
@@ -285,7 +288,7 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
                 onClick={onAdd}
                 className="flex-1 rounded-[5px] border border-ink-0 bg-ink-0 px-6 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
               >
-                Add to basket — <span className="num text-[15px] font-semibold">£{total}</span>
+                {`Add to basket — £${total}`}
               </button>
             </div>
             <div className="mt-3 flex items-center justify-between">
@@ -350,7 +353,7 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
                   ).map(([k, v]) => (
                     <div key={k} className="flex items-center justify-between border-b py-3" style={{ borderColor: "var(--hair)" }}>
                       <span className="caps text-[11px] font-medium text-ink-2">{k}</span>
-                      <span className="caps text-[11px] font-medium font-mono text-ink-0">{v}</span>
+                      <span className="caps text-[11px] font-medium text-ink-0">{v}</span>
                     </div>
                   ))}
 
@@ -399,7 +402,7 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
                       {ORIGIN_ROWS.map(([k, v]) => (
                         <div key={k} className="flex items-center justify-between border-b py-3" style={{ borderColor: "var(--hair)" }}>
                           <span className="caps text-[11px] font-medium text-ink-2">{k}</span>
-                          <span className="caps text-[11px] font-medium font-mono text-ink-0">{v}</span>
+                          <span className="caps text-[11px] font-medium text-ink-0">{v}</span>
                         </div>
                       ))}
                     </div>
