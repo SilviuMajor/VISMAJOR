@@ -42,7 +42,7 @@ export function HouseMeaning() {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 1.2, delay: 0.05, ease: EASE }}
             className="house mt-10 text-ink-0"
-            style={{ fontWeight: 700, fontSize: "clamp(32px, 5vw, 58px)", lineHeight: 1.0 }}
+            style={{ fontSize: "clamp(32px, 5vw, 58px)", lineHeight: 1.0 }}
           >
             VIS·MAJOR
           </motion.p>
