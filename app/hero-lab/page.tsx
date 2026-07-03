@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 const CONCEPTS = [
   { n: "02", name: "The Niche", el: <HeroNiche /> },
   { n: "03", name: "Type Window", el: <HeroTypeWindow /> },
+  { n: "3.5", name: "Type Window · overlay always on", el: <HeroTypeWindow overlayAlwaysOn /> },
   { n: "04", name: "The Plate", el: <HeroPlate /> },
   { n: "06", name: "Kinetic Name", el: <HeroColossus /> },
   { n: "12", name: "Pectus · underline", el: <HeroUnderline /> },

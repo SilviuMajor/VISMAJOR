@@ -119,7 +119,7 @@ export function HeroUnderline() {
         </motion.div>
 
         {/* tube, then the wordmark underlining it */}
-        <div className="relative mt-6 flex w-full flex-1 flex-col items-center justify-center overflow-hidden">
+        <div className="relative mt-8 flex w-full flex-col items-center overflow-hidden">
           <motion.div
             aria-hidden
             initial={{ opacity: 0, scale: 0.75 }}
@@ -158,7 +158,7 @@ export function HeroUnderline() {
         </div>
 
         {/* tagline + CTAs — unchanged */}
-        <motion.div style={{ opacity: fade }} className="relative z-20 mt-2 flex flex-col items-center pb-10 text-center">
+        <motion.div style={{ opacity: fade }} className="relative z-20 mt-6 flex flex-col items-center text-center">
           <motion.p {...fadeUp} transition={{ duration: 0.6, delay: 0.95, ease: EASE }} className="caps text-[13px] font-medium text-ink-1 md:text-[15px]">
             Instant Confidence. Cool &amp; Composed.
           </motion.p>
