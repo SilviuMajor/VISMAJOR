@@ -29,7 +29,7 @@ export function ProductQuote({
       {/* classical colonnade backdrop */}
       <div aria-hidden className="pointer-events-none absolute inset-0 z-0">
         <Image
-          src="/scenes/quote.png"
+          src="/scenes/quote2.png"
           alt=""
           fill
           sizes="100vw"
