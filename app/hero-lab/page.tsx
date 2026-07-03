@@ -7,6 +7,7 @@ import { HeroDiorama } from "@/components/herolab/HeroDiorama";
 import { HeroSeal } from "@/components/herolab/HeroSeal";
 import { HeroUnveiling } from "@/components/herolab/HeroUnveiling";
 import { HeroTurntable } from "@/components/herolab/HeroTurntable";
+import { HeroUnderline } from "@/components/herolab/HeroUnderline";
 
 export const metadata: Metadata = {
   title: "PECTUS — hero concepts",
@@ -22,6 +23,7 @@ const CONCEPTS = [
   { n: "09", name: "The Seal", el: <HeroSeal /> },
   { n: "10", name: "The Unveiling", el: <HeroUnveiling /> },
   { n: "11", name: "The Turntable", el: <HeroTurntable /> },
+  { n: "12", name: "Pectus · underline", el: <HeroUnderline /> },
 ];
 
 /**
