@@ -18,16 +18,16 @@ export function HouseMeaning() {
             <span className="h-px w-7 bg-[var(--hair-strong)]" />
           </div>
           <p
-            className="serif mt-8 text-ink-0"
-            style={{ fontSize: "clamp(32px, 4.6vw, 60px)", lineHeight: 1.04, letterSpacing: "0.03em" }}
+            className="house mt-8 text-ink-0"
+            style={{ fontSize: "clamp(34px, 5vw, 64px)", lineHeight: 1.05 }}
           >
-            Vis·Major
+            VIS MAJOR
           </p>
           <p
-            className="serif mx-auto mt-5 max-w-2xl text-ink-1"
-            style={{ fontSize: "clamp(16px, 2vw, 24px)", lineHeight: 1.45, letterSpacing: "0.05em" }}
+            className="serif mx-auto mt-6 max-w-2xl text-ink-1"
+            style={{ fontSize: "clamp(16px, 2vw, 24px)", lineHeight: 1.5, letterSpacing: "0.04em" }}
           >
-            A greater force — the Roman name for a power beyond resistance.
+            The Roman name for &lsquo;AN UNSTOPPABLE FORCE&rsquo;, a power beyond resistance.
           </p>
           <p className="mx-auto mt-7 max-w-md text-[15px] leading-[1.6] text-ink-2 md:text-[16px]">
             Some things you cannot command. How you carry yourself is not one of them.
