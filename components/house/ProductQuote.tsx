@@ -1,13 +1,15 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 
 /**
  * A small classical quote band placed near the top of each product page.
- * The Latin is set in the house serif (Cinzel) — big and inscriptional — with
- * a lighter translation beneath. Both ease in as the band scrolls into view.
- * Lore lives in the framing, never in the product or benefit copy.
+ * The Latin is set in the house serif (Cinzel) — big and inscriptional — over
+ * a faint marble-colonnade backdrop, with a lighter translation beneath. Both
+ * ease in as the band scrolls into view. Lore lives in the framing, never in
+ * the product or benefit copy.
  */
 export function ProductQuote({
   latin,
@@ -19,8 +21,24 @@ export function ProductQuote({
   const reduce = useReducedMotion();
 
   return (
-    <section className="border-b" style={{ borderColor: "var(--hair)" }}>
-      <Container className="py-12 md:py-16">
+    <section
+      id="quote"
+      className="relative overflow-hidden border-y"
+      style={{ borderColor: "var(--hair)" }}
+    >
+      {/* classical colonnade backdrop */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 z-0">
+        <Image
+          src="/scenes/quote.png"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
+          style={{ opacity: 0.8 }}
+        />
+      </div>
+
+      <Container className="relative z-10 py-20 md:py-28">
         <motion.p
           initial={{ opacity: 0, y: reduce ? 0 : 18 }}
           whileInView={{ opacity: 1, y: 0 }}

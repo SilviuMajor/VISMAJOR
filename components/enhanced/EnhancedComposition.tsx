@@ -38,9 +38,7 @@ export function EnhancedComposition() {
       <main>
         <EnhancedHero shipMonth={shipMonth} />
         <FirstBatchStrip shipMonth={shipMonth} />
-        <SceneSection scene="/scenes/hall.png">
-          <ProductQuote latin="Mens sana in corpore sano" translation="a sound mind in a sound body." />
-        </SceneSection>
+        <ProductQuote latin="Mens sana in corpore sano" translation="a sound mind in a sound body." />
         <Ticker />
         <StickyArchitecture />
         <HorizontalUseBefore />
