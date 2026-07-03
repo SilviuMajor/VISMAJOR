@@ -67,8 +67,9 @@ export function HeroTypeWindow({ overlayAlwaysOn = false }: { overlayAlwaysOn?: 
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
 
   // the holes hold at their readable size, then the whole field scales up — a GPU
-  // transform (not font-size), so the reveal stays smooth on mobile and PC…
-  const maskScale = useTransform(scrollYProgress, [0, 0.22, 0.55], reduce ? [1, 1, 1] : [1, 1, 4.4]);
+  // transform (not font-size), so the reveal stays smooth. Kept modest so the
+  // cached mask texture stays small; the field dissolve carries the rest.
+  const maskScale = useTransform(scrollYProgress, [0, 0.22, 0.55], reduce ? [1, 1, 1] : [1, 1, 3.2]);
   // …while the dark field dissolves (smooth, no black gaps)
   const fieldOpacity = useTransform(scrollYProgress, [0.26, 0.52], [1, 0]);
   // a white veil covers the bright temple (only when it isn't kept faint already)
@@ -112,7 +113,7 @@ export function HeroTypeWindow({ overlayAlwaysOn = false }: { overlayAlwaysOn?: 
         {/* the dark field with PECTUS knocked out. The field + holes scale together
             as one GPU transform (not font-size) so the reveal is smooth; the field
             also dissolves. Portrait mask on mobile, landscape on desktop. */}
-        <motion.div aria-hidden style={{ opacity: fieldOpacity, scale: maskScale }} className="absolute inset-0 z-10 will-change-transform">
+        <motion.div aria-hidden style={{ opacity: fieldOpacity, scale: maskScale, z: 0, willChange: "transform, opacity" }} className="absolute inset-0 z-10">
           <svg className="h-full w-full md:hidden" viewBox="0 0 440 900" preserveAspectRatio="xMidYMid slice">
             <defs>
               <mask id={`m-${uid}`}>
