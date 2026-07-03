@@ -113,7 +113,7 @@ export function HorizontalUseBefore() {
           className="flex items-center gap-0 will-change-transform"
         >
           {/* intro panel */}
-          <div className="flex min-w-[46vw] flex-col justify-center pl-16 pr-[8vw]">
+          <div className="flex min-w-[58vw] flex-col justify-center pl-[16vw] pr-[8vw]">
             <div className="flex items-center gap-3.5">
               <span className="h-px w-8 bg-paper-0/40" />
               <span className="caps-loose text-[11px] font-semibold text-paper-0/70">

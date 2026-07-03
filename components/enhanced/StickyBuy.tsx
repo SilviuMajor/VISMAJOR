@@ -155,12 +155,18 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
                 <button
                   key={g.src}
                   onClick={() => setShot(i)}
-                  className={`relative flex aspect-square items-center justify-center transition-opacity ${
-                    i === shot ? "opacity-100" : "opacity-40 hover:opacity-100"
+                  className={`group relative flex aspect-square items-center justify-center rounded-[3px] bg-paper-0 transition-shadow ${
+                    i === shot
+                      ? "shadow-[0_14px_30px_-16px_rgba(20,19,15,0.40)]"
+                      : "shadow-[0_8px_20px_-14px_rgba(20,19,15,0.26)]"
                   }`}
                   aria-label={`View ${g.label}`}
                 >
-                  <div className="relative h-[82%] w-[82%]">
+                  <div
+                    className={`relative h-[82%] w-[82%] transition-opacity ${
+                      i === shot ? "opacity-100" : "opacity-45 group-hover:opacity-100"
+                    }`}
+                  >
                     <Image src={g.src} alt="" fill sizes="120px" className="object-contain" />
                   </div>
                   {i === shot && (

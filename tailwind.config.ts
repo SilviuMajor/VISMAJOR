@@ -1,5 +1,19 @@
 import type { Config } from "tailwindcss";
 
+/**
+ * Paper is white and theme-driven for the solid case, but Tailwind can't inject
+ * an alpha channel into a bare `var()` — so `text-paper-0/70` silently generated
+ * nothing and fell back to inherited ink (invisible on dark sections). This
+ * returns the var for the solid case and a real white rgba() when an opacity
+ * modifier is used, so paper opacities render as translucent white as intended.
+ * (Typed as string for the colour map; Tailwind invokes it at build time.)
+ */
+const paperAlpha = (v: string): string =>
+  (({ opacityValue }: { opacityValue?: string }) =>
+    opacityValue === undefined
+      ? `var(${v})`
+      : `rgba(255, 255, 255, ${opacityValue})`) as unknown as string;
+
 const config: Config = {
   content: [
     "./app/**/*.{ts,tsx}",
@@ -8,11 +22,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Paper / surfaces — theme-driven (white default, cream alternate)
+        // Paper / surfaces — solid case theme-driven; opacity case is white
         paper: {
-          0: "var(--paper-0)",
-          1: "var(--paper-1)",
-          2: "var(--paper-2)",
+          0: paperAlpha("--paper-0"),
+          1: paperAlpha("--paper-1"),
+          2: paperAlpha("--paper-2"),
         },
         // Ink (warm near-black)
         ink: {
