@@ -6,7 +6,7 @@ import { Footer } from "@/components/sections/Footer";
 import { StickyBuyBar } from "@/components/ui/StickyBuyBar";
 
 import { ScrollProgress } from "@/components/enhanced/ScrollProgress";
-import { EnhancedHero } from "@/components/enhanced/EnhancedHero";
+import { HeroTypeWindow } from "@/components/herolab/HeroTypeWindow";
 import { FirstBatchStrip } from "@/components/enhanced/FirstBatchStrip";
 import { StickyArchitecture } from "@/components/enhanced/StickyArchitecture";
 import { OneJob } from "@/components/enhanced/OneJob";
@@ -36,7 +36,7 @@ export function EnhancedComposition() {
       <Announcement shipMonth={shipMonth} />
       <Header crumb="PECTUS" />
       <main>
-        <EnhancedHero shipMonth={shipMonth} />
+        <HeroTypeWindow overlayAlwaysOn />
         <FirstBatchStrip shipMonth={shipMonth} />
         <ProductQuote latin="Mens sana in corpore sano" translation="a sound mind in a sound body." />
         <Ticker />

@@ -99,7 +99,7 @@ export function HeroTypeWindow({ overlayAlwaysOn = false }: { overlayAlwaysOn?: 
     my.set(0);
   };
 
-  const VEIL = "radial-gradient(ellipse 58% 54% at 50% 48%, rgba(255,255,255,0.58) 0%, rgba(255,255,255,0) 70%)";
+  const VEIL = "radial-gradient(ellipse 62% 58% at 50% 48%, rgba(255,255,255,0.74) 0%, rgba(255,255,255,0.12) 74%)";
 
   return (
     <section ref={ref} onMouseMove={onMove} onMouseLeave={onLeave} className="relative bg-paper-0" style={{ height: "320vh" }}>
@@ -160,31 +160,34 @@ export function HeroTypeWindow({ overlayAlwaysOn = false }: { overlayAlwaysOn?: 
         {/* the resolved underline hero */}
         <motion.div style={{ opacity: heroOpacity, y: heroY }} className="absolute inset-0 z-30 flex flex-col items-center justify-center px-6 text-center">
           <Container className="relative flex flex-col items-center">
-            <span className="caps-loose text-[11px] font-medium text-ink-2">Topicals for Men · Est. MMXXVI</span>
+            {/* eyebrow — Roman inscriptional (Cinzel) + Roman numerals */}
+            <span className="serif uppercase text-ink-2" style={{ fontSize: "13px", letterSpacing: "0.16em" }}>
+              Topicals for Men · Est. MMXXVI
+            </span>
 
-            {/* tube */}
+            {/* tube — ~20% larger */}
             <motion.div style={{ x: tubeX, y: tubeCurY, rotate: tubeRot }} className="relative mt-7">
-              <motion.div animate={reduce ? {} : { y: [0, -9, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }} className="relative h-[28vh] w-[152px] md:h-[34vh] md:w-[204px]">
-                <Image src="/product/front.png" alt="PECTUS Cooling Chest Primer" fill sizes="280px" className="object-contain drop-shadow-[0_30px_50px_rgba(20,19,15,0.22)]" />
+              <motion.div animate={reduce ? {} : { y: [0, -9, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }} className="relative h-[34vh] w-[182px] md:h-[41vh] md:w-[245px]">
+                <Image src="/product/front.png" alt="PECTUS Cooling Chest Primer" fill sizes="340px" className="object-contain drop-shadow-[0_34px_56px_rgba(20,19,15,0.22)]" />
               </motion.div>
             </motion.div>
 
             {/* the wordmark underlining the tube — drifts opposite the tube */}
             <motion.h2 style={{ x: wordPX }} className="pointer-events-none mt-3 select-none font-serif font-semibold uppercase leading-none tracking-[0.08em] text-ink-0">
-              <span style={{ fontSize: "clamp(30px, 5.4vw, 58px)", display: "inline-block" }}>PECTUS</span>
+              <span style={{ fontSize: "clamp(36px, 6.5vw, 70px)", display: "inline-block" }}>PECTUS</span>
             </motion.h2>
 
-            {/* tagline + CTAs — from the /pectus hero */}
-            <p className="caps mt-6 text-[13px] font-medium text-ink-1 md:text-[15px]">Instant Confidence. Cool &amp; Composed.</p>
-            <p className="mt-4 max-w-lg text-[15px] leading-[1.6] text-ink-2 md:text-[17px]">
+            {/* tagline + CTAs — ~20% larger */}
+            <p className="caps mt-6 text-[16px] font-medium text-ink-1 md:text-[18px]">Instant Confidence. Cool &amp; Composed.</p>
+            <p className="mt-4 max-w-xl text-[18px] leading-[1.6] text-ink-2 md:text-[20px]">
               A fast-acting cooling &amp; tightening cream. Works in minutes. Up to
               one hour of temporary firmness — undetectable under a shirt.
             </p>
-            <div className="mt-7 flex flex-col items-center gap-3 sm:flex-row">
-              <Magnetic href="#buy" className="inline-flex items-center justify-center gap-2.5 rounded-[5px] border border-ink-0 bg-ink-0 px-9 py-[16px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1">
+            <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row">
+              <Magnetic href="#buy" className="inline-flex items-center justify-center gap-2.5 rounded-[5px] border border-ink-0 bg-ink-0 px-10 py-[19px] text-[15px] font-semibold text-paper-0 transition-colors hover:bg-ink-1">
                 Pre-order — £24
               </Magnetic>
-              <a href="#science" className="inline-flex items-center justify-center rounded-[5px] border border-ink-0 px-9 py-[16px] text-[13px] font-semibold text-ink-0 transition-colors hover:bg-ink-0 hover:text-paper-0">
+              <a href="#science" className="inline-flex items-center justify-center rounded-[5px] border border-ink-0 px-10 py-[19px] text-[15px] font-semibold text-ink-0 transition-colors hover:bg-ink-0 hover:text-paper-0">
                 The Science
               </a>
             </div>
