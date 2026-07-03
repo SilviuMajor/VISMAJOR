@@ -21,7 +21,7 @@ export function HouseMeaning() {
             className="house mt-8 text-ink-0"
             style={{ fontSize: "clamp(34px, 5vw, 64px)", lineHeight: 1.05 }}
           >
-            VIS MAJOR
+            VIS·MAJOR
           </p>
           <p
             className="serif mx-auto mt-6 max-w-2xl text-ink-1"
