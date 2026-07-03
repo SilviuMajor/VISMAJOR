@@ -89,28 +89,25 @@ export function HouseHero() {
           </span>
         </motion.h1>
 
-        {/* moniker */}
+        {/* the meaning — folded in from the old quote band */}
         <motion.p
           {...fadeUp}
           transition={{ duration: 0.7, delay: 0.6, ease: EASE }}
-          className="mt-5 uppercase text-ink-1"
-          style={{
-            fontSize: "clamp(12px, 1.5vw, 17px)",
-            letterSpacing: "0.4em",
-            fontWeight: 500,
-          }}
+          className="serif mt-6 max-w-2xl text-ink-1"
+          style={{ fontSize: "clamp(16px, 2vw, 24px)", lineHeight: 1.45, letterSpacing: "0.02em" }}
         >
-          An&nbsp;Unstoppable&nbsp;Force
+          The Roman name for &lsquo;AN UNSTOPPABLE FORCE&rsquo;, a power beyond
+          resistance.
         </motion.p>
 
-        {/* sub-line */}
+        {/* positioning line */}
         <motion.p
           {...fadeUp}
           transition={{ duration: 0.6, delay: 0.74, ease: EASE }}
-          className="mt-8 max-w-xl text-[17px] leading-[1.65] text-ink-1 md:text-[19px]"
+          className="mt-6 max-w-xl text-[17px] leading-[1.65] text-ink-1 md:text-[19px]"
         >
-          Precision topicals for men. Three of them. Each cosmetic, temporary by
-          design, engineered to do exactly one thing — well.
+          Precision topicals for men, engineered to do exactly one thing&hellip;
+          enhance what you were born with.
         </motion.p>
 
         {/* CTAs */}
