@@ -137,8 +137,14 @@ export function HeroTypeWindow({ overlayAlwaysOn = false }: { overlayAlwaysOn?: 
           </svg>
         </motion.div>
 
-        {/* white veil — only when it fades in after the reveal */}
-        {!overlayAlwaysOn && <motion.div aria-hidden style={{ opacity: veilOpacity }} className="absolute inset-0 z-20 bg-paper-0" />}
+        {/* dim the one temple to a faint backdrop (no second image) */}
+        {!overlayAlwaysOn && (
+          <motion.div
+            aria-hidden
+            style={{ opacity: veilOpacity, background: "radial-gradient(ellipse 66% 62% at 50% 50%, rgba(255,255,255,0.93) 0%, rgba(255,255,255,0.58) 100%)" }}
+            className="absolute inset-0 z-20"
+          />
+        )}
 
         {/* intro chrome */}
         <motion.div style={{ opacity: introOpacity }} className="absolute top-[13vh] left-1/2 z-40 flex -translate-x-1/2 items-center gap-3.5">
@@ -152,13 +158,6 @@ export function HeroTypeWindow({ overlayAlwaysOn = false }: { overlayAlwaysOn?: 
 
         {/* the resolved underline hero */}
         <motion.div style={{ opacity: heroOpacity, y: heroY }} className="absolute inset-0 z-30 flex flex-col items-center justify-center px-6 text-center">
-          {/* its own faint backdrop, unless the temple is already kept faint */}
-          {!overlayAlwaysOn && (
-            <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-              <Image src="/scenes/pectus.png" alt="" fill sizes="100vw" className="object-cover object-right md:object-center mix-blend-multiply" style={{ opacity: 0.46 }} />
-              <div className="absolute inset-0" style={{ background: VEIL }} />
-            </div>
-          )}
           <Container className="relative flex flex-col items-center">
             <span className="caps-loose text-[11px] font-medium text-ink-2">Topicals for Men · Est. MMXXVI</span>
 
