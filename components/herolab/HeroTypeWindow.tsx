@@ -27,6 +27,8 @@ export function HeroTypeWindow() {
   // the word holds at its readable size for a beat (time to read it), then the
   // letter-holes grow (moderately — via font-size, centred on the anchor)…
   const maskFontSize = useTransform(scrollYProgress, [0, 0.22, 0.55], reduce ? [300, 300, 300] : [300, 300, 1150]);
+  // …scaled down for the portrait (mobile) viewBox so the word fits the width
+  const maskFontSizeM = useTransform(scrollYProgress, [0, 0.22, 0.55], reduce ? [96, 96, 96] : [96, 96, 360]);
   // …while the dark field dissolves, so the reveal is smooth (no black gaps)
   const fieldOpacity = useTransform(scrollYProgress, [0.26, 0.52], [1, 0]);
   // then a white veil fully covers the bright temple (the resolve brings its own)
@@ -45,11 +47,36 @@ export function HeroTypeWindow() {
           <Image src="/scenes/pectus.png" alt="" fill priority sizes="100vw" className="object-cover object-center" />
         </div>
 
-        {/* the dark field with PECTUS knocked out — letters are the windows */}
+        {/* the dark field with PECTUS knocked out — letters are the windows.
+            Portrait viewBox on mobile, landscape on desktop, so the word fits. */}
         <motion.svg
           aria-hidden
           style={{ opacity: fieldOpacity }}
-          className="absolute inset-0 z-10 h-full w-full"
+          className="absolute inset-0 z-10 h-full w-full md:hidden"
+          viewBox="0 0 440 900"
+          preserveAspectRatio="xMidYMid slice"
+        >
+          <defs>
+            <mask id="pectusWindowM">
+              <rect width="440" height="900" fill="white" />
+              <motion.text
+                x="220"
+                y="466"
+                textAnchor="middle"
+                dominantBaseline="middle"
+                fill="black"
+                style={{ fontFamily: "var(--font-cinzel)", fontWeight: 600, letterSpacing: 3, fontSize: maskFontSizeM }}
+              >
+                PECTUS
+              </motion.text>
+            </mask>
+          </defs>
+          <rect width="440" height="900" fill="#14130F" mask="url(#pectusWindowM)" />
+        </motion.svg>
+        <motion.svg
+          aria-hidden
+          style={{ opacity: fieldOpacity }}
+          className="absolute inset-0 z-10 hidden h-full w-full md:block"
           viewBox="0 0 1440 900"
           preserveAspectRatio="xMidYMid slice"
         >
@@ -62,12 +89,7 @@ export function HeroTypeWindow() {
                 textAnchor="middle"
                 dominantBaseline="middle"
                 fill="black"
-                style={{
-                  fontFamily: "var(--font-cinzel)",
-                  fontWeight: 600,
-                  letterSpacing: 6,
-                  fontSize: maskFontSize,
-                }}
+                style={{ fontFamily: "var(--font-cinzel)", fontWeight: 600, letterSpacing: 6, fontSize: maskFontSize }}
               >
                 PECTUS
               </motion.text>
