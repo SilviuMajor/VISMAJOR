@@ -38,7 +38,7 @@ export function OneJob() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="how" className="relative overflow-hidden py-16 md:py-24">
+    <section id="how" className="relative overflow-hidden py-24 md:py-36">
       {/* the David — faint, centred directly behind the headline */}
       <div
         aria-hidden
@@ -81,7 +81,7 @@ export function OneJob() {
         </motion.div>
 
         <motion.div
-          className="mt-16 grid grid-cols-2 gap-x-8 gap-y-12 md:grid-cols-4"
+          className="mt-20 grid grid-cols-2 gap-x-8 gap-y-12 md:mt-24 md:grid-cols-4"
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-60px" }}

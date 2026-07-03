@@ -87,7 +87,7 @@ export function StickyArchitecture() {
   });
 
   return (
-    <section id="science" ref={ref} className="relative h-[320vh] bg-paper-1">
+    <section id="science" ref={ref} className="relative h-[450vh] bg-paper-1">
       <div className="sticky top-0 flex h-screen items-center overflow-hidden pb-24 sm:pb-0">
         {/* classical figure presiding over the actives — visible on mobile too,
             fainter so it sits behind the copy */}
