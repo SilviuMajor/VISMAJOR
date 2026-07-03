@@ -105,7 +105,7 @@ export function HeroTypeWindow({ overlayAlwaysOn = false }: { overlayAlwaysOn?: 
       <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
         {/* static temple, behind everything — faint throughout when overlayAlwaysOn */}
         <div aria-hidden className="absolute inset-0 z-0 overflow-hidden">
-          <Image src="/scenes/pectus.png" alt="" fill priority sizes="100vw" className={`object-cover object-center ${overlayAlwaysOn ? "mix-blend-multiply" : ""}`} style={{ opacity: overlayAlwaysOn ? 0.46 : 1 }} />
+          <Image src="/scenes/pectus.png" alt="" fill priority sizes="100vw" className={`object-cover object-right md:object-center ${overlayAlwaysOn ? "mix-blend-multiply" : ""}`} style={{ opacity: overlayAlwaysOn ? 0.46 : 1 }} />
           {overlayAlwaysOn && <div className="absolute inset-0" style={{ background: VEIL }} />}
         </div>
 
@@ -155,7 +155,7 @@ export function HeroTypeWindow({ overlayAlwaysOn = false }: { overlayAlwaysOn?: 
           {/* its own faint backdrop, unless the temple is already kept faint */}
           {!overlayAlwaysOn && (
             <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-              <Image src="/scenes/pectus.png" alt="" fill sizes="100vw" className="object-cover object-center mix-blend-multiply" style={{ opacity: 0.46 }} />
+              <Image src="/scenes/pectus.png" alt="" fill sizes="100vw" className="object-cover object-right md:object-center mix-blend-multiply" style={{ opacity: 0.46 }} />
               <div className="absolute inset-0" style={{ background: VEIL }} />
             </div>
           )}
