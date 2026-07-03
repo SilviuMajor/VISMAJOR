@@ -195,13 +195,13 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
                 </span>
                 <div className="mt-3 flex items-baseline gap-3">
                   <span
-                    className="font-bold font-mono text-ink-0"
-                    style={{ fontSize: "clamp(36px, 4.4vw, 52px)", letterSpacing: "-0.02em", lineHeight: 1 }}
+                    className="num font-bold text-ink-0"
+                    style={{ fontSize: "clamp(38px, 4.6vw, 56px)", lineHeight: 1 }}
                   >
                     £{tier.price}
                   </span>
                   {tier.reg && (
-                    <span className="text-[18px] text-ink-3 line-through font-mono">£{tier.reg}</span>
+                    <span className="num text-[19px] text-ink-3 line-through">£{tier.reg}</span>
                   )}
                   {pct > 0 && (
                     <span className="caps rounded-xs bg-ink-0 px-2 py-1 text-[9px] font-medium text-paper-0">
@@ -262,11 +262,11 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
                       </span>
                       <span className="flex items-baseline gap-2">
                         {t.reg && (
-                          <span className={`text-[12px] line-through font-mono ${selected ? "text-paper-0/45" : "text-ink-3"}`}>
+                          <span className={`num-tab text-[13px] line-through ${selected ? "text-paper-0/45" : "text-ink-3"}`}>
                             £{t.reg}
                           </span>
                         )}
-                        <span className="text-[16px] font-semibold font-mono">£{t.price}</span>
+                        <span className="num-tab text-[17px] font-semibold">£{t.price}</span>
                       </span>
                     </button>
                   );
@@ -285,7 +285,7 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
                 onClick={onAdd}
                 className="flex-1 rounded-[5px] border border-ink-0 bg-ink-0 px-6 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
               >
-                {`Add to basket — £${total}`}
+                Add to basket — <span className="num text-[15px] font-semibold">£{total}</span>
               </button>
             </div>
             <div className="mt-3 flex items-center justify-between">

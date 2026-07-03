@@ -97,8 +97,8 @@ export function OtherProducts({ current }: { current: ProductSlug }) {
                       View {p.wordmark}
                       <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                     </span>
-                    <span className="caps font-mono text-[11px] font-medium text-ink-3">
-                      Pre-order from £{p.priceFrom}
+                    <span className="caps text-[11px] font-medium text-ink-3">
+                      Pre-order from <span className="num text-[13px]">£{p.priceFrom}</span>
                     </span>
                   </div>
                 </div>

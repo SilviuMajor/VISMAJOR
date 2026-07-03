@@ -253,7 +253,7 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
                   >
                     £{tier.price}
                   </span>
-                  <span className="text-[18px] text-ink-3 line-through font-mono">£{tier.reg}</span>
+                  <span className="text-[18px] text-ink-3 line-through num">£{tier.reg}</span>
                   {pct > 0 && (
                     <span className="caps rounded-xs bg-ink-0 px-2 py-1 text-[9px] font-medium text-paper-0">
                       Save {pct}%
@@ -324,7 +324,7 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
                         <span className={`text-[12px] line-through font-mono ${selected ? "text-paper-0/45" : "text-ink-3"}`}>
                           £{t.reg}
                         </span>
-                        <span className="text-[16px] font-semibold font-mono">£{t.price}</span>
+                        <span className="text-[16px] font-semibold num">£{t.price}</span>
                       </span>
                     </button>
                   );
@@ -355,7 +355,7 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
                 onClick={onAdd}
                 className="flex-1 rounded-[5px] border border-ink-0 bg-ink-0 px-6 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
               >
-                {`Add to basket — £${total}`}
+                Add to basket — <span className="num font-semibold">£{total}</span>
               </button>
             </div>
             <div className="mt-3 flex flex-wrap items-center justify-between gap-2">

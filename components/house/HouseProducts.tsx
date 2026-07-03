@@ -124,8 +124,8 @@ export function HouseProducts() {
                   className="relative mt-7 flex items-center justify-between border-t pt-5"
                   style={{ borderColor: "var(--hair)" }}
                 >
-                  <span className="caps font-mono text-[11px] font-medium text-ink-3">
-                    Pre-order from £{p.priceFrom}
+                  <span className="caps text-[11px] font-medium text-ink-3">
+                    Pre-order from <span className="num text-[13px]">£{p.priceFrom}</span>
                   </span>
                   <span className="caps inline-flex items-center gap-2 text-[11px] font-medium text-ink-0">
                     View

@@ -46,8 +46,8 @@ export function StickyBuyBar({
               <span className="caps font-serif text-[9.5px] font-medium text-ink-3">
                 {label}
               </span>
-              <span className="font-mono text-[13px] font-semibold text-ink-0">
-                Pre-order from {priceFrom}
+              <span className="text-[13px] font-semibold text-ink-0">
+                Pre-order from <span className="num">{priceFrom}</span>
               </span>
             </div>
             <a

@@ -66,6 +66,7 @@ export function ProofV2() {
 
   return (
     <section
+      id="proof"
       className="overflow-hidden border-y bg-ink-0 py-14 md:py-20"
       style={{ borderColor: "rgba(244,242,236,0.14)" }}
     >
@@ -98,11 +99,10 @@ export function ProofV2() {
           >
             <div className="flex items-end gap-3 md:gap-5">
               <span
-                className="font-mono font-bold text-paper-0"
+                className="stat-tab font-semibold text-paper-0"
                 style={{
-                  fontSize: "clamp(70px, 10.5vw, 142px)",
-                  letterSpacing: "-0.045em",
-                  lineHeight: 0.82,
+                  fontSize: "clamp(74px, 11vw, 150px)",
+                  lineHeight: 0.85,
                 }}
               >
                 <Counter value={2000} />+
@@ -140,8 +140,8 @@ export function ProofV2() {
               </span>
               <span className="flex items-baseline gap-2">
                 <span
-                  className="font-mono font-bold text-paper-0"
-                  style={{ fontSize: "clamp(20px, 2.4vw, 28px)", letterSpacing: "-0.03em" }}
+                  className="stat-tab font-semibold text-paper-0"
+                  style={{ fontSize: "clamp(26px, 3vw, 36px)", lineHeight: 1 }}
                 >
                   <Counter value={RESERVED_PCT} />%
                 </span>

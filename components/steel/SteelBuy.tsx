@@ -161,7 +161,7 @@ export function SteelBuy({ shipMonth }: { shipMonth: string }) {
                   >
                     £{tier.price}
                   </span>
-                  <span className="font-mono text-[18px] text-ink-3 line-through">£{tier.reg}</span>
+                  <span className="num text-[18px] text-ink-3 line-through">£{tier.reg}</span>
                   <span className="caps rounded-xs bg-ink-0 px-2 py-1 text-[9px] font-medium text-paper-0">
                     Save {pct}%
                   </span>
@@ -211,7 +211,7 @@ export function SteelBuy({ shipMonth }: { shipMonth: string }) {
                         <span className={`font-mono text-[12px] line-through ${selected ? "text-paper-0/45" : "text-ink-3"}`}>
                           £{t.reg}
                         </span>
-                        <span className="font-mono text-[16px] font-bold">£{t.price}</span>
+                        <span className="num text-[16px] font-bold">£{t.price}</span>
                       </span>
                     </button>
                   );
@@ -230,7 +230,7 @@ export function SteelBuy({ shipMonth }: { shipMonth: string }) {
                 onClick={onAdd}
                 className="flex-1 rounded-[5px] border border-ink-0 bg-ink-0 px-6 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
               >
-                {`Add to basket — £${total}`}
+                Add to basket — <span className="num font-semibold">£{total}</span>
               </button>
             </div>
             <div className="mt-3 flex items-center justify-between">

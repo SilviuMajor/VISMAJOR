@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Hanken_Grotesk, Cinzel, Courier_Prime } from "next/font/google";
+import { Hanken_Grotesk, Cinzel, Courier_Prime, Cormorant_Garamond, EB_Garamond } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/lib/cart";
 import { CartDrawer } from "@/components/cart/CartDrawer";
@@ -24,6 +24,21 @@ const courier = Courier_Prime({
   subsets: ["latin"],
   weight: ["400", "700"],
   variable: "--font-mono",
+  display: "swap",
+});
+
+// Numeral system — classical old-style serif figures for brand-voice numbers.
+// Cormorant = prices / times / ratings / hero figures; EB Garamond = big stats.
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-cormorant",
+  display: "swap",
+});
+const ebGaramond = EB_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-eb",
   display: "swap",
 });
 
@@ -57,7 +72,7 @@ export default function RootLayout({
       lang="en"
       data-theme="white"
       suppressHydrationWarning
-      className={`${hanken.variable} ${cinzel.variable} ${courier.variable}`}
+      className={`${hanken.variable} ${cinzel.variable} ${courier.variable} ${cormorant.variable} ${ebGaramond.variable}`}
     >
       <body className="font-display bg-paper-0 text-ink-0 antialiased">
         <CartProvider>

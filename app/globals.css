@@ -45,6 +45,9 @@
   --mint:       var(--ink-0);
   /* House serif (Cinzel) — the variable is injected by next/font in layout. */
   --font-serif: var(--font-cinzel), 'Times New Roman', serif;
+  /* Numeral system — classical old-style figures (injected by next/font). */
+  --font-numeral: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
+  --font-stat: var(--font-eb), 'EB Garamond', Georgia, serif;
 }
 
 /* CREAM theme — warm apothecary paper */
@@ -99,6 +102,33 @@ html { scroll-behavior: smooth; }
   }
   .serif {
     font-family: var(--font-serif);
+  }
+  /* Numeral system — brand-voice figures in classical old-style numerals.
+     .num (Cormorant) = prices / times / ratings / hero figures.
+     .stat (EB Garamond) = big stats & percentages.
+     *-tab variants add tabular figures where digits must column-align.
+     Data/qty/batch/EAN/spec values stay in font-mono (Courier). */
+  .num {
+    font-family: var(--font-numeral);
+    font-feature-settings: "onum" 1;
+    letter-spacing: 0;
+  }
+  .stat {
+    font-family: var(--font-stat);
+    font-feature-settings: "onum" 1;
+    letter-spacing: 0;
+  }
+  .num-tab {
+    font-family: var(--font-numeral);
+    font-feature-settings: "onum" 1, "tnum" 1;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0;
+  }
+  .stat-tab {
+    font-family: var(--font-stat);
+    font-feature-settings: "onum" 1, "tnum" 1;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0;
   }
   .hair-top { border-top: 1px solid var(--hair); }
   .hair-bottom { border-bottom: 1px solid var(--hair); }

@@ -141,7 +141,7 @@ export default function CheckoutPage() {
                           {item.tierLabel} · Qty {item.qty}
                         </div>
                       </div>
-                      <div className="text-[14px] font-semibold text-ink-0">
+                      <div className="num text-[15px] font-semibold text-ink-0">
                         £{item.price * item.qty}
                       </div>
                     </div>
@@ -150,7 +150,7 @@ export default function CheckoutPage() {
 
                 <div className="mt-5 flex items-center justify-between">
                   <span className="caps text-[11px] font-semibold text-ink-2">Subtotal</span>
-                  <span className="text-[20px] font-semibold text-ink-0">£{subtotal}</span>
+                  <span className="num text-[21px] font-semibold text-ink-0">£{subtotal}</span>
                 </div>
                 <p className="caps mt-3 text-[9.5px] font-medium text-ink-3">
                   Free UK delivery · Nothing charged today

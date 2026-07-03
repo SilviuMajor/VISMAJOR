@@ -99,7 +99,7 @@ export function SharpProof() {
             <div>
               <div className="flex items-end gap-3 md:gap-4">
                 <span
-                  className="font-mono font-bold text-paper-0"
+                  className="stat-tab font-semibold text-paper-0"
                   style={{
                     fontSize: "clamp(60px, 9vw, 128px)",
                     letterSpacing: "-0.045em",
@@ -145,7 +145,7 @@ export function SharpProof() {
               </span>
               <span className="flex items-baseline gap-2">
                 <span
-                  className="font-mono font-bold text-paper-0"
+                  className="stat-tab font-semibold text-paper-0"
                   style={{ fontSize: "clamp(20px, 2.4vw, 28px)", letterSpacing: "-0.03em" }}
                 >
                   <Counter value={RESERVED_PCT} />%
