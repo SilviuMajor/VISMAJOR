@@ -45,7 +45,7 @@ export function HorizontalUseBefore() {
   });
 
   return (
-    <section ref={sectionRef} className="relative bg-ink-0 text-paper-0 lg:h-[300vh]">
+    <section id="moments" ref={sectionRef} className="relative bg-ink-0 text-paper-0 lg:h-[300vh]">
       {/* ---- Mobile / tablet: a clean vertical stack ---- */}
       <div className="lg:hidden">
         <Container className="py-20 md:py-24">
@@ -137,7 +137,7 @@ export function HorizontalUseBefore() {
           {OCCASIONS.map((o, i) => (
             <div
               key={o}
-              className="flex min-w-[42vw] flex-col justify-center border-l pl-[6vw] pr-[6vw]"
+              className="flex min-w-[48vw] flex-col items-center justify-center border-l px-[6vw] text-center"
               style={{ borderColor: HAIR }}
             >
               <span className="caps text-[12px] font-medium text-paper-0/45">
