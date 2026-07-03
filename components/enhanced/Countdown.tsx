@@ -48,8 +48,8 @@ export function Countdown({
         <div key={it.l} className="flex items-center gap-3">
           <div className="flex flex-col items-center">
             <span
-              className={`font-bold tabular-nums font-mono ${isPaper ? "text-paper-0" : "text-ink-0"}`}
-              style={{ fontSize: "clamp(30px, 4vw, 52px)", letterSpacing: "-0.02em", lineHeight: 1 }}
+              className={`num-tab font-semibold ${isPaper ? "text-paper-0" : "text-ink-0"}`}
+              style={{ fontSize: "clamp(32px, 4.2vw, 56px)", lineHeight: 1 }}
             >
               {mounted ? String(it.v).padStart(2, "0") : "––"}
             </span>

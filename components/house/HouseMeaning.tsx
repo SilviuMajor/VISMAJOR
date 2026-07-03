@@ -7,7 +7,7 @@ import { Container } from "@/components/ui/Container";
  */
 export function HouseMeaning() {
   return (
-    <section className="border-y bg-paper-1" style={{ borderColor: "var(--hair)" }}>
+    <section id="meaning" className="border-y bg-paper-1" style={{ borderColor: "var(--hair)" }}>
       <Container className="py-16 md:py-24">
         <div className="mx-auto max-w-3xl text-center">
           <div className="flex items-center justify-center gap-3.5">
@@ -18,15 +18,19 @@ export function HouseMeaning() {
             <span className="h-px w-7 bg-[var(--hair-strong)]" />
           </div>
           <p
-            className="mt-7 text-ink-0"
-            style={{ fontSize: "clamp(21px, 2.6vw, 31px)", lineHeight: 1.45, letterSpacing: "-0.01em" }}
+            className="serif mt-8 text-ink-0"
+            style={{ fontSize: "clamp(32px, 4.6vw, 60px)", lineHeight: 1.04, letterSpacing: "0.03em" }}
           >
-            <span className="serif">Vis·Major</span> &mdash; an unstoppable force.
-            The Roman term for a power beyond resistance.
+            Vis·Major
           </p>
-          <p className="mt-5 text-[16px] leading-[1.6] text-ink-2 md:text-[17px]">
-            Some things you cannot command. How you carry yourself is not one of
-            them.
+          <p
+            className="serif mx-auto mt-5 max-w-2xl text-ink-1"
+            style={{ fontSize: "clamp(16px, 2vw, 24px)", lineHeight: 1.45, letterSpacing: "0.05em" }}
+          >
+            A greater force — the Roman name for a power beyond resistance.
+          </p>
+          <p className="mx-auto mt-7 max-w-md text-[15px] leading-[1.6] text-ink-2 md:text-[16px]">
+            Some things you cannot command. How you carry yourself is not one of them.
           </p>
         </div>
       </Container>
