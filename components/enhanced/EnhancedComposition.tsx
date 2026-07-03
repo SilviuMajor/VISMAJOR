@@ -34,7 +34,7 @@ export function EnhancedComposition() {
     <>
       <ScrollProgress />
       <Announcement shipMonth={shipMonth} />
-      <Header crumb="PECTUS" />
+      <Header crumb="PECTUS" heroDark />
       <main>
         <HeroTypeWindow overlayAlwaysOn />
         <FirstBatchStrip shipMonth={shipMonth} />

@@ -65,7 +65,7 @@ export function SteelComposition() {
         message={`STEEL · the weighted massage & therapy tool · pre-order · first batch ships ${shipMonth}`}
         messageShort={`STEEL · pre-order · ships ${shipMonth}`}
       />
-      <Header crumb="STEEL" cta={{ href: "#buy", label: "Pre-order" }} />
+      <Header crumb="STEEL" cta={{ href: "#buy", label: "Pre-order" }} heroDark />
       <main>
         <HeroTypeWindow product="steel" overlayAlwaysOn />
         <FirstBatchStrip count="600+" shipMonth={shipMonth} />

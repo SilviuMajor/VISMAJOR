@@ -39,6 +39,7 @@ export function SharpComposition() {
       <Header
         crumb="STONE"
         cta={{ href: "#buy", label: "Pre-order" }}
+        heroDark
       />
       <main>
         <HeroTypeWindow product="stone" overlayAlwaysOn />

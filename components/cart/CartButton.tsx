@@ -11,8 +11,11 @@ import { useCart } from "@/lib/cart";
  */
 export function CartButton({
   variant = "desktop",
+  tone = "light",
 }: {
   variant?: "desktop" | "mobile";
+  /** "dark" flips the glyph white + inverts the count badge, for a dark bar. */
+  tone?: "light" | "dark";
 }) {
   const { count, setOpen } = useCart();
 
@@ -51,11 +54,17 @@ export function CartButton({
       type="button"
       onClick={() => setOpen(true)}
       aria-label={count > 0 ? `Open basket, ${count} item${count === 1 ? "" : "s"}` : "Open basket"}
-      className="relative flex h-9 w-9 items-center justify-center text-ink-0 transition-colors hover:text-ink-2"
+      className={`relative flex h-9 w-9 items-center justify-center transition-colors duration-300 ${
+        tone === "dark" ? "text-paper-0 hover:text-paper-0/70" : "text-ink-0 hover:text-ink-2"
+      }`}
     >
       {Bag}
       {count > 0 && (
-        <span className="absolute -right-0.5 -top-0.5 flex h-[15px] min-w-[15px] items-center justify-center rounded-full bg-ink-0 px-1 text-[9px] font-semibold leading-none text-paper-0">
+        <span
+          className={`absolute -right-0.5 -top-0.5 flex h-[15px] min-w-[15px] items-center justify-center rounded-full px-1 text-[9px] font-semibold leading-none ${
+            tone === "dark" ? "bg-paper-0 text-ink-0" : "bg-ink-0 text-paper-0"
+          }`}
+        >
           {count}
         </span>
       )}

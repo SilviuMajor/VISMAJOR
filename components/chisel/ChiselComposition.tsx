@@ -37,7 +37,7 @@ export function ChiselComposition() {
         message={`SCULPT · the Contour & Recovery Cream · pre-order · first batch ships ${shipMonth}`}
         messageShort={`SCULPT · pre-order · ships ${shipMonth}`}
       />
-      <Header crumb="SCULPT" cta={{ href: "#buy", label: "Pre-order" }} />
+      <Header crumb="SCULPT" cta={{ href: "#buy", label: "Pre-order" }} heroDark />
       <main>
         <HeroTypeWindow product="sculpt" overlayAlwaysOn />
         <FirstBatchStrip count="1,400+" shipMonth={shipMonth} />
