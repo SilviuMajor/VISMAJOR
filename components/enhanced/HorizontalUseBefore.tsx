@@ -14,6 +14,7 @@ const OCCASIONS = [
   "The beach.",
   "The night out.",
   "The gym mirror.",
+  "The stage.",
 ];
 
 const HAIR = "rgba(244,242,236,0.16)";
@@ -59,7 +60,7 @@ export function HorizontalUseBefore() {
             className="mt-6 font-bold uppercase text-paper-0"
             style={{ fontSize: "clamp(40px, 11vw, 76px)", letterSpacing: "-0.03em", lineHeight: 0.95 }}
           >
-            Four moments.
+            Five moments.
           </h2>
           <p className="mt-5 max-w-xs text-[15px] leading-[1.6] text-paper-0/55">
             Keep your composure on hand — for the moments that ask for it.
@@ -124,7 +125,7 @@ export function HorizontalUseBefore() {
               className="mt-7 font-bold uppercase text-paper-0"
               style={{ fontSize: "clamp(40px, 6vw, 92px)", letterSpacing: "-0.03em", lineHeight: 0.92 }}
             >
-              Four
+              Five
               <br />
               moments.
             </h2>

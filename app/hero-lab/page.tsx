@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { HeroColdOpen } from "@/components/herolab/HeroColdOpen";
 import { HeroNiche } from "@/components/herolab/HeroNiche";
 import { HeroTypeWindow } from "@/components/herolab/HeroTypeWindow";
 import { HeroPlate } from "@/components/herolab/HeroPlate";
@@ -12,7 +11,6 @@ export const metadata: Metadata = {
 };
 
 const CONCEPTS = [
-  { n: "01", name: "Cold Open", el: <HeroColdOpen /> },
   { n: "02", name: "The Niche", el: <HeroNiche /> },
   { n: "03", name: "Type Window", el: <HeroTypeWindow /> },
   { n: "04", name: "The Plate", el: <HeroPlate /> },

@@ -8,9 +8,10 @@ const EASE = [0.16, 1, 0.3, 1] as const;
 
 /**
  * Concept 04 — "The Plate".
- * Editorial diptych (Celine / auction-catalogue): the tube presented as a
- * framed catalogue plate on one side, stark type stacked on the other. The
- * plate slides in; the type reveals line by line.
+ * Editorial diptych over a full-bleed scene: the tube floats free (no frame)
+ * on the left with a soft ground shadow, stark type on the right. A strong
+ * central white veil keeps the product and text clear while the scene frames
+ * the edges.
  */
 export function HeroPlate() {
   const reduce = useReducedMotion();
@@ -25,33 +26,38 @@ export function HeroPlate() {
 
   return (
     <section className="relative flex min-h-[100svh] items-center overflow-hidden bg-paper-0 py-20">
-      <Container className="grid w-full grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
-        {/* the plate */}
+      {/* the scene behind everything + central white veil */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+        <Image src="/scenes/pectus.png" alt="" fill priority sizes="100vw" className="object-cover object-center mix-blend-multiply" style={{ opacity: 0.2 }} />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 64% 62% at 50% 50%, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.45) 44%, rgba(255,255,255,0) 74%)",
+          }}
+        />
+      </div>
+
+      <Container className="relative z-10 grid w-full grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
+        {/* the product — floating, no frame */}
         <motion.div
-          initial={{ opacity: 0, x: reduce ? 0 : -28 }}
+          initial={{ opacity: 0, x: reduce ? 0 : -24 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1.1, delay: 0.25, ease: EASE }}
-          className="order-2 lg:order-1"
+          className="relative order-2 flex justify-center lg:order-1"
         >
-          <div
-            className="relative mx-auto flex aspect-[4/5] max-w-[420px] items-center justify-center rounded-[4px] bg-paper-0"
-            style={{ boxShadow: "0 40px 80px -40px rgba(20,19,15,0.4)" }}
+          <span
+            aria-hidden
+            className="absolute bottom-[7%] left-1/2 h-8 w-[44%] -translate-x-1/2 rounded-[50%] blur-lg"
+            style={{ background: "rgba(20,19,15,0.14)" }}
+          />
+          <motion.div
+            animate={reduce ? {} : { y: [0, -9, 0] }}
+            transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut" }}
+            className="relative h-[52vh] max-h-[560px] w-[218px] md:w-[266px]"
           >
-            <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden rounded-[4px]">
-              <Image src="/scenes/pectus.png" alt="" fill sizes="420px" className="object-cover object-center mix-blend-multiply" style={{ opacity: 0.1 }} />
-            </div>
-            <span className="absolute left-4 top-3.5 caps font-mono text-[9px] font-medium text-ink-3">PECTUS / 001</span>
-            <span className="absolute right-4 top-3.5 caps text-[9px] font-medium text-ink-3">Cooling Chest Primer</span>
-            <span className="absolute bottom-3.5 left-4 caps text-[9px] font-medium text-ink-3">Vis·Major</span>
-            <span className="absolute bottom-3.5 right-4 caps font-mono text-[9px] font-medium text-ink-3">28 ml e</span>
-            <motion.div
-              animate={reduce ? {} : { y: [0, -8, 0] }}
-              transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut" }}
-              className="relative h-[74%] w-[52%]"
-            >
-              <Image src="/product/front.png" alt="PECTUS Cooling Chest Primer" fill priority sizes="240px" className="object-contain drop-shadow-[0_28px_44px_rgba(20,19,15,0.18)]" />
-            </motion.div>
-          </div>
+            <Image src="/product/front.png" alt="PECTUS Cooling Chest Primer" fill priority sizes="300px" className="object-contain drop-shadow-[0_40px_58px_rgba(20,19,15,0.22)]" />
+          </motion.div>
         </motion.div>
 
         {/* the type */}

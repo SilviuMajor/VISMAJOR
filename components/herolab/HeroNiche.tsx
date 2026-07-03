@@ -25,7 +25,7 @@ export function HeroNiche() {
           transition={{ duration: 2.8, ease: EASE }}
         >
           <Image
-            src="/scenes/home.png"
+            src="/scenes/pectus.png"
             alt=""
             fill
             priority
@@ -100,7 +100,7 @@ export function HeroNiche() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.9, ease: EASE }}
           className="house mt-7 text-ink-0"
-          style={{ fontSize: "clamp(38px, 6.6vw, 82px)", letterSpacing: "0.16em", fontWeight: 600, lineHeight: 0.98 }}
+          style={{ fontSize: "clamp(46px, 7.8vw, 104px)", letterSpacing: "0.14em", fontWeight: 600, lineHeight: 0.96 }}
         >
           PECTUS
         </motion.h1>
