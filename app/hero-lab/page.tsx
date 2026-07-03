@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { HeroNiche } from "@/components/herolab/HeroNiche";
 import { HeroTypeWindow } from "@/components/herolab/HeroTypeWindow";
 import { HeroPlate } from "@/components/herolab/HeroPlate";
-import { HeroSpecimen } from "@/components/herolab/HeroSpecimen";
-import { HeroCast } from "@/components/herolab/HeroCast";
+import { HeroOculus } from "@/components/herolab/HeroOculus";
+import { HeroColossus } from "@/components/herolab/HeroColossus";
+import { HeroDiorama } from "@/components/herolab/HeroDiorama";
 
 export const metadata: Metadata = {
   title: "PECTUS — hero concepts",
@@ -14,12 +15,13 @@ const CONCEPTS = [
   { n: "02", name: "The Niche", el: <HeroNiche /> },
   { n: "03", name: "Type Window", el: <HeroTypeWindow /> },
   { n: "04", name: "The Plate", el: <HeroPlate /> },
-  { n: "05", name: "The Specimen", el: <HeroSpecimen /> },
-  { n: "06", name: "The Cast", el: <HeroCast /> },
+  { n: "05", name: "The Oculus", el: <HeroOculus /> },
+  { n: "06", name: "Kinetic Name", el: <HeroColossus /> },
+  { n: "07", name: "The Diorama", el: <HeroDiorama /> },
 ];
 
 /**
- * A private lab to compare three PECTUS hero directions side by side (stacked).
+ * A private lab to compare PECTUS hero directions side by side (stacked).
  * Not linked or indexed — used to pick a direction, then folded into /pectus.
  */
 export default function HeroLab() {
