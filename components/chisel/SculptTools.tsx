@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
+import { ToolPhoto } from "@/components/steel/ToolPhoto";
 
 const TOOLS = [
   {
@@ -42,6 +43,15 @@ export function SculptTools() {
             with several edges, made for massage and for working the cream in. Not
             medical, not a treatment.
           </p>
+        </Reveal>
+
+        {/* the steel blade — the optional tool */}
+        <Reveal>
+          <div className="mt-12 flex justify-center">
+            <div className="relative h-[22vh] max-h-[190px] w-[min(560px,88vw)]">
+              <ToolPhoto tool="sword" sizes="(max-width: 768px) 88vw, 560px" />
+            </div>
+          </div>
         </Reveal>
 
         <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-14">

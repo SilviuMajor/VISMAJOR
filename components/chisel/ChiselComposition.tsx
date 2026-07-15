@@ -15,7 +15,6 @@ import { HeroTypeWindow } from "@/components/herolab/HeroTypeWindow";
 import { ChiselTicker } from "@/components/chisel/ChiselTicker";
 import { SculptWhatItDoes } from "@/components/chisel/SculptWhatItDoes";
 import { SculptEffects } from "@/components/chisel/SculptEffects";
-import { ChiselRitual } from "@/components/chisel/ChiselRitual";
 import { SculptRecovery } from "@/components/chisel/SculptRecovery";
 import { ChiselArchitecture } from "@/components/chisel/ChiselArchitecture";
 import { ChiselProof } from "@/components/chisel/ChiselProof";
@@ -45,7 +44,6 @@ export function ChiselComposition() {
         <ChiselTicker />
         <SculptWhatItDoes />
         <SculptEffects />
-        <ChiselRitual />
         <SculptRecovery />
         <ChiselArchitecture />
         <ChiselProof />

@@ -239,8 +239,8 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
               </div>
               <p className="mt-2 max-w-md text-[13px] leading-[1.5] text-ink-2">
                 The cream is the product. The steel tool is an optional upgrade.
-                Every option ships with <b className="font-semibold text-ink-1">The Field Manual</b> — the
-                illustrated movement guide.
+                Every option ships with <b className="font-semibold text-ink-1">The Movements</b> — the
+                illustrated technique guide.
               </p>
               <div className="mt-4 flex flex-col gap-2.5">
                 {TIERS.map((t) => {
@@ -329,7 +329,7 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
             <div className="mt-12">
               <SectionHead n="—" title="Specification" />
               {[
-                ["In the box", `${tier.unitLabel} + The Field Manual`],
+                ["In the box", `${tier.unitLabel} + The Movements`],
                 ["The cream", "50ml · Massage & Recovery"],
                 ["Finish", "Matte · Lightly Fragranced"],
                 [

@@ -9,7 +9,6 @@ import { FirstBatchStrip } from "@/components/enhanced/FirstBatchStrip";
 
 import { HeroTypeWindow } from "@/components/herolab/HeroTypeWindow";
 import { SharpTicker } from "@/components/sharp/SharpTicker";
-import { SharpDaily } from "@/components/sharp/SharpDaily";
 import { SharpActives } from "@/components/sharp/SharpActives";
 import { SharpProof } from "@/components/sharp/SharpProof";
 import { SharpBuy } from "@/components/sharp/SharpBuy";
@@ -46,7 +45,6 @@ export function SharpComposition() {
         <FirstBatchStrip count="1,400+" shipMonth={shipMonth} />
         <ProductQuote latin="Tabula rasa" translation="a clean slate." />
         <SharpTicker />
-        <SharpDaily />
         <SharpActives />
         <SharpProof />
         <SharpBuy shipMonth={shipMonth} />
