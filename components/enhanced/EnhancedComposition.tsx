@@ -50,16 +50,10 @@ export function EnhancedComposition() {
         <SceneSection scene="/scenes/stone.png">
           <IsIsnt />
         </SceneSection>
-        <SceneSection scene="/scenes/sculpt.png">
-          <FaqV2 shipMonth={shipMonth} />
-        </SceneSection>
+        <FaqV2 shipMonth={shipMonth} />
         <FinalCta shipMonth={shipMonth} />
-        <SceneSection scene="/scenes/extra.png">
-          <NotifyBand />
-        </SceneSection>
-        <SceneSection scene="/scenes/hall.png">
-          <OtherProducts current="pectus" />
-        </SceneSection>
+        <NotifyBand />
+        <OtherProducts current="pectus" />
       </main>
       <Footer />
       <StickyBuyBar priceFrom="£24" label="PECTUS · 20ml" />

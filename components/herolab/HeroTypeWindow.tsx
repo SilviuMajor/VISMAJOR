@@ -180,18 +180,15 @@ export function HeroTypeWindow({
   const uid = useId().replace(/:/g, "");
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
 
-  // the holes hold at their readable size, then the whole field scales up — a GPU
-  // transform (not font-size), so the reveal stays smooth. Kept modest so the
-  // cached mask texture stays small; the field dissolve carries the rest.
-  const maskScale = useTransform(scrollYProgress, [0, 0.22, 0.55], reduce ? [1, 1, 1] : [1, 1, 3.2]);
-  // …while the dark field dissolves (smooth, no black gaps)
-  const fieldOpacity = useTransform(scrollYProgress, [0.26, 0.52], [1, 0]);
+  // the word is centred + readable from first view; the instant you scroll it
+  // grows and the dark field dissolves together — no initial hold, no dead gap.
+  const maskScale = useTransform(scrollYProgress, [0, 0.5], reduce ? [1, 1] : [1, 3.2]);
+  const fieldOpacity = useTransform(scrollYProgress, [0.04, 0.42], [1, 0]);
   // a white veil covers the bright scene (only when it isn't kept faint already)
   const veilOpacity = useTransform(scrollYProgress, [0.5, 0.68], [0, 1]);
   // and the underline hero fades up
   const heroOpacity = useTransform(scrollYProgress, [0.54, 0.74], [0, 1]);
   const heroY = useTransform(scrollYProgress, [0.54, 0.74], reduce ? [0, 0] : [26, 0]);
-  const introOpacity = useTransform(scrollYProgress, [0.14, 0.24], [1, 0]);
 
   // cursor parallax — the word drifts opposite the object
   const mx = useMotionValue(0);
@@ -232,7 +229,7 @@ export function HeroTypeWindow({
             <defs>
               <mask id={`m-${uid}`}>
                 <rect width="440" height="900" fill="white" />
-                <text x="220" y="466" textAnchor="middle" dominantBaseline="middle" fill="black" style={{ fontFamily: "var(--font-cinzel)", fontWeight: 600, letterSpacing: 3, fontSize: 96 }}>
+                <text x="220" y="450" textAnchor="middle" dominantBaseline="middle" fill="black" style={{ fontFamily: "var(--font-cinzel)", fontWeight: 600, letterSpacing: 3, fontSize: 96 }}>
                   {cfg.word}
                 </text>
               </mask>
@@ -243,7 +240,7 @@ export function HeroTypeWindow({
             <defs>
               <mask id={`d-${uid}`}>
                 <rect width="1440" height="900" fill="white" />
-                <text x="720" y="470" textAnchor="middle" dominantBaseline="middle" fill="black" style={{ fontFamily: "var(--font-cinzel)", fontWeight: 600, letterSpacing: 6, fontSize: 300 }}>
+                <text x="720" y="450" textAnchor="middle" dominantBaseline="middle" fill="black" style={{ fontFamily: "var(--font-cinzel)", fontWeight: 600, letterSpacing: 6, fontSize: 300 }}>
                   {cfg.word}
                 </text>
               </mask>
@@ -260,16 +257,6 @@ export function HeroTypeWindow({
             className="absolute inset-0 z-20"
           />
         )}
-
-        {/* intro chrome */}
-        <motion.div style={{ opacity: introOpacity }} className="absolute top-[13vh] left-1/2 z-40 flex -translate-x-1/2 items-center gap-3.5">
-          <span className="h-px w-8 bg-paper-0/30" />
-          <span className="caps-loose text-[11px] font-semibold text-paper-0/70">Scroll to reveal</span>
-          <span className="h-px w-8 bg-paper-0/30" />
-        </motion.div>
-        <motion.span style={{ opacity: introOpacity }} className="absolute bottom-6 left-1/2 z-40 -translate-x-1/2 caps text-[9px] font-medium text-paper-0/60">
-          Scroll
-        </motion.span>
 
         {/* the resolved underline hero */}
         <motion.div style={{ opacity: heroOpacity, y: heroY }} className="absolute inset-0 z-30 flex flex-col items-center justify-center px-6 text-center">
