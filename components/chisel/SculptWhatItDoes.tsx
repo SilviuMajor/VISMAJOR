@@ -1,11 +1,13 @@
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
+import { RomanBehind } from "@/components/ui/RomanBehind";
 
 /** "What it does" — the plain-spoken explainer, cream-first. */
 export function SculptWhatItDoes() {
   return (
-    <section className="py-16 md:py-24">
-      <Container>
+    <section className="relative overflow-hidden py-16 md:py-24">
+      <RomanBehind figure="/men/sculpt-work.png" side="right" opacity={0.2} />
+      <Container className="relative z-10">
         <Reveal>
           <div className="flex items-center gap-3.5">
             <span className="h-px w-7 bg-[var(--hair-strong)]" />

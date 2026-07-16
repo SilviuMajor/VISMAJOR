@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
+import { RomanBehind } from "@/components/ui/RomanBehind";
 import { EMBER } from "@/components/chisel/Art";
 
 const EASE = [0.2, 0, 0, 1] as const;
@@ -114,10 +115,11 @@ export function ChiselFaq({ shipMonth }: { shipMonth: string }) {
   return (
     <section
       id="faq"
-      className="border-y bg-paper-1 py-16 md:py-24"
+      className="relative overflow-hidden border-y bg-paper-1 py-16 md:py-24"
       style={{ borderColor: "var(--hair)" }}
     >
-      <Container>
+      <RomanBehind figure="/men/sculpt-arm.png" side="right" opacity={0.2} />
+      <Container className="relative z-10">
         <div className="mb-9 flex items-baseline gap-4">
           <span className="text-[13px] font-medium text-ink-3">06</span>
           <h3

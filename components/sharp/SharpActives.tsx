@@ -156,7 +156,7 @@ export function SharpActives() {
           className="pointer-events-none absolute inset-y-0 right-[-16%] z-0 w-[80vw] sm:right-[-6%] sm:w-[44vw] lg:w-[38vw]"
         >
           <Image
-            src="/men/stone-jaw.png"
+            src="/men/stone-wash.png"
             alt=""
             fill
             sizes="(max-width: 640px) 80vw, 44vw"
