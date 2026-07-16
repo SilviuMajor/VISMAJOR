@@ -14,7 +14,7 @@ const FILLED = Math.round((RESERVED_PCT / 100) * SEGMENTS);
 
 const QUOTES = [
   {
-    q: "The slip is the thing — it just keeps gliding, so you can actually work an area. Skin looks tighter for the rest of the night.",
+    q: "The slip is the thing: it just keeps gliding, so you can actually work an area. Skin looks tighter for the rest of the night.",
     a: "Early tester · London",
   },
   {
@@ -22,7 +22,7 @@ const QUOTES = [
     a: "Early tester · Bristol",
   },
   {
-    q: "Worked it in by hand for a week, then tried the steel. The steel has real weight — you do less and it does more. Looks defined without trying.",
+    q: "Worked it in by hand for a week, then tried the steel. The steel has real weight: you do less and it does more. Looks defined without trying.",
     a: "Early tester · Leeds",
   },
 ];
@@ -126,9 +126,9 @@ export function ChiselProof() {
             <p className="max-w-md pb-1 text-[16.5px] leading-[1.6] text-paper-0 lg:justify-self-end">
               Deliveries start <span className="font-semibold">September 2026</span>.
               Order now to lock the early-bird{" "}
-              <span className="font-semibold font-mono">£28</span> — it rises to{" "}
-              <span className="text-paper-0/45 line-through font-mono">£38</span> at launch
-              — and hold your place in a limited first run.
+              <span className="font-semibold font-mono">£28</span>, before it rises to{" "}
+              <span className="text-paper-0/45 line-through font-mono">£38</span> at launch,
+              and hold your place in a limited first run.
             </p>
           </div>
         </Reveal>

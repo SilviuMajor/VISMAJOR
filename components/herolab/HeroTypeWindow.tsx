@@ -42,8 +42,8 @@ const CONFIG: Record<MaskProduct, MaskConfig> = {
     eyebrow: "Topicals for Men · Est. MMXXVI",
     tagline: "Instant Confidence. Cool & Composed.",
     description:
-      "A fast-acting cooling & tightening cream. Works in minutes. Up to one hour of temporary firmness — undetectable under a shirt.",
-    price: "£24",
+      "A fast-acting cooling & tightening cream. Works in minutes. Up to one hour of temporary firmness, undetectable under a shirt.",
+    price: "£18",
     primaryHref: "#buy",
     secondary: "The Science",
     secondaryHref: "#science",
@@ -55,7 +55,7 @@ const CONFIG: Record<MaskProduct, MaskConfig> = {
     eyebrow: "Massage & Recovery Cream · No. II",
     tagline: "The Contour & Recovery Cream",
     description:
-      "A recovery massage cream for men who train. Work it deep — by hand, or with the steel tool — to ease worked muscle and keep a hard-trained body firm and defined.",
+      "A recovery massage cream for men who train. Work it deep, by hand or with the steel tool, to ease worked muscle and keep a hard-trained body firm and defined.",
     price: "from £28",
     primaryHref: "#buy",
     secondary: "The Ritual",
@@ -68,7 +68,7 @@ const CONFIG: Record<MaskProduct, MaskConfig> = {
     eyebrow: "The Matte Cleanser · No. III",
     tagline: "Lift the Day. Clean Slate.",
     description:
-      "A natural matte cleanser for men — clay, charcoal and mint that lift the day's oil and grime, then rinse away for a clean, fresh, matte finish.",
+      "A natural matte cleanser for men: clay, charcoal and mint that lift the day's oil and grime, then rinse away for a clean, fresh, matte finish.",
     price: "£22",
     primaryHref: "#buy",
     secondary: "The Daily",
@@ -81,7 +81,7 @@ const CONFIG: Record<MaskProduct, MaskConfig> = {
     eyebrow: "Massage & Therapy · Machined Steel",
     tagline: "Many Edges. One Tool.",
     description:
-      "One weighted, machined-steel blade — several contoured edges for massage, recovery and working tension out of the muscle. By hand, or with the SCULPT cream.",
+      "One weighted, machined-steel blade: several contoured edges for massage, recovery and working tension out of the muscle. By hand, or with the SCULPT cream.",
     price: "£24",
     primaryHref: "#buy",
     secondary: "The Edges",
@@ -213,30 +213,10 @@ export function HeroTypeWindow({
   const heroOpacity = useTransform(scrollYProgress, [0.54, 0.74], [0, 1]);
   const heroY = useTransform(scrollYProgress, [0.54, 0.74], reduce ? [0, 0] : [26, 0]);
 
-  // cursor parallax — the word drifts opposite the object
-  const mx = useMotionValue(0);
-  const my = useMotionValue(0);
-  const sx = useSpring(mx, { stiffness: 60, damping: 16, mass: 0.5 });
-  const sy = useSpring(my, { stiffness: 60, damping: 16, mass: 0.5 });
-  const tubeX = useTransform(sx, [-0.5, 0.5], reduce ? [0, 0] : [-42, 42]);
-  const tubeCurY = useTransform(sy, [-0.5, 0.5], reduce ? [0, 0] : [-28, 28]);
-  const tubeRot = useTransform(sx, [-0.5, 0.5], reduce ? [0, 0] : [-9, 9]);
-  const wordPX = useTransform(sx, [-0.5, 0.5], reduce ? [0, 0] : [26, -26]);
-  const onMove = (e: React.MouseEvent) => {
-    const r = ref.current?.getBoundingClientRect();
-    if (!r) return;
-    mx.set((e.clientX - r.left) / r.width - 0.5);
-    my.set((e.clientY - r.top) / r.height - 0.5);
-  };
-  const onLeave = () => {
-    mx.set(0);
-    my.set(0);
-  };
-
   const VEIL = "radial-gradient(ellipse 62% 58% at 50% 48%, rgba(255,255,255,0.74) 0%, rgba(255,255,255,0.12) 74%)";
 
   return (
-    <section ref={ref} onMouseMove={onMove} onMouseLeave={onLeave} className="relative bg-paper-0" style={{ height: "320vh" }}>
+    <section ref={ref} id="reveal" className="relative bg-paper-0" style={{ height: "320vh" }}>
       <motion.div style={{ y: settleY }} className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
         {/* static scene, behind everything — faint throughout when overlayAlwaysOn */}
         <div aria-hidden className="absolute inset-0 z-0 overflow-hidden">
@@ -289,26 +269,26 @@ export function HeroTypeWindow({
               {cfg.eyebrow}
             </span>
 
-            {/* the signature object — ~20% larger */}
-            <motion.div style={{ x: tubeX, y: tubeCurY, rotate: tubeRot }} className="relative mt-7">
+            {/* the signature object — a gentle float, no cursor drift */}
+            <div className="relative mt-7">
               <motion.div animate={reduce ? {} : { y: [0, -9, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}>
                 <ProductVisual product={product} reduce={reduce} />
               </motion.div>
-            </motion.div>
+            </div>
 
-            {/* the wordmark underlining the object — drifts opposite the object */}
-            <motion.h2 style={{ x: wordPX }} className="pointer-events-none mt-3 select-none font-serif font-semibold uppercase leading-none tracking-[0.08em] text-ink-0">
+            {/* the wordmark underlining the object — stationary */}
+            <h2 className="pointer-events-none mt-3 select-none font-serif font-semibold uppercase leading-none tracking-[0.08em] text-ink-0">
               <span style={{ fontSize: "clamp(36px, 6.5vw, 70px)", display: "inline-block" }}>{cfg.word}</span>
-            </motion.h2>
+            </h2>
 
-            {/* tagline + CTAs — ~20% larger */}
-            <p className="caps mt-6 text-[16px] font-medium text-ink-1 md:text-[18px]">{cfg.tagline}</p>
-            <p className="mt-4 max-w-xl text-[18px] leading-[1.6] text-ink-2 md:text-[20px]">{cfg.description}</p>
-            <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row">
-              <Magnetic href={cfg.primaryHref} className="inline-flex items-center justify-center gap-2.5 rounded-[5px] border border-ink-0 bg-ink-0 px-10 py-[19px] text-[15px] font-semibold text-paper-0 transition-colors hover:bg-ink-1">
-                Pre-order — {cfg.price}
+            {/* tagline + blurb */}
+            <p className="caps mt-5 text-[13px] font-medium text-ink-1 md:mt-6 md:text-[18px]">{cfg.tagline}</p>
+            <p className="mt-3.5 max-w-xl text-[15px] leading-[1.6] text-ink-2 md:mt-4 md:text-[20px]">{cfg.description}</p>
+            <div className="mt-7 flex flex-col items-center gap-2.5 sm:flex-row md:mt-8 md:gap-3">
+              <Magnetic href={cfg.primaryHref} className="inline-flex items-center justify-center gap-2.5 rounded-[5px] border border-ink-0 bg-ink-0 px-8 py-[15px] text-[14px] font-semibold text-paper-0 transition-colors hover:bg-ink-1 md:px-10 md:py-[19px] md:text-[15px]">
+                Pre-order {cfg.price}
               </Magnetic>
-              <a href={cfg.secondaryHref} className="inline-flex items-center justify-center rounded-[5px] border border-ink-0 px-10 py-[19px] text-[15px] font-semibold text-ink-0 transition-colors hover:bg-ink-0 hover:text-paper-0">
+              <a href={cfg.secondaryHref} className="inline-flex items-center justify-center rounded-[5px] border border-ink-0 px-8 py-[15px] text-[14px] font-semibold text-ink-0 transition-colors hover:bg-ink-0 hover:text-paper-0 md:px-10 md:py-[19px] md:text-[15px]">
                 {cfg.secondary}
               </a>
             </div>

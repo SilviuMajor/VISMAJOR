@@ -6,7 +6,7 @@ import { HeroColossus } from "@/components/herolab/HeroColossus";
 import { HeroUnderline } from "@/components/herolab/HeroUnderline";
 
 export const metadata: Metadata = {
-  title: "PECTUS — hero concepts",
+  title: "PECTUS: hero concepts",
   robots: { index: false, follow: false },
 };
 

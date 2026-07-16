@@ -20,7 +20,7 @@ const STEPS = [
   {
     n: "01",
     title: "Lather",
-    body: "A small amount massaged onto wet skin, worked into a light lather — morning or night.",
+    body: "A small amount massaged onto wet skin, worked into a light lather, morning or night.",
     cue: "Oil",
   },
   {
@@ -32,7 +32,7 @@ const STEPS = [
   {
     n: "03",
     title: "Rinse",
-    body: "Rinse clean with warm water — skin left fresh, cool, and matte.",
+    body: "Rinse clean with warm water: skin left fresh, cool, and matte.",
     cue: "Matte",
   },
 ];

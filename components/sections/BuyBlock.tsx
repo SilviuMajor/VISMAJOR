@@ -97,7 +97,7 @@ export function BuyBlock({ shipMonth }: { shipMonth: string }) {
                 >
                   <Image
                     src={GALLERY[shot].src}
-                    alt={`PECTUS — ${GALLERY[shot].label}`}
+                    alt={`PECTUS, ${GALLERY[shot].label}`}
                     fill
                     sizes="(max-width: 1024px) 80vw, 520px"
                     className="object-contain"
@@ -149,7 +149,7 @@ export function BuyBlock({ shipMonth }: { shipMonth: string }) {
             </div>
             <p className="mt-5 max-w-md text-[17px] leading-[1.6] text-ink-1">
               Works in minutes. Up to one hour of temporary firmness. With
-              caffeine and menthol agents — matte, lightly fragranced,
+              caffeine and menthol agents. Matte, lightly fragranced,
               undetectable.
             </p>
 
@@ -223,7 +223,7 @@ export function BuyBlock({ shipMonth }: { shipMonth: string }) {
                 disabled={loading}
                 className="caps flex-1 rounded-sm border border-ink-0 bg-ink-0 px-6 py-[18px] text-[13px] font-medium text-paper-0 transition-colors hover:bg-ink-1 disabled:opacity-50"
               >
-                {loading ? "Opening Checkout…" : `Pre-order — £${total}`}
+                {loading ? "Opening Checkout…" : `Pre-order · £${total}`}
               </button>
             </div>
             <p className="caps mt-3 text-[10.5px] font-medium text-ink-3">
@@ -233,7 +233,7 @@ export function BuyBlock({ shipMonth }: { shipMonth: string }) {
 
             {/* Spec table */}
             <div className="mt-12">
-              <SectionHead n="—" title="Specification" />
+              <SectionHead n="·" title="Specification" />
               <Spec k="Net Quantity" v={tier.unitLabel} />
               <Spec k="Finish" v="Matte · Lightly Fragranced" />
               <Spec k="Onset" v="Within Minutes" />

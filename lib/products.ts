@@ -32,8 +32,8 @@ export const PRODUCTS: Product[] = [
     short:
       "Cools and tightens in minutes. Up to one hour of temporary firmness, undetectable under a shirt.",
     signature: "Cool",
-    priceFrom: 24,
-    rrpFrom: 32,
+    priceFrom: 18,
+    rrpFrom: 26,
     accentVar: "--ink-0",
     accentHex: "#14130F",
   },
@@ -44,7 +44,7 @@ export const PRODUCTS: Product[] = [
     wordmark: "SCULPT",
     category: "Contour & Recovery Cream",
     short:
-      "A massage cream for men, worked in by hand or with the optional steel tool — for skin that looks firmer and feels worked.",
+      "A massage cream for men, worked in by hand or with the optional steel tool, for skin that looks firmer and feels worked.",
     signature: "Worked",
     priceFrom: 28,
     rrpFrom: 38,
@@ -58,7 +58,7 @@ export const PRODUCTS: Product[] = [
     wordmark: "STONE",
     category: "Matte Cleanser",
     short:
-      "A natural matte cleanser — clay, charcoal and mint that lift the day's oil and grime, then rinse away for skin left clean, fresh, and matte.",
+      "A natural matte cleanser: clay, charcoal and mint that lift the day's oil and grime, then rinse away for skin left clean, fresh, and matte.",
     signature: "Matte",
     priceFrom: 22,
     rrpFrom: 30,

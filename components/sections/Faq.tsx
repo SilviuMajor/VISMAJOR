@@ -18,7 +18,7 @@ const FAQS = [
   },
   {
     q: "Who is it for?",
-    a: "Any man who wants a quick confidence boost — gym, beach, a night out, or just a fitted shirt.",
+    a: "Any man who wants a quick confidence boost: gym, beach, a night out, or just a fitted shirt.",
   },
   {
     q: "Is it safe?",

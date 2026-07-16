@@ -17,11 +17,17 @@ export function StickyBuyBar({
   useEffect(() => {
     const onScroll = () => {
       const buy = document.getElementById("buy");
+      const hero = document.getElementById("reveal");
       const trigger = window.innerHeight * 0.9;
       const buyTop = buy?.getBoundingClientRect().top ?? Infinity;
       const buyBottom = buy?.getBoundingClientRect().bottom ?? -Infinity;
+      // keep the bar hidden while the reveal hero still occupies the screen so it
+      // never covers the hero's own CTAs.
+      const heroBottom = hero?.getBoundingClientRect().bottom ?? -Infinity;
+      const heroInView = heroBottom > window.innerHeight * 0.4;
       setShow(
         window.scrollY > trigger &&
+          !heroInView &&
           !(buyTop < window.innerHeight && buyBottom > 0)
       );
     };

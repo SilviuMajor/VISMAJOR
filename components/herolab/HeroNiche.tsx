@@ -111,7 +111,7 @@ export function HeroNiche() {
           className="serif mt-4 text-ink-1"
           style={{ fontSize: "clamp(15px, 1.9vw, 22px)", letterSpacing: "0.04em" }}
         >
-          The Cooling Chest Primer — cool, firm, composed.
+          The Cooling Chest Primer. Cool, firm, composed.
         </motion.p>
         <motion.a
           href="#buy"
@@ -120,7 +120,7 @@ export function HeroNiche() {
           transition={{ duration: 0.7, delay: 1.25, ease: EASE }}
           className="mt-8 inline-flex rounded-[5px] border border-ink-0 bg-ink-0 px-9 py-[17px] text-[14px] font-semibold text-paper-0 transition-colors hover:bg-transparent hover:text-ink-0"
         >
-          Pre-order — £24
+          Pre-order, £24
         </motion.a>
       </Container>
     </section>

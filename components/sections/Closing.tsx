@@ -26,7 +26,7 @@ export function Closing({ shipMonth }: { shipMonth: string }) {
             />
 
             <p className="mt-7 max-w-md text-[17px] leading-[1.6] text-ink-1">
-              First batch is limited and ships {shipMonth}. Reserve yours now —
+              First batch is limited and ships {shipMonth}. Reserve yours now:
               secure checkout, free UK delivery, 30-day returns.
             </p>
 
@@ -41,7 +41,7 @@ export function Closing({ shipMonth }: { shipMonth: string }) {
                 href="#buy"
                 className="caps inline-flex items-center gap-2.5 rounded-sm border border-ink-0 bg-ink-0 px-9 py-[18px] text-[13.5px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
               >
-                Pre-order — £24
+                Pre-order · £24
               </a>
               <a
                 href="#notify"

@@ -121,7 +121,7 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
                   </motion.span>
                 </AnimatePresence>
               }
-              bottomLeft={<PlaceholderNote>Specimen — set</PlaceholderNote>}
+              bottomLeft={<PlaceholderNote>Specimen · set</PlaceholderNote>}
               bottomRight="Worked"
               innerClassName="aspect-square"
             >
@@ -184,7 +184,7 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
             </div>
             <p className="mt-5 max-w-md text-[18px] leading-[1.65] text-ink-1">
               A massage &amp; recovery cream, worked into the body by hand or with
-              the optional steel tool — for skin that looks firmer, feels worked,
+              the optional steel tool, for skin that looks firmer, feels worked,
               and reads sharper. The cream is the product; the tool is an optional
               upgrade.
             </p>
@@ -235,11 +235,11 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
             {/* cream first, steel optional */}
             <div className="mt-8">
               <div className="caps text-[10px] font-medium text-ink-3">
-                The cream — add the steel if you want
+                The cream, add the steel if you want
               </div>
               <p className="mt-2 max-w-md text-[13px] leading-[1.5] text-ink-2">
                 The cream is the product. The steel tool is an optional upgrade.
-                Every option ships with <b className="font-semibold text-ink-1">The Movements</b> — the
+                Every option ships with <b className="font-semibold text-ink-1">The Movements</b>, the
                 illustrated technique guide.
               </p>
               <div className="mt-4 flex flex-col gap-2.5">
@@ -311,7 +311,7 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
                 onClick={onAdd}
                 className="flex-1 rounded-[5px] border border-ink-0 bg-ink-0 px-6 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
               >
-                Add to basket — <span className="font-semibold">£{total}</span>
+                Add to basket · <span className="font-semibold">£{total}</span>
               </button>
             </div>
             <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
@@ -327,7 +327,7 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
 
             {/* spec */}
             <div className="mt-12">
-              <SectionHead n="—" title="Specification" />
+              <SectionHead n="·" title="Specification" />
               {[
                 ["In the box", `${tier.unitLabel} + The Movements`],
                 ["The cream", "50ml · Massage & Recovery"],

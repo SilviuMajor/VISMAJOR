@@ -110,7 +110,7 @@ export default function CheckoutPage() {
                   className="mt-9 max-w-md pt-6 text-[13px] leading-[1.65] text-ink-2"
                   style={{ borderTop: "1px solid var(--hair)" }}
                 >
-                  This is a pre-order. No payment is taken now — we&apos;ll email you when
+                  This is a pre-order. No payment is taken now. We&apos;ll email you when
                   the first batch is ready to ship.
                 </p>
 

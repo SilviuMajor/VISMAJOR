@@ -7,7 +7,7 @@ import { NavPill } from "@/components/navlab/NavPill";
 import { NavMinimal } from "@/components/navlab/NavMinimal";
 
 export const metadata: Metadata = {
-  title: "VIS·MAJOR — nav concepts",
+  title: "VIS·MAJOR: nav concepts",
   robots: { index: false, follow: false },
 };
 

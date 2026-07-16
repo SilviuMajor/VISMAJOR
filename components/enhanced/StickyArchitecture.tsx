@@ -30,7 +30,7 @@ const ACTIVES = [
   {
     n: "03",
     name: "Tightening",
-    line: "Then a film-forming complex seals in the shape — an instantly tighter look.",
+    line: "Then a film-forming complex seals in the shape: an instantly tighter look.",
     cue: "Set",
   },
 ];

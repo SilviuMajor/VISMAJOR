@@ -66,7 +66,7 @@ export function OneJob() {
           transition={{ duration: 0.5, ease: [0.2, 0, 0, 1] }}
         >
           <span className="caps-loose text-[11px] font-medium text-ink-3">
-            01 — The Standard
+            01 · The Standard
           </span>
           <h3
             className="mt-4 font-semibold tracking-tight text-ink-0"
@@ -75,7 +75,7 @@ export function OneJob() {
             One job. Done well.
           </h3>
           <p className="mt-5 text-[16px] leading-relaxed text-ink-2">
-            A precision topical engineered around a single, deliberate result —
+            A precision topical engineered around a single, deliberate result:
             the whole product pointed at one thing.
           </p>
         </motion.div>

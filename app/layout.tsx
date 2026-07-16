@@ -43,11 +43,11 @@ const ebGaramond = EB_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "VIS MAJOR — Performance Topicals for Men",
+  title: "VIS MAJOR: Performance Topicals for Men",
   description:
     "A small house of precision topicals for men. Cosmetic, temporary by design, each engineered to do exactly one thing. Made in the UK.",
   openGraph: {
-    title: "VIS MAJOR — Performance Topicals for Men",
+    title: "VIS MAJOR: Performance Topicals for Men",
     description:
       "Precision topicals for men. Cosmetic, temporary by design. Made in the UK.",
     type: "website",

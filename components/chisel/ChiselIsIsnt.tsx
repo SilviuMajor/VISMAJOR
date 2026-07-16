@@ -46,7 +46,7 @@ export function ChiselIsIsnt() {
         <p className="mt-10 max-w-3xl text-[13px] leading-[1.6] text-paper-0/55">
           SCULPT changes how skin looks and feels for a while; it doesn't change
           your body. The optional steel tool is for massage and for working the
-          cream in — it is not a treatment for any condition.
+          cream in. It is not a treatment for any condition.
         </p>
       </Container>
     </section>

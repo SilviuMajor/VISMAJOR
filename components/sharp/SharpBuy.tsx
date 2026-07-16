@@ -193,10 +193,10 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
             </h2>
             <div className="caps mt-4 text-[15px] font-medium text-ink-1">Matte Cleanser</div>
             <p className="mt-1.5 caps text-[11px] font-medium text-ink-3">
-              With clay, charcoal &amp; mint — sulphate-free
+              With clay, charcoal &amp; mint, sulphate-free
             </p>
             <p className="mt-5 max-w-md text-[18px] leading-[1.65] text-ink-1">
-              A natural matte cleanser for men — clay, charcoal and mint that
+              A natural matte cleanser for men: clay, charcoal and mint that
               lift the day's oil and grime, then rinse away for a clean, fresh,
               matte finish. Wash-off, daily.
             </p>
@@ -315,7 +315,7 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
                 onClick={onAdd}
                 className="flex-1 rounded-[5px] border border-ink-0 bg-ink-0 px-6 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
               >
-                Add to basket — <span className="font-semibold">£{total}</span>
+                Add to basket · <span className="font-semibold">£{total}</span>
               </button>
             </div>
             <div className="mt-3 flex items-center justify-between">
@@ -331,7 +331,7 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
 
             {/* spec */}
             <div className="mt-12">
-              <SectionHead n="—" title="Specification" />
+              <SectionHead n="·" title="Specification" />
               {[
                 ["Net Quantity", tier.unitLabel],
                 ["Type", "Matte Cleanser · Wash-Off"],
@@ -362,7 +362,7 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
               <div>
                 <span className="caps text-[11px] font-semibold text-ink-2">Ingredients</span>
                 <p className="mt-2.5 max-w-md text-[14px] leading-[1.6] text-ink-1">
-                  With clay, charcoal &amp; mint — sulphate-free.
+                  With clay, charcoal &amp; mint, sulphate-free.
                 </p>
                 <p className="mt-2 max-w-md text-[12px] leading-[1.6] text-ink-3">
                   Aqua, Coco-Glucoside, Sodium Cocoyl Isethionate, Kaolin,
@@ -371,14 +371,11 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
                   Barbadensis Leaf Juice Powder, Sodium Chloride, Citric Acid,
                   Phenoxyethanol, Caprylyl Glycol, Ethylhexylglycerin, Parfum.
                 </p>
-                <p className="mt-1.5 caps text-[9.5px] font-medium text-ink-3">
-                  Full INCI · formulator to confirm
-                </p>
               </div>
               <div>
                 <span className="caps text-[11px] font-semibold text-ink-2">Warnings</span>
                 <p className="mt-2.5 max-w-md text-[14px] leading-[1.6] text-ink-2">
-                  For external use only. Avoid contact with eyes — rinse if
+                  For external use only. Avoid contact with eyes; rinse if
                   contact occurs. Patch test before first use; discontinue if
                   irritation occurs. Keep out of reach of children.
                 </p>

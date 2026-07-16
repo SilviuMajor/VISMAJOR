@@ -12,11 +12,11 @@ const MINT = "#14130F";
 const FAQS = [
   {
     q: "How does it leave skin?",
-    a: "Clean, fresh, and matte. STONE lifts the day's oil and grime without stripping — no greasy film, no shine.",
+    a: "Clean, fresh, and matte. STONE lifts the day's oil and grime without stripping: no greasy film, no shine.",
   },
   {
-    q: "When do I use it — morning or night?",
-    a: "Either. A coin of cleanser worked over damp skin, then rinsed clean — morning to start fresh, or night to lift the day away.",
+    q: "When do I use it, morning or night?",
+    a: "Either. A coin of cleanser worked over damp skin, then rinsed clean: morning to start fresh, or night to lift the day away.",
   },
   {
     q: "Will it suit my skin?",
@@ -24,11 +24,11 @@ const FAQS = [
   },
   {
     q: "Is it fragranced?",
-    a: "A cool hit of natural peppermint as you cleanse, then it rinses away — nothing perfumey left on the skin.",
+    a: "A cool hit of natural peppermint as you cleanse, then it rinses away, with nothing perfumey left on the skin.",
   },
   {
     q: "Does it leave any residue?",
-    a: "No. It absorbs fast and weightless — no white cast, no film, no sticky finish. Just skin that looks matte and feels comfortable.",
+    a: "No. It absorbs fast and weightless: no white cast, no film, no sticky finish. Just skin that looks matte and feels comfortable.",
   },
   {
     q: "Can I layer it, or wear it on its own?",

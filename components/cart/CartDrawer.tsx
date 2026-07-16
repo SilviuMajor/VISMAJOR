@@ -158,7 +158,7 @@ export function CartDrawer() {
                   <span className="num text-[19px] font-semibold text-ink-0">£{subtotal}</span>
                 </div>
                 <p className="caps mt-3 text-[9.5px] font-medium leading-relaxed text-ink-3">
-                  Pre-order — nothing is charged yet.
+                  Pre-order · nothing is charged yet.
                 </p>
                 <button
                   type="button"

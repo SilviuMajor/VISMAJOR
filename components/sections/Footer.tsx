@@ -101,7 +101,7 @@ export function Footer() {
 
         <p className="mt-6 text-[11px] leading-relaxed text-ink-3">
           <span className="italic">Mens sana in corpore sano</span>
-          <span className="text-ink-3/70"> — a sound mind in a sound body.</span>
+          <span className="text-ink-3/70">: a sound mind in a sound body.</span>
         </p>
       </Container>
     </footer>

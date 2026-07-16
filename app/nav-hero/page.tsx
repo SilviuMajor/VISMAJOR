@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 import { PRODUCTS, CartGlyph } from "@/components/navlab/parts";
 
 export const metadata: Metadata = {
-  title: "VIS·MAJOR — nav over hero",
+  title: "VIS·MAJOR: nav over hero",
   robots: { index: false, follow: false },
 };
 
@@ -115,7 +115,7 @@ export default function NavHeroLab() {
       {/* reference: the current problem — solid white over the dark hero */}
       <HeroBand
         label="Now · Solid white (the problem)"
-        note="The white bar sits hard against the dark mask — what we're replacing."
+        note="The white bar sits hard against the dark mask. This is what we're replacing."
         nav={
           <div className="bg-paper-0">
             <Bar tone="light" />
@@ -125,28 +125,28 @@ export default function NavHeroLab() {
 
       {/* A — dissolve */}
       <HeroBand
-        label="A · Dissolve — transparent over the hero"
-        note="No background, white type — sits inside the mask. Fades to a solid white bar once you scroll past the hero. (Shown here in its over-hero state.)"
+        label="A · Dissolve, transparent over the hero"
+        note="No background, white type, sits inside the mask. Fades to a solid white bar once you scroll past the hero. (Shown here in its over-hero state.)"
         nav={<Bar tone="dark" />}
       />
 
       {/* B — mark only */}
       <HeroBand
-        label="B · Mark only — VIS·MAJOR + basket"
+        label="B · Mark only: VIS·MAJOR + basket"
         note="Just the centred mark and the basket over the hero; the product links live in a menu / appear on the solid bar after scroll."
         nav={<Bar tone="dark" showLinks={false} showCta={false} />}
       />
 
       {/* C — hairline inscription */}
       <HeroBand
-        label="C · Hairline — faint, with a rule"
+        label="C · Hairline, faint, with a rule"
         note="Wide-tracked white type at low opacity, a hairline rule beneath, a dated right side. Barely-there and classical; floats over the hero."
         nav={<Bar tone="dark" rule dated ctaOutline="border-paper-0/25" />}
       />
 
       {/* D — none over hero */}
       <HeroBand
-        label="D · None — clean hero"
+        label="D · None: clean hero"
         note="No nav over the hero at all. The centred bar slides down the moment you scroll past the reveal."
         nav={<div className="h-[74px]" />}
       />

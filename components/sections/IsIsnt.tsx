@@ -24,7 +24,7 @@ export function IsIsnt() {
               className="mt-6 max-w-md font-semibold text-paper-0"
               style={{ fontSize: "clamp(21px, 2.3vw, 30px)", lineHeight: 1.3, letterSpacing: "-0.01em" }}
             >
-              A cosmetic cooling and tightening cream — a short-term,
+              A cosmetic cooling and tightening cream: a short-term,
               firmer-looking chest, and a confident edge.
             </p>
           </Reveal>

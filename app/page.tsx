@@ -1,9 +1,9 @@
 import { HomeComposition } from "@/components/house/HomeComposition";
 
 export const metadata = {
-  title: "VIS MAJOR — Performance Topicals for Men",
+  title: "VIS MAJOR: Performance Topicals for Men",
   description:
-    "A small house of precision topicals for men. Cosmetic, temporary by design. PECTUS, SCULPT and STONE — now on pre-order. Made in the UK.",
+    "A small house of precision topicals for men. Cosmetic, temporary by design. PECTUS, SCULPT and STONE, now on pre-order. Made in the UK.",
 };
 
 export default function Page() {

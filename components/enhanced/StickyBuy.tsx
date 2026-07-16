@@ -9,7 +9,7 @@ import { Countdown } from "@/components/enhanced/Countdown";
 import { useCart } from "@/lib/cart";
 
 type Tier = {
-  key: "1" | "2" | "3";
+  key: "1" | "2";
   label: string;
   unitLabel: string;
   price: number;
@@ -19,9 +19,8 @@ type Tier = {
 
 // `price` = early-bird pre-order price. `reg` = RRP at launch.
 const TIERS: Tier[] = [
-  { key: "1", label: "20ml", unitLabel: "20ml", price: 24, reg: 32 },
-  { key: "2", label: "40ml", unitLabel: "40ml", price: 42, reg: 56, note: "Most chosen" },
-  { key: "3", label: "2-pack", unitLabel: "2 × 20ml", price: 44, reg: 64, note: "Best value" },
+  { key: "1", label: "20ml", unitLabel: "20ml", price: 18, reg: 26 },
+  { key: "2", label: "2-pack", unitLabel: "2 × 20ml", price: 32, reg: 48, note: "Best value" },
 ];
 
 const GALLERY = [
@@ -73,7 +72,7 @@ const ORIGIN_ROWS: [string, string][] = [
 const BADGES = ["Made in the UK", "Cosmetic-Grade", "Cruelty-Free", "Vegan"];
 
 export function StickyBuy({ shipMonth }: { shipMonth: string }) {
-  const [tierKey, setTierKey] = useState<Tier["key"]>("2");
+  const [tierKey, setTierKey] = useState<Tier["key"]>("1");
   const [qty, setQty] = useState(1);
   const [shot, setShot] = useState(0);
   const [specTab, setSpecTab] = useState<SpecTabKey>("spec");
@@ -141,7 +140,7 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
                 >
                   <Image
                     src={GALLERY[shot].src}
-                    alt={`PECTUS — ${GALLERY[shot].label}`}
+                    alt={`PECTUS · ${GALLERY[shot].label}`}
                     fill
                     sizes="(max-width: 1024px) 80vw, 520px"
                     className="object-contain"
@@ -189,7 +188,7 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
             <div className="caps mt-4 text-[15px] font-medium text-ink-1">Cooling Chest Primer</div>
             <p className="mt-5 max-w-md text-[18px] leading-[1.65] text-ink-1">
               Works in minutes. Up to one hour of temporary firmness. With caffeine
-              and menthol agents — matte, lightly fragranced, undetectable.
+              and menthol agents: matte, lightly fragranced, undetectable.
             </p>
 
             {/* Early-bird price callout */}
@@ -294,7 +293,7 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
                 onClick={onAdd}
                 className="flex-1 rounded-[5px] border border-ink-0 bg-ink-0 px-6 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
               >
-                {`Add to basket — £${total}`}
+                {`Add to basket · £${total}`}
               </button>
             </div>
             <div className="mt-3 flex items-center justify-between">
@@ -367,7 +366,7 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
                   <div className="space-y-7">
                     <p className="text-[15px] leading-[1.6] text-ink-1">
                       A water-based formula with caffeine, a menthol cooling complex
-                      and a film-forming tightening system — matte, lightly fragranced.
+                      and a film-forming tightening system: matte, lightly fragranced.
                     </p>
                     <div>
                       <span className="caps text-[10px] font-medium text-ink-3">Three actives</span>

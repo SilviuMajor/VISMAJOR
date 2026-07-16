@@ -70,7 +70,7 @@ export function HeroColossus() {
           The Cooling Chest Primer.
         </motion.p>
         <motion.a href="#buy" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.85, ease: EASE }} className="mt-6 inline-flex rounded-[5px] bg-ink-0 px-9 py-[16px] text-[14px] font-semibold text-paper-0 transition-colors hover:bg-ink-1">
-          Pre-order — £24
+          Pre-order, £24
         </motion.a>
       </Container>
     </section>

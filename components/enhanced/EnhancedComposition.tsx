@@ -56,7 +56,7 @@ export function EnhancedComposition() {
         <NotifyBand />
       </main>
       <Footer />
-      <StickyBuyBar priceFrom="£24" label="PECTUS · 20ml" />
+      <StickyBuyBar priceFrom="£18" label="PECTUS · 20ml" />
     </>
   );
 }

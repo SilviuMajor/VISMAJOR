@@ -12,35 +12,35 @@ const EASE = [0.2, 0, 0, 1] as const;
 const FAQS = [
   {
     q: "How do I use it?",
-    a: "Work a thin layer into the skin and massage the area in slow, firm strokes — jaw down to neck, across the chest, along the midsection. The cream gives a long slip so you can keep working without dragging. About a minute per area is plenty. It's drawn from myofascial- and lymphatic-style massage technique.",
+    a: "Work a thin layer into the skin and massage the area in slow, firm strokes: jaw down to neck, across the chest, along the midsection. The cream gives a long slip so you can keep working without dragging. About a minute per area is plenty. It's drawn from myofascial- and lymphatic-style massage technique.",
   },
   {
     q: "Do I need the steel tool, or can I use my hands?",
-    a: "Your hands are all you need — the cream is the product and works on its own. The steel tool is an optional upgrade: its weight gives you more pressure and several contoured edges when you want more than your hands. Optional, never required.",
+    a: "Your hands are all you need. The cream is the product and works on its own. The steel tool is an optional upgrade: its weight gives you more pressure and several contoured edges when you want more than your hands. Optional, never required.",
   },
   {
     q: "What does it do to how my skin looks and feels?",
-    a: "Worked in, it gives skin a firmer, more defined, smoother-looking finish, and the area feels worked and eased afterward. It describes a look and a feel — not a change to your body.",
+    a: "Worked in, it gives skin a firmer, more defined, smoother-looking finish, and the area feels worked and eased afterward. It describes a look and a feel, not a change to your body.",
   },
   {
     q: "Where on the body can I use it?",
-    a: "Jaw and neck, chest, arms and midsection — anywhere you want a firmer, more defined look. For external use on unbroken skin only. Avoid the eyes.",
+    a: "Jaw and neck, chest, arms and midsection: anywhere you want a firmer, more defined look. For external use on unbroken skin only. Avoid the eyes.",
   },
   {
     q: "How long does the look last?",
-    a: "It's temporary. The defined, firmer-looking finish and the worked feeling read for a while after you work it in, then fade. Reapply whenever you want it back — it lasts for as long as you need it to read sharp.",
+    a: "It's temporary. The defined, firmer-looking finish and the worked feeling read for a while after you work it in, then fade. Reapply whenever you want it back. It lasts for as long as you need it to read sharp.",
   },
   {
     q: "Is it permanent? Does it change my body?",
-    a: "No. SCULPT is a cosmetic. It changes how the skin looks and feels for a short time — it is not fat loss or weight loss, and it does not alter your body in any way. The effect washes off.",
+    a: "No. SCULPT is a cosmetic. It changes how the skin looks and feels for a short time. It is not fat loss or weight loss, and it does not alter your body in any way. The effect washes off.",
   },
   {
     q: "Is the steel tool included?",
-    a: "It depends on the set. The Cream-only tier is the cream by itself — the full product. The other tiers add the optional weighted steel tool. You can see exactly what's in each set on the pre-order panel.",
+    a: "It depends on the set. The Cream-only tier is the cream by itself, the full product. The other tiers add the optional weighted steel tool. You can see exactly what's in each set on the pre-order panel.",
   },
   {
     q: "When will my pre-order ship?",
-    a: "The first batch ships in the launch month shown at checkout. Because the optional tool is machined to order the first run is limited — you'll get confirmation and tracking by email.",
+    a: "The first batch ships in the launch month shown at checkout. Because the optional tool is machined to order the first run is limited. You'll get confirmation and tracking by email.",
   },
 ];
 

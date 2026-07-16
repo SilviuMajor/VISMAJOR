@@ -16,7 +16,7 @@ export function HouseStrip() {
               </span>
             </div>
             <p className="max-w-[560px] text-[15.5px] leading-[1.7] text-ink-2">
-              Vis Major makes performance topicals for men — no theatre, no
+              Vis Major makes performance topicals for men. No theatre, no
               miracle claims. Just precise, fast-acting formulas built around a
               single result. PECTUS is the first.
             </p>

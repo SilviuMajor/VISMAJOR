@@ -12,7 +12,7 @@ const FILLED = Math.round((RESERVED_PCT / 100) * SEGMENTS);
 
 const QUOTES = [
   {
-    q: "Thirty seconds at the sink, morning and night. The day comes straight off — skin feels clean, never tight.",
+    q: "Thirty seconds at the sink, morning and night. The day comes straight off, and skin feels clean, never tight.",
     a: "Early tester · London",
   },
   {
@@ -20,7 +20,7 @@ const QUOTES = [
     a: "Early tester · Manchester",
   },
   {
-    q: "Skin looks clearer somehow — less shine, more life. It's become part of the routine.",
+    q: "Skin looks clearer somehow: less shine, more life. It's become part of the routine.",
     a: "Early tester · Leeds",
   },
 ];
@@ -130,9 +130,9 @@ export function SharpProof() {
             <p className="max-w-md pb-1 text-[16.5px] leading-[1.6] text-paper-0 lg:justify-self-end">
               Deliveries start <span className="font-semibold">September 2026</span>.
               Order now to lock the early-bird{" "}
-              <span className="font-mono font-semibold">£22</span> — it rises to{" "}
-              <span className="font-mono text-paper-0/45 line-through">£30</span> at launch
-              — and hold your place in a limited first run.
+              <span className="font-mono font-semibold">£22</span>, which rises to{" "}
+              <span className="font-mono text-paper-0/45 line-through">£30</span> at launch,
+              and hold your place in a limited first run.
             </p>
           </div>
         </Reveal>

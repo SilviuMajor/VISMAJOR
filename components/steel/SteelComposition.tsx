@@ -25,31 +25,31 @@ const EDGES: { n: string; name: string; use: string; body: string }[] = [
     n: "01",
     name: "The point",
     use: "Detail · knots, trigger spots",
-    body: "A fine, tapered point. Pinpoint a knot, work a trigger spot, or trace a tight seam of muscle — the precise edge.",
+    body: "A fine, tapered point. Pinpoint a knot, work a trigger spot, or trace a tight seam of muscle: the precise edge.",
   },
   {
     n: "02",
     name: "The long flat",
     use: "Drain · sweep, broad muscle",
-    body: "A long, even flat. Sweep the big planes, drain toward the lymph nodes, and glide the cream across the chest and back — the calm edge.",
+    body: "A long, even flat. Sweep the big planes, drain toward the lymph nodes, and glide the cream across the chest and back: the calm edge.",
   },
   {
     n: "03",
     name: "The hooked belly",
     use: "Reach · hook, deep pressure",
-    body: "A weighted, hooked belly. Reach the traps and back, hook into a tight band, and press deep into the big muscles — the powerful edge.",
+    body: "A weighted, hooked belly. Reach the traps and back, hook into a tight band, and press deep into the big muscles: the powerful edge.",
   },
 ];
 
 const CRAFT = [
-  ["Weighted", "Heavy enough to do the work — you guide, the steel presses."],
+  ["Weighted", "Heavy enough to do the work: you guide, the steel presses."],
   ["Machined", "Turned from stainless steel, then hand-finished to several contoured edges."],
-  ["Cold", "Steel stays cool on the skin — calming on worked, tender muscle."],
+  ["Cold", "Steel stays cool on the skin, calming on worked, tender muscle."],
   ["Made in the UK", "Small machined runs. Built to outlast everything else in the cabinet."],
 ];
 
 const USE = [
-  ["Work tension", "Slow, firm strokes along the muscle — ease knots and worked-out tightness after training."],
+  ["Work tension", "Slow, firm strokes along the muscle: ease knots and worked-out tightness after training."],
   ["Drain & de-puff", "Light sweeps toward the lymph nodes to move fluid and settle puffiness."],
   ["Contour & define", "Draw an edge along the jaw, neck and chest to leave the planes looking defined."],
   ["With the cream", "A few pumps of SCULPT gives the glide; the steel adds the weight. Together they make the ritual."],
@@ -76,7 +76,7 @@ export function SteelComposition() {
             <SectionHead n="01" title="One blade. Many edges." />
             <p className="mt-5 max-w-xl text-[16.5px] leading-[1.65] text-ink-1">
               STEEL is a single weighted blade, machined with several contoured
-              edges — a fine point, a long flat and a hooked belly. One tool
+              edges: a fine point, a long flat and a hooked belly. One tool
               covers many strokes: carve close, drain with the flat, hook into a
               tight band, press deep. Cold steel, heavy enough to do the work for
               you.
@@ -120,7 +120,7 @@ export function SteelComposition() {
                     Plastic flexes and warms. Steel doesn&apos;t. The weight gives
                     you pressure without effort, the edges give you a clean line,
                     and the cold keeps worked muscle calm. A tool made to last a
-                    lifetime — not a routine.
+                    lifetime, not a routine.
                   </p>
                   <div className="relative mt-8 h-[150px] w-[78%] max-w-[360px]">
                     <ToolPhoto tool="sword" sizes="360px" />
@@ -144,7 +144,7 @@ export function SteelComposition() {
           <Container>
             <SectionHead n="03" title="Massage & therapy." />
             <p className="mt-5 max-w-xl text-[16.5px] leading-[1.65] text-ink-1">
-              Four ways to use the steel — by hand on bare skin, or with a few
+              Four ways to use the steel: by hand on bare skin, or with a few
               pumps of the cream for glide. Cosmetic and physical only: massage,
               not medicine.
             </p>

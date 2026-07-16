@@ -31,7 +31,7 @@ export function HeritageBanner() {
       >
         <Image
           src="/figures/gyno.png"
-          alt="A classical figure — the standard"
+          alt="A classical figure, the standard"
           fill
           sizes="48vw"
           className="object-contain object-bottom opacity-[0.42] invert mix-blend-screen"
@@ -76,7 +76,7 @@ export function HeritageBanner() {
             lines={["Cool. Firm.", "Composed."]}
           />
           <p className="mt-7 max-w-md text-[16.5px] leading-[1.6] text-paper-0/70">
-            Engineered for men. One job, done well — a cosmetic, temporary by design.
+            Engineered for men. One job, done well: a cosmetic, temporary by design.
           </p>
 
           {/* figure — mobile: in flow, below the copy */}

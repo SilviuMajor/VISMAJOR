@@ -103,7 +103,7 @@ export function SteelHero({ priceFrom }: { priceFrom: string }) {
           className="relative z-20 flex flex-col items-center pb-12 text-center"
         >
           <p className="max-w-lg text-[16px] leading-[1.6] text-ink-1 md:text-[18px]">
-            Weighted, machined steel — for massage, recovery and working tension
+            Weighted, machined steel, for massage, recovery and working tension
             out of the muscle. The Sword, the Axe and the Dagger: many edges, one job.
           </p>
           <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
@@ -111,7 +111,7 @@ export function SteelHero({ priceFrom }: { priceFrom: string }) {
               href="#buy"
               className="rounded-[5px] bg-ink-0 px-7 py-[15px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
             >
-              Pre-order — from {priceFrom}
+              Pre-order · from {priceFrom}
             </a>
             <a
               href="#range"

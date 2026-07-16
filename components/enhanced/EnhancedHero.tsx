@@ -226,7 +226,7 @@ export function EnhancedHero({ shipMonth }: { shipMonth: string }) {
             className="mt-4 max-w-lg text-[16px] leading-[1.6] text-ink-2 md:text-[18px]"
           >
             A fast-acting cooling &amp; tightening cream. Works in minutes. Up to
-            one hour of temporary firmness — undetectable under a shirt.
+            one hour of temporary firmness, undetectable under a shirt.
           </motion.p>
 
           <motion.div
@@ -238,7 +238,7 @@ export function EnhancedHero({ shipMonth }: { shipMonth: string }) {
               href="#buy"
               className="inline-flex items-center justify-center gap-2.5 rounded-[5px] border border-ink-0 bg-ink-0 px-9 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
             >
-              Pre-order — £24
+              Pre-order · £24
             </Magnetic>
             <a
               href="#science"

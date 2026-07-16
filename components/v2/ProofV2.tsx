@@ -124,9 +124,9 @@ export function ProofV2() {
             <p className="max-w-md pb-1 text-[16.5px] leading-[1.6] text-paper-0 lg:justify-self-end">
               Deliveries start <span className="font-semibold">September 2026</span>.
               Order now to lock the early-bird{" "}
-              <span className="font-mono font-semibold">£24</span> — it rises to{" "}
-              <span className="font-mono text-paper-0/45 line-through">£32</span> at launch
-              — and hold your place in a limited first run.
+              <span className="font-mono font-semibold">£18</span>, before it rises to{" "}
+              <span className="font-mono text-paper-0/45 line-through">£26</span> at
+              launch, and hold your place in a limited first run.
             </p>
           </div>
         </Reveal>

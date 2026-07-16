@@ -7,7 +7,6 @@ import {
   useMotionValueEvent,
   useScroll,
 } from "framer-motion";
-import { Container } from "@/components/ui/Container";
 
 const OCCASIONS = [
   "The shirt that matters.",
@@ -19,11 +18,18 @@ const OCCASIONS = [
 
 const HAIR = "rgba(244,242,236,0.16)";
 
+/**
+ * "Five moments" — a pinned pan. Desktop pans horizontally; mobile pans
+ * vertically (same idea, rotated) so the moments still glide by one at a time.
+ */
 export function HorizontalUseBefore() {
   const sectionRef = useRef<HTMLElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
+  const trackX = useRef<HTMLDivElement>(null);
+  const trackY = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
-  const [maxScroll, setMaxScroll] = useState(0);
+  const y = useMotionValue(0);
+  const [maxX, setMaxX] = useState(0);
+  const [maxY, setMaxY] = useState(0);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -32,9 +38,8 @@ export function HorizontalUseBefore() {
 
   useEffect(() => {
     const measure = () => {
-      const track = trackRef.current;
-      if (!track) return;
-      setMaxScroll(Math.max(0, track.scrollWidth - window.innerWidth));
+      if (trackX.current) setMaxX(Math.max(0, trackX.current.scrollWidth - window.innerWidth));
+      if (trackY.current) setMaxY(Math.max(0, trackY.current.scrollHeight - window.innerHeight));
     };
     measure();
     window.addEventListener("resize", measure);
@@ -42,57 +47,66 @@ export function HorizontalUseBefore() {
   }, []);
 
   useMotionValueEvent(scrollYProgress, "change", (v) => {
-    x.set(-v * maxScroll);
+    x.set(-v * maxX);
+    y.set(-v * maxY);
   });
 
   return (
-    <section id="moments" ref={sectionRef} className="relative bg-ink-0 text-paper-0 lg:h-[600vh]">
-      {/* ---- Mobile / tablet: a clean vertical stack ---- */}
-      <div className="lg:hidden">
-        <Container className="py-20 md:py-24">
-          <div className="flex items-center gap-3.5">
-            <span className="h-px w-8 bg-paper-0/40" />
-            <span className="caps-loose text-[11px] font-medium text-paper-0/70">
-              Use Before
-            </span>
+    <section id="moments" ref={sectionRef} className="relative h-[480vh] bg-ink-0 text-paper-0 lg:h-[600vh]">
+      {/* ---- Mobile / tablet: a vertical pinned pan ---- */}
+      <div className="sticky top-0 h-screen overflow-hidden lg:hidden">
+        <motion.div ref={trackY} style={{ y }} className="flex w-full flex-col will-change-transform">
+          {/* intro */}
+          <div className="flex min-h-[82vh] flex-col justify-center px-6">
+            <div className="flex items-center gap-3.5">
+              <span className="h-px w-8 bg-paper-0/40" />
+              <span className="caps-loose text-[11px] font-medium text-paper-0/70">
+                Use Before
+              </span>
+            </div>
+            <h2
+              className="mt-6 font-bold uppercase text-paper-0"
+              style={{ fontSize: "clamp(44px, 13vw, 76px)", letterSpacing: "-0.03em", lineHeight: 0.95 }}
+            >
+              Five
+              <br />
+              moments.
+            </h2>
+            <p className="mt-5 max-w-xs text-[15px] leading-[1.6] text-paper-0/55">
+              Keep your composure on hand, for the moments that ask for it.
+            </p>
           </div>
-          <h2
-            className="mt-6 font-bold uppercase text-paper-0"
-            style={{ fontSize: "clamp(40px, 11vw, 76px)", letterSpacing: "-0.03em", lineHeight: 0.95 }}
-          >
-            Five moments.
-          </h2>
-          <p className="mt-5 max-w-xs text-[15px] leading-[1.6] text-paper-0/55">
-            Keep your composure on hand — for the moments that ask for it.
-          </p>
 
-          <ul className="mt-10">
-            {OCCASIONS.map((o, i) => (
-              <li
-                key={o}
-                className="flex items-baseline gap-5 border-t py-6"
-                style={{ borderColor: HAIR }}
+          {/* occasions */}
+          {OCCASIONS.map((o, i) => (
+            <div
+              key={o}
+              className="flex min-h-[62vh] flex-col justify-center border-t px-6"
+              style={{ borderColor: HAIR }}
+            >
+              <span className="caps text-[12px] font-medium text-paper-0/45">
+                0{i + 1}
+              </span>
+              <p
+                className="mt-3 font-bold uppercase text-paper-0"
+                style={{ fontSize: "clamp(34px, 10vw, 56px)", letterSpacing: "-0.025em", lineHeight: 1.02 }}
               >
-                <span className="caps text-[12px] font-medium text-paper-0/45">
-                  0{i + 1}
-                </span>
-                <p
-                  className="font-bold uppercase text-paper-0"
-                  style={{ fontSize: "clamp(26px, 7vw, 40px)", letterSpacing: "-0.02em", lineHeight: 1.05 }}
-                >
-                  {o}
-                </p>
-              </li>
-            ))}
-          </ul>
+                {o}
+              </p>
+            </div>
+          ))}
 
-          <div className="mt-12 border-t pt-10" style={{ borderColor: HAIR }}>
+          {/* outro */}
+          <div
+            className="flex min-h-[82vh] flex-col justify-center border-t px-6"
+            style={{ borderColor: HAIR }}
+          >
             <p className="caps text-[12px] font-medium text-paper-0/55">
               Whenever you want to feel
             </p>
             <p
               className="mt-3 font-bold uppercase text-paper-0"
-              style={{ fontSize: "clamp(40px, 12vw, 68px)", letterSpacing: "-0.025em", lineHeight: 1 }}
+              style={{ fontSize: "clamp(44px, 14vw, 68px)", letterSpacing: "-0.025em", lineHeight: 1 }}
             >
               Sharper.
             </p>
@@ -100,16 +114,16 @@ export function HorizontalUseBefore() {
               href="#buy"
               className="caps mt-8 inline-flex w-fit items-center gap-2.5 rounded-sm border border-paper-0 bg-paper-0 px-8 py-4 text-[12px] font-semibold text-ink-0 transition-colors hover:bg-transparent hover:text-paper-0"
             >
-              Pre-order — £24
+              Pre-order £18
             </a>
           </div>
-        </Container>
+        </motion.div>
       </div>
 
       {/* ---- Desktop: the cinematic horizontal pan ---- */}
       <div className="sticky top-0 hidden h-screen items-center overflow-hidden lg:flex">
         <motion.div
-          ref={trackRef}
+          ref={trackX}
           style={{ x }}
           className="flex items-center gap-0 will-change-transform"
         >
@@ -171,7 +185,7 @@ export function HorizontalUseBefore() {
               href="#buy"
               className="caps mt-9 inline-flex w-fit items-center gap-2.5 rounded-sm border border-paper-0 bg-paper-0 px-8 py-4 text-[12px] font-semibold text-ink-0 transition-colors hover:bg-transparent hover:text-paper-0"
             >
-              Pre-order — £24
+              Pre-order £18
             </a>
           </div>
         </motion.div>

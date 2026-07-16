@@ -24,17 +24,17 @@ const ACTIVES = [
   {
     n: "01",
     name: "Gliding Massage",
-    line: "A long, even slip so the cream glides — work it deep into the muscle, by hand or with the steel, in slow, deliberate strokes.",
+    line: "A long, even slip so the cream glides. Work it deep into the muscle, by hand or with the steel, in slow, deliberate strokes.",
   },
   {
     n: "02",
     name: "Moisturise",
-    line: "Conditioning agents sink in as you work — skin left soft, nourished and hydrated, never tight and never greasy.",
+    line: "Conditioning agents sink in as you work, leaving skin soft, nourished and hydrated, never tight and never greasy.",
   },
   {
     n: "03",
     name: "Firm & Define",
-    line: "A high-load caffeine complex leaves the worked area looking firmer, more awake and de-puffed — a harder, more defined look that holds.",
+    line: "A high-load caffeine complex leaves the worked area looking firmer, more awake and de-puffed: a harder, more defined look that holds.",
   },
 ];
 
@@ -59,9 +59,9 @@ export function ChiselArchitecture() {
 
   return (
     <section id="science" ref={ref} className="relative h-[320vh] bg-paper-1">
-      <div className="sticky top-0 flex h-screen items-center overflow-hidden">
+      <div className="sticky top-0 flex h-screen items-center overflow-hidden pb-24 sm:pb-0">
         <Container className="relative z-10 w-full">
-          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          <div className="grid grid-cols-1 items-center gap-6 sm:gap-10 lg:grid-cols-2 lg:gap-16">
             {/* Narrative */}
             <div className="order-2 lg:order-1">
               <div className="flex items-center gap-3.5">
@@ -71,7 +71,7 @@ export function ChiselArchitecture() {
                 </span>
               </div>
 
-              <div className="relative mt-8 min-h-[230px]">
+              <div className="relative mt-5 min-h-[104px] md:mt-8 md:min-h-[230px]">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={active}
@@ -85,11 +85,11 @@ export function ChiselArchitecture() {
                     </span>
                     <h3
                       className="mt-2 font-bold uppercase text-ink-0"
-                      style={{ fontSize: "clamp(44px, 6vw, 86px)", letterSpacing: "-0.03em", lineHeight: 0.95 }}
+                      style={{ fontSize: "clamp(30px, 6vw, 86px)", letterSpacing: "-0.03em", lineHeight: 0.95 }}
                     >
                       {ACTIVES[active].name}
                     </h3>
-                    <p className="mt-5 max-w-md text-[18px] leading-[1.65] text-ink-1">
+                    <p className="mt-4 max-w-md text-[15.5px] leading-[1.55] text-ink-1 sm:mt-5 sm:text-[18px] sm:leading-[1.65]">
                       {ACTIVES[active].line}
                     </p>
                   </motion.div>
@@ -97,7 +97,7 @@ export function ChiselArchitecture() {
               </div>
 
               {/* Rail */}
-              <div className="mt-10 flex items-stretch gap-5">
+              <div className="mt-6 flex items-stretch gap-5 sm:mt-10">
                 <div className="relative w-px bg-[var(--hair)]">
                   <motion.div
                     style={{ scaleY: railScale }}
@@ -130,9 +130,9 @@ export function ChiselArchitecture() {
                 topLeft="SCULPT / 002"
                 topRight="Cream"
                 bottomRight="50ml ℮"
-                bottomLeft={<PlaceholderNote>Specimen — cream</PlaceholderNote>}
+                bottomLeft={<PlaceholderNote>Specimen · cream</PlaceholderNote>}
               >
-                <div className="relative h-[40vh] w-[150px] md:h-[52vh] md:w-[190px]">
+                <div className="relative h-[26vh] w-[110px] sm:h-[40vh] sm:w-[150px] md:h-[52vh] md:w-[190px]">
                   {/* ember accent glow — builds with scroll */}
                   <motion.div
                     aria-hidden

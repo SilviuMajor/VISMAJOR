@@ -252,7 +252,7 @@ export function ChiselHero({ shipMonth }: { shipMonth: string }) {
             className="mt-4 max-w-xl text-[16px] leading-[1.6] text-ink-2 md:text-[18px]"
           >
             A recovery massage cream for men who train. Work it deep into the
-            muscle — by hand, or with the steel tools — to ease worked muscle, aid
+            muscle, by hand or with the steel tools, to ease worked muscle, aid
             recovery between sessions, and keep a hard-trained body looking firm
             and defined.
           </motion.p>
@@ -266,7 +266,7 @@ export function ChiselHero({ shipMonth }: { shipMonth: string }) {
               href="#buy"
               className="inline-flex items-center justify-center gap-2.5 rounded-[5px] border border-ink-0 bg-ink-0 px-9 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
             >
-              Pre-order — from £28
+              Pre-order · from £28
             </Magnetic>
             <a
               href="#how"

@@ -41,7 +41,7 @@ const STEPS = [
   {
     n: "02",
     title: "Work",
-    body: "Massage the contour by hand, or draw the optional steel tool along it — slow, firm strokes, edge to the skin.",
+    body: "Massage the contour by hand, or draw the optional steel tool along it: slow, firm strokes, edge to the skin.",
     cue: "Working",
   },
   {
@@ -140,7 +140,7 @@ export function ChiselRitual() {
               <SectionHead n="01" title="The ritual." />
               <p className="-mt-3 mb-2 max-w-md text-[16.5px] leading-[1.65] text-ink-2">
                 Work the cream into the body by hand, or with the optional steel
-                tool — a sixty-second massage that leaves the area worked and the
+                tool, a sixty-second massage that leaves the area worked and the
                 look sharper.
               </p>
               <ol className="mt-2 flex flex-col">

@@ -229,7 +229,7 @@ export function SharpHero({ shipMonth }: { shipMonth: string }) {
             transition={{ duration: 0.6, delay: 1.05, ease: EASE }}
             className="mt-4 max-w-lg text-[16px] leading-[1.6] text-ink-2 md:text-[18px]"
           >
-            A natural matte cleanser for men — clay, charcoal and mint that lift
+            A natural matte cleanser for men: clay, charcoal and mint that lift
             the day's oil and grime, then rinse away for a clean, fresh, matte
             finish.
           </motion.p>
@@ -243,7 +243,7 @@ export function SharpHero({ shipMonth }: { shipMonth: string }) {
               href="#buy"
               className="inline-flex items-center justify-center gap-2.5 rounded-[5px] border border-ink-0 bg-ink-0 px-9 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
             >
-              Pre-order — £22
+              Pre-order · £22
             </Magnetic>
             <a
               href="#how"

@@ -59,7 +59,7 @@ export function SculptFieldManual() {
             </Reveal>
             <Reveal delay={0.05}>
               <p className="mt-6 max-w-xl text-[18px] leading-[1.7] text-ink-1 md:text-[19px]">
-                Every order ships with The Movements — a printed, illustrated
+                Every order ships with The Movements: a printed, illustrated
                 guide to the technique. Where to start, how to work each area, the
                 order of the strokes, drawn from sports and deep-tissue massage.
                 Laid out step by step, so it runs the same every time. Free, in the

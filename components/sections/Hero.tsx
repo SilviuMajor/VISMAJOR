@@ -43,7 +43,7 @@ export function Hero({ shipMonth }: { shipMonth: string }) {
             >
               A fast-acting cream with caffeine and menthol agents. Cools on
               contact and visibly firms the look of skin. Matte, lightly
-              fragranced — undetectable under a shirt.
+              fragranced, undetectable under a shirt.
             </motion.p>
 
             <motion.div
@@ -55,7 +55,7 @@ export function Hero({ shipMonth }: { shipMonth: string }) {
                 href="#buy"
                 className="caps inline-flex items-center justify-center gap-2.5 rounded-sm border border-ink-0 bg-ink-0 px-9 py-[18px] text-[13.5px] font-semibold text-paper-0 transition-colors duration-200 hover:bg-ink-1"
               >
-                Pre-order — £24
+                Pre-order · £24
               </a>
               <a
                 href="#how"
@@ -103,7 +103,7 @@ export function Hero({ shipMonth }: { shipMonth: string }) {
               <div className="mx-auto max-w-[340px]">
                 <ProductShot
                   src="/product/front.png"
-                  alt="PECTUS Cooling Chest Primer — 20ml tube"
+                  alt="PECTUS Cooling Chest Primer, 20ml tube"
                   priority
                   melt={false}
                   sizes="(max-width: 1024px) 80vw, 420px"

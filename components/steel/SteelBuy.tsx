@@ -14,7 +14,7 @@ const SPEC: [string, string][] = [
   ["Best for", "Carve · drain · press · hook"],
   ["Edges", "Point · long flat · hooked belly"],
   ["Material", "Machined stainless steel"],
-  ["Finish", "Cold, weighted — it does the work"],
+  ["Finish", "Cold, weighted: it does the work"],
   ["Made By", "Vis Major · UK"],
 ];
 
@@ -74,7 +74,7 @@ export function SteelBuy({ shipMonth }: { shipMonth: string }) {
               Weighted massage &amp; therapy tool
             </div>
             <p className="mt-5 max-w-md text-[18px] leading-[1.65] text-ink-1">
-              One cold, machined-steel blade with several contoured edges — a fine
+              One cold, machined-steel blade with several contoured edges: a fine
               point, a long flat and a hooked belly. Heavy enough to do the work
               for you: carve, drain, hook and press, by hand or with the cream.
             </p>
@@ -119,7 +119,7 @@ export function SteelBuy({ shipMonth }: { shipMonth: string }) {
                 onClick={onAdd}
                 className="flex-1 rounded-[5px] border border-ink-0 bg-ink-0 px-6 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
               >
-                Add to basket — <span className="font-semibold">£{total}</span>
+                Add to basket · <span className="font-semibold">£{total}</span>
               </button>
             </div>
             <div className="mt-3 flex items-center justify-between">
@@ -135,7 +135,7 @@ export function SteelBuy({ shipMonth }: { shipMonth: string }) {
 
             {/* spec */}
             <div className="mt-12">
-              <SectionHead n="—" title="Specification" />
+              <SectionHead n="·" title="Specification" />
               {SPEC.map(([k, v]) => (
                 <div key={k} className="flex items-center justify-between border-b py-3" style={{ borderColor: "var(--hair)" }}>
                   <span className="caps text-[11px] font-medium text-ink-2">{k}</span>

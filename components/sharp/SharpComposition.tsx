@@ -45,15 +45,15 @@ export function SharpComposition() {
         <FirstBatchStrip count="1,400+" shipMonth={shipMonth} />
         <SharpTicker />
         <SharpActives />
-        <SharpProof />
         <SharpBuy shipMonth={shipMonth} />
         <SharpIsIsnt />
         <SharpFaq shipMonth={shipMonth} />
         <ProductQuote latin="Tabula rasa" translation="a clean slate." />
         <SharpFinalCta shipMonth={shipMonth} />
-        <SharpNotify />
+        <SharpProof />
       </main>
       <OtherProducts current="stone" />
+      <SharpNotify />
       <Footer />
       <StickyBuyBar priceFrom="£22" label="STONE · 100ml" href="#buy" />
     </>

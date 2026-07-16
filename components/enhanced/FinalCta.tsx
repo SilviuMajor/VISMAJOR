@@ -43,7 +43,7 @@ export function FinalCta({ shipMonth }: { shipMonth: string }) {
               href="#buy"
               className="inline-flex items-center justify-center gap-2.5 rounded-[5px] border border-paper-0 bg-paper-0 px-10 py-[20px] text-[14px] font-semibold text-ink-0 transition-colors hover:bg-transparent hover:text-paper-0"
             >
-              Pre-order — £24
+              Pre-order £18
             </a>
             <a
               href="#notify"

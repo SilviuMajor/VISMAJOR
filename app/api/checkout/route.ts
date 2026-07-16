@@ -14,9 +14,8 @@ const CATALOG: Record<
   "pectus": {
     name: "PECTUS Cooling Chest Primer",
     tiers: {
-      "1": { label: "20ml", amount: 2400 },
-      "2": { label: "40ml", amount: 4200 },
-      "3": { label: "2 × 20ml", amount: 4400 },
+      "1": { label: "20ml", amount: 1800 },
+      "2": { label: "2 × 20ml", amount: 3200 },
     },
   },
   sculpt: {
@@ -84,7 +83,7 @@ export async function POST(req: Request) {
               currency: "gbp",
               unit_amount: tierInfo.amount,
               product_data: {
-                name: `${entry.name} — ${tierInfo.label}`,
+                name: `${entry.name}: ${tierInfo.label}`,
                 description: `Pre-order. Ships ${
                   process.env.PREORDER_SHIP_MONTH ?? "TBA"
                 }.`,

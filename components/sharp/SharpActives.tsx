@@ -26,14 +26,14 @@ const ACTIVES = [
     n: "02",
     name: "Activated Charcoal",
     tag: "The lift",
-    line: "Activated charcoal binds to grime and lifts it away on the rinse — nothing left behind but clean skin.",
+    line: "Activated charcoal binds to grime and lifts it away on the rinse, leaving nothing behind but clean skin.",
     diagram: "charcoal",
   },
   {
     n: "03",
     name: "Peppermint",
     tag: "The finish",
-    line: "A touch of natural peppermint leaves a cool, fresh finish as it rinses — gentle and sulphate-free, never stripping.",
+    line: "A touch of natural peppermint leaves a cool, fresh finish as it rinses: gentle and sulphate-free, never stripping.",
     diagram: "mint",
   },
 ];

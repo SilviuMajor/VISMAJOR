@@ -33,7 +33,7 @@ export function Ingredients() {
               <div className="relative h-[86%] w-[86%]">
                 <Image
                   src="/product/back.png"
-                  alt="PECTUS reverse label — directions, ingredients and barcode"
+                  alt="PECTUS reverse label: directions, ingredients and barcode"
                   fill
                   sizes="(max-width: 1024px) 80vw, 420px"
                   className="object-contain"

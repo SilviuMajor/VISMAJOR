@@ -29,7 +29,7 @@ export function HouseStandard() {
       >
         <Image
           src="/figures/general.png"
-          alt="A classical figure — the standard"
+          alt="A classical figure, the standard"
           fill
           sizes="48vw"
           className="object-contain object-bottom opacity-[0.5] mix-blend-multiply"
@@ -58,7 +58,7 @@ export function HouseStandard() {
           </h2>
           <p className="mt-7 max-w-md text-[16.5px] leading-[1.6] text-ink-2">
             VIS MAJOR makes precision topicals for men. No theatre, no promises we
-            cannot keep — cosmetic, temporary by design, each engineered to do
+            cannot keep. Cosmetic, temporary by design, each engineered to do
             exactly one thing. Made in the UK, to one standard.
           </p>
 

@@ -3,19 +3,6 @@ import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { ToolPhoto } from "@/components/steel/ToolPhoto";
 
-const TOOLS = [
-  {
-    t: "The Fine Edge",
-    use: "Control · jaw, neck, forearms",
-    b: "A fine point and contoured edge on the tool, for detail and control on the smaller lines of the face and arms.",
-  },
-  {
-    t: "The Long Edge",
-    use: "Reach · chest, back, legs",
-    b: "The long flat edge of the tool, for reach and leverage across the broad planes — chest, back and legs.",
-  },
-];
-
 /** "The Tool (optional)" — the steel tool is an add-on, never the product. */
 export function SculptTools() {
   return (
@@ -39,7 +26,7 @@ export function SculptTools() {
           </h2>
           <p className="mt-5 max-w-xl text-[16.5px] leading-[1.6] text-ink-1">
             The cream is the product. The SCULPT steel tool is an optional
-            add-on for anyone who wants more from the ritual — one weighted blade
+            add-on for anyone who wants more from the ritual: one weighted blade
             with several edges, made for massage and for working the cream in. Not
             medical, not a treatment.
           </p>
@@ -53,34 +40,6 @@ export function SculptTools() {
             </div>
           </div>
         </Reveal>
-
-        <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-14">
-          {TOOLS.map((t, i) => (
-            <Reveal key={t.t} delay={i * 0.06}>
-              <div
-                className="flex h-full flex-col border-t pt-7"
-                style={{ borderColor: "var(--hair)" }}
-              >
-                <div className="flex items-center justify-between">
-                  <h3 className="text-[18px] font-bold tracking-tight text-ink-0">
-                    {t.t}
-                  </h3>
-                  <span
-                    className="inline-block h-1.5 w-1.5 rounded-full"
-                    style={{ background: "#14130F" }}
-                  />
-                </div>
-                <span
-                  className="caps mt-2 text-[10px] font-medium"
-                  style={{ color: "#14130F" }}
-                >
-                  {t.use}
-                </span>
-                <p className="mt-4 text-[15px] leading-[1.6] text-ink-2">{t.b}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
 
         <Reveal>
           <Link

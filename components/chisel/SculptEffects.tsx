@@ -10,7 +10,7 @@ const EFFECTS = [
   {
     n: "02",
     t: "Smoother",
-    b: "Worked in slow strokes, the surface looks smoother and more even — the appearance of dimpling softened.",
+    b: "Worked in slow strokes, the surface looks smoother and more even, with the appearance of dimpling softened.",
   },
   {
     n: "03",
