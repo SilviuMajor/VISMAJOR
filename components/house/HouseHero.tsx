@@ -1,13 +1,8 @@
 "use client";
 
-import { useRef, type MouseEvent } from "react";
-import Image from "next/image";
 import {
   motion,
-  useMotionValue,
   useReducedMotion,
-  useSpring,
-  useTransform,
   type Variants,
 } from "framer-motion";
 import { Container } from "@/components/ui/Container";
@@ -18,25 +13,6 @@ const EASE = [0.16, 1, 0.3, 1] as const;
 
 export function HouseHero() {
   const reduce = useReducedMotion();
-  const ref = useRef<HTMLElement>(null);
-  // cursor parallax — the flagship tube tracks the mouse across the landing
-  const mx = useMotionValue(0);
-  const my = useMotionValue(0);
-  const sx = useSpring(mx, { stiffness: 60, damping: 16, mass: 0.5 });
-  const sy = useSpring(my, { stiffness: 60, damping: 16, mass: 0.5 });
-  const tubeX = useTransform(sx, [-0.5, 0.5], reduce ? [0, 0] : [-44, 44]);
-  const tubeY = useTransform(sy, [-0.5, 0.5], reduce ? [0, 0] : [-28, 28]);
-  const tubeRot = useTransform(sx, [-0.5, 0.5], reduce ? [0, 0] : [-9, 9]);
-  const onMove = (e: MouseEvent) => {
-    const r = ref.current?.getBoundingClientRect();
-    if (!r) return;
-    mx.set((e.clientX - r.left) / r.width - 0.5);
-    my.set((e.clientY - r.top) / r.height - 0.5);
-  };
-  const onLeave = () => {
-    mx.set(0);
-    my.set(0);
-  };
 
   const lines: Variants = {
     hidden: {},
@@ -50,10 +26,7 @@ export function HouseHero() {
 
   return (
     <section
-      ref={ref}
       id="top"
-      onMouseMove={onMove}
-      onMouseLeave={onLeave}
       className="relative flex min-h-[calc(100svh-104px)] flex-col items-center justify-center overflow-hidden py-16"
     >
       {/* the house — a subtle classical temple behind the mark.
@@ -150,38 +123,6 @@ export function HouseHero() {
           ))}
         </motion.div>
 
-        {/* the flagship — a real product on the house page */}
-        <motion.div
-          initial={{ opacity: 0, y: 28 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1, ease: EASE }}
-          className="relative mt-12"
-        >
-          <span
-            aria-hidden
-            className="absolute left-1/2 top-1/2 -z-10 h-[58%] w-[78%] -translate-x-1/2 -translate-y-1/2 rounded-full blur-2xl"
-            style={{ background: "radial-gradient(circle, rgba(20,19,15,0.05), transparent 70%)" }}
-          />
-          <motion.div style={{ x: tubeX, y: tubeY, rotate: tubeRot }}>
-            <motion.div
-              animate={reduce ? {} : { y: [0, -9, 0] }}
-              transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut" }}
-              className="relative h-[24vh] min-h-[150px] w-[150px] md:w-[180px]"
-            >
-              <Image
-                src="/product/front.png"
-                alt="PECTUS — a VIS MAJOR topical"
-                fill
-                priority
-                sizes="200px"
-                className="object-contain drop-shadow-[0_28px_46px_rgba(20,19,15,0.16)]"
-              />
-            </motion.div>
-          </motion.div>
-          <span className="mt-4 block caps text-[10px] font-medium text-ink-3">
-            PECTUS — the flagship
-          </span>
-        </motion.div>
       </Container>
     </section>
   );
