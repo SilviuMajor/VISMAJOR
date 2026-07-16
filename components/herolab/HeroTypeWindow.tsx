@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useId, useRef } from "react";
+import { ReactNode, useEffect, useId, useRef, useState } from "react";
 import Image from "next/image";
 import {
   motion,
@@ -179,6 +179,29 @@ export function HeroTypeWindow({
   const ref = useRef<HTMLElement>(null);
   const uid = useId().replace(/:/g, "");
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
+  const { scrollY } = useScroll();
+
+  // Hold the word dead-centre and still from the very first frame. The pinned
+  // section only pins after it scrolls up past the announcement + nav; until
+  // then we counter-translate it so it sits pinned at centre with no drift — the
+  // reveal still begins as it pins (same timing). ~110px = announcement + nav.
+  const [pin, setPin] = useState({ dist: 110, on: true });
+  useEffect(() => {
+    const measure = () => {
+      const el = ref.current;
+      if (!el) return;
+      const top = Math.max(0, Math.round(el.getBoundingClientRect().top + window.scrollY));
+      // only settle when this hero opens the page (product pages ≈ 110px); skip
+      // it when the component sits far down a page (e.g. the stacked /hero-lab).
+      setPin({ dist: top, on: top < window.innerHeight * 0.6 });
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
+  const settleY = useTransform(scrollY, (y) =>
+    reduce || !pin.on ? 0 : Math.min(0, Math.max(-pin.dist, y - pin.dist)),
+  );
 
   // the word is centred + readable from first view; the instant you scroll it
   // grows and the dark field dissolves together — no initial hold, no dead gap.
@@ -214,7 +237,7 @@ export function HeroTypeWindow({
 
   return (
     <section ref={ref} onMouseMove={onMove} onMouseLeave={onLeave} className="relative bg-paper-0" style={{ height: "320vh" }}>
-      <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
+      <motion.div style={{ y: settleY }} className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
         {/* static scene, behind everything — faint throughout when overlayAlwaysOn */}
         <div aria-hidden className="absolute inset-0 z-0 overflow-hidden">
           <Image src={cfg.scene} alt="" fill priority sizes="100vw" className={`object-cover ${cfg.sceneObjectMobile} md:object-center ${overlayAlwaysOn ? "mix-blend-multiply" : ""}`} style={{ opacity: overlayAlwaysOn ? 0.46 : 1 }} />
@@ -291,7 +314,7 @@ export function HeroTypeWindow({
             </div>
           </Container>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 }

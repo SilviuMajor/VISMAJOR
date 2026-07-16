@@ -9,7 +9,7 @@ export function Announcement({
   messageShort?: string;
 }) {
   return (
-    <div className="bg-ink-0 text-paper-0">
+    <div className="relative z-40 bg-ink-0 text-paper-0">
       <div className="mx-auto flex h-9 max-w-[1200px] items-center justify-center px-6 caps text-[10px] font-semibold text-paper-0/90 sm:text-[10.5px]">
         {message ? (
           <>
