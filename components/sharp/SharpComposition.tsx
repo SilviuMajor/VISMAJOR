@@ -43,13 +43,13 @@ export function SharpComposition() {
       <main>
         <HeroTypeWindow product="stone" overlayAlwaysOn />
         <FirstBatchStrip count="1,400+" shipMonth={shipMonth} />
-        <ProductQuote latin="Tabula rasa" translation="a clean slate." />
         <SharpTicker />
         <SharpActives />
         <SharpProof />
         <SharpBuy shipMonth={shipMonth} />
         <SharpIsIsnt />
         <SharpFaq shipMonth={shipMonth} />
+        <ProductQuote latin="Tabula rasa" translation="a clean slate." />
         <SharpFinalCta shipMonth={shipMonth} />
         <SharpNotify />
       </main>

@@ -40,7 +40,6 @@ export function ChiselComposition() {
       <main>
         <HeroTypeWindow product="sculpt" overlayAlwaysOn />
         <FirstBatchStrip count="1,400+" shipMonth={shipMonth} />
-        <ProductQuote latin="Labor omnia vincit" translation="work conquers all." />
         <ChiselTicker />
         <SculptWhatItDoes />
         <SculptEffects />
@@ -52,6 +51,7 @@ export function ChiselComposition() {
         <SculptTools />
         <ChiselIsIsnt />
         <ChiselFaq shipMonth={shipMonth} />
+        <ProductQuote latin="Labor omnia vincit" translation="work conquers all." />
         <ChiselFinalCta shipMonth={shipMonth} />
         <ChiselNotify />
         <OtherProducts current="sculpt" />

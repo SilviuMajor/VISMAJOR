@@ -10,19 +10,31 @@ export function SculptFieldManual() {
     >
       <Container>
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[5fr_7fr] lg:gap-16">
-          {/* book specimen placeholder (cover art drops in later) */}
+          {/* the book — an outline of The Movements guide */}
           <Reveal>
-            <div className="relative mx-auto aspect-[3/4] w-full max-w-[320px]">
-              <div className="flex h-full flex-col items-center justify-center px-8 text-center">
-                <span className="caps-loose text-[10px] font-medium text-ink-3">The</span>
+            <div className="relative mx-auto aspect-[3/4] w-full max-w-[300px]">
+              <svg viewBox="0 0 240 320" className="absolute inset-0 h-full w-full" fill="none" aria-hidden>
+                {/* pages peeking behind the cover */}
+                <path d="M206 60 L 214 68 L 214 288 L 46 288 L 38 280" stroke="var(--hair-strong)" strokeWidth={1} strokeLinejoin="round" strokeLinecap="round" />
+                {/* front cover */}
+                <rect x={32} y={48} width={174} height={232} rx={4} stroke="var(--ink-0)" strokeWidth={1.6} />
+                {/* spine crease */}
+                <line x1={48} y1={52} x2={48} y2={276} stroke="var(--ink-0)" strokeWidth={0.9} />
+                {/* a massage-stroke emblem with a direction arrow */}
+                <path d="M100 214 C 142 220 150 248 116 260" stroke="var(--ink-2)" strokeWidth={1.4} strokeLinecap="round" />
+                <path d="M116 260 L 128 258 M116 260 L 121 249" stroke="var(--ink-2)" strokeWidth={1.4} strokeLinecap="round" />
+              </svg>
+              {/* title on the cover */}
+              <div className="absolute inset-0 flex flex-col items-center pt-[25%] text-center">
+                <span className="caps-loose text-[9px] font-medium text-ink-3">The</span>
                 <span
-                  className="mt-2 font-bold uppercase text-ink-0"
-                  style={{ fontSize: "clamp(34px, 4.4vw, 52px)", letterSpacing: "-0.02em", lineHeight: 0.95 }}
+                  className="mt-1.5 font-serif font-semibold uppercase text-ink-0"
+                  style={{ fontSize: "clamp(20px, 2.6vw, 27px)", letterSpacing: "0.06em", lineHeight: 0.95 }}
                 >
                   Movements
                 </span>
-                <span className="mt-5 h-px w-12 bg-[var(--hair-strong)]" />
-                <span className="mt-5 caps text-[9.5px] font-medium text-ink-3">
+                <span className="mt-3.5 h-px w-9 bg-[var(--hair-strong)]" />
+                <span className="mt-3.5 caps text-[8px] font-medium text-ink-3">
                   Illustrated · Step by Step
                 </span>
               </div>

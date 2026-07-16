@@ -42,54 +42,51 @@ const ACTIVES = [
    drawn in hairlines. `draw` (0→1) animates the key motion as it scrolls in. */
 function Diagram({ kind, draw }: { kind: string; draw: number }) {
   if (kind === "clay") {
-    // a clay poultice draws the oil up + out of the pores
-    const pores = [58, 88, 118, 148];
+    // lifting the dirt: grime drawn up + out of the pores, leaving them clean
+    const pores = [56, 86, 116, 146];
     return (
       <g fill="none">
-        {/* clay band, hatched */}
-        <rect x={36} y={40} width={128} height={28} rx={2} stroke="var(--ink-0)" strokeWidth={1.2} />
-        {[48, 62, 76, 90, 104, 118, 132, 146, 158].map((x) => (
-          <line key={"h" + x} x1={x} y1={42} x2={x - 7} y2={66} stroke="var(--hair-strong)" strokeWidth={0.7} />
-        ))}
-        {/* skin surface + pore openings */}
-        <line x1={28} y1={152} x2={172} y2={152} stroke="var(--ink-0)" strokeWidth={1.2} />
+        {/* skin surface with open pores */}
+        <line x1={26} y1={160} x2={174} y2={160} stroke="var(--ink-0)" strokeWidth={1.3} />
         {pores.map((x) => (
-          <path key={"p" + x} d={`M${x - 9} 152 Q ${x} 139 ${x + 9} 152`} stroke="var(--ink-1)" strokeWidth={1.1} />
+          <path key={"p" + x} d={`M${x - 11} 160 Q ${x} 176 ${x + 11} 160`} stroke="var(--ink-1)" strokeWidth={1.1} />
         ))}
-        {/* oil drawn up out of the pores into the clay */}
-        {pores.map((x) => (
-          <g key={"o" + x}>
-            <motion.line x1={x} y1={146} x2={x} y2={72} stroke="var(--hair-strong)" strokeWidth={0.9} style={{ pathLength: draw }} />
-            <circle cx={x} cy={146 - draw * 72} r={3.6} fill={MINT} opacity={0.35 + draw * 0.5} />
-          </g>
-        ))}
+        {/* dirt lifted up + out of each pore */}
+        {pores.map((x) => {
+          const cy = 168 - draw * 116;
+          return (
+            <g key={"d" + x}>
+              <motion.line x1={x} y1={166} x2={x} y2={56} stroke="var(--hair-strong)" strokeWidth={0.8} strokeDasharray="1.5 3.5" style={{ pathLength: draw }} />
+              <circle cx={x} cy={cy} r={4} fill={MINT} opacity={0.85 - draw * 0.25} />
+              <circle cx={x + 3.5} cy={cy - 4.5} r={2} fill={MINT} opacity={0.6 - draw * 0.2} />
+              <path d={`M${x} ${cy - 10} l -3.5 5 M${x} ${cy - 10} l 3.5 5`} stroke="var(--ink-1)" strokeWidth={1} strokeLinecap="round" />
+            </g>
+          );
+        })}
       </g>
     );
   }
   if (kind === "charcoal") {
-    // porous carbon binds the grime; the rinse lifts it away
-    const grime: [number, number][] = [[62, 118], [86, 132], [110, 118], [134, 130], [98, 106]];
+    // activated charcoal — angular carbon chunks that bind the grime
+    const grime: [number, number][] = [[44, 116], [100, 66], [154, 116], [82, 154], [132, 150]];
+    const facets: [number, number, number, number][] = [
+      [66, 90, 74, 118], [90, 98, 74, 118],
+      [128, 76, 122, 106], [146, 92, 122, 106],
+      [120, 122, 110, 150], [140, 136, 110, 150],
+    ];
     return (
       <g fill="none">
-        {/* activated-carbon block — a porous lattice */}
-        <rect x={44} y={96} width={112} height={52} rx={2} stroke="var(--ink-0)" strokeWidth={1.2} />
-        {[60, 76, 92, 108, 124, 140].map((x) => (
-          <line key={"cv" + x} x1={x} y1={96} x2={x} y2={148} stroke="var(--hair-strong)" strokeWidth={0.6} />
+        {/* three charcoal chunks */}
+        <path d="M48 104 L 66 90 L 90 98 L 96 122 L 78 136 L 54 128 Z" stroke="var(--ink-0)" strokeWidth={1.3} strokeLinejoin="round" />
+        <path d="M104 82 L 128 76 L 146 92 L 140 112 L 118 120 L 100 104 Z" stroke="var(--ink-0)" strokeWidth={1.3} strokeLinejoin="round" />
+        <path d="M96 128 L 120 122 L 140 136 L 132 158 L 108 160 L 90 146 Z" stroke="var(--ink-0)" strokeWidth={1.3} strokeLinejoin="round" />
+        {/* facet lines — the carbon texture */}
+        {facets.map(([x1, y1, x2, y2], i) => (
+          <line key={"f" + i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="var(--hair-strong)" strokeWidth={0.7} />
         ))}
-        {[110, 124, 138].map((y) => (
-          <line key={"ch" + y} x1={44} y1={y} x2={156} y2={y} stroke="var(--hair-strong)" strokeWidth={0.6} />
-        ))}
-        {/* grime bound in the carbon */}
+        {/* grime binding to the charcoal — draws in as you scroll */}
         {grime.map(([x, y], i) => (
-          <circle key={"g" + i} cx={x} cy={y} r={2.6} fill={MINT} opacity={0.5} />
-        ))}
-        {/* the rinse sweeps across the top and lifts grime away */}
-        <motion.path d="M30 78 Q100 66 170 78" stroke={MINT} strokeWidth={1.5} strokeLinecap="round" style={{ pathLength: draw }} />
-        {[70, 100, 130].map((x) => (
-          <g key={"lift" + x}>
-            <motion.line x1={x} y1={94} x2={x} y2={72} stroke="var(--ink-1)" strokeWidth={0.8} style={{ pathLength: draw }} />
-            <circle cx={x} cy={92 - draw * 20} r={2.4} fill={MINT} opacity={0.55 - draw * 0.4} />
-          </g>
+          <circle key={"g" + i} cx={x} cy={y} r={2.6 * (0.3 + draw * 0.7)} fill={MINT} opacity={0.6} />
         ))}
       </g>
     );

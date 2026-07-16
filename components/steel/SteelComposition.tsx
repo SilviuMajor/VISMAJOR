@@ -69,7 +69,6 @@ export function SteelComposition() {
       <main>
         <HeroTypeWindow product="steel" overlayAlwaysOn />
         <FirstBatchStrip count="600+" shipMonth={shipMonth} />
-        <ProductQuote latin="Ferrum ferro acuitur" translation="iron is sharpened by iron." />
 
         {/* ── One blade, many edges ─────────────────────────────── */}
         <section id="edges" className="scroll-mt-24 border-t py-16 md:py-24" style={{ borderColor: "var(--hair)" }}>
@@ -166,6 +165,8 @@ export function SteelComposition() {
         </section>
 
         <SteelBuy shipMonth={shipMonth} />
+
+        <ProductQuote latin="Ferrum ferro acuitur" translation="iron is sharpened by iron." />
 
         {/* ── Pairs with SCULPT ─────────────────────────────────── */}
         <section className="border-t bg-paper-1 py-20 md:py-28" style={{ borderColor: "var(--hair)" }}>

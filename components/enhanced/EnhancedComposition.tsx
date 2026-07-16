@@ -40,7 +40,6 @@ export function EnhancedComposition() {
         <FirstBatchStrip shipMonth={shipMonth} />
         <StickyArchitecture />
         <Ticker />
-        <ProductQuote latin="Mens sana in corpore sano" translation="a sound mind in a sound body." />
         <HorizontalUseBefore />
         <OneJob />
         <ProofV2 />
@@ -51,9 +50,10 @@ export function EnhancedComposition() {
           <IsIsnt />
         </SceneSection>
         <FaqV2 shipMonth={shipMonth} />
+        <ProductQuote latin="Mens sana in corpore sano" translation="a sound mind in a sound body." />
         <FinalCta shipMonth={shipMonth} />
-        <NotifyBand />
         <OtherProducts current="pectus" />
+        <NotifyBand />
       </main>
       <Footer />
       <StickyBuyBar priceFrom="£24" label="PECTUS · 20ml" />

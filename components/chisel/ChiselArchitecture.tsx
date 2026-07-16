@@ -15,26 +15,26 @@ import { CreamTube, EMBER } from "@/components/chisel/Art";
 
 /**
  * THE ARCHITECTURE (id="science") — a pinned scroll sequence at the calibre of
- * PECTUS's StickyArchitecture, with SCULPT's own execution: three actives, an
- * active rail, and an ember accent that builds on the pinned cream as you pass
- * through the phases. Claim-safe: every line is feel & finish only.
+ * PECTUS's StickyArchitecture, with SCULPT's own execution: three steps, a
+ * rail, and an ember accent that builds on the pinned cream as you pass
+ * through them. Claim-safe: every line is feel & finish only.
  */
 
 const ACTIVES = [
   {
     n: "01",
-    name: "Slip Complex",
-    line: "A slip and glide complex that lets the cream work smoothly — a long, even slip so you can massage an area by hand or with the tool.",
+    name: "Gliding Massage",
+    line: "A long, even slip so the cream glides — work it deep into the muscle, by hand or with the steel, in slow, deliberate strokes.",
   },
   {
     n: "02",
-    name: "Caffeine",
-    line: "A high-load caffeine complex for a firmer, more awake, de-puffed look across the worked area.",
+    name: "Moisturise",
+    line: "Conditioning agents sink in as you work — skin left soft, nourished and hydrated, never tight and never greasy.",
   },
   {
     n: "03",
-    name: "Conditioning",
-    line: "A conditioning, smoothing agent sets the finish — a matte, smoother-looking surface that reads sharp until you wash it off.",
+    name: "Firm & Define",
+    line: "A high-load caffeine complex leaves the worked area looking firmer, more awake and de-puffed — a harder, more defined look that holds.",
   },
 ];
 
