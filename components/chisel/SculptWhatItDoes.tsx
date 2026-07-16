@@ -6,7 +6,7 @@ import { RomanBehind } from "@/components/ui/RomanBehind";
 export function SculptWhatItDoes() {
   return (
     <section className="relative overflow-hidden py-16 md:py-24">
-      <RomanBehind figure="/men/sculpt-work.png" side="right" opacity={0.2} />
+      <RomanBehind figure="/men/sculpt-figure.png" side="right" opacity={0.2} />
       <Container className="relative z-10">
         <Reveal>
           <div className="flex items-center gap-3.5">
