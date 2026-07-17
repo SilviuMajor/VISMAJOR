@@ -5,6 +5,7 @@ import {
   motion,
   useMotionValue,
   useMotionValueEvent,
+  useReducedMotion,
   useScroll,
 } from "framer-motion";
 
@@ -18,18 +19,25 @@ const OCCASIONS = [
 
 const HAIR = "rgba(244,242,236,0.16)";
 
+/* Mobile: the list builds inside the pinned viewport. The first slice of the
+   pin is the intro beat and the last is a hold on the finished list, so the
+   moments land across the middle stretch. Driven off scroll progress rather
+   than stacked position:sticky rows, which fight each other's constraints. */
+const INTRO_END = 0.14;
+const LIST_END = 0.82;
+
 /**
- * "Five moments" — a pinned pan. Desktop pans horizontally; mobile pans
- * vertically (same idea, rotated) so the moments still glide by one at a time.
+ * "Five moments". Desktop is a pinned horizontal pan. Mobile is a pinned list
+ * that builds: each moment lands at the top of the list as you scroll and
+ * stays, so by the last one you're looking at the whole list.
  */
 export function HorizontalUseBefore() {
   const sectionRef = useRef<HTMLElement>(null);
   const trackX = useRef<HTMLDivElement>(null);
-  const trackY = useRef<HTMLDivElement>(null);
+  const reduce = useReducedMotion();
   const x = useMotionValue(0);
-  const y = useMotionValue(0);
   const [maxX, setMaxX] = useState(0);
-  const [maxY, setMaxY] = useState(0);
+  const [built, setBuilt] = useState(0);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -39,7 +47,6 @@ export function HorizontalUseBefore() {
   useEffect(() => {
     const measure = () => {
       if (trackX.current) setMaxX(Math.max(0, trackX.current.scrollWidth - window.innerWidth));
-      if (trackY.current) setMaxY(Math.max(0, trackY.current.scrollHeight - window.innerHeight));
     };
     measure();
     window.addEventListener("resize", measure);
@@ -48,75 +55,67 @@ export function HorizontalUseBefore() {
 
   useMotionValueEvent(scrollYProgress, "change", (v) => {
     x.set(-v * maxX);
-    y.set(-v * maxY);
+    const t = (v - INTRO_END) / (LIST_END - INTRO_END);
+    setBuilt(Math.max(0, Math.min(OCCASIONS.length, Math.ceil(t * OCCASIONS.length))));
   });
 
   return (
-    <section id="moments" ref={sectionRef} className="relative h-[480vh] bg-ink-0 text-paper-0 lg:h-[600vh]">
-      {/* ---- Mobile / tablet: a vertical pinned pan ---- */}
-      <div className="sticky top-0 h-screen overflow-hidden lg:hidden">
-        <motion.div ref={trackY} style={{ y }} className="flex w-full flex-col will-change-transform">
-          {/* intro */}
-          <div className="flex min-h-[82vh] flex-col justify-center px-6">
-            <div className="flex items-center gap-3.5">
-              <span className="h-px w-8 bg-paper-0/40" />
-              <span className="caps-loose text-[11px] font-medium text-paper-0/70">
-                Use Before
-              </span>
-            </div>
-            <h2
-              className="mt-6 font-bold uppercase text-paper-0"
-              style={{ fontSize: "clamp(44px, 13vw, 76px)", letterSpacing: "-0.03em", lineHeight: 0.95 }}
-            >
-              Five
-              <br />
-              moments.
-            </h2>
-            <p className="mt-5 max-w-xs text-[15px] leading-[1.6] text-paper-0/55">
-              Keep your composure on hand, for the moments that ask for it.
-            </p>
-          </div>
+    <section id="moments" ref={sectionRef} className="relative h-[420vh] bg-ink-0 text-paper-0 lg:h-[600vh]">
+      {/* ---- Mobile / tablet: the list builds inside the pinned viewport ---- */}
+      <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden px-6 pb-20 lg:hidden">
+        <div className="flex items-center gap-3.5">
+          <span className="h-px w-8 bg-paper-0/40" />
+          <span className="caps-loose text-[11px] font-medium text-paper-0/70">
+            Use Before
+          </span>
+        </div>
+        <h2
+          className="mt-5 font-bold uppercase text-paper-0"
+          style={{ fontSize: "clamp(34px, 9vw, 54px)", letterSpacing: "-0.03em", lineHeight: 0.95 }}
+        >
+          Five moments.
+        </h2>
 
-          {/* occasions */}
-          {OCCASIONS.map((o, i) => (
-            <div
-              key={o}
-              className="flex min-h-[62vh] flex-col justify-center border-t px-6"
-              style={{ borderColor: HAIR }}
-            >
-              <span className="caps text-[12px] font-medium text-paper-0/45">
-                0{i + 1}
-              </span>
-              <p
-                className="mt-3 font-bold uppercase text-paper-0"
-                style={{ fontSize: "clamp(34px, 10vw, 56px)", letterSpacing: "-0.025em", lineHeight: 1.02 }}
+        <ul className="mt-7">
+          {OCCASIONS.map((o, i) => {
+            const on = i < built;
+            return (
+              <motion.li
+                key={o}
+                className="flex items-center gap-5 border-t py-4"
+                style={{ borderColor: HAIR }}
+                animate={reduce ? { opacity: 1 } : { opacity: on ? 1 : 0.12, y: on ? 0 : 10 }}
+                transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
               >
-                {o}
-              </p>
-            </div>
-          ))}
+                <span className="caps w-7 shrink-0 text-[11px] font-medium text-paper-0/45">
+                  0{i + 1}
+                </span>
+                <p
+                  className="font-bold uppercase text-paper-0"
+                  style={{ fontSize: "clamp(21px, 5.8vw, 28px)", letterSpacing: "-0.02em", lineHeight: 1.05 }}
+                >
+                  {o}
+                </p>
+              </motion.li>
+            );
+          })}
+        </ul>
 
-          {/* outro */}
-          <div
-            className="flex min-h-[82vh] flex-col justify-center border-t px-6"
-            style={{ borderColor: HAIR }}
+        {/* the close, once the list is built */}
+        <motion.div
+          className="mt-8"
+          animate={reduce ? { opacity: 1 } : { opacity: built >= OCCASIONS.length ? 1 : 0 }}
+          transition={{ duration: 0.4 }}
+        >
+          <p className="caps text-[12px] font-medium text-paper-0/55">
+            Whenever you want to feel sharper.
+          </p>
+          <a
+            href="#buy"
+            className="caps mt-4 inline-flex w-fit items-center gap-2.5 rounded-sm border border-paper-0 bg-paper-0 px-7 py-3.5 text-[12px] font-semibold text-ink-0 transition-colors hover:bg-transparent hover:text-paper-0"
           >
-            <p className="caps text-[12px] font-medium text-paper-0/55">
-              Whenever you want to feel
-            </p>
-            <p
-              className="mt-3 font-bold uppercase text-paper-0"
-              style={{ fontSize: "clamp(44px, 14vw, 68px)", letterSpacing: "-0.025em", lineHeight: 1 }}
-            >
-              Sharper.
-            </p>
-            <a
-              href="#buy"
-              className="caps mt-8 inline-flex w-fit items-center gap-2.5 rounded-sm border border-paper-0 bg-paper-0 px-8 py-4 text-[12px] font-semibold text-ink-0 transition-colors hover:bg-transparent hover:text-paper-0"
-            >
-              Pre-order £18
-            </a>
-          </div>
+            Pre-order £18
+          </a>
         </motion.div>
       </div>
 
