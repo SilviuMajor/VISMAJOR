@@ -41,10 +41,12 @@ const SPEC_TABS = [
 ] as const;
 type SpecTabKey = (typeof SPEC_TABS)[number]["key"];
 
+// Warm, recognisable hero names front-of-house (matches the homepage band and
+// product card). The technical INCI — Caffeine, Menthol, Niacinamide et al. —
+// stays in the full list below.
 const ACTIVES = [
-  { name: "Caffeine", role: "For an awake, toned-feeling finish." },
-  { name: "Menthol", role: "A clean cooling hit on contact." },
-  { name: "Niacinamide", role: "A smooth, conditioned look." },
+  { name: "Coffee", role: "An awake, toned-looking finish." },
+  { name: "Mint", role: "The cool hit you feel on contact." },
 ];
 
 const INCI_LIST = [

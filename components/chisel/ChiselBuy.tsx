@@ -7,6 +7,7 @@ import { Eyebrow, SectionHead } from "@/components/ui/Eyebrow";
 import { Countdown } from "@/components/enhanced/Countdown";
 import { Specimen, PlaceholderNote } from "@/components/chisel/Specimen";
 import { CreamTube, SteelTool, EMBER } from "@/components/chisel/Art";
+import { SCULPT_INCI } from "@/lib/ingredients";
 import { useCart } from "@/lib/cart";
 
 /**
@@ -351,6 +352,35 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
                   <span className="caps text-[11px] font-medium text-ink-0">{v}</span>
                 </div>
               ))}
+            </div>
+
+            {/* directions · ingredients · warnings */}
+            <div className="mt-12 space-y-7">
+              <div>
+                <span className="caps text-[11px] font-semibold text-ink-2">Directions</span>
+                <p className="mt-2.5 max-w-md text-[14px] leading-[1.6] text-ink-2">
+                  Warm a small amount between the hands and massage into the
+                  muscle, by hand or with the steel tool, in slow, firm strokes.
+                  Use after training, or whenever the body feels worked.
+                </p>
+              </div>
+              <div>
+                <span className="caps text-[11px] font-semibold text-ink-2">Ingredients</span>
+                <p className="mt-2.5 max-w-md text-[14px] leading-[1.6] text-ink-1">
+                  With olive oil, shea butter &amp; coffee.
+                </p>
+                <p className="mt-2 max-w-md text-[12px] leading-[1.6] text-ink-3">
+                  {SCULPT_INCI.join(", ")}.
+                </p>
+              </div>
+              <div>
+                <span className="caps text-[11px] font-semibold text-ink-2">Warnings</span>
+                <p className="mt-2.5 max-w-md text-[14px] leading-[1.6] text-ink-2">
+                  For external use only. Avoid contact with eyes; rinse if
+                  contact occurs. Patch test before first use; discontinue if
+                  irritation occurs. Keep out of reach of children.
+                </p>
+              </div>
             </div>
           </div>
         </div>

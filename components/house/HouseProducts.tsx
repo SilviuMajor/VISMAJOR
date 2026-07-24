@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { PRODUCTS, type ProductSlug } from "@/lib/products";
+import { INGREDIENTS } from "@/lib/ingredients";
 import { CreamTube } from "@/components/chisel/Art";
 import { SharpBottle } from "@/components/sharp/Specimen";
 
@@ -113,7 +114,10 @@ export function HouseProducts() {
                 >
                   {p.wordmark}
                 </div>
-                <div className="relative mt-2.5 caps text-[11.5px] font-medium text-ink-1">
+                <div className="relative mt-2.5 caps text-[10px] font-medium text-ink-3">
+                  {INGREDIENTS[p.slug].line}
+                </div>
+                <div className="relative mt-1.5 caps text-[11.5px] font-medium text-ink-1">
                   {p.category}
                 </div>
                 <p className="relative mt-4 flex-1 text-[14.5px] leading-[1.6] text-ink-2">

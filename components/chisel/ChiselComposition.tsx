@@ -17,6 +17,7 @@ import { SculptWhatItDoes } from "@/components/chisel/SculptWhatItDoes";
 import { SculptEffects } from "@/components/chisel/SculptEffects";
 import { SculptRecovery } from "@/components/chisel/SculptRecovery";
 import { ChiselArchitecture } from "@/components/chisel/ChiselArchitecture";
+import { SculptFormula } from "@/components/chisel/SculptFormula";
 import { ChiselProof } from "@/components/chisel/ChiselProof";
 import { ChiselBuy } from "@/components/chisel/ChiselBuy";
 import { SculptFieldManual } from "@/components/chisel/SculptFieldManual";
@@ -45,6 +46,7 @@ export function ChiselComposition() {
         <SculptEffects />
         <SculptRecovery />
         <ChiselArchitecture />
+        <SculptFormula />
         <ChiselProof />
         <ChiselBuy shipMonth={shipMonth} />
         <SculptFieldManual />

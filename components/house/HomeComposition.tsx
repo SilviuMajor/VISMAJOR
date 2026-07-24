@@ -5,6 +5,7 @@ import { Footer } from "@/components/sections/Footer";
 import { HouseHero } from "@/components/house/HouseHero";
 import { HouseVirtues } from "@/components/house/HouseMeaning";
 import { HouseProducts } from "@/components/house/HouseProducts";
+import { HouseIngredients } from "@/components/house/HouseIngredients";
 import { HouseStandard } from "@/components/house/HouseStandard";
 
 /**
@@ -26,6 +27,7 @@ export function HomeComposition() {
         <HouseHero />
         <HouseVirtues />
         <HouseProducts />
+        <HouseIngredients />
         <HouseStandard />
       </main>
       <Footer />
