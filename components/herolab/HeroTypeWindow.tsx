@@ -203,15 +203,21 @@ export function HeroTypeWindow({
     reduce || !pin.on ? 0 : Math.min(0, Math.max(-pin.dist, y - pin.dist)),
   );
 
+  // Spring-smooth the reveal progress so a momentary main-thread hitch is
+  // interpolated across frames instead of showing as a scale/opacity stutter.
+  // (Reduced motion skips the spring so the reveal stays exact and instant.)
+  const p = useSpring(scrollYProgress, { stiffness: 180, damping: 34, restDelta: 0.0004 });
+  const prog = reduce ? scrollYProgress : p;
+
   // the word is centred + readable from first view; the instant you scroll it
   // grows and the dark field dissolves together — no initial hold, no dead gap.
-  const maskScale = useTransform(scrollYProgress, [0, 0.5], reduce ? [1, 1] : [1, 3.2]);
-  const fieldOpacity = useTransform(scrollYProgress, [0.04, 0.42], [1, 0]);
+  const maskScale = useTransform(prog, [0, 0.5], reduce ? [1, 1] : [1, 3.2]);
+  const fieldOpacity = useTransform(prog, [0.04, 0.42], [1, 0]);
   // a white veil covers the bright scene (only when it isn't kept faint already)
-  const veilOpacity = useTransform(scrollYProgress, [0.5, 0.68], [0, 1]);
+  const veilOpacity = useTransform(prog, [0.5, 0.68], [0, 1]);
   // and the underline hero fades up
-  const heroOpacity = useTransform(scrollYProgress, [0.54, 0.74], [0, 1]);
-  const heroY = useTransform(scrollYProgress, [0.54, 0.74], reduce ? [0, 0] : [26, 0]);
+  const heroOpacity = useTransform(prog, [0.54, 0.74], [0, 1]);
+  const heroY = useTransform(prog, [0.54, 0.74], reduce ? [0, 0] : [26, 0]);
 
   const VEIL = "radial-gradient(ellipse 62% 58% at 50% 48%, rgba(255,255,255,0.74) 0%, rgba(255,255,255,0.12) 74%)";
 
@@ -220,7 +226,7 @@ export function HeroTypeWindow({
       <motion.div style={{ y: settleY }} className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
         {/* static scene, behind everything — faint throughout when overlayAlwaysOn */}
         <div aria-hidden className="absolute inset-0 z-0 overflow-hidden">
-          <Image src={cfg.scene} alt="" fill priority sizes="100vw" className={`object-cover ${cfg.sceneObjectMobile} md:object-center ${overlayAlwaysOn ? "mix-blend-multiply" : ""}`} style={{ opacity: overlayAlwaysOn ? 0.46 : 1 }} />
+          <Image src={cfg.scene} alt="" fill priority sizes="100vw" className={`object-cover ${cfg.sceneObjectMobile} md:object-center ${overlayAlwaysOn ? "mix-blend-multiply" : ""}`} style={{ opacity: overlayAlwaysOn ? 0.46 : 1, transform: "translateZ(0)", backfaceVisibility: "hidden" }} />
           {overlayAlwaysOn && <div className="absolute inset-0" style={{ background: VEIL }} />}
         </div>
 

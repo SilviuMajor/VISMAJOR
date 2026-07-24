@@ -7,6 +7,7 @@ import {
   useMotionValueEvent,
   useReducedMotion,
   useScroll,
+  useSpring,
 } from "framer-motion";
 
 const OCCASIONS = [
@@ -36,6 +37,9 @@ export function HorizontalUseBefore() {
   const trackX = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
   const x = useMotionValue(0);
+  // spring-smooth the horizontal pan so the long track glides instead of
+  // tracking every scroll delta 1:1 (which reads as micro-stutter)
+  const xSmooth = useSpring(x, { stiffness: 200, damping: 40, restDelta: 0.5 });
   const [maxX, setMaxX] = useState(0);
   const [built, setBuilt] = useState(0);
 
@@ -123,7 +127,7 @@ export function HorizontalUseBefore() {
       <div className="sticky top-0 hidden h-screen items-center overflow-hidden lg:flex">
         <motion.div
           ref={trackX}
-          style={{ x }}
+          style={{ x: reduce ? x : xSmooth }}
           className="flex items-center gap-0 will-change-transform"
         >
           {/* intro panel */}

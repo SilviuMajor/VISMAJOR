@@ -170,12 +170,12 @@ export function StickyArchitecture() {
                 {/* phase 2 — soft cold wash */}
                 <motion.div
                   aria-hidden
-                  style={{ opacity: reduce ? 0 : coolWash }}
+                  style={{ opacity: reduce ? 0 : coolWash, willChange: "opacity" }}
                   className="absolute inset-0 z-0"
                 >
                   <div
-                    className="absolute left-1/2 top-1/2 h-[130%] w-[130%] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
-                    style={{ background: "radial-gradient(circle, rgba(95,176,224,0.55), transparent 64%)" }}
+                    className="absolute left-1/2 top-1/2 h-[130%] w-[130%] -translate-x-1/2 -translate-y-1/2 rounded-full blur-2xl"
+                    style={{ background: "radial-gradient(circle, rgba(95,176,224,0.55), transparent 64%)", transform: "translateZ(0)" }}
                   />
                 </motion.div>
 
@@ -195,14 +195,18 @@ export function StickyArchitecture() {
                   </div>
                 </motion.div>
 
-                {/* phase 1 — caffeine: an electric lightning charge */}
-                <motion.div
-                  aria-hidden
-                  className="absolute inset-0 z-[22] overflow-hidden"
-                  style={{ opacity: caffeineOpacity }}
-                >
-                  <Lightning reduce={reduce} />
-                </motion.div>
+                {/* phase 1 — caffeine: an electric lightning charge. Mounted only
+                    during its own phase so its infinite loops (and the storm flash)
+                    never run while you're on phases 2-3 or before you arrive. */}
+                {active === 0 && (
+                  <motion.div
+                    aria-hidden
+                    className="absolute inset-0 z-[22] overflow-hidden"
+                    style={{ opacity: caffeineOpacity, willChange: "opacity" }}
+                  >
+                    <Lightning reduce={reduce} />
+                  </motion.div>
+                )}
 
                 {/* phase 2 — multiple snowflakes frosting over the tube */}
                 <motion.svg
@@ -326,11 +330,6 @@ function Lightning({ reduce }: { reduce: boolean | null }) {
         preserveAspectRatio="xMidYMid meet"
         className="absolute inset-0 h-full w-full"
       >
-        <defs>
-          <filter id="voltGlow" x="-80%" y="-80%" width="260%" height="260%">
-            <feGaussianBlur stdDeviation="3.8" />
-          </filter>
-        </defs>
         {STRIKES.map((s, i) => (
           <g key={i}>
             {s.paths.map((d, j) => (
@@ -361,7 +360,7 @@ function Bolt({
   if (reduce) {
     return (
       <g {...base}>
-        <path d={d} stroke={AMBER} strokeWidth={8} opacity={0.26} filter="url(#voltGlow)" />
+        <path d={d} stroke={AMBER} strokeWidth={11} opacity={0.16} />
         <path d={d} stroke={VOLT} strokeWidth={2.6} opacity={0.85} />
         <path d={d} stroke={CORE} strokeWidth={1} opacity={0.9} />
       </g>
@@ -385,8 +384,7 @@ function Bolt({
       <motion.path
         d={d}
         stroke={AMBER}
-        strokeWidth={8}
-        filter="url(#voltGlow)"
+        strokeWidth={12}
         initial={{ opacity: 0, pathLength: 0 }}
         animate={{ opacity: haloOp, pathLength: pl }}
         transition={tx}

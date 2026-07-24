@@ -7,6 +7,7 @@ import {
   useMotionValueEvent,
   useReducedMotion,
   useScroll,
+  useSpring,
   useTransform,
 } from "framer-motion";
 import { Container } from "@/components/ui/Container";
@@ -51,11 +52,15 @@ export function ChiselArchitecture() {
     setActive(v < 0.34 ? 0 : v < 0.67 ? 1 : 2);
   });
 
-  const railScale = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  // Spring-smooth the scroll-linked accents so the drift reads fluid.
+  const p = useSpring(scrollYProgress, { stiffness: 150, damping: 30, restDelta: 0.0005 });
+  const prog = reduce ? scrollYProgress : p;
+
+  const railScale = useTransform(prog, [0, 1], [0, 1]);
   // the ember accent climbs the whole way through (the brand signature)
-  const warmGlow = useTransform(scrollYProgress, [0, 0.5, 1], reduce ? [0.12, 0.12, 0.12] : [0.05, 0.35, 0.6]);
-  const warmScale = useTransform(scrollYProgress, [0, 1], [0.85, 1.15]);
-  const bandY = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [-6, 6]);
+  const warmGlow = useTransform(prog, [0, 0.5, 1], reduce ? [0.12, 0.12, 0.12] : [0.05, 0.35, 0.6]);
+  const warmScale = useTransform(prog, [0, 1], [0.85, 1.15]);
+  const bandY = useTransform(prog, [0, 1], reduce ? [0, 0] : [-6, 6]);
 
   return (
     <section id="science" ref={ref} className="relative h-[320vh] bg-paper-1">
@@ -140,8 +145,8 @@ export function ChiselArchitecture() {
                     className="absolute inset-0 z-0"
                   >
                     <motion.div
-                      style={{ scale: warmScale }}
-                      className="absolute left-1/2 top-1/2 h-[120%] w-[120%] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
+                      style={{ scale: warmScale, willChange: "transform" }}
+                      className="absolute left-1/2 top-1/2 h-[120%] w-[120%] -translate-x-1/2 -translate-y-1/2 rounded-full blur-2xl"
                     >
                       <div
                         className="h-full w-full rounded-full"
