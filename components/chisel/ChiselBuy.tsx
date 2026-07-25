@@ -1,13 +1,14 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow, SectionHead } from "@/components/ui/Eyebrow";
 import { Countdown } from "@/components/enhanced/Countdown";
 import { Specimen, PlaceholderNote } from "@/components/chisel/Specimen";
 import { CreamTube, SteelTool, EMBER } from "@/components/chisel/Art";
-import { SCULPT_INCI } from "@/lib/ingredients";
+import { INGREDIENTS, INGREDIENT_IMG, SCULPT_INCI } from "@/lib/ingredients";
 import { useCart } from "@/lib/cart";
 
 /**
@@ -366,7 +367,23 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
               </div>
               <div>
                 <span className="caps text-[11px] font-semibold text-ink-2">Ingredients</span>
-                <p className="mt-2.5 max-w-md text-[14px] leading-[1.6] text-ink-1">
+                <div className="mt-3 flex items-center gap-5">
+                  {INGREDIENTS.sculpt.heroes.map((h) => (
+                    <div key={h.name} className="flex items-center gap-2.5">
+                      <div className="relative h-12 w-12 shrink-0">
+                        <Image
+                          src={INGREDIENT_IMG[h.name]}
+                          alt=""
+                          fill
+                          sizes="48px"
+                          className="melt object-contain"
+                        />
+                      </div>
+                      <span className="caps text-[10px] font-medium text-ink-2">{h.name}</span>
+                    </div>
+                  ))}
+                </div>
+                <p className="mt-3.5 max-w-md text-[14px] leading-[1.6] text-ink-1">
                   With olive oil, shea butter &amp; coffee.
                 </p>
                 <p className="mt-2 max-w-md text-[12px] leading-[1.6] text-ink-3">

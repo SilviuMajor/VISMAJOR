@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import {
   motion,
   useReducedMotion,
@@ -11,8 +12,70 @@ import { SceneBackdrop } from "@/components/ui/SceneBackdrop";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
+/** `.house` tracking — the wordmark carries a trailing letter-space we discount
+ *  so the meaning line matches the mark's INK, not its box. */
+const HOUSE_TRACKING = 0.18;
+
 export function HouseHero() {
   const reduce = useReducedMotion();
+  const markRef = useRef<HTMLSpanElement>(null);
+  const meaningRef = useRef<HTMLParagraphElement>(null);
+
+  // Fit the meaning line to exactly the width of VIS·MAJOR. A vw clamp can't do
+  // this: the mark caps at 184px while the line would keep growing, so they
+  // drift apart at wide viewports. Measure instead, and re-fit on resize/font
+  // load. Below sm the line wraps to a readable block (matching the mark's
+  // width there would make it far too small to read).
+  useEffect(() => {
+    const mark = markRef.current;
+    const line = meaningRef.current;
+    if (!mark || !line) return;
+
+    const fit = () => {
+      if (window.innerWidth < 640) {
+        line.style.fontSize = "";
+        return;
+      }
+      const markSize = parseFloat(getComputedStyle(mark).fontSize);
+      const target = mark.getBoundingClientRect().width - HOUSE_TRACKING * markSize;
+      if (target <= 0) return;
+      const REF = 100;
+      line.style.fontSize = `${REF}px`;
+      const natural = line.getBoundingClientRect().width;
+      if (!natural) return;
+      line.style.fontSize = `${(target / natural) * REF}px`;
+    };
+
+    // Both the mark and the line reflow when Cinzel swaps in, so a single pass
+    // can fit against half-loaded metrics. Re-fit each frame until the result
+    // stops moving (converges in a frame or two; re-runs after a font swap).
+    let frames = 0;
+    let lastSize = "";
+    const settle = () => {
+      fit();
+      const size = line.style.fontSize;
+      if (size !== lastSize && frames < 60) {
+        lastSize = size;
+        frames += 1;
+        requestAnimationFrame(settle);
+      }
+    };
+    const restart = () => {
+      frames = 0;
+      lastSize = "";
+      settle();
+    };
+
+    restart();
+    const ro = new ResizeObserver(restart);
+    ro.observe(mark);
+    window.addEventListener("resize", restart);
+    document.fonts?.ready.then(restart).catch(() => {});
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", restart);
+    };
+  }, []);
 
   const lines: Variants = {
     hidden: {},
@@ -53,6 +116,7 @@ export function HouseHero() {
         <motion.h1 variants={lines} initial="hidden" animate="show" className="mt-7">
           <span className="block overflow-hidden pb-[0.08em]">
             <motion.span
+              ref={markRef}
               variants={line}
               className="house block whitespace-nowrap text-ink-0"
               style={{ fontSize: "clamp(50px, 12.5vw, 184px)", lineHeight: 0.92, fontWeight: 600 }}
@@ -63,13 +127,19 @@ export function HouseHero() {
         </motion.h1>
 
         {/* the meaning — folded in from the old quote band */}
-        {/* the meaning — scaled to sit as wide as the VIS·MAJOR mark above it:
-            one line tracking the wordmark on sm+, a tidy block on mobile */}
+        {/* the meaning — measured to sit exactly as wide as the mark above it
+            (see the fit effect); tight tracking so it reads as one dense line */}
         <motion.p
+          ref={meaningRef}
           {...fadeUp}
           transition={{ duration: 0.7, delay: 0.6, ease: EASE }}
-          className="serif mt-6 mx-auto max-w-[19rem] whitespace-normal text-ink-1 sm:max-w-none sm:whitespace-nowrap"
-          style={{ fontSize: "clamp(16px, 2.16vw, 34px)", lineHeight: 1.4, letterSpacing: "0.02em" }}
+          className="serif mx-auto mt-5 max-w-[20rem] whitespace-normal text-ink-1 sm:mt-6 sm:w-max sm:max-w-none sm:whitespace-nowrap"
+          style={{
+            fontSize: "clamp(15px, 4.4vw, 22px)",
+            lineHeight: 1.35,
+            letterSpacing: "0",
+            fontWeight: 500,
+          }}
         >
           The Roman name for &lsquo;AN UNSTOPPABLE FORCE&rsquo;, a power beyond
           resistance.

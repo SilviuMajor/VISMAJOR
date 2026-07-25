@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow, SectionHead } from "@/components/ui/Eyebrow";
 import { Countdown } from "@/components/enhanced/Countdown";
+import { INGREDIENT_IMG } from "@/lib/ingredients";
 import { useCart } from "@/lib/cart";
 
 type Tier = {
@@ -371,16 +372,29 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
                       and a film-forming tightening system: matte, lightly fragranced.
                     </p>
                     <div>
-                      <span className="caps text-[10px] font-medium text-ink-3">Three actives</span>
+                      <span className="caps text-[10px] font-medium text-ink-3">The key ingredients</span>
                       <div className="mt-3">
                         {ACTIVES.map((a) => (
                           <div
                             key={a.name}
-                            className="flex items-baseline justify-between gap-5 border-b py-3"
+                            className="flex items-center gap-4 border-b py-3"
                             style={{ borderColor: "var(--hair)" }}
                           >
-                            <span className="caps text-[11px] font-medium text-ink-0">{a.name}</span>
-                            <span className="text-right text-[12.5px] leading-[1.4] text-ink-2">{a.role}</span>
+                            <div className="relative h-12 w-12 shrink-0">
+                              <Image
+                                src={INGREDIENT_IMG[a.name]}
+                                alt=""
+                                fill
+                                sizes="48px"
+                                className="melt object-contain"
+                              />
+                            </div>
+                            <span className="caps w-[68px] shrink-0 text-[11px] font-medium text-ink-0">
+                              {a.name}
+                            </span>
+                            <span className="flex-1 text-right text-[12.5px] leading-[1.4] text-ink-2">
+                              {a.role}
+                            </span>
                           </div>
                         ))}
                       </div>

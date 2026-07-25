@@ -1,7 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
-import { INGREDIENTS } from "@/lib/ingredients";
+import { INGREDIENTS, INGREDIENT_IMG } from "@/lib/ingredients";
 
 /**
  * SCULPT's "Formula" — the named hero ingredients, one line each on what they
@@ -12,25 +13,6 @@ import { INGREDIENTS } from "@/lib/ingredients";
  *
  * Claim-safe: nourishes, conditions/moisturises, a firmer-LOOKING finish.
  */
-
-// One small hairline diagram per hero (olive drop, shea seed, coffee burst).
-const DIAGRAMS: Record<string, JSX.Element> = {
-  "Olive Oil": (
-    <path d="M24 6c7 8 11 14 11 21a11 11 0 0 1-22 0c0-7 4-13 11-21z" />
-  ),
-  "Shea Butter": (
-    <>
-      <circle cx="24" cy="24" r="15" />
-      <path d="M24 9v30M9 24h30" opacity="0.5" />
-    </>
-  ),
-  Coffee: (
-    <>
-      <circle cx="24" cy="24" r="6" />
-      <path d="M24 4v6M24 38v6M4 24h6M38 24h6M11 11l4 4M33 33l4 4M37 11l-4 4M15 33l-4 4" />
-    </>
-  ),
-};
 
 export function SculptFormula() {
   const { heroes } = INGREDIENTS.sculpt;
@@ -66,17 +48,15 @@ export function SculptFormula() {
                 className="flex h-full flex-col border-t pt-7"
                 style={{ borderColor: "var(--hair)" }}
               >
-                <svg
-                  aria-hidden
-                  viewBox="0 0 48 48"
-                  className="mb-6 h-11 w-11 text-ink-2"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={1.4}
-                  strokeLinecap="round"
-                >
-                  {DIAGRAMS[h.name]}
-                </svg>
+                <div className="relative mb-7 aspect-[4/5] w-full">
+                  <Image
+                    src={INGREDIENT_IMG[h.name]}
+                    alt={`${h.name} — specimen illustration`}
+                    fill
+                    sizes="(max-width: 640px) 84vw, 340px"
+                    className="melt object-contain"
+                  />
+                </div>
                 <div className="flex items-baseline justify-between gap-3">
                   <h3
                     className="font-semibold uppercase font-serif text-ink-0"
