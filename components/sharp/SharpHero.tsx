@@ -134,7 +134,7 @@ export function SharpHero({ shipMonth }: { shipMonth: string }) {
         >
           <span className="h-px w-7 bg-[var(--hair-strong)]" />
           <span className="caps-loose text-[11px] font-medium text-ink-2">
-            The Matte Cleanser · No. 003
+            The Matte Cleanser · No. 002
           </span>
           <span className="h-px w-7 bg-[var(--hair-strong)]" />
         </motion.div>
@@ -183,7 +183,7 @@ export function SharpHero({ shipMonth }: { shipMonth: string }) {
                   {/* the photo-free specimen plate — open, no frame */}
                   <div className="relative h-[42vh] w-[210px] md:h-[50vh] md:w-[268px]">
                     <span className="absolute left-4 top-3 z-40 caps font-mono text-[9px] font-medium text-ink-3">
-                      STONE / 003
+                      STONE / 002
                     </span>
 
                     {/* a single faint ink floor-glow — purely structural depth */}

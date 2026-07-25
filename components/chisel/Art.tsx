@@ -16,7 +16,7 @@ export const EMBER = "#14130F"; // mono — accent retired (name kept for caller
    A tall apothecary tube standing on its cap. viewBox 0 0 120 260. */
 export function CreamTube({
   className,
-  label = "002",
+  label = "003",
 }: {
   className?: string;
   label?: string;

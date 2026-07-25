@@ -64,6 +64,25 @@ export const INGREDIENTS: Record<ProductSlug, IngredientStory> = {
   },
 };
 
+// The "shelf" — the house's whole palette as one ingredient-first list (for the
+// homepage band). Each ingredient once, with the products it serves. `in` is in
+// house order (Pectus · Stone · Sculpt); `diagram` keys a line-art mark.
+export interface ShelfIngredient {
+  name: string;
+  role: string;
+  in: string[];
+  diagram: "coffee" | "mint" | "clay" | "charcoal" | "olive" | "shea";
+}
+
+export const SHELF: ShelfIngredient[] = [
+  { name: "Coffee", role: "A firmer, more awake-looking finish.", in: ["Pectus", "Sculpt"], diagram: "coffee" },
+  { name: "Mint", role: "A cool hit on contact, a fresh finish.", in: ["Pectus", "Stone"], diagram: "mint" },
+  { name: "Clay", role: "Absorbs excess oil for a clean matte finish.", in: ["Stone"], diagram: "clay" },
+  { name: "Charcoal", role: "Lifts the day's grime.", in: ["Stone"], diagram: "charcoal" },
+  { name: "Olive Oil", role: "Nourishes as you work it in.", in: ["Sculpt"], diagram: "olive" },
+  { name: "Shea Butter", role: "Conditions, so skin is never left dry.", in: ["Sculpt"], diagram: "shea" },
+];
+
 // SCULPT is the only product without an existing INCI in its buy panel; this is
 // the canonical list its Specification block reads. Hero-anchored and lean.
 export const SCULPT_INCI: string[] = [

@@ -11,8 +11,8 @@ export type NavLink = { href: string; label: string };
 // Only the active marker + the page's Pre-order target change per page.
 const PRODUCT_NAV: NavLink[] = [
   { href: "/pectus", label: "PECTUS" },
-  { href: "/sculpt", label: "SCULPT" },
   { href: "/stone", label: "STONE" },
+  { href: "/sculpt", label: "SCULPT" },
   { href: "/steel", label: "STEEL" },
 ];
 

@@ -135,7 +135,7 @@ export function ChiselHero({ shipMonth }: { shipMonth: string }) {
         >
           <span className="h-px w-7 bg-[var(--hair-strong)]" />
           <span className="caps-loose text-[11px] font-medium text-ink-2">
-            The Massage & Recovery Cream · No. 002
+            The Massage & Recovery Cream · No. 003
           </span>
           <span className="h-px w-7 bg-[var(--hair-strong)]" />
         </motion.div>

@@ -132,7 +132,7 @@ export function ChiselArchitecture() {
             <div className="relative order-1 flex justify-center lg:order-2">
               <Specimen
                 className="px-8 py-10"
-                topLeft="SCULPT / 002"
+                topLeft="SCULPT / 003"
                 topRight="Cream"
                 bottomRight="50ml ℮"
                 bottomLeft={<PlaceholderNote>Specimen · cream</PlaceholderNote>}

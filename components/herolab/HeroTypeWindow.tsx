@@ -52,7 +52,7 @@ const CONFIG: Record<MaskProduct, MaskConfig> = {
     word: "SCULPT",
     scene: "/scenes/sculpt.png",
     sceneObjectMobile: "object-center",
-    eyebrow: "Massage & Recovery Cream · No. II",
+    eyebrow: "Massage & Recovery Cream · No. III",
     tagline: "The Contour & Recovery Cream",
     description:
       "A recovery massage cream for men who train. Work it deep, by hand or with the steel tool, to ease worked muscle and keep a hard-trained body firm and defined.",
@@ -65,7 +65,7 @@ const CONFIG: Record<MaskProduct, MaskConfig> = {
     word: "STONE",
     scene: "/scenes/stone.png",
     sceneObjectMobile: "object-center",
-    eyebrow: "The Matte Cleanser · No. III",
+    eyebrow: "The Matte Cleanser · No. II",
     tagline: "Lift the Day. Clean Slate.",
     description:
       "A natural matte cleanser for men: clay, charcoal and mint that lift the day's oil and grime, then rinse away for a clean, fresh, matte finish.",

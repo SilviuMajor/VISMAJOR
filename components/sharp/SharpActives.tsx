@@ -132,19 +132,28 @@ export function SharpActives() {
     offset: ["start start", "end end"],
   });
 
-  useMotionValueEvent(scrollYProgress, "change", (v) => {
-    setActive(v < 0.34 ? 0 : v < 0.67 ? 1 : 2);
-  });
-
   const railScale = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
-  // per-phase draw value for the active diagram (0→1 within its third)
-  const drawAll = useTransform(scrollYProgress, [0, 0.34, 0.67, 1], [0.2, 1, 1, 1]);
+  // Match PECTUS's Architecture: three equal thirds over a tall (450vh) pin, and
+  // each diagram DRAWS IN across its own third — previously `draw` was global and
+  // finished in the first third, so charcoal and mint arrived already-drawn (the
+  // charcoal step felt too short). Now every step gets the full scroll to animate.
   const [draw, setDraw] = useState(reduce ? 1 : 0.2);
-  useMotionValueEvent(drawAll, "change", (v) => setDraw(reduce ? 1 : v));
+  useMotionValueEvent(scrollYProgress, "change", (v) => {
+    const phase = v < 0.34 ? 0 : v < 0.67 ? 1 : 2;
+    setActive(phase);
+    if (reduce) {
+      setDraw(1);
+      return;
+    }
+    const lo = phase === 0 ? 0 : phase === 1 ? 0.34 : 0.67;
+    const hi = phase === 0 ? 0.34 : phase === 1 ? 0.67 : 1;
+    const local = Math.min(1, Math.max(0, (v - lo) / (hi - lo)));
+    setDraw(0.2 + local * 0.8);
+  });
 
   return (
-    <section id="science" ref={ref} className="relative h-[320vh] bg-paper-1">
+    <section id="science" ref={ref} className="relative h-[450vh] bg-paper-1">
       <div className="sticky top-0 flex h-screen items-center overflow-hidden pb-24 sm:pb-0">
         {/* a faint classical figure presiding behind the panel — soft multiply
             on white, visible on mobile too (fainter) */}
@@ -237,7 +246,7 @@ export function SharpActives() {
             <div className="relative order-1 flex justify-center lg:order-2">
               <div className="relative aspect-[4/5] w-full max-w-[200px] sm:max-w-[300px] lg:max-w-[440px]">
                 <span className="absolute left-5 top-4 z-40 caps text-[9px] font-medium text-ink-3">
-                  STONE / 003
+                  STONE / 002
                 </span>
                 <div className="absolute right-5 top-4 z-40 h-4 overflow-hidden">
                   <AnimatePresence mode="wait">

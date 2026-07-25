@@ -63,11 +63,13 @@ export function HouseHero() {
         </motion.h1>
 
         {/* the meaning — folded in from the old quote band */}
+        {/* the meaning — scaled to sit as wide as the VIS·MAJOR mark above it:
+            one line tracking the wordmark on sm+, a tidy block on mobile */}
         <motion.p
           {...fadeUp}
           transition={{ duration: 0.7, delay: 0.6, ease: EASE }}
-          className="serif mt-6 max-w-2xl text-ink-1"
-          style={{ fontSize: "clamp(16px, 2vw, 24px)", lineHeight: 1.45, letterSpacing: "0.02em" }}
+          className="serif mt-6 mx-auto max-w-[19rem] whitespace-normal text-ink-1 sm:max-w-none sm:whitespace-nowrap"
+          style={{ fontSize: "clamp(16px, 2.16vw, 34px)", lineHeight: 1.4, letterSpacing: "0.02em" }}
         >
           The Roman name for &lsquo;AN UNSTOPPABLE FORCE&rsquo;, a power beyond
           resistance.

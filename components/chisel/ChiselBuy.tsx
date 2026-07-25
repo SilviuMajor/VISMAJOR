@@ -107,7 +107,7 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
             <Specimen
               className="rounded-[4px] bg-paper-0 shadow-[0_28px_64px_-32px_rgba(20,19,15,0.38)]"
               ratio="1 / 1"
-              topLeft="SCULPT / 002"
+              topLeft="SCULPT / 003"
               topRight={
                 <AnimatePresence mode="wait">
                   <motion.span
@@ -173,7 +173,7 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
 
           {/* Buy details */}
           <div>
-            <Eyebrow>SCULPT · 002</Eyebrow>
+            <Eyebrow>SCULPT · 003</Eyebrow>
             <h2
               className="mt-4 font-semibold uppercase font-serif text-ink-0"
               style={{ fontSize: "clamp(52px, 6vw, 76px)", lineHeight: 0.9, letterSpacing: "0.01em" }}

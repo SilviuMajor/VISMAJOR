@@ -186,7 +186,7 @@ export function ChiselRitual() {
               <div className="relative aspect-[4/5] w-full max-w-[440px]">
                 {/* corner read-outs */}
                 <span className="absolute left-5 top-4 z-40 caps text-[9px] font-medium text-ink-3">
-                  SCULPT / 002
+                  SCULPT / 003
                 </span>
                 <div className="absolute right-5 top-4 z-40 h-4 overflow-hidden">
                   <AnimatePresence mode="wait">

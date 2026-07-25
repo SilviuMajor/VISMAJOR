@@ -143,7 +143,7 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
           {/* Sticky specimen gallery (photo-free) */}
           <div className="lg:sticky lg:top-24 lg:self-start">
             <div className="relative flex aspect-square items-center justify-center rounded-[4px] bg-paper-0" style={{ boxShadow: "0 28px 64px -32px rgba(20,19,15,0.38)" }}>
-              <span className="absolute left-3 top-2.5 z-40 caps font-mono text-[9px] font-medium text-ink-3">STONE / 003</span>
+              <span className="absolute left-3 top-2.5 z-40 caps font-mono text-[9px] font-medium text-ink-3">STONE / 002</span>
               <span className="absolute bottom-2.5 right-3 z-40 caps text-[9px] font-medium text-ink-3">
                 {VIEWS[view].caption}
               </span>
@@ -184,7 +184,7 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
 
           {/* Scrolling buy details */}
           <div>
-            <Eyebrow>STONE · 003</Eyebrow>
+            <Eyebrow>STONE · 002</Eyebrow>
             <h2
               className="mt-4 font-serif font-semibold uppercase text-ink-0"
               style={{ fontSize: "clamp(56px, 6vw, 76px)", lineHeight: 0.9, letterSpacing: "-0.02em" }}

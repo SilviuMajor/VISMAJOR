@@ -173,7 +173,7 @@ export function SharpDaily() {
               <div className="relative aspect-[4/5] w-full max-w-[460px]">
                 {/* corner read-outs */}
                 <span className="absolute left-5 top-4 z-40 caps font-mono text-[9px] font-medium text-ink-3">
-                  STONE / 003
+                  STONE / 002
                 </span>
                 <div className="absolute right-5 top-4 z-40 h-4 overflow-hidden">
                   <AnimatePresence mode="wait">

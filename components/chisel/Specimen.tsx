@@ -7,7 +7,7 @@ import { ReactNode } from "react";
  */
 export function Specimen({
   children,
-  topLeft = "SCULPT / 002",
+  topLeft = "SCULPT / 003",
   topRight,
   bottomLeft,
   bottomRight,

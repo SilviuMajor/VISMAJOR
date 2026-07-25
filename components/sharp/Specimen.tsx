@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 /**
  * A deliberate, premium photo-free "specimen" frame. STONE ships before any
  * photography exists, so every product surface is a labelled placeholder:
- * an inner keyline frame, corner read-outs ("STONE / 003", a spec), and a
+ * an inner keyline frame, corner read-outs ("STONE / 002", a spec), and a
  * tasteful line-art tube rendered in pure CSS/SVG. It should read as an
  * apothecary plate, never as a broken image.
  *
@@ -13,7 +13,7 @@ import { ReactNode } from "react";
 export function Specimen({
   children,
   label = "100ml",
-  index = "STONE / 003",
+  index = "STONE / 002",
   className = "",
   innerClassName = "",
   accentIndex = false,
