@@ -48,12 +48,12 @@ export function HouseIngredients() {
               className="flex flex-col"
             >
               {/* specimen plate */}
-              <div className="relative aspect-[4/5] w-full">
+              <div className="relative mx-auto aspect-[4/5] w-[70%]">
                 <Image
                   src={INGREDIENT_IMG[ing.name]}
                   alt={`${ing.name} — specimen illustration`}
                   fill
-                  sizes="(max-width: 640px) 44vw, (max-width: 1024px) 40vw, 320px"
+                  sizes="(max-width: 640px) 31vw, (max-width: 1024px) 28vw, 224px"
                   className="melt object-contain"
                 />
               </div>

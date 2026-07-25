@@ -16,6 +16,7 @@ import { NotifyBand } from "@/components/enhanced/NotifyBand";
 import { FinalCta } from "@/components/enhanced/FinalCta";
 import { OtherProducts } from "@/components/house/OtherProducts";
 import { ProductQuote } from "@/components/house/ProductQuote";
+import { ProductFormula } from "@/components/house/ProductFormula";
 import { SceneSection } from "@/components/ui/SceneSection";
 
 // Selected v2 renditions (chosen from /compare)
@@ -42,6 +43,11 @@ export function EnhancedComposition() {
         <Ticker />
         <HorizontalUseBefore />
         <OneJob />
+        <ProductFormula
+          product="pectus"
+          intro="A short list of named ingredients. Coffee for a firmer-looking finish, mint for the cool hit you feel on contact. The rest is what carries them."
+          href="#ingredients"
+        />
         <ProofV2 />
         <SceneSection scene="/scenes/home.png">
           <StickyBuy shipMonth={shipMonth} />

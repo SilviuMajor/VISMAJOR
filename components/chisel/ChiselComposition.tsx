@@ -17,7 +17,7 @@ import { SculptWhatItDoes } from "@/components/chisel/SculptWhatItDoes";
 import { SculptEffects } from "@/components/chisel/SculptEffects";
 import { SculptRecovery } from "@/components/chisel/SculptRecovery";
 import { ChiselArchitecture } from "@/components/chisel/ChiselArchitecture";
-import { SculptFormula } from "@/components/chisel/SculptFormula";
+import { ProductFormula } from "@/components/house/ProductFormula";
 import { ChiselProof } from "@/components/chisel/ChiselProof";
 import { ChiselBuy } from "@/components/chisel/ChiselBuy";
 import { SculptFieldManual } from "@/components/chisel/SculptFieldManual";
@@ -46,7 +46,10 @@ export function ChiselComposition() {
         <SculptEffects />
         <SculptRecovery />
         <ChiselArchitecture />
-        <SculptFormula />
+        <ProductFormula
+          product="sculpt"
+          intro="A short list of named ingredients. An oil to nourish, a butter to condition, coffee for the finish. The rest is what carries them."
+        />
         <ChiselProof />
         <ChiselBuy shipMonth={shipMonth} />
         <SculptFieldManual />

@@ -186,7 +186,7 @@ export function SharpActives() {
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={active}
-                      className="relative h-[86%] w-[86%]"
+                      className="relative h-[60%] w-[60%]"
                       initial={{ opacity: 0, scale: 0.96 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 1.02 }}
@@ -200,7 +200,7 @@ export function SharpActives() {
                           src={ACTIVES[active].img}
                           alt={`${ACTIVES[active].name} — specimen illustration`}
                           fill
-                          sizes="(max-width: 640px) 60vw, 440px"
+                          sizes="(max-width: 640px) 42vw, 308px"
                           className="melt object-contain"
                           priority={active === 0}
                         />

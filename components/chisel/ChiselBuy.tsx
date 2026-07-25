@@ -370,12 +370,12 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
                 <div className="mt-3 flex items-center gap-5">
                   {INGREDIENTS.sculpt.heroes.map((h) => (
                     <div key={h.name} className="flex items-center gap-2.5">
-                      <div className="relative h-12 w-12 shrink-0">
+                      <div className="relative h-[34px] w-[34px] shrink-0">
                         <Image
                           src={INGREDIENT_IMG[h.name]}
                           alt=""
                           fill
-                          sizes="48px"
+                          sizes="34px"
                           className="melt object-contain"
                         />
                       </div>

@@ -3,19 +3,31 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { INGREDIENTS, INGREDIENT_IMG } from "@/lib/ingredients";
+import type { ProductSlug } from "@/lib/products";
 
 /**
- * SCULPT's "Formula" — the named hero ingredients, one line each on what they
- * do. Brings SCULPT to parity with STONE (which already names its actives);
- * PECTUS carries the same story in its buy-panel Ingredients tab. Static
- * three-column, hairline-ruled, mono. The full INCI lives in the buy panel
- * (#buy), where the "View full ingredients" link points.
+ * "What's in it." — a product's named hero ingredients, each as a pencil
+ * specimen plate with its INCI and one line on what it does. Shared by PECTUS
+ * and SCULPT so the two can't drift; STONE tells the same story through its
+ * pinned Formula rail. The full INCI lives in the buy panel, where the
+ * "View full ingredients" link points.
  *
- * Claim-safe: nourishes, conditions/moisturises, a firmer-LOOKING finish.
+ * Claim-safe: nourishes, conditions, cools on contact, a firmer-LOOKING finish.
  */
-
-export function SculptFormula() {
-  const { heroes } = INGREDIENTS.sculpt;
+export function ProductFormula({
+  product,
+  intro,
+  href = "#buy",
+}: {
+  product: Extract<ProductSlug, "pectus" | "sculpt">;
+  /** One line framing the list, in the product's own voice. */
+  intro: string;
+  /** Where "View full ingredients" points (PECTUS opens its INCI tab). */
+  href?: string;
+}) {
+  const { heroes } = INGREDIENTS[product];
+  // two heroes sit as a pair, three across the row
+  const cols = heroes.length === 2 ? "sm:grid-cols-2" : "sm:grid-cols-3";
 
   return (
     <section
@@ -36,24 +48,21 @@ export function SculptFormula() {
         >
           What&rsquo;s in it.
         </h2>
-        <p className="mt-5 max-w-xl text-[16.5px] leading-[1.65] text-ink-1">
-          A short list of named ingredients. An oil to nourish, a butter to
-          condition, coffee for the finish. The rest is what carries them.
-        </p>
+        <p className="mt-5 max-w-xl text-[16.5px] leading-[1.65] text-ink-1">{intro}</p>
 
-        <div className="mt-14 grid grid-cols-1 gap-x-10 gap-y-11 sm:grid-cols-3">
+        <div className={`mt-14 grid grid-cols-1 gap-x-10 gap-y-11 ${cols}`}>
           {heroes.map((h, i) => (
             <Reveal key={h.name} delay={i * 0.06}>
               <div
                 className="flex h-full flex-col border-t pt-7"
                 style={{ borderColor: "var(--hair)" }}
               >
-                <div className="relative mb-7 aspect-[4/5] w-full">
+                <div className="relative mb-7 aspect-[4/5] w-[70%] self-center">
                   <Image
                     src={INGREDIENT_IMG[h.name]}
                     alt={`${h.name} — specimen illustration`}
                     fill
-                    sizes="(max-width: 640px) 84vw, 340px"
+                    sizes="(max-width: 640px) 59vw, 240px"
                     className="melt object-contain"
                   />
                 </div>
@@ -78,7 +87,7 @@ export function SculptFormula() {
         </div>
 
         <Link
-          href="#buy"
+          href={href}
           className="caps mt-12 inline-flex items-center gap-2.5 text-[11px] font-medium text-ink-0"
         >
           View full ingredients

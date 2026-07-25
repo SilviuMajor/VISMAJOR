@@ -380,12 +380,12 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
                             className="flex items-center gap-4 border-b py-3"
                             style={{ borderColor: "var(--hair)" }}
                           >
-                            <div className="relative h-12 w-12 shrink-0">
+                            <div className="relative h-[34px] w-[34px] shrink-0">
                               <Image
                                 src={INGREDIENT_IMG[a.name]}
                                 alt=""
                                 fill
-                                sizes="48px"
+                                sizes="34px"
                                 className="melt object-contain"
                               />
                             </div>
