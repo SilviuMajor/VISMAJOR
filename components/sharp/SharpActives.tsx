@@ -161,24 +161,6 @@ export function SharpActives() {
             {/* Specimen — a diagrammatic plate that swaps per active */}
             <div className="relative order-1 flex justify-center lg:order-2">
               <div className="relative aspect-[4/5] w-full max-w-[200px] sm:max-w-[300px] lg:max-w-[440px]">
-                <span className="absolute left-5 top-4 z-40 caps text-[9px] font-medium text-ink-3">
-                  STONE / 002
-                </span>
-                <div className="absolute right-5 top-4 z-40 h-4 overflow-hidden">
-                  <AnimatePresence mode="wait">
-                    <motion.span
-                      key={active}
-                      initial={{ opacity: 0, y: 6 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -6 }}
-                      transition={{ duration: 0.3 }}
-                      className="caps block text-[9px] font-medium text-ink-2"
-                    >
-                      Fig. {ACTIVES[active].n}
-                    </motion.span>
-                  </AnimatePresence>
-                </div>
-
                 {/* swapping specimen plate — the raw material, drawn. It settles
                     across its own third of the pin (`draw`), so each step's
                     scroll does visible work rather than snapping into place. */}
@@ -186,7 +168,7 @@ export function SharpActives() {
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={active}
-                      className="relative h-[60%] w-[60%]"
+                      className="relative h-[86%] w-[86%] sm:h-[70%] sm:w-[70%] lg:h-[54%] lg:w-[54%]"
                       initial={{ opacity: 0, scale: 0.96 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 1.02 }}
@@ -200,7 +182,7 @@ export function SharpActives() {
                           src={ACTIVES[active].img}
                           alt={`${ACTIVES[active].name} — specimen illustration`}
                           fill
-                          sizes="(max-width: 640px) 42vw, 308px"
+                          sizes="(max-width: 640px) 46vw, 240px"
                           className="melt object-contain"
                           priority={active === 0}
                         />
@@ -209,21 +191,6 @@ export function SharpActives() {
                   </AnimatePresence>
                 </div>
 
-                {/* caption strip */}
-                <div className="absolute inset-x-5 bottom-4 z-40">
-                  <AnimatePresence mode="wait">
-                    <motion.span
-                      key={active}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="caps block text-center text-[9px] font-medium text-ink-3"
-                    >
-                      {ACTIVES[active].name} · look &amp; finish only
-                    </motion.span>
-                  </AnimatePresence>
-                </div>
               </div>
             </div>
           </div>

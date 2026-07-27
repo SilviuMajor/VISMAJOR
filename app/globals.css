@@ -103,15 +103,18 @@ html { scroll-behavior: smooth; }
   .serif {
     font-family: var(--font-serif);
   }
-  /* Numeral system — brand-voice figures in classical old-style numerals.
-     .num (Cormorant) = prices / times / ratings / hero figures.
-     .stat (EB Garamond) = big stats & percentages.
-     *-tab variants add tabular figures where digits must column-align.
+  /* Numeral system.
+     .num = money. Prices, RRP, totals — the conventional commerce treatment:
+     the UI sans with lining, tabular figures, so digits sit on the baseline
+     and column-align down a basket. Deliberately plain: a price should read
+     as a price, not as brand voice.
+     .stat (EB Garamond) = big editorial stats & percentages, old-style.
      Data/qty/batch/EAN/spec values stay in font-mono (Courier). */
   .num {
-    font-family: var(--font-numeral);
-    font-feature-settings: "onum" 1;
-    letter-spacing: 0;
+    font-family: var(--font-display);
+    font-feature-settings: "lnum" 1, "tnum" 1;
+    font-variant-numeric: lining-nums tabular-nums;
+    letter-spacing: -0.01em;
   }
   .stat {
     font-family: var(--font-stat);
@@ -119,10 +122,10 @@ html { scroll-behavior: smooth; }
     letter-spacing: 0;
   }
   .num-tab {
-    font-family: var(--font-numeral);
-    font-feature-settings: "onum" 1, "tnum" 1;
-    font-variant-numeric: tabular-nums;
-    letter-spacing: 0;
+    font-family: var(--font-display);
+    font-feature-settings: "lnum" 1, "tnum" 1;
+    font-variant-numeric: lining-nums tabular-nums;
+    letter-spacing: -0.01em;
   }
   .stat-tab {
     font-family: var(--font-stat);

@@ -57,12 +57,12 @@ export function ProductFormula({
                 className="flex h-full flex-col border-t pt-7"
                 style={{ borderColor: "var(--hair)" }}
               >
-                <div className="relative mb-7 aspect-[4/5] w-[70%] self-center">
+                <div className="relative mb-7 aspect-[4/5] w-[86%] self-center sm:w-[58%]">
                   <Image
                     src={INGREDIENT_IMG[h.name]}
                     alt={`${h.name} — specimen illustration`}
                     fill
-                    sizes="(max-width: 640px) 59vw, 240px"
+                    sizes="(max-width: 640px) 74vw, 200px"
                     className="melt object-contain"
                   />
                 </div>
