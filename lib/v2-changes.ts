@@ -1271,6 +1271,136 @@ export const V2_CHANGES: V2Change[] = [
     risk: "low",
     route: "/v2/stone",
   },
+
+  // ───────────────────── Detail & hierarchy ─────────────────────
+  {
+    n: 86,
+    title: "The lightest ink fails every contrast threshold",
+    surface: "Global",
+    category: "Technical",
+    what:
+      "ink-3 measures 2.83:1 on white, below the 4.5:1 body minimum, the 3:1 large-text minimum and the 3:1 interface minimum. It is used for text 96 times. Darken it to about 4.6:1 and keep the current value for decoration only.",
+    why:
+      "It carries every checkout field label, every input placeholder, the inactive nav links, the Remove button in the basket, and the full ingredient list. These are the places a customer most needs to read.",
+    evidence:
+      "#9C9A8F on #FFFFFF = 2.83:1. #797770 would give 4.62:1. Also note ink-3/70 in chisel/Specimen.tsx:65 measures 1.98:1.",
+    effort: "M",
+    risk: "low",
+    route: "/v2/pectus",
+    fixesBug: true,
+  },
+  {
+    n: 87,
+    title: "The focus ring is invisible on every dark surface",
+    surface: "Global",
+    category: "Technical",
+    what:
+      "The global focus outline is ink on ink, so it disappears against the nav in its dark state, the footer and all three final CTAs. Five form fields remove it entirely with outline-none.",
+    why:
+      "Keyboard users cannot see where they are. Removing it from the checkout fields specifically means the payment form cannot be navigated without a mouse.",
+    evidence: "globals.css:77-81; checkout/page.tsx:192 uses a bare outline-none on all five fields.",
+    effort: "S",
+    risk: "low",
+    route: "/v2/pectus",
+    fixesBug: true,
+  },
+  {
+    n: 88,
+    title: "The footer uses the wrong colour scale on itself",
+    surface: "Global",
+    category: "Change",
+    what:
+      "The footer sits on ink and uses both the light-on-dark scale and the dark-on-light scale in the same file. Seven elements use a dark-scale token on a dark ground.",
+    why:
+      "The tagline, the legal disclaimer, both column headings, the copyright and the motto are all drawn with the wrong token, and one of them fails contrast outright.",
+    evidence: "Footer.tsx lines 28, 31, 39, 73, 95, 98, 103; line 105 measures 3.82:1.",
+    effort: "S",
+    risk: "low",
+    route: "/v2/home",
+    fixesBug: true,
+  },
+  {
+    n: 89,
+    title: "Nineteen button styles for three roles",
+    surface: "Global",
+    category: "Improvement",
+    what:
+      "The solid primary button alone uses ten different vertical paddings and four font sizes. Collapse to one Button component with three variants.",
+    why:
+      "Ten paddings for one role is the clearest possible sign of accumulation rather than design. Some CTAs also carry a border and some do not, so the checkout button is geometrically 1px different from every other.",
+    effort: "M",
+    risk: "medium",
+    route: "/v2/pectus",
+  },
+  {
+    n: 90,
+    title: "Five corner radii inside a three-pixel range",
+    surface: "Global",
+    category: "Improvement",
+    what:
+      "Radii of 2, 3, 4, 4 and 5px are in use, two of them written two different ways, and the de-facto button radius of 5px is not a token at all. Meanwhile three declared radius tokens are never used.",
+    why:
+      "Indistinguishable values that are structurally different is exactly the drift that makes a system stop being a system. Reference sites use zero or one.",
+    effort: "S",
+    risk: "low",
+    route: "/v2/pectus",
+  },
+  {
+    n: 91,
+    title: "The cream theme is still in the code",
+    surface: "Global",
+    category: "Technical",
+    what:
+      "The inverse hairline on dark sections is a hardcoded rgba of #F4F2EC, which is the old cream theme's paper colour, repeated 17 times at five different alphas with no token.",
+    why:
+      "It is a leftover from the move to white. It also means eight distinct inverse line weights exist where two would do.",
+    effort: "S",
+    risk: "low",
+    route: "/v2/pectus",
+  },
+  {
+    n: 92,
+    title: "A full-screen image is downloaded and never seen",
+    surface: "PECTUS",
+    category: "Technical",
+    what:
+      "The Honesty section is wrapped in a scene backdrop, but its own root is opaque ink, so the scene is completely covered. The image is fetched and composited on every visit and renders nothing.",
+    why:
+      "Pure waste, and the wrapper component documents the precondition that the call site breaks.",
+    evidence: "EnhancedComposition.tsx:55-57 wrapping IsIsnt.tsx:14.",
+    effort: "S",
+    risk: "low",
+    route: "/v2/pectus",
+    fixesBug: true,
+  },
+  {
+    n: 93,
+    title: "A hover effect that only works if you hover the arrow itself",
+    surface: "PECTUS",
+    category: "Technical",
+    what:
+      "The Formula link's arrow uses a plain hover rather than a group hover, and its parent has no group class, so the animation only fires when the cursor is over the 8px glyph.",
+    why:
+      "Two sibling components do this correctly, so it reads as a slip rather than a decision.",
+    evidence: "ProductFormula.tsx:89-94, against SculptTools.tsx:51 and OtherProducts.tsx:98.",
+    effort: "S",
+    risk: "low",
+    route: "/v2/pectus",
+    fixesBug: true,
+  },
+  {
+    n: 94,
+    title: "Add-to-basket can be double-submitted",
+    surface: "Global",
+    category: "Technical",
+    what:
+      "None of the four add-to-basket buttons, the drawer checkout button, or the place-order button has a disabled or pending state. There is no active press state anywhere on the site.",
+    why:
+      "A button that gives no feedback on press invites a second click, and on the order button that is a real problem once payment is wired up.",
+    effort: "S",
+    risk: "low",
+    route: "/v2/pectus",
+  },
 ];
 
 // ---- lookups -------------------------------------------------------------
