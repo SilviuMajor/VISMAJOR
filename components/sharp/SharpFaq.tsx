@@ -114,7 +114,7 @@ export function SharpFaq({ shipMonth }: { shipMonth: string }) {
       <RomanBehind figure="/men/stone-mirror.png" side="right" opacity={0.2} />
       <Container className="relative z-10">
         <div className="mb-9 flex items-baseline gap-4">
-          <span className="text-[13px] font-medium text-ink-3">05</span>
+          <span className="text-[13px] font-medium text-ink-3">03</span>
           <h3
             className="m-0 font-bold tracking-tight text-ink-0"
             style={{ fontSize: "clamp(24px, 3vw, 34px)", letterSpacing: "-0.02em" }}
@@ -127,7 +127,7 @@ export function SharpFaq({ shipMonth }: { shipMonth: string }) {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[4fr_8fr] lg:gap-16">
           {/* designed left rail */}
           <Reveal>
-            <div className="lg:sticky lg:top-16">
+            <div className="lg:sticky lg:top-[92px]">
               <h3
                 className="font-bold uppercase text-ink-0"
                 style={{ fontSize: "clamp(40px, 5vw, 68px)", letterSpacing: "-0.025em", lineHeight: 0.96 }}

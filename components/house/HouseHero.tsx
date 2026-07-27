@@ -9,6 +9,7 @@ import {
 import { Container } from "@/components/ui/Container";
 import { PRODUCTS } from "@/lib/products";
 import { SceneBackdrop } from "@/components/ui/SceneBackdrop";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -103,13 +104,8 @@ export function HouseHero() {
         <motion.div
           {...fadeUp}
           transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
-          className="flex items-center gap-3.5"
         >
-          <span className="h-px w-7 bg-[var(--hair-strong)]" />
-          <span className="caps-loose text-[11px] font-semibold text-ink-2">
-            Est. MMXXVI · Made in the UK
-          </span>
-          <span className="h-px w-7 bg-[var(--hair-strong)]" />
+          <Eyebrow center>Est. MMXXVI · Made in the UK</Eyebrow>
         </motion.div>
 
         {/* the name — made to land */}
@@ -163,13 +159,13 @@ export function HouseHero() {
         >
           <a
             href="#products"
-            className="inline-flex items-center justify-center gap-2.5 rounded-[5px] border border-ink-0 bg-ink-0 px-9 py-[16px] text-[15px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
+            className="inline-flex items-center justify-center gap-2.5 rounded-sm border border-ink-0 bg-ink-0 px-9 py-[16px] text-[15px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
           >
             Meet the three →
           </a>
           <a
             href="#standard"
-            className="inline-flex items-center justify-center rounded-[5px] border border-ink-0 px-9 py-[16px] text-[15px] font-semibold text-ink-0 transition-colors hover:bg-ink-0 hover:text-paper-0"
+            className="inline-flex items-center justify-center rounded-sm border border-ink-0 px-9 py-[16px] text-[15px] font-semibold text-ink-0 transition-colors hover:bg-ink-0 hover:text-paper-0"
           >
             The standard
           </a>

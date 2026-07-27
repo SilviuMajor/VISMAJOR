@@ -23,7 +23,7 @@ export function ProductQuote({
   return (
     <section
       id="quote"
-      className="relative overflow-hidden border-y"
+      className="relative scroll-mt-[92px] overflow-hidden border-y"
       style={{ borderColor: "var(--hair)" }}
     >
       {/* classical colonnade backdrop */}

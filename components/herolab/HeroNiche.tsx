@@ -118,7 +118,7 @@ export function HeroNiche() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 1.25, ease: EASE }}
-          className="mt-8 inline-flex rounded-[5px] border border-ink-0 bg-ink-0 px-9 py-[17px] text-[14px] font-semibold text-paper-0 transition-colors hover:bg-transparent hover:text-ink-0"
+          className="mt-8 inline-flex rounded-sm border border-ink-0 bg-ink-0 px-9 py-[17px] text-[14px] font-semibold text-paper-0 transition-colors hover:bg-transparent hover:text-ink-0"
         >
           Buy · £24
         </motion.a>

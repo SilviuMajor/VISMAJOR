@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { SHELF, INGREDIENT_IMG } from "@/lib/ingredients";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 
 /**
  * "The shelf" — the ingredient band on the home landing, between the product
@@ -21,12 +22,7 @@ export function HouseIngredients() {
       style={{ borderColor: "var(--hair)" }}
     >
       <Container>
-        <div className="flex items-center gap-3.5">
-          <span className="h-px w-7 bg-[var(--hair-strong)]" />
-          <span className="caps-loose text-[11px] font-medium text-ink-2">
-            The Formula · The shelf
-          </span>
-        </div>
+        <Eyebrow>The Formula · The shelf</Eyebrow>
         <h2
           className="mt-5 max-w-3xl font-bold uppercase text-ink-0"
           style={{ fontSize: "clamp(30px, 4.6vw, 64px)", letterSpacing: "-0.03em", lineHeight: 0.98 }}

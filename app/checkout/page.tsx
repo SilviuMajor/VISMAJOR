@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Container } from "@/components/ui/Container";
@@ -16,9 +16,16 @@ export default function CheckoutPage() {
   const [city, setCity] = useState("");
   const [postcode, setPostcode] = useState("");
 
+  // The form stays interactive while the confirmation route loads, so a second
+  // submit (Enter held, an impatient double-click) could fire a second order.
+  const [placing, setPlacing] = useState(false);
+  const submitted = useRef(false);
+
   const placeOrder = (e: React.FormEvent) => {
     e.preventDefault();
-    if (items.length === 0) return;
+    if (submitted.current || items.length === 0) return;
+    submitted.current = true;
+    setPlacing(true);
     // Mock reference — client runtime, so Date.now() is fine here.
     const ref = "VM-" + Date.now().toString(36).toUpperCase().slice(-6);
     clear();
@@ -46,7 +53,7 @@ export default function CheckoutPage() {
             <p className="text-[18px] font-medium text-ink-0">Your basket is empty.</p>
             <Link
               href="/"
-              className="caps mt-5 inline-flex rounded-[5px] bg-ink-0 px-6 py-[14px] text-[12px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
+              className="caps mt-5 inline-flex rounded-sm bg-ink-0 px-6 py-[14px] text-[12px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
             >
               Back to shop
             </Link>
@@ -116,9 +123,11 @@ export default function CheckoutPage() {
 
                 <button
                   type="submit"
-                  className="mt-7 w-full rounded-[5px] bg-ink-0 px-6 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1 sm:w-auto sm:px-12"
+                  disabled={placing}
+                  aria-busy={placing}
+                  className="mt-7 w-full rounded-sm bg-ink-0 px-6 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1 active:translate-y-px disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto sm:px-12"
                 >
-                  Place order
+                  {placing ? "Placing order…" : "Place order"}
                 </button>
               </form>
 
@@ -189,7 +198,7 @@ function Field({
         onChange={(e) => onChange(e.target.value)}
         autoComplete={autoComplete}
         required={required}
-        className="mt-2 w-full border-b border-[var(--hair-strong)] bg-transparent pb-2 text-[15px] text-ink-0 outline-none transition-colors placeholder:text-ink-3 focus:border-ink-0"
+        className="mt-2 w-full border-b border-[var(--hair-strong)] bg-transparent pb-2 text-[15px] text-ink-0 transition-colors placeholder:text-ink-3 focus:border-ink-0"
       />
     </label>
   );

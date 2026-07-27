@@ -13,7 +13,7 @@ import { TrustStrip } from "@/components/enhanced/TrustStrip";
 import { ProductQuote } from "@/components/house/ProductQuote";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
-import { SectionHead } from "@/components/ui/Eyebrow";
+import { Eyebrow, SectionHead } from "@/components/ui/Eyebrow";
 import { ToolPhoto } from "@/components/steel/ToolPhoto";
 
 import { HeroTypeWindow } from "@/components/herolab/HeroTypeWindow";
@@ -171,12 +171,7 @@ export function SteelComposition() {
         {/* ── Pairs with SCULPT ─────────────────────────────────── */}
         <section className="border-t bg-paper-1 py-20 md:py-28" style={{ borderColor: "var(--hair)" }}>
           <Container>
-            <div className="flex items-center gap-3.5">
-              <span className="h-px w-7 bg-[var(--hair-strong)]" />
-              <span className="caps-loose text-[11px] font-medium text-ink-2">
-                The House · Built for the cream
-              </span>
-            </div>
+            <Eyebrow>The House · Built for the cream</Eyebrow>
             <Link href="/sculpt" className="group mt-8 block border-t pt-8" style={{ borderColor: "var(--hair)" }}>
               <div className="grid grid-cols-1 gap-8 md:grid-cols-[7fr_5fr] md:items-center">
                 <div>

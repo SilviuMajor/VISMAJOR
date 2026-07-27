@@ -11,11 +11,11 @@ export function IsIsnt() {
   return (
     <section
       id="honesty"
-      className="relative overflow-hidden border-y bg-ink-0 py-20 md:py-28"
-      style={{ borderColor: "rgba(244,242,236,0.22)" }}
+      className="relative scroll-mt-[92px] overflow-hidden border-y bg-ink-0 py-20 md:py-28"
+      style={{ borderColor: "var(--hair-inverse-strong)" }}
     >
       <Container>
-        <SectionHead n="04" title="Honesty." light />
+        <SectionHead n="03" title="Honesty." light />
 
         <div className="grid grid-cols-1 gap-y-12 md:grid-cols-2 md:gap-x-16">
           <Reveal>

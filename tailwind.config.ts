@@ -28,12 +28,15 @@ const config: Config = {
           1: paperAlpha("--paper-1"),
           2: paperAlpha("--paper-2"),
         },
-        // Ink (warm near-black)
+        // Ink (warm near-black).
+        // 3 = faint TEXT (4.62:1 on white, clears the WCAG body minimum).
+        // 4 = DECORATION ONLY — dots, separators, marks. Never text.
         ink: {
           0: "#14130F",
           1: "#36352F",
           2: "#6A6960",
-          3: "#9C9A8F",
+          3: "#797770",
+          4: "#9C9A8F",
         },
         // Aluminium / metal scale
         metal: {
@@ -76,10 +79,17 @@ const config: Config = {
         legal: ["10px", { lineHeight: "1.4" }],
       },
       borderRadius: {
-        none: "0",
+        /* Two radii, and that is the whole scale.
+           `sm` is 5px — not 4px — because 5px was already the de-facto button
+           radius (42 uses as a raw `rounded-[5px]`, against 21 `rounded-sm`),
+           so tokenising on it moves the fewest corners. The 4px/3px literals
+           were the same radius written three ways and now all resolve here.
+           `xs` stays as the micro tier for the 8.5px caps chips inside the
+           buy panels, where 5px would read as a pill.
+           `none`/`md` were declared and never used; `rounded-full` (49 uses,
+           dots and progress pills) is Tailwind's own and is unaffected. */
         xs: "2px",
-        sm: "4px",
-        md: "8px",
+        sm: "5px",
         pill: "999px",
       },
       spacing: {

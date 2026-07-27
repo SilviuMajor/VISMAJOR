@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { INGREDIENTS, INGREDIENT_IMG } from "@/lib/ingredients";
 import type { ProductSlug } from "@/lib/products";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 
 /**
  * "What's in it." — a product's named hero ingredients, each as a pencil
@@ -36,12 +37,7 @@ export function ProductFormula({
       style={{ borderColor: "var(--hair)" }}
     >
       <Container>
-        <div className="flex items-center gap-3.5">
-          <span className="h-px w-7 bg-[var(--hair-strong)]" />
-          <span className="caps-loose text-[11px] font-medium text-ink-2">
-            The Formula · What goes in
-          </span>
-        </div>
+        <Eyebrow>The Formula · What goes in</Eyebrow>
         <h2
           className="mt-5 max-w-2xl font-bold uppercase text-ink-0"
           style={{ fontSize: "clamp(30px, 4.4vw, 60px)", letterSpacing: "-0.03em", lineHeight: 0.98 }}
@@ -88,10 +84,10 @@ export function ProductFormula({
 
         <Link
           href={href}
-          className="caps mt-12 inline-flex items-center gap-2.5 text-[11px] font-medium text-ink-0"
+          className="caps group mt-12 inline-flex items-center gap-2.5 text-[11px] font-medium text-ink-0"
         >
           View full ingredients
-          <span className="transition-transform duration-300 hover:translate-x-1">→</span>
+          <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
         </Link>
       </Container>
     </section>

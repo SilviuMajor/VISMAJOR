@@ -326,7 +326,7 @@ function NotifyMe() {
             placeholder="you@email.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="flex-1 rounded-sm border bg-paper-2 px-5 py-[14px] text-[15px] text-ink-0 placeholder:text-ink-3 focus:border-ink-0 focus:outline-none"
+            className="flex-1 rounded-sm border bg-paper-2 px-5 py-[14px] text-[15px] text-ink-0 placeholder:text-ink-3 focus:border-ink-0"
             style={{ borderColor: "var(--hair-strong)" }}
           />
           <button

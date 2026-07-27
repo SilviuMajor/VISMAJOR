@@ -25,7 +25,7 @@ export function NavInscription() {
           <span className="hidden caps-loose text-[10px] font-medium text-ink-3 lg:inline" style={{ letterSpacing: "0.22em" }}>
             Est · MMXXVI
           </span>
-          <a href="#" className="hidden items-center rounded-[5px] border border-ink-0 px-4 py-1.5 text-[11px] font-semibold text-ink-0 transition-colors hover:bg-ink-0 hover:text-paper-0 md:inline-flex">
+          <a href="#" className="hidden items-center rounded-sm border border-ink-0 px-4 py-1.5 text-[11px] font-semibold text-ink-0 transition-colors hover:bg-ink-0 hover:text-paper-0 md:inline-flex">
             Buy
           </a>
           <CartGlyph className="text-ink-0" />

@@ -39,7 +39,7 @@ export function SharpNotify() {
   };
 
   return (
-    <section id="notify" className="py-16 md:py-20">
+    <section id="notify" className="scroll-mt-[92px] py-16 md:py-20">
       <Container>
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[5fr_7fr] lg:gap-12">
           <div>
@@ -63,13 +63,13 @@ export function SharpNotify() {
               placeholder="you@email.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 rounded-sm border bg-paper-2 px-5 py-[16px] text-[15px] text-ink-0 placeholder:text-ink-3 focus:border-ink-0 focus:outline-none"
+              className="flex-1 rounded-sm border bg-paper-2 px-5 py-[16px] text-[15px] text-ink-0 placeholder:text-ink-3 focus:border-ink-0"
               style={{ borderColor: "var(--hair-strong)" }}
             />
             <button
               type="submit"
               disabled={status === "loading"}
-              className="inline-flex items-center justify-center rounded-[5px] border border-ink-0 bg-ink-0 px-8 py-[16px] text-[12px] font-semibold text-paper-0 transition-colors hover:bg-ink-1 disabled:opacity-50"
+              className="inline-flex items-center justify-center rounded-sm border border-ink-0 bg-ink-0 px-8 py-[16px] text-[12px] font-semibold text-paper-0 transition-colors hover:bg-ink-1 disabled:opacity-50"
             >
               {status === "loading" ? "Sending…" : "Subscribe"}
             </button>

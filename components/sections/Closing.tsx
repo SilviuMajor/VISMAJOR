@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/Container";
 import { TextReveal } from "@/components/ui/TextReveal";
 import { Parallax } from "@/components/ui/Parallax";
 import { ProductShot } from "@/components/product/ProductShot";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 
 export function Closing({ shipMonth }: { shipMonth: string }) {
   return (
@@ -12,12 +13,7 @@ export function Closing({ shipMonth }: { shipMonth: string }) {
       <Container className="py-20 md:py-28">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
           <div>
-            <div className="flex items-center gap-3.5">
-              <span className="h-px w-7 bg-[var(--hair-strong)]" />
-              <span className="caps-loose text-[11px] font-semibold text-ink-2">
-                Buy now
-              </span>
-            </div>
+            <Eyebrow>Buy now</Eyebrow>
 
             <TextReveal
               as="h2"

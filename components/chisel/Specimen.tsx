@@ -62,6 +62,6 @@ export function Specimen({
 /** A faint "photography drops in here" watermark for empty placeholder centres. */
 export function PlaceholderNote({ children }: { children: ReactNode }) {
   return (
-    <span className="caps text-[9px] font-medium text-ink-3/70">{children}</span>
+    <span className="caps text-[9px] font-medium text-ink-3">{children}</span>
   );
 }

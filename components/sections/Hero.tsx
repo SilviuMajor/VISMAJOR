@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/Container";
 import { TextReveal } from "@/components/ui/TextReveal";
 import { Parallax } from "@/components/ui/Parallax";
 import { ProductShot } from "@/components/product/ProductShot";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 
 const fade = {
   initial: { opacity: 0, y: 10 },
@@ -21,12 +22,8 @@ export function Hero({ shipMonth }: { shipMonth: string }) {
             <motion.div
               {...fade}
               transition={{ duration: 0.5, delay: 0.1, ease: [0.2, 0, 0, 1] }}
-              className="flex items-center gap-3.5"
             >
-              <span className="h-px w-7 bg-[var(--hair-strong)]" />
-              <span className="caps-loose text-[11px] font-semibold text-ink-2">
-                Topicals for Men · Est. MMXXVI
-              </span>
+              <Eyebrow>Topicals for Men · Est. MMXXVI</Eyebrow>
             </motion.div>
 
             <TextReveal

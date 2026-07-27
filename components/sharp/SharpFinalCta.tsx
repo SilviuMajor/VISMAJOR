@@ -3,17 +3,13 @@
 import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { TextReveal } from "@/components/ui/TextReveal";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 
 export function SharpFinalCta({ shipMonth }: { shipMonth: string }) {
   return (
     <section className="relative overflow-hidden bg-ink-0 py-24 text-paper-0 md:py-32">
       <Container>
-        <div className="flex items-center gap-3.5">
-          <span className="h-px w-8" style={{ background: "#14130F" }} />
-          <span className="caps-loose text-[11px] font-semibold text-paper-0/70">
-            Ships {shipMonth} · free UK delivery
-          </span>
-        </div>
+        <Eyebrow light>Ships {shipMonth} · free UK delivery</Eyebrow>
 
         <TextReveal
           as="h2"
@@ -22,6 +18,12 @@ export function SharpFinalCta({ shipMonth }: { shipMonth: string }) {
         />
 
         <div className="mt-12 flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
+          <div>
+            <span className="caps text-[10px] font-semibold text-paper-0/50">
+              Free UK delivery · 30-day returns
+            </span>
+          </div>
+
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -31,7 +33,7 @@ export function SharpFinalCta({ shipMonth }: { shipMonth: string }) {
           >
             <a
               href="#buy"
-              className="inline-flex items-center justify-center gap-2.5 rounded-[5px] border border-paper-0 bg-paper-0 px-10 py-[20px] text-[14px] font-semibold text-ink-0 transition-colors hover:bg-transparent hover:text-paper-0"
+              className="inline-flex items-center justify-center gap-2.5 rounded-sm border border-paper-0 bg-paper-0 px-10 py-[20px] text-[14px] font-semibold text-ink-0 transition-colors hover:bg-transparent hover:text-paper-0"
             >
               Buy · £22
             </a>

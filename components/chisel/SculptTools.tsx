@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { ToolPhoto } from "@/components/steel/ToolPhoto";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 
 /** "The Tool (optional)" — the steel tool is an add-on, never the product. */
 export function SculptTools() {
@@ -12,12 +13,7 @@ export function SculptTools() {
     >
       <Container>
         <Reveal>
-          <div className="flex items-center gap-3.5">
-            <span className="h-px w-7 bg-[var(--hair-strong)]" />
-            <span className="caps-loose text-[11px] font-medium text-ink-2">
-              The Tool · Optional
-            </span>
-          </div>
+          <Eyebrow>The Tool · Optional</Eyebrow>
           <h2
             className="mt-5 max-w-2xl font-bold uppercase text-ink-0"
             style={{ fontSize: "clamp(28px, 4.2vw, 56px)", letterSpacing: "-0.03em", lineHeight: 0.98 }}

@@ -1,6 +1,7 @@
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { RomanBehind } from "@/components/ui/RomanBehind";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 
 /** "What it does" — the plain-spoken explainer, cream-first. */
 export function SculptWhatItDoes() {
@@ -9,12 +10,7 @@ export function SculptWhatItDoes() {
       <RomanBehind figure="/men/sculpt-figure.png" side="right" opacity={0.2} />
       <Container className="relative z-10">
         <Reveal>
-          <div className="flex items-center gap-3.5">
-            <span className="h-px w-7 bg-[var(--hair-strong)]" />
-            <span className="caps-loose text-[11px] font-semibold text-ink-2">
-              What it does
-            </span>
-          </div>
+          <Eyebrow>What it does</Eyebrow>
           <h2
             className="mt-5 max-w-3xl font-bold uppercase text-ink-0"
             style={{ fontSize: "clamp(30px, 4.4vw, 60px)", letterSpacing: "-0.03em", lineHeight: 0.98 }}

@@ -10,11 +10,11 @@ export function SharpIsIsnt() {
   return (
     <section
       id="honesty"
-      className="relative overflow-hidden border-y bg-ink-0 py-20 md:py-28"
-      style={{ borderColor: "rgba(244,242,236,0.22)" }}
+      className="relative scroll-mt-[92px] overflow-hidden border-y bg-ink-0 py-20 md:py-28"
+      style={{ borderColor: "var(--hair-inverse-strong)" }}
     >
       <Container>
-        <SectionHead n="03" title="Honesty." light />
+        <SectionHead n="02" title="Honesty." light />
 
         <div className="grid grid-cols-1 gap-x-16 gap-y-12 md:grid-cols-2">
           <Reveal>

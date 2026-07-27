@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { CartButton } from "@/components/cart/CartButton";
+import { ButtonLink } from "@/components/ui/Button";
 
 export type NavLink = { href: string; label: string };
 
@@ -106,7 +107,10 @@ export function Header({
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
-            className="relative -ml-2 flex h-9 w-9 items-center justify-center md:hidden"
+            /* The bars are already at full strength, so the hover lifts the
+               whole target rather than its colour — the one move that reads on
+               both the light bar and the dark one. */
+            className="relative -ml-2 flex h-9 w-9 items-center justify-center rounded-sm transition-opacity hover:opacity-60 md:hidden"
           >
             <span className="relative block h-3 w-5" aria-hidden>
               <motion.span
@@ -146,10 +150,16 @@ export function Header({
           {cta && (
             <a
               href={cta.href}
-              className={`hidden items-center rounded-[5px] border px-3.5 py-1.5 text-[12px] font-semibold transition-colors duration-300 md:inline-flex ${
+              /* Header chrome, deliberately smaller than the page CTA scale in
+                 components/ui/Button — it must fit the 74px bar and must not
+                 out-shout the CTA it is pointing at. It does take the secondary
+                 variant's border and hover, so it reads as the same control:
+                 the border was a 1.98:1 hairline against the 18.59:1 ink used
+                 everywhere else. */
+              className={`hidden items-center rounded-sm border px-3.5 py-1.5 text-[12px] font-semibold transition-colors duration-300 md:inline-flex ${
                 dark
-                  ? "border-paper-0/40 text-paper-0 hover:bg-paper-0 hover:text-ink-0"
-                  : "border-[var(--hair-strong)] text-ink-0 hover:bg-ink-0 hover:text-paper-0"
+                  ? "border-paper-0 text-paper-0 hover:bg-paper-0 hover:text-ink-0"
+                  : "border-ink-0 text-ink-0 hover:bg-ink-0 hover:text-paper-0"
               }`}
             >
               {cta.label}
@@ -193,13 +203,13 @@ export function Header({
                 })}
               </nav>
               {cta && (
-                <a
+                <ButtonLink
                   href={cta.href}
                   onClick={() => setOpen(false)}
-                  className="mt-4 flex items-center justify-center rounded-[5px] border border-ink-0 bg-ink-0 px-6 py-[14px] text-[13px] font-semibold text-paper-0"
+                  className="mt-4 w-full"
                 >
                   {cta.label}
-                </a>
+                </ButtonLink>
               )}
               <div onClick={() => setOpen(false)}>
                 <CartButton variant="mobile" />

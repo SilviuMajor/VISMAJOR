@@ -38,7 +38,7 @@ export function OneJob() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="how" className="relative overflow-hidden py-24 md:py-36">
+    <section id="how" className="relative scroll-mt-[92px] overflow-hidden py-24 md:py-36">
       {/* the David — faint, centred directly behind the headline */}
       <div
         aria-hidden

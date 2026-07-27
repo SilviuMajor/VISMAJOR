@@ -59,7 +59,7 @@ const CONFIG: Record<MaskProduct, MaskConfig> = {
     price: "from £28",
     primaryHref: "#buy",
     secondary: "The Ritual",
-    secondaryHref: "#how",
+    secondaryHref: "#science",
   },
   stone: {
     word: "STONE",
@@ -72,7 +72,7 @@ const CONFIG: Record<MaskProduct, MaskConfig> = {
     price: "£22",
     primaryHref: "#buy",
     secondary: "The Daily",
-    secondaryHref: "#how",
+    secondaryHref: "#science",
   },
   steel: {
     word: "STEEL",
@@ -291,10 +291,10 @@ export function HeroTypeWindow({
             <p className="caps mt-5 text-[13px] font-medium text-ink-1 md:mt-6 md:text-[18px]">{cfg.tagline}</p>
             <p className="mt-3.5 max-w-xl text-[15px] leading-[1.6] text-ink-2 md:mt-4 md:text-[20px]">{cfg.description}</p>
             <div className="mt-7 flex flex-col items-center gap-2.5 sm:flex-row md:mt-8 md:gap-3">
-              <Magnetic href={cfg.primaryHref} className="inline-flex items-center justify-center gap-2.5 rounded-[5px] border border-ink-0 bg-ink-0 px-8 py-[15px] text-[14px] font-semibold text-paper-0 transition-colors hover:bg-ink-1 md:px-10 md:py-[19px] md:text-[15px]">
+              <Magnetic href={cfg.primaryHref} className="inline-flex items-center justify-center gap-2.5 rounded-sm border border-ink-0 bg-ink-0 px-8 py-[15px] text-[14px] font-semibold text-paper-0 transition-colors hover:bg-ink-1 md:px-10 md:py-[19px] md:text-[15px]">
                 Buy {cfg.price}
               </Magnetic>
-              <a href={cfg.secondaryHref} className="inline-flex items-center justify-center rounded-[5px] border border-ink-0 px-8 py-[15px] text-[14px] font-semibold text-ink-0 transition-colors hover:bg-ink-0 hover:text-paper-0 md:px-10 md:py-[19px] md:text-[15px]">
+              <a href={cfg.secondaryHref} className="inline-flex items-center justify-center rounded-sm border border-ink-0 px-8 py-[15px] text-[14px] font-semibold text-ink-0 transition-colors hover:bg-ink-0 hover:text-paper-0 md:px-10 md:py-[19px] md:text-[15px]">
                 {cfg.secondary}
               </a>
             </div>

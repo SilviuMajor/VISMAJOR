@@ -15,11 +15,14 @@ export function Counter({
   duration = 1.1,
   className = "",
   suffix = "",
+  group = false,
 }: {
   value: number;
   duration?: number;
   className?: string;
   suffix?: string;
+  /** Thousands separators, e.g. 2000 → "2,000". Off by default. */
+  group?: boolean;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-40px" });
@@ -42,7 +45,7 @@ export function Counter({
 
   return (
     <span ref={ref} className={className}>
-      {display}
+      {group ? display.toLocaleString("en-GB") : display}
       {suffix}
     </span>
   );

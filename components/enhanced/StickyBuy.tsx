@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow, SectionHead } from "@/components/ui/Eyebrow";
 import { INGREDIENT_IMG } from "@/lib/ingredients";
-import { useCart } from "@/lib/cart";
+import { useAddToCart } from "@/lib/cart";
 
 type Tier = {
   key: "1" | "2";
@@ -77,7 +77,7 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
   const [qty, setQty] = useState(1);
   const [shot, setShot] = useState(0);
   const [specTab, setSpecTab] = useState<SpecTabKey>("spec");
-  const { add } = useCart();
+  const { addToCart, adding } = useAddToCart();
 
   // Switching tab also defaults the gallery to that tab's shot.
   const selectSpecTab = (t: (typeof SPEC_TABS)[number]) => {
@@ -102,7 +102,7 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
   const total = tier.price * qty;
 
   const onAdd = () =>
-    add({
+    addToCart({
       id: `pectus:${tier.key}`,
       product: "pectus",
       productName: "PECTUS",
@@ -113,15 +113,15 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
     });
 
   return (
-    <section id="buy" className="py-16 md:py-24">
+    <section id="buy" className="scroll-mt-[92px] py-16 md:py-24">
       <Container>
-        <SectionHead n="04" title="Buy PECTUS" />
+        <SectionHead n="02" title="Buy PECTUS" />
 
         <div id="product" className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-14">
           {/* Sticky gallery */}
           <div className="lg:sticky lg:top-24 lg:self-start">
             <div
-              className="relative flex aspect-square items-center justify-center rounded-[4px] bg-paper-0"
+              className="relative flex aspect-square items-center justify-center rounded-sm bg-paper-0"
               style={{ boxShadow: "0 28px 64px -32px rgba(20,19,15,0.38)" }}
             >
               <span className="absolute left-3 top-2.5 z-20 caps text-[9px] font-medium font-mono text-ink-3">PECTUS / 001</span>
@@ -153,7 +153,7 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
                 <button
                   key={g.src}
                   onClick={() => setShot(i)}
-                  className={`group relative flex aspect-square items-center justify-center rounded-[3px] bg-paper-0 transition-shadow ${
+                  className={`group relative flex aspect-square items-center justify-center rounded-sm bg-paper-0 transition-shadow ${
                     i === shot
                       ? "shadow-[0_14px_30px_-16px_rgba(20,19,15,0.40)]"
                       : "shadow-[0_8px_20px_-14px_rgba(20,19,15,0.26)]"
@@ -261,15 +261,17 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
             {/* qty + CTA */}
             <div className="mt-6 flex items-center gap-4">
               <div className="flex items-center rounded-sm border border-ink-0">
-                <button onClick={() => setQty(Math.max(1, qty - 1))} className="px-4 py-3 text-base font-semibold hover:bg-ink-0/5" aria-label="Decrease quantity">−</button>
+                <button onClick={() => setQty(Math.max(1, qty - 1))} className="px-4 py-3 text-base font-semibold text-ink-0 transition-colors hover:bg-ink-0/5" aria-label="Decrease quantity">−</button>
                 <span className="min-w-[2rem] text-center font-semibold">{qty}</span>
-                <button onClick={() => setQty(qty + 1)} className="px-4 py-3 text-base font-semibold hover:bg-ink-0/5" aria-label="Increase quantity">+</button>
+                <button onClick={() => setQty(qty + 1)} className="px-4 py-3 text-base font-semibold text-ink-0 transition-colors hover:bg-ink-0/5" aria-label="Increase quantity">+</button>
               </div>
               <button
                 onClick={onAdd}
-                className="flex-1 rounded-[5px] border border-ink-0 bg-ink-0 px-6 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
+                disabled={adding}
+                aria-busy={adding}
+                className="flex-1 rounded-sm border border-ink-0 bg-ink-0 px-6 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1 active:translate-y-px disabled:cursor-not-allowed disabled:opacity-70"
               >
-                {`Add to basket · £${total}`}
+                {adding ? "Adding…" : `Add to basket · £${total}`}
               </button>
             </div>
             <div className="mt-3 flex items-center justify-between">
@@ -351,7 +353,7 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
                             <div className="relative h-[34px] w-[34px] shrink-0">
                               <Image
                                 src={INGREDIENT_IMG[a.name]}
-                                alt=""
+                                alt={`${a.name} — specimen illustration`}
                                 fill
                                 sizes="34px"
                                 className="melt object-contain"

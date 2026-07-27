@@ -8,7 +8,7 @@ import { Eyebrow, SectionHead } from "@/components/ui/Eyebrow";
 import { Specimen, PlaceholderNote } from "@/components/chisel/Specimen";
 import { CreamTube, SteelTool, EMBER } from "@/components/chisel/Art";
 import { INGREDIENTS, INGREDIENT_IMG, SCULPT_INCI } from "@/lib/ingredients";
-import { useCart } from "@/lib/cart";
+import { useAddToCart } from "@/lib/cart";
 
 /**
  * Buy SCULPT. The cream is the product; the steel tool is an optional
@@ -73,13 +73,13 @@ function SpecimenContents({ contents }: { contents: Tier["contents"] }) {
 export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
   const [tierKey, setTierKey] = useState<TierKey>("1");
   const [qty, setQty] = useState(1);
-  const { add } = useCart();
+  const { addToCart, adding } = useAddToCart();
 
   const tier = useMemo(() => TIERS.find((t) => t.key === tierKey) ?? TIERS[0], [tierKey]);
   const total = tier.price * qty;
 
   const onAdd = () =>
-    add({
+    addToCart({
       id: `sculpt:${tier.key}`,
       product: "sculpt",
       productName: "SCULPT",
@@ -92,15 +92,15 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
   const topRightLabel = tier.contents === "cream" ? "Cream" : "+ Steel";
 
   return (
-    <section id="buy" className="py-16 md:py-24">
+    <section id="buy" className="scroll-mt-[92px] py-16 md:py-24">
       <Container>
-        <SectionHead n="04" title="Buy SCULPT." />
+        <SectionHead n="01" title="Buy SCULPT." />
 
         <div id="product" className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-14">
           {/* Sticky specimen — reflects the chosen kit */}
           <div className="lg:sticky lg:top-24 lg:self-start">
             <Specimen
-              className="rounded-[4px] bg-paper-0 shadow-[0_28px_64px_-32px_rgba(20,19,15,0.38)]"
+              className="rounded-sm bg-paper-0 shadow-[0_28px_64px_-32px_rgba(20,19,15,0.38)]"
               ratio="1 / 1"
               topLeft="SCULPT / 003"
               topRight={
@@ -270,7 +270,7 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
               <div className="flex items-center rounded-sm border border-ink-0">
                 <button
                   onClick={() => setQty(Math.max(1, qty - 1))}
-                  className="px-4 py-3 text-base font-semibold hover:bg-ink-0/5"
+                  className="px-4 py-3 text-base font-semibold text-ink-0 transition-colors hover:bg-ink-0/5"
                   aria-label="Decrease quantity"
                 >
                   −
@@ -278,7 +278,7 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
                 <span className="min-w-[2rem] text-center font-semibold">{qty}</span>
                 <button
                   onClick={() => setQty(qty + 1)}
-                  className="px-4 py-3 text-base font-semibold hover:bg-ink-0/5"
+                  className="px-4 py-3 text-base font-semibold text-ink-0 transition-colors hover:bg-ink-0/5"
                   aria-label="Increase quantity"
                 >
                   +
@@ -286,9 +286,17 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
               </div>
               <button
                 onClick={onAdd}
-                className="flex-1 rounded-[5px] border border-ink-0 bg-ink-0 px-6 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
+                disabled={adding}
+                aria-busy={adding}
+                className="flex-1 rounded-sm border border-ink-0 bg-ink-0 px-6 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1 active:translate-y-px disabled:cursor-not-allowed disabled:opacity-70"
               >
-                Add to basket · <span className="font-semibold">£{total}</span>
+                {adding ? (
+                  "Adding…"
+                ) : (
+                  <>
+                    Add to basket · <span className="font-semibold">£{total}</span>
+                  </>
+                )}
               </button>
             </div>
             <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
@@ -343,7 +351,7 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
                       <div className="relative h-[34px] w-[34px] shrink-0">
                         <Image
                           src={INGREDIENT_IMG[h.name]}
-                          alt=""
+                          alt={`${h.name} — specimen illustration`}
                           fill
                           sizes="34px"
                           className="melt object-contain"

@@ -95,7 +95,7 @@ function Bar({
           </span>
         )}
         {showCta && (
-          <span className={`hidden items-center rounded-[5px] border px-3.5 py-1.5 text-[12px] font-semibold transition-colors md:inline-flex ${cta}`}>
+          <span className={`hidden items-center rounded-sm border px-3.5 py-1.5 text-[12px] font-semibold transition-colors md:inline-flex ${cta}`}>
             Buy
           </span>
         )}

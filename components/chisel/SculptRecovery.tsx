@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { Container } from "@/components/ui/Container";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 
 /**
  * The recovery + sculpted-ideal band. Recovery is attributed to the
@@ -64,12 +65,7 @@ export function SculptRecovery() {
 
       <Container className="relative z-20">
         <div className="flex flex-col justify-center py-16 sm:min-h-screen sm:py-28">
-          <div className="flex items-center gap-3.5">
-            <span className="h-px w-8 bg-[var(--hair-strong)]" />
-            <span className="caps-loose text-[11px] font-semibold text-ink-2">
-              The Ritual · After Training
-            </span>
-          </div>
+          <Eyebrow>The Ritual · After Training</Eyebrow>
           <h2
             className="mt-6 font-bold uppercase text-ink-0"
             style={{ fontSize: "clamp(38px, 6.5vw, 100px)", lineHeight: 0.9, letterSpacing: "-0.03em" }}
@@ -101,7 +97,7 @@ export function SculptRecovery() {
               >
                 <span
                   className="inline-block h-1.5 w-1.5 rounded-full"
-                  style={{ background: "var(--ink-3)" }}
+                  style={{ background: "var(--ink-4)" }}
                 />
                 {t}
               </span>
