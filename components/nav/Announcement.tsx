@@ -4,7 +4,7 @@ export function Announcement({
   messageShort,
 }: {
   shipMonth?: string;
-  /** Override the default pre-order line (e.g. a house-level message). */
+  /** Override the default line (e.g. a house-level message). */
   message?: string;
   messageShort?: string;
 }) {
@@ -20,14 +20,14 @@ export function Announcement({
           <>
             {/* Full line on larger screens */}
             <span className="hidden sm:inline">
-              Pre-order
-              <span className="mx-2 text-paper-0/40">·</span>
-              first batch ships {shipMonth}
+              Ships {shipMonth}
               <span className="mx-2 text-paper-0/40">·</span>
               free UK delivery
+              <span className="mx-2 text-paper-0/40">·</span>
+              30-day returns
             </span>
             {/* Condensed on mobile */}
-            <span className="sm:hidden">Pre-order · ships {shipMonth}</span>
+            <span className="sm:hidden">Ships {shipMonth} · Free UK delivery</span>
           </>
         )}
       </div>

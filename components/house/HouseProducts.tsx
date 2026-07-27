@@ -129,7 +129,7 @@ export function HouseProducts() {
                   style={{ borderColor: "var(--hair)" }}
                 >
                   <span className="caps text-[11px] font-medium text-ink-3">
-                    Pre-order from <span className="num text-[13px]">£{p.priceFrom}</span>
+                    From <span className="num text-[13px]">£{p.priceFrom}</span>
                   </span>
                   <span className="caps inline-flex items-center gap-2 text-[11px] font-medium text-ink-0">
                     View

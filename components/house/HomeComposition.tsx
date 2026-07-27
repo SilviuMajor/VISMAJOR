@@ -17,11 +17,11 @@ export function HomeComposition() {
     <>
       <ScrollProgress />
       <Announcement
-        message="Three topicals. One standard. · Now on pre-order · Free UK delivery"
-        messageShort="Three topicals · Now on pre-order"
+        message="Three topicals. One standard. · Free UK delivery · 30-day returns"
+        messageShort="Three topicals · Free UK delivery"
       />
       <Header
-        cta={{ href: "#products", label: "Pre-order" }}
+        cta={{ href: "#products", label: "Buy" }}
       />
       <main>
         <HouseHero />

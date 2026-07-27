@@ -18,7 +18,7 @@ export function NavPill() {
           ))}
         </nav>
         <a href="#" className="rounded-full bg-ink-0 px-4 py-1.5 text-[11px] font-semibold text-paper-0 transition-colors hover:bg-ink-1">
-          Pre-order
+          Buy
         </a>
         <CartGlyph className="text-ink-0" />
       </div>

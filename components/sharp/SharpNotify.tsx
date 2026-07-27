@@ -26,7 +26,7 @@ export function SharpNotify() {
       const data = await res.json();
       if (data?.ok) {
         setStatus("done");
-        setMessage("You're on the list.");
+        setMessage("You're subscribed.");
         setEmail("");
       } else {
         setStatus("error");
@@ -43,17 +43,17 @@ export function SharpNotify() {
       <Container>
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[5fr_7fr] lg:gap-12">
           <div>
-            <Eyebrow>Not Ready?</Eyebrow>
+            <Eyebrow>Newsletter</Eyebrow>
             <h3
               className="mt-4 font-bold uppercase text-ink-0"
               style={{ fontSize: "clamp(28px,3.4vw,44px)", letterSpacing: "-0.02em", lineHeight: 1 }}
             >
               Join the
               <br />
-              first-batch list.
+              newsletter.
             </h3>
             <p className="mt-4 max-w-md text-[16.5px] leading-[1.6] text-ink-2">
-              One email when STONE ships. No marketing fluff.
+              Occasional letters from the house. No marketing fluff.
             </p>
           </div>
           <form onSubmit={submit} className="flex w-full flex-col gap-3 self-end sm:flex-row">
@@ -71,7 +71,7 @@ export function SharpNotify() {
               disabled={status === "loading"}
               className="inline-flex items-center justify-center rounded-[5px] border border-ink-0 bg-ink-0 px-8 py-[16px] text-[12px] font-semibold text-paper-0 transition-colors hover:bg-ink-1 disabled:opacity-50"
             >
-              {status === "loading" ? "Adding…" : "Notify Me"}
+              {status === "loading" ? "Sending…" : "Subscribe"}
             </button>
           </form>
         </div>

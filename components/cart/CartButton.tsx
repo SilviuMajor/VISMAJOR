@@ -6,7 +6,7 @@ import { useCart } from "@/lib/cart";
  * Header basket control. A minimal stroked bag glyph with the item count.
  * Mono + understated to match the house. Opens the slide-out drawer.
  *
- * `variant="desktop"` is a compact icon button sitting next to the Pre-order
+ * `variant="desktop"` is a compact icon button sitting next to the Buy
  * CTA; `variant="mobile"` is a full-width row inside the mobile menu.
  */
 export function CartButton({

@@ -118,7 +118,7 @@ export function HorizontalUseBefore() {
             href="#buy"
             className="caps mt-4 inline-flex w-fit items-center gap-2.5 rounded-sm border border-paper-0 bg-paper-0 px-7 py-3.5 text-[12px] font-semibold text-ink-0 transition-colors hover:bg-transparent hover:text-paper-0"
           >
-            Pre-order £18
+            Buy £18
           </a>
         </motion.div>
       </div>
@@ -188,7 +188,7 @@ export function HorizontalUseBefore() {
               href="#buy"
               className="caps mt-9 inline-flex w-fit items-center gap-2.5 rounded-sm border border-paper-0 bg-paper-0 px-8 py-4 text-[12px] font-semibold text-ink-0 transition-colors hover:bg-transparent hover:text-paper-0"
             >
-              Pre-order £18
+              Buy £18
             </a>
           </div>
         </motion.div>

@@ -98,7 +98,7 @@ export function OtherProducts({ current }: { current: ProductSlug }) {
                       <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                     </span>
                     <span className="caps text-[11px] font-medium text-ink-3">
-                      Pre-order from <span className="num text-[13px]">£{p.priceFrom}</span>
+                      From <span className="num text-[13px]">£{p.priceFrom}</span>
                     </span>
                   </div>
                 </div>

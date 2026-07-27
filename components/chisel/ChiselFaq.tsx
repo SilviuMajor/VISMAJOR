@@ -36,11 +36,11 @@ const FAQS = [
   },
   {
     q: "Is the steel tool included?",
-    a: "It depends on the set. The Cream-only tier is the cream by itself, the full product. The other tiers add the optional weighted steel tool. You can see exactly what's in each set on the pre-order panel.",
+    a: "It depends on the set. The Cream-only tier is the cream by itself, the full product. The other tiers add the optional weighted steel tool. You can see exactly what's in each set on the buy panel above.",
   },
   {
-    q: "When will my pre-order ship?",
-    a: "The first batch ships in the launch month shown at checkout. Because the optional tool is machined to order the first run is limited. You'll get confirmation and tracking by email.",
+    q: "When will my order ship?",
+    a: "Orders ship in the month shown at checkout. The optional steel tool is machined to order, so it takes time to make. You'll get confirmation and tracking by email. Free UK delivery, 30-day returns.",
   },
 ];
 
@@ -170,7 +170,7 @@ export function ChiselFaq({ shipMonth }: { shipMonth: string }) {
               </a>
 
               <p className="mt-5 caps text-[10px] font-medium text-ink-3">
-                First batch ships {shipMonth}
+                Ships {shipMonth}
               </p>
             </div>
           </Reveal>

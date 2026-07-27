@@ -5,19 +5,18 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow, SectionHead } from "@/components/ui/Eyebrow";
-import { Countdown } from "@/components/enhanced/Countdown";
 import { Specimen, PlaceholderNote } from "@/components/chisel/Specimen";
 import { CreamTube, SteelTool, EMBER } from "@/components/chisel/Art";
 import { INGREDIENTS, INGREDIENT_IMG, SCULPT_INCI } from "@/lib/ingredients";
 import { useCart } from "@/lib/cart";
 
 /**
- * Pre-order SCULPT. The cream is the product; the steel tool is an optional
+ * Buy SCULPT. The cream is the product; the steel tool is an optional
  * upgrade. Same StickyBuy logic (loading/error, POST /api/checkout, redirect).
  *
  * Display tiers match the server CATALOG amounts EXACTLY (app/api/checkout):
- *   "1" The Cream        → £28  (RRP £38)
- *   "2" Cream + Steel    → £46  (RRP £64)  — the cream + the one steel tool
+ *   "1" The Cream        → £28
+ *   "2" Cream + Steel    → £46   the cream + the one steel tool
  */
 
 type TierKey = "1" | "2";
@@ -27,7 +26,6 @@ type Tier = {
   label: string;
   unitLabel: string;
   price: number;
-  reg: number;
   badge?: string;
   /** which objects the specimen shows */
   contents: "cream" | "steel";
@@ -39,7 +37,6 @@ const TIERS: Tier[] = [
     label: "The Cream",
     unitLabel: "Cream 50ml",
     price: 28,
-    reg: 38,
     contents: "cream",
   },
   {
@@ -47,7 +44,6 @@ const TIERS: Tier[] = [
     label: "Cream + Steel",
     unitLabel: "Cream + The Steel Tool",
     price: 46,
-    reg: 64,
     badge: "Complete the ritual",
     contents: "steel",
   },
@@ -81,8 +77,6 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
 
   const tier = useMemo(() => TIERS.find((t) => t.key === tierKey) ?? TIERS[0], [tierKey]);
   const total = tier.price * qty;
-  const saving = (tier.reg - tier.price) * qty;
-  const pct = Math.round((1 - tier.price / tier.reg) * 100);
 
   const onAdd = () =>
     add({
@@ -100,7 +94,7 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
   return (
     <section id="buy" className="py-16 md:py-24">
       <Container>
-        <SectionHead n="04" title="Pre-order SCULPT." />
+        <SectionHead n="04" title="Buy SCULPT." />
 
         <div id="product" className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-14">
           {/* Sticky specimen — reflects the chosen kit */}
@@ -191,7 +185,7 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
               upgrade.
             </p>
 
-            {/* Early-bird price callout */}
+            {/* Price callout */}
             <div
               className="mt-7 flex items-end justify-between gap-4 border-t pt-6"
               style={{ borderColor: "var(--hair)" }}
@@ -202,7 +196,7 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
                     className="inline-block h-1.5 w-1.5 rounded-full"
                     style={{ background: EMBER }}
                   />
-                  Early-bird pre-order
+                  Price
                 </span>
                 <div className="mt-3 flex items-baseline gap-3">
                   <span
@@ -211,27 +205,11 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
                   >
                     £{tier.price}
                   </span>
-                  <span className="text-[18px] text-ink-3 line-through num">£{tier.reg}</span>
-                  {pct > 0 && (
-                    <span className="caps rounded-xs bg-ink-0 px-2 py-1 text-[9px] font-medium text-paper-0">
-                      Save {pct}%
-                    </span>
-                  )}
                 </div>
               </div>
               <span className="caps max-w-[44%] text-right text-[10px] font-medium leading-relaxed text-ink-3">
-                RRP £{tier.reg} once the first batch ships
+                {tier.unitLabel}
               </span>
-            </div>
-
-            {/* Countdown — price-rise urgency */}
-            <div className="mt-6 border-y py-6" style={{ borderColor: "var(--hair)" }}>
-              <span className="caps text-[10px] font-medium text-ink-3">
-                Pre-order price rises to RRP in
-              </span>
-              <div className="mt-4">
-                <Countdown />
-              </div>
             </div>
 
             {/* cream first, steel optional */}
@@ -279,10 +257,7 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
                         )}
                       </span>
                       <span className="flex shrink-0 items-baseline gap-2 pl-3">
-                        <span className={`text-[12px] line-through font-mono ${selected ? "text-paper-0/45" : "text-ink-3"}`}>
-                          £{t.reg}
-                        </span>
-                        <span className="text-[16px] font-semibold font-mono">£{t.price}</span>
+                        <span className="num text-[16px] font-semibold">£{t.price}</span>
                       </span>
                     </button>
                   );
@@ -320,11 +295,6 @@ export function ChiselBuy({ shipMonth }: { shipMonth: string }) {
               <p className="caps text-[10.5px] font-medium text-ink-3">
                 Ships {shipMonth} · Free UK delivery · 30-day returns
               </p>
-              {saving > 0 && (
-                <span className="caps text-[10.5px] font-medium text-ink-0">
-                  You save £{saving} ({pct}% off)
-                </span>
-              )}
             </div>
 
             {/* spec */}

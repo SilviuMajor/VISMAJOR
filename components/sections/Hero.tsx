@@ -55,7 +55,7 @@ export function Hero({ shipMonth }: { shipMonth: string }) {
                 href="#buy"
                 className="caps inline-flex items-center justify-center gap-2.5 rounded-sm border border-ink-0 bg-ink-0 px-9 py-[18px] text-[13.5px] font-semibold text-paper-0 transition-colors duration-200 hover:bg-ink-1"
               >
-                Pre-order · £24
+                Buy · £24
               </a>
               <a
                 href="#how"

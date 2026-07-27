@@ -1,7 +1,7 @@
 import { Container } from "@/components/ui/Container";
 import { PRODUCTS, CartGlyph } from "@/components/navlab/parts";
 
-/** 05 — Minimal. Lots of air, quiet type, a text-link Pre-order. Apothecary
+/** 05 — Minimal. Lots of air, quiet type, a text-link Buy. Apothecary
  *  restraint. */
 export function NavMinimal() {
   return (
@@ -17,7 +17,7 @@ export function NavMinimal() {
             ))}
           </nav>
           <a href="#" className="hidden caps text-[10px] font-semibold text-ink-0 underline-offset-4 hover:underline md:inline">
-            Pre-order
+            Buy
           </a>
           <CartGlyph className="text-ink-0" />
         </div>

@@ -9,7 +9,7 @@ import { Header } from "@/components/nav/Header";
 import { Footer } from "@/components/sections/Footer";
 import { StickyBuyBar } from "@/components/ui/StickyBuyBar";
 import { ScrollProgress } from "@/components/enhanced/ScrollProgress";
-import { FirstBatchStrip } from "@/components/enhanced/FirstBatchStrip";
+import { TrustStrip } from "@/components/enhanced/TrustStrip";
 import { ProductQuote } from "@/components/house/ProductQuote";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
@@ -62,13 +62,13 @@ export function SteelComposition() {
     <>
       <ScrollProgress />
       <Announcement
-        message={`STEEL · the weighted massage & therapy tool · pre-order · first batch ships ${shipMonth}`}
-        messageShort={`STEEL · pre-order · ships ${shipMonth}`}
+        message={`STEEL · the weighted massage & therapy tool · ships ${shipMonth} · free UK delivery`}
+        messageShort={`STEEL · ships ${shipMonth}`}
       />
-      <Header crumb="STEEL" cta={{ href: "#buy", label: "Pre-order" }} heroDark />
+      <Header crumb="STEEL" cta={{ href: "#buy", label: "Buy" }} heroDark />
       <main>
         <HeroTypeWindow product="steel" overlayAlwaysOn />
-        <FirstBatchStrip count="600+" shipMonth={shipMonth} />
+        <TrustStrip shipMonth={shipMonth} />
 
         {/* ── One blade, many edges ─────────────────────────────── */}
         <section id="edges" className="scroll-mt-24 border-t py-16 md:py-24" style={{ borderColor: "var(--hair)" }}>

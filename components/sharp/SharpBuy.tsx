@@ -4,7 +4,6 @@ import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow, SectionHead } from "@/components/ui/Eyebrow";
-import { Countdown } from "@/components/enhanced/Countdown";
 import { SharpBottle } from "@/components/sharp/Specimen";
 import { useCart } from "@/lib/cart";
 
@@ -15,16 +14,15 @@ type Tier = {
   label: string;
   unitLabel: string;
   price: number;
-  reg?: number;
   note?: string;
 };
 
-// `price` = early-bird pre-order. `reg` = RRP at launch. These MUST match the
-// server amounts in app/api/checkout/route.ts (sharp): 2200 / 3800 / 4000.
+// `price` MUST match the server amounts in app/api/checkout/route.ts (sharp):
+// 2200 / 3800 / 4000.
 const TIERS: Tier[] = [
-  { key: "1", label: "100ml", unitLabel: "100ml", price: 22, reg: 30 },
-  { key: "2", label: "200ml", unitLabel: "200ml", price: 38, reg: 52, note: "Most chosen" },
-  { key: "3", label: "2 × 100ml", unitLabel: "2 × 100ml", price: 40, reg: 60, note: "Best value" },
+  { key: "1", label: "100ml", unitLabel: "100ml", price: 22 },
+  { key: "2", label: "200ml", unitLabel: "200ml", price: 38, note: "Most chosen" },
+  { key: "3", label: "2 × 100ml", unitLabel: "2 × 100ml", price: 40, note: "Best value" },
 ];
 
 /* Photo-free specimen "views" — line-art plates standing in for product shots.
@@ -120,8 +118,6 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
 
   const tier = useMemo(() => TIERS.find((t) => t.key === tierKey) ?? TIERS[0], [tierKey]);
   const total = tier.price * qty;
-  const saving = tier.reg ? (tier.reg - tier.price) * qty : 0;
-  const pct = tier.reg ? Math.round((1 - tier.price / tier.reg) * 100) : 0;
 
   const onAdd = () =>
     add({
@@ -137,7 +133,7 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
   return (
     <section id="buy" className="py-16 md:py-24">
       <Container>
-        <SectionHead n="02" title="Pre-order STONE" />
+        <SectionHead n="02" title="Buy STONE" />
 
         <div id="product" className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-14">
           {/* Sticky specimen gallery (photo-free) */}
@@ -201,7 +197,7 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
               matte finish. Wash-off, daily.
             </p>
 
-            {/* Early-bird price callout */}
+            {/* Price callout */}
             <div
               className="mt-7 flex items-end justify-between gap-4 border-t pt-6"
               style={{ borderColor: "var(--hair)" }}
@@ -209,7 +205,7 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
               <div>
                 <span className="caps inline-flex items-center gap-2 text-[10px] font-medium text-ink-3">
                   <span className="inline-block h-1.5 w-1.5 rounded-full" style={{ background: MINT }} />
-                  Early-bird pre-order
+                  Price
                 </span>
                 <div className="mt-3 flex items-baseline gap-3">
                   <span
@@ -218,32 +214,14 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
                   >
                     £{tier.price}
                   </span>
-                  {tier.reg && (
-                    <span className="num text-[18px] text-ink-3 line-through">£{tier.reg}</span>
-                  )}
-                  {pct > 0 && (
-                    <span className="caps rounded-xs bg-ink-0 px-2 py-1 text-[9px] font-medium text-paper-0">
-                      Save {pct}%
-                    </span>
-                  )}
                 </div>
               </div>
               <span className="caps max-w-[44%] text-right text-[10px] font-medium leading-relaxed text-ink-3">
-                RRP £{tier.reg} once the first batch ships
+                Ships {shipMonth}
               </span>
             </div>
 
-            {/* Countdown — price-rise urgency */}
-            <div className="mt-6 border-y py-6" style={{ borderColor: "var(--hair)" }}>
-              <span className="caps text-[10px] font-medium text-ink-3">
-                Pre-order price rises to RRP in
-              </span>
-              <div className="mt-4">
-                <Countdown />
-              </div>
-            </div>
-
-            {/* size selector with savings */}
+            {/* size selector */}
             <div className="mt-8">
               <div className="caps text-[10px] font-medium text-ink-3">Size</div>
               <div className="mt-3 flex flex-col gap-2.5">
@@ -279,12 +257,7 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
                         )}
                       </span>
                       <span className="flex items-baseline gap-2">
-                        {t.reg && (
-                          <span className={`font-mono text-[12px] line-through ${selected ? "text-paper-0/45" : "text-ink-3"}`}>
-                            £{t.reg}
-                          </span>
-                        )}
-                        <span className="font-mono text-[16px] font-semibold">£{t.price}</span>
+                        <span className="num text-[16px] font-semibold">£{t.price}</span>
                       </span>
                     </button>
                   );
@@ -322,11 +295,6 @@ export function SharpBuy({ shipMonth }: { shipMonth: string }) {
               <p className="caps text-[10.5px] font-medium text-ink-3">
                 Ships {shipMonth} · Free UK delivery · 30-day returns
               </p>
-              {saving > 0 && (
-                <span className="caps text-[10.5px] font-medium text-ink-0">
-                  You save £{saving} ({pct}% off)
-                </span>
-              )}
             </div>
 
             {/* spec */}

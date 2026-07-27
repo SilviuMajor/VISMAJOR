@@ -35,8 +35,8 @@ const FAQS = [
     a: "Both. It works as your single morning step, or as a matte base under whatever else you use. It's the everyday layer, not a special occasion.",
   },
   {
-    q: "When will my pre-order ship?",
-    a: "The first batch ships in the launch month shown at checkout. You'll get confirmation and tracking by email.",
+    q: "When will my order ship?",
+    a: "Orders ship in the month shown at checkout. You'll get confirmation and tracking by email.",
   },
 ];
 
@@ -160,7 +160,7 @@ export function SharpFaq({ shipMonth }: { shipMonth: string }) {
               </a>
 
               <p className="mt-5 caps text-[10px] font-medium text-ink-3">
-                First batch ships {shipMonth}
+                Ships {shipMonth}
               </p>
             </div>
           </Reveal>

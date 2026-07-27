@@ -14,8 +14,7 @@ export interface Product {
   short: string;
   /** The signature sensation, one word, for tags. */
   signature: "Cool" | "Worked" | "Matte";
-  priceFrom: number; // GBP, early-bird pre-order
-  rrpFrom: number; // GBP, RRP at launch
+  priceFrom: number; // GBP
   /** CSS custom property name for this product's accent. */
   accentVar: string;
   /** The same accent as a hex, for gradients / SVG fills. */
@@ -33,7 +32,6 @@ export const PRODUCTS: Product[] = [
       "Cools and tightens in minutes. Up to one hour of temporary firmness, undetectable under a shirt.",
     signature: "Cool",
     priceFrom: 18,
-    rrpFrom: 26,
     accentVar: "--ink-0",
     accentHex: "#14130F",
   },
@@ -47,7 +45,6 @@ export const PRODUCTS: Product[] = [
       "A natural matte cleanser: clay, charcoal and mint that lift the day's oil and grime, then rinse away for skin left clean, fresh, and matte.",
     signature: "Matte",
     priceFrom: 22,
-    rrpFrom: 30,
     accentVar: "--ink-0",
     accentHex: "#14130F",
   },
@@ -61,7 +58,6 @@ export const PRODUCTS: Product[] = [
       "A massage cream for men, worked in by hand or with the optional steel tool, for skin that looks firmer and feels worked.",
     signature: "Worked",
     priceFrom: 28,
-    rrpFrom: 38,
     accentVar: "--ink-0",
     accentHex: "#14130F",
   },

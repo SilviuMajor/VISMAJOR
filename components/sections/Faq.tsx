@@ -25,7 +25,7 @@ const FAQS = [
     a: "It is a cosmetic product made to UK standards. Patch test before first use and avoid broken skin.",
   },
   {
-    q: "When will my pre-order ship?",
+    q: "When will my order ship?",
     a: "The first batch ships in the launch month shown at checkout. You'll get confirmation and tracking by email.",
   },
 ];

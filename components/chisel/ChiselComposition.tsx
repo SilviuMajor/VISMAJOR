@@ -9,7 +9,7 @@ import { StickyBuyBar } from "@/components/ui/StickyBuyBar";
 import { ScrollProgress } from "@/components/enhanced/ScrollProgress";
 import { OtherProducts } from "@/components/house/OtherProducts";
 import { ProductQuote } from "@/components/house/ProductQuote";
-import { FirstBatchStrip } from "@/components/enhanced/FirstBatchStrip";
+import { TrustStrip } from "@/components/enhanced/TrustStrip";
 
 import { HeroTypeWindow } from "@/components/herolab/HeroTypeWindow";
 import { ChiselTicker } from "@/components/chisel/ChiselTicker";
@@ -34,13 +34,13 @@ export function ChiselComposition() {
     <>
       <ScrollProgress />
       <Announcement
-        message={`SCULPT · the Contour & Recovery Cream · pre-order · first batch ships ${shipMonth}`}
-        messageShort={`SCULPT · pre-order · ships ${shipMonth}`}
+        message={`SCULPT · the Contour & Recovery Cream · ships ${shipMonth} · free UK delivery`}
+        messageShort={`SCULPT · ships ${shipMonth}`}
       />
-      <Header crumb="SCULPT" cta={{ href: "#buy", label: "Pre-order" }} heroDark />
+      <Header crumb="SCULPT" cta={{ href: "#buy", label: "Buy" }} heroDark />
       <main>
         <HeroTypeWindow product="sculpt" overlayAlwaysOn />
-        <FirstBatchStrip count="1,400+" shipMonth={shipMonth} />
+        <TrustStrip shipMonth={shipMonth} />
         <ChiselTicker />
         <SculptWhatItDoes />
         <SculptEffects />

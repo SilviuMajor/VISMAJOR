@@ -42,7 +42,7 @@ function Confirmed() {
             className="mt-8 font-bold uppercase text-ink-0"
             style={{ fontSize: "clamp(30px, 4vw, 46px)", lineHeight: 0.98, letterSpacing: "-0.01em" }}
           >
-            Pre-order reserved.
+            Order confirmed.
           </h1>
 
           {ref && (
@@ -53,7 +53,8 @@ function Confirmed() {
           )}
 
           <p className="mt-7 max-w-md text-[15px] leading-[1.7] text-ink-2">
-            We&apos;ll email you when the first batch is ready. No payment was taken.
+            A confirmation is on its way to your inbox, and we&apos;ll email again
+            with tracking as soon as it ships. Free UK delivery, 30-day returns.
           </p>
 
           <Link

@@ -62,7 +62,7 @@ export async function POST(req: Request) {
     return NextResponse.json(
       {
         error:
-          "Checkout isn't wired up yet. Add STRIPE_SECRET_KEY and price IDs to .env.local to enable real pre-orders.",
+          "Checkout isn't wired up yet. Add STRIPE_SECRET_KEY and price IDs to .env.local to enable real orders.",
       },
       { status: 503 }
     );
@@ -84,7 +84,7 @@ export async function POST(req: Request) {
               unit_amount: tierInfo.amount,
               product_data: {
                 name: `${entry.name}: ${tierInfo.label}`,
-                description: `Pre-order. Ships ${
+                description: `Ships ${
                   process.env.PREORDER_SHIP_MONTH ?? "TBA"
                 }.`,
               },

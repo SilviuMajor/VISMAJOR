@@ -5,7 +5,7 @@ import { StickyBuyBar } from "@/components/ui/StickyBuyBar";
 import { ScrollProgress } from "@/components/enhanced/ScrollProgress";
 import { OtherProducts } from "@/components/house/OtherProducts";
 import { ProductQuote } from "@/components/house/ProductQuote";
-import { FirstBatchStrip } from "@/components/enhanced/FirstBatchStrip";
+import { TrustStrip } from "@/components/enhanced/TrustStrip";
 
 import { HeroTypeWindow } from "@/components/herolab/HeroTypeWindow";
 import { SharpTicker } from "@/components/sharp/SharpTicker";
@@ -21,7 +21,7 @@ import { SharpNotify } from "@/components/sharp/SharpNotify";
  * STONE — the house's third product. The everyday, matte member of VIS MAJOR.
  * Same shell as the flagship (ScrollProgress, Announcement, Header, OtherProducts,
  * Footer, StickyBuyBar) but a wholly STONE-specific body: a shine-to-matte
- * mechanic, an oil-control actives rail, and a daily-driver pre-order panel.
+ * mechanic, an oil-control actives rail, and a daily-driver buy panel.
  *
  * Claim-safe by design: every line describes feel and look only.
  */
@@ -32,17 +32,17 @@ export function SharpComposition() {
     <>
       <ScrollProgress />
       <Announcement
-        message={`Pre-order · the matte cleanser · first batch ships ${shipMonth} · free UK delivery`}
-        messageShort={`Pre-order · ships ${shipMonth}`}
+        message={`STONE · the matte cleanser · ships ${shipMonth} · free UK delivery`}
+        messageShort={`STONE · ships ${shipMonth}`}
       />
       <Header
         crumb="STONE"
-        cta={{ href: "#buy", label: "Pre-order" }}
+        cta={{ href: "#buy", label: "Buy" }}
         heroDark
       />
       <main>
         <HeroTypeWindow product="stone" overlayAlwaysOn />
-        <FirstBatchStrip count="1,400+" shipMonth={shipMonth} />
+        <TrustStrip shipMonth={shipMonth} />
         <SharpTicker />
         <SharpActives />
         <SharpBuy shipMonth={shipMonth} />

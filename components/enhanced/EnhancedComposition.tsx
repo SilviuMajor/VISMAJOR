@@ -7,7 +7,7 @@ import { StickyBuyBar } from "@/components/ui/StickyBuyBar";
 
 import { ScrollProgress } from "@/components/enhanced/ScrollProgress";
 import { HeroTypeWindow } from "@/components/herolab/HeroTypeWindow";
-import { FirstBatchStrip } from "@/components/enhanced/FirstBatchStrip";
+import { TrustStrip } from "@/components/enhanced/TrustStrip";
 import { StickyArchitecture } from "@/components/enhanced/StickyArchitecture";
 import { OneJob } from "@/components/enhanced/OneJob";
 import { HorizontalUseBefore } from "@/components/enhanced/HorizontalUseBefore";
@@ -38,7 +38,7 @@ export function EnhancedComposition() {
       <Header crumb="PECTUS" heroDark />
       <main>
         <HeroTypeWindow overlayAlwaysOn />
-        <FirstBatchStrip shipMonth={shipMonth} />
+        <TrustStrip shipMonth={shipMonth} />
         <StickyArchitecture />
         <Ticker />
         <HorizontalUseBefore />

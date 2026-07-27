@@ -5,7 +5,6 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow, SectionHead } from "@/components/ui/Eyebrow";
-import { Countdown } from "@/components/enhanced/Countdown";
 import { INGREDIENT_IMG } from "@/lib/ingredients";
 import { useCart } from "@/lib/cart";
 
@@ -14,14 +13,13 @@ type Tier = {
   label: string;
   unitLabel: string;
   price: number;
-  reg?: number;
   note?: string;
 };
 
-// `price` = early-bird pre-order price. `reg` = RRP at launch.
+// Prices in GBP. The 2-pack carries the better price per tube.
 const TIERS: Tier[] = [
-  { key: "1", label: "20ml", unitLabel: "20ml", price: 18, reg: 26 },
-  { key: "2", label: "2-pack", unitLabel: "2 × 20ml", price: 32, reg: 48, note: "Best value" },
+  { key: "1", label: "20ml", unitLabel: "20ml", price: 18 },
+  { key: "2", label: "2-pack", unitLabel: "2 × 20ml", price: 32, note: "Best value" },
 ];
 
 const GALLERY = [
@@ -102,8 +100,6 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
 
   const tier = useMemo(() => TIERS.find((t) => t.key === tierKey) ?? TIERS[0], [tierKey]);
   const total = tier.price * qty;
-  const saving = tier.reg ? (tier.reg - tier.price) * qty : 0;
-  const pct = tier.reg ? Math.round((1 - tier.price / tier.reg) * 100) : 0;
 
   const onAdd = () =>
     add({
@@ -119,7 +115,7 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
   return (
     <section id="buy" className="py-16 md:py-24">
       <Container>
-        <SectionHead n="04" title="Pre-order PECTUS" />
+        <SectionHead n="04" title="Buy PECTUS" />
 
         <div id="product" className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-14">
           {/* Sticky gallery */}
@@ -194,7 +190,7 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
               and menthol agents: matte, lightly fragranced, undetectable.
             </p>
 
-            {/* Early-bird price callout */}
+            {/* Price callout */}
             <div
               className="mt-7 flex items-end justify-between gap-4 border-t pt-6"
               style={{ borderColor: "var(--hair)" }}
@@ -202,7 +198,7 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
               <div>
                 <span className="caps inline-flex items-center gap-2 text-[10px] font-medium text-ink-3">
                   <span className="inline-block h-1.5 w-1.5 rounded-full bg-ink-0" />
-                  Early-bird pre-order
+                  Price
                 </span>
                 <div className="mt-3 flex items-baseline gap-3">
                   <span
@@ -211,32 +207,14 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
                   >
                     £{tier.price}
                   </span>
-                  {tier.reg && (
-                    <span className="num text-[19px] text-ink-3 line-through">£{tier.reg}</span>
-                  )}
-                  {pct > 0 && (
-                    <span className="caps rounded-xs bg-ink-0 px-2 py-1 text-[9px] font-medium text-paper-0">
-                      Save {pct}%
-                    </span>
-                  )}
                 </div>
               </div>
               <span className="caps max-w-[44%] text-right text-[10px] font-medium leading-relaxed text-ink-3">
-                RRP £{tier.reg} once the first batch ships
+                Free UK delivery · 30-day returns
               </span>
             </div>
 
-            {/* Countdown — price-rise urgency */}
-            <div className="mt-6 border-y py-6" style={{ borderColor: "var(--hair)" }}>
-              <span className="caps text-[10px] font-medium text-ink-3">
-                Pre-order price rises to RRP in
-              </span>
-              <div className="mt-4">
-                <Countdown />
-              </div>
-            </div>
-
-            {/* size selector with savings */}
+            {/* size selector */}
             <div className="mt-8">
               <div className="caps text-[10px] font-medium text-ink-3">Size</div>
               <div className="mt-3 flex flex-col gap-2.5">
@@ -272,12 +250,7 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
                         )}
                       </span>
                       <span className="flex items-baseline gap-2">
-                        {t.reg && (
-                          <span className={`text-[12px] line-through font-mono ${selected ? "text-paper-0/45" : "text-ink-3"}`}>
-                            £{t.reg}
-                          </span>
-                        )}
-                        <span className="text-[16px] font-semibold font-mono">£{t.price}</span>
+                        <span className="text-[16px] font-semibold num">£{t.price}</span>
                       </span>
                     </button>
                   );
@@ -301,13 +274,8 @@ export function StickyBuy({ shipMonth }: { shipMonth: string }) {
             </div>
             <div className="mt-3 flex items-center justify-between">
               <p className="caps text-[10.5px] font-medium text-ink-3">
-                Ships {shipMonth} · Free UK delivery · 30-day returns
+                Ships {shipMonth}
               </p>
-              {saving > 0 && (
-                <span className="caps text-[10.5px] font-medium text-ink-0">
-                  You save £{saving} ({pct}% off)
-                </span>
-              )}
             </div>
 
             {/* Details — tabbed: specification / ingredients / origin.

@@ -1,7 +1,7 @@
 "use client";
 
 // Client-side mock basket for VIS MAJOR. No server, no Stripe — just a
-// localStorage-backed cart so the full pre-order flow works end to end. Real
+// localStorage-backed cart so the full checkout flow works end to end. Real
 // payment (app/api/checkout, lib/stripe) gets wired in later and is untouched.
 
 import {

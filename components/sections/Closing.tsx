@@ -15,7 +15,7 @@ export function Closing({ shipMonth }: { shipMonth: string }) {
             <div className="flex items-center gap-3.5">
               <span className="h-px w-7 bg-[var(--hair-strong)]" />
               <span className="caps-loose text-[11px] font-semibold text-ink-2">
-                Pre-order now
+                Buy now
               </span>
             </div>
 
@@ -41,7 +41,7 @@ export function Closing({ shipMonth }: { shipMonth: string }) {
                 href="#buy"
                 className="caps inline-flex items-center gap-2.5 rounded-sm border border-ink-0 bg-ink-0 px-9 py-[18px] text-[13.5px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
               >
-                Pre-order · £24
+                Buy · £24
               </a>
               <a
                 href="#notify"

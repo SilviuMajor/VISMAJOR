@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { TextReveal } from "@/components/ui/TextReveal";
-import { Countdown } from "@/components/enhanced/Countdown";
 
 export function SharpFinalCta({ shipMonth }: { shipMonth: string }) {
   return (
@@ -12,7 +11,7 @@ export function SharpFinalCta({ shipMonth }: { shipMonth: string }) {
         <div className="flex items-center gap-3.5">
           <span className="h-px w-8" style={{ background: "#14130F" }} />
           <span className="caps-loose text-[11px] font-semibold text-paper-0/70">
-            First batch · ships {shipMonth}
+            Ships {shipMonth} · free UK delivery
           </span>
         </div>
 
@@ -23,15 +22,6 @@ export function SharpFinalCta({ shipMonth }: { shipMonth: string }) {
         />
 
         <div className="mt-12 flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
-          <div>
-            <span className="caps text-[10px] font-semibold text-paper-0/50">
-              Launch price locks at pre-order
-            </span>
-            <div className="mt-4">
-              <Countdown tone="paper" />
-            </div>
-          </div>
-
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -43,13 +33,13 @@ export function SharpFinalCta({ shipMonth }: { shipMonth: string }) {
               href="#buy"
               className="inline-flex items-center justify-center gap-2.5 rounded-[5px] border border-paper-0 bg-paper-0 px-10 py-[20px] text-[14px] font-semibold text-ink-0 transition-colors hover:bg-transparent hover:text-paper-0"
             >
-              Pre-order · £22
+              Buy · £22
             </a>
             <a
               href="#notify"
               className="caps text-[11px] font-semibold text-paper-0/60 underline-offset-4 transition-colors hover:text-paper-0 hover:underline"
             >
-              or join the list
+              or join the newsletter
             </a>
           </motion.div>
         </div>

@@ -168,7 +168,7 @@ export function HeroUnderline() {
           </motion.p>
           <motion.div {...fadeUp} transition={{ duration: 0.6, delay: 1.15, ease: EASE }} className="mt-7 flex flex-col items-center gap-3 sm:flex-row">
             <Magnetic href="#buy" className="inline-flex items-center justify-center gap-2.5 rounded-[5px] border border-ink-0 bg-ink-0 px-9 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1">
-              Pre-order, £24
+              Buy · £24
             </Magnetic>
             <a href="#science" className="inline-flex items-center justify-center rounded-[5px] border border-ink-0 px-9 py-[18px] text-[13px] font-semibold text-ink-0 transition-colors hover:bg-ink-0 hover:text-paper-0">
               The Science

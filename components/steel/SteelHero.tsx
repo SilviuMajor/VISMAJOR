@@ -111,7 +111,7 @@ export function SteelHero({ priceFrom }: { priceFrom: string }) {
               href="#buy"
               className="rounded-[5px] bg-ink-0 px-7 py-[15px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
             >
-              Pre-order · from {priceFrom}
+              Buy · from {priceFrom}
             </a>
             <a
               href="#range"

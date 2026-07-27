@@ -8,7 +8,7 @@ import { CartButton } from "@/components/cart/CartButton";
 export type NavLink = { href: string; label: string };
 
 // The house product list — identical on every page so the nav never jumps.
-// Only the active marker + the page's Pre-order target change per page.
+// Only the active marker + the page's Buy target change per page.
 const PRODUCT_NAV: NavLink[] = [
   { href: "/pectus", label: "PECTUS" },
   { href: "/stone", label: "STONE" },
@@ -27,7 +27,7 @@ const PRODUCT_NAV: NavLink[] = [
  * cart drawer, and the mobile hamburger menu.
  */
 export function Header({
-  cta = { href: "#buy", label: "Pre-order" },
+  cta = { href: "#buy", label: "Buy" },
   crumb,
   heroDark = false,
 }: {
@@ -141,7 +141,7 @@ export function Header({
           VIS·MAJOR
         </a>
 
-        {/* right — pre-order · basket · (mobile menu) */}
+        {/* right — buy · basket · (mobile menu) */}
         <div className="flex items-center gap-3">
           {cta && (
             <a

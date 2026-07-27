@@ -30,8 +30,8 @@ const FAQS = [
     a: "It is a cosmetic product made to UK standards. Patch test before first use and avoid broken skin.",
   },
   {
-    q: "When will my pre-order ship?",
-    a: "The first batch ships in the launch month shown at checkout. You'll get confirmation and tracking by email.",
+    q: "When will my order ship?",
+    a: "Orders ship in the month shown at checkout. You'll get confirmation and tracking by email.",
   },
 ];
 
@@ -171,7 +171,7 @@ export function FaqV2({ shipMonth }: { shipMonth: string }) {
               </a>
 
               <p className="mt-5 caps text-[10px] font-medium text-ink-3">
-                First batch ships {shipMonth}
+                Ships {shipMonth}
               </p>
             </div>
           </Reveal>

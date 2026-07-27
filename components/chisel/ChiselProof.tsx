@@ -1,16 +1,9 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { Counter } from "@/components/ui/Counter";
 import { Reveal } from "@/components/ui/Reveal";
-
-/* ── Allocation ───────────────────────────────────────────────────
-   The constraint here is the optional *steel tools* — each one is machined,
-   so the first run is small. Distinct from PECTUS's units angle. */
-const RESERVED_PCT = 74;
-const SEGMENTS = 40;
-const FILLED = Math.round((RESERVED_PCT / 100) * SEGMENTS);
 
 const QUOTES = [
   {
@@ -35,32 +28,6 @@ const TRUST = [
   "Secure Checkout",
 ];
 
-function AllocationMeter() {
-  const reduce = useReducedMotion();
-  return (
-    <div className="flex w-full gap-[3px]" aria-hidden>
-      {Array.from({ length: SEGMENTS }).map((_, idx) => {
-        const filled = idx < FILLED;
-        return (
-          <motion.span
-            key={idx}
-            className="h-7 flex-1 rounded-xs"
-            style={{ background: filled ? "var(--paper-0)" : "rgba(244,242,236,0.18)" }}
-            initial={reduce ? false : { opacity: 0, scaleY: 0.4 }}
-            whileInView={{ opacity: 1, scaleY: 1 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{
-              duration: 0.5,
-              delay: filled ? idx * 0.018 : 0.2,
-              ease: [0.16, 1, 0.3, 1],
-            }}
-          />
-        );
-      })}
-    </div>
-  );
-}
-
 export function ChiselProof() {
   const reduce = useReducedMotion();
   const marqueeQuotes = [...QUOTES, ...QUOTES];
@@ -76,7 +43,7 @@ export function ChiselProof() {
         <Reveal>
           <div className="flex items-center justify-between gap-4">
             <span className="caps-loose text-[11px] font-medium text-paper-0">
-              The First-Batch List
+              The Testers
             </span>
             <span className="flex items-center gap-2">
               <span className="relative flex h-1.5 w-1.5">
@@ -86,7 +53,7 @@ export function ChiselProof() {
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-paper-0" />
               </span>
               <span className="caps text-[10px] font-medium text-paper-0/70">
-                Early-bird open
+                Open for orders
               </span>
             </span>
           </div>
@@ -107,7 +74,7 @@ export function ChiselProof() {
                   lineHeight: 0.82,
                 }}
               >
-                <Counter value={1400} />+
+                <Counter value={60} />s
               </span>
               <span
                 className="font-bold uppercase text-paper-0"
@@ -117,50 +84,18 @@ export function ChiselProof() {
                   lineHeight: 0.9,
                 }}
               >
-                Pre-
+                Per
                 <br />
-                orders
+                area
               </span>
             </div>
 
             <p className="max-w-md pb-1 text-[16.5px] leading-[1.6] text-paper-0 lg:justify-self-end">
-              Deliveries start <span className="font-semibold">September 2026</span>.
-              Order now to lock the early-bird{" "}
-              <span className="font-semibold font-mono">£28</span>, before it rises to{" "}
-              <span className="text-paper-0/45 line-through font-mono">£38</span> at launch,
-              and hold your place in a limited first run.
+              About a minute of slow, firm strokes per area, by hand or with the
+              optional steel tool. The slip holds long enough to keep working.
+              Skin reads firmer and more defined after, for a while, then it
+              fades.
             </p>
-          </div>
-        </Reveal>
-
-        {/* Allocation meter */}
-        <Reveal delay={0.05}>
-          <div className="mt-10">
-            <div className="flex items-end justify-between">
-              <span className="caps text-[11px] font-medium text-paper-0">
-                First steel-tool run · early-bird allocation
-              </span>
-              <span className="flex items-baseline gap-2">
-                <span
-                  className="font-bold font-mono text-paper-0"
-                  style={{ fontSize: "clamp(20px, 2.4vw, 28px)", letterSpacing: "-0.03em" }}
-                >
-                  <Counter value={RESERVED_PCT} />%
-                </span>
-                <span className="caps text-[10.5px] font-medium text-paper-0">reserved</span>
-              </span>
-            </div>
-            <div className="mt-4">
-              <AllocationMeter />
-            </div>
-            <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
-              <span className="caps text-[10.5px] font-medium text-paper-0/70">
-                Limited first-batch units
-              </span>
-              <span className="caps text-[10.5px] font-medium text-paper-0/70">
-                Price rises at launch
-              </span>
-            </div>
           </div>
         </Reveal>
 

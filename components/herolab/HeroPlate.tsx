@@ -78,7 +78,7 @@ export function HeroPlate() {
           </motion.p>
           <motion.div variants={item} className="mt-8 flex flex-col items-center gap-3 sm:flex-row lg:items-start">
             <a href="#buy" className="rounded-[5px] bg-ink-0 px-9 py-[17px] text-[14px] font-semibold text-paper-0 transition-colors hover:bg-ink-1">
-              Pre-order, £24
+              Buy · £24
             </a>
             <a href="#science" className="rounded-[5px] border border-ink-0 px-9 py-[17px] text-[14px] font-semibold text-ink-0 transition-colors hover:bg-ink-0 hover:text-paper-0">
               The science

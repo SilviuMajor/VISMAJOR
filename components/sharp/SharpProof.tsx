@@ -1,14 +1,9 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { Counter } from "@/components/ui/Counter";
 import { Reveal } from "@/components/ui/Reveal";
-
-/* Allocation — segmented, STONE-flavoured. */
-const RESERVED_PCT = 61;
-const SEGMENTS = 40;
-const FILLED = Math.round((RESERVED_PCT / 100) * SEGMENTS);
 
 const QUOTES = [
   {
@@ -33,33 +28,6 @@ const TRUST = [
   "30-Day Returns",
 ];
 
-/* Segmented allocation meter. */
-function AllocationMeter() {
-  const reduce = useReducedMotion();
-  return (
-    <div className="flex w-full gap-[3px]" aria-hidden>
-      {Array.from({ length: SEGMENTS }).map((_, idx) => {
-        const filled = idx < FILLED;
-        return (
-          <motion.span
-            key={idx}
-            className="h-7 flex-1 rounded-xs"
-            style={{ background: filled ? "var(--paper-0)" : "rgba(244,242,236,0.18)" }}
-            initial={reduce ? false : { opacity: 0, scaleY: 0.4 }}
-            whileInView={{ opacity: 1, scaleY: 1 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{
-              duration: 0.5,
-              delay: filled ? idx * 0.018 : 0.2,
-              ease: [0.16, 1, 0.3, 1],
-            }}
-          />
-        );
-      })}
-    </div>
-  );
-}
-
 export function SharpProof() {
   const reduce = useReducedMotion();
   const marqueeQuotes = [...QUOTES, ...QUOTES];
@@ -75,7 +43,7 @@ export function SharpProof() {
         <Reveal>
           <div className="flex items-center justify-between gap-4">
             <span className="caps-loose text-[11px] font-medium text-paper-0">
-              The First-Batch List
+              The Record
             </span>
             <span className="flex items-center gap-2">
               <span className="relative flex h-1.5 w-1.5">
@@ -85,7 +53,7 @@ export function SharpProof() {
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-paper-0" />
               </span>
               <span className="caps text-[10px] font-medium text-paper-0/70">
-                Early-bird open
+                Orders open
               </span>
             </span>
           </div>
@@ -107,7 +75,7 @@ export function SharpProof() {
                     lineHeight: 0.82,
                   }}
                 >
-                  <Counter value={1400} />+
+                  <Counter value={30} />s
                 </span>
                 <span
                   className="font-bold uppercase text-paper-0"
@@ -117,9 +85,9 @@ export function SharpProof() {
                     lineHeight: 0.9,
                   }}
                 >
-                  Pre-
+                  At the
                   <br />
-                  orders
+                  sink
                 </span>
               </div>
               <p className="mt-4 caps text-[11px] font-medium text-paper-0">
@@ -128,43 +96,10 @@ export function SharpProof() {
             </div>
 
             <p className="max-w-md pb-1 text-[16.5px] leading-[1.6] text-paper-0 lg:justify-self-end">
-              Deliveries start <span className="font-semibold">September 2026</span>.
-              Order now to lock the early-bird{" "}
-              <span className="font-mono font-semibold">£22</span>, which rises to{" "}
-              <span className="font-mono text-paper-0/45 line-through">£30</span> at launch,
-              and hold your place in a limited first run.
+              Ships <span className="font-semibold">September 2026</span>.{" "}
+              <span className="num font-semibold">£22</span> for 100ml, with free
+              UK delivery and 30-day returns.
             </p>
-          </div>
-        </Reveal>
-
-        {/* Allocation meter */}
-        <Reveal delay={0.05}>
-          <div className="mt-10">
-            <div className="flex items-end justify-between">
-              <span className="caps text-[11px] font-medium text-paper-0">
-                First batch · early-bird allocation
-              </span>
-              <span className="flex items-baseline gap-2">
-                <span
-                  className="stat-tab font-semibold text-paper-0"
-                  style={{ fontSize: "clamp(20px, 2.4vw, 28px)", letterSpacing: "-0.03em" }}
-                >
-                  <Counter value={RESERVED_PCT} />%
-                </span>
-                <span className="caps text-[10.5px] font-medium text-paper-0">reserved</span>
-              </span>
-            </div>
-            <div className="mt-4">
-              <AllocationMeter />
-            </div>
-            <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
-              <span className="caps text-[10.5px] font-medium text-paper-0/70">
-                Limited first-batch units
-              </span>
-              <span className="caps text-[10.5px] font-medium text-paper-0/70">
-                Price rises at launch
-              </span>
-            </div>
           </div>
         </Reveal>
 

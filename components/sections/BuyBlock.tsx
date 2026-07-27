@@ -41,7 +41,7 @@ export function BuyBlock({ shipMonth }: { shipMonth: string }) {
   );
   const total = tier.price * qty;
 
-  const onPreorder = async () => {
+  const onCheckout = async () => {
     setLoading(true);
     setError(null);
     try {
@@ -66,7 +66,7 @@ export function BuyBlock({ shipMonth }: { shipMonth: string }) {
   return (
     <section id="buy" className="py-16 md:py-24">
       <Container>
-        <SectionHead n="03" title="Pre-order PECTUS" />
+        <SectionHead n="03" title="Buy PECTUS" />
 
         <div id="product" className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-14">
           {/* Gallery */}
@@ -219,11 +219,11 @@ export function BuyBlock({ shipMonth }: { shipMonth: string }) {
                 </button>
               </div>
               <button
-                onClick={onPreorder}
+                onClick={onCheckout}
                 disabled={loading}
                 className="caps flex-1 rounded-sm border border-ink-0 bg-ink-0 px-6 py-[18px] text-[13px] font-medium text-paper-0 transition-colors hover:bg-ink-1 disabled:opacity-50"
               >
-                {loading ? "Opening Checkout…" : `Pre-order · £${total}`}
+                {loading ? "Opening Checkout…" : `Order · £${total}`}
               </button>
             </div>
             <p className="caps mt-3 text-[10.5px] font-medium text-ink-3">

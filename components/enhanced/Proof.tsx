@@ -46,7 +46,7 @@ export function Proof() {
               </div>
             </div>
             <p className="max-w-sm text-[16.5px] leading-[1.6] text-ink-2">
-              Pre-order locks the early-bird price and your place in the queue.
+              Free UK delivery and 30-day returns on every order.
               The first production run is limited.
             </p>
           </div>

@@ -6,9 +6,8 @@ import { Eyebrow, SectionHead } from "@/components/ui/Eyebrow";
 import { ToolPhoto } from "@/components/steel/ToolPhoto";
 import { useCart } from "@/lib/cart";
 
-// STEEL is one product — a single weighted steel blade. Early-bird / RRP.
+// STEEL is one product: a single weighted steel blade.
 const PRICE = 24;
-const REG = 34;
 
 const SPEC: [string, string][] = [
   ["Best for", "Carve · drain · press · hook"],
@@ -23,8 +22,6 @@ export function SteelBuy({ shipMonth }: { shipMonth: string }) {
   const { add } = useCart();
 
   const total = PRICE * qty;
-  const saving = (REG - PRICE) * qty;
-  const pct = Math.round((1 - PRICE / REG) * 100);
 
   const onAdd = () =>
     add({
@@ -40,7 +37,7 @@ export function SteelBuy({ shipMonth }: { shipMonth: string }) {
   return (
     <section id="buy" className="border-t py-16 md:py-24" style={{ borderColor: "var(--hair)" }}>
       <Container>
-        <SectionHead n="04" title="Pre-order STEEL" />
+        <SectionHead n="04" title="Buy STEEL" />
 
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-14">
           {/* specimen */}
@@ -84,7 +81,7 @@ export function SteelBuy({ shipMonth }: { shipMonth: string }) {
               <div>
                 <span className="caps inline-flex items-center gap-2 text-[10px] font-medium text-ink-3">
                   <span className="inline-block h-1.5 w-1.5 rounded-full bg-ink-0" />
-                  Early-bird pre-order
+                  Price
                 </span>
                 <div className="mt-3 flex items-baseline gap-3">
                   <span
@@ -93,14 +90,10 @@ export function SteelBuy({ shipMonth }: { shipMonth: string }) {
                   >
                     £{PRICE}
                   </span>
-                  <span className="num text-[18px] text-ink-3 line-through">£{REG}</span>
-                  <span className="caps rounded-xs bg-ink-0 px-2 py-1 text-[9px] font-medium text-paper-0">
-                    Save {pct}%
-                  </span>
                 </div>
               </div>
               <span className="caps max-w-[44%] text-right text-[10px] font-medium leading-relaxed text-ink-3">
-                RRP £{REG} once the first batch ships
+                Ships {shipMonth}
               </span>
             </div>
 
@@ -126,11 +119,6 @@ export function SteelBuy({ shipMonth }: { shipMonth: string }) {
               <p className="caps text-[10.5px] font-medium text-ink-3">
                 Ships {shipMonth} · Free UK delivery · 30-day returns
               </p>
-              {saving > 0 && (
-                <span className="caps text-[10.5px] font-medium text-ink-0">
-                  You save £{saving} ({pct}% off)
-                </span>
-              )}
             </div>
 
             {/* spec */}

@@ -28,7 +28,7 @@ type MaskConfig = {
   eyebrow: string; // Roman inscriptional line
   tagline: string; // the caps promise
   description: string;
-  price: string; // suffixes "Pre-order — …"
+  price: string; // suffixes "Buy …"
   primaryHref: string;
   secondary: string; // second CTA label
   secondaryHref: string;
@@ -292,7 +292,7 @@ export function HeroTypeWindow({
             <p className="mt-3.5 max-w-xl text-[15px] leading-[1.6] text-ink-2 md:mt-4 md:text-[20px]">{cfg.description}</p>
             <div className="mt-7 flex flex-col items-center gap-2.5 sm:flex-row md:mt-8 md:gap-3">
               <Magnetic href={cfg.primaryHref} className="inline-flex items-center justify-center gap-2.5 rounded-[5px] border border-ink-0 bg-ink-0 px-8 py-[15px] text-[14px] font-semibold text-paper-0 transition-colors hover:bg-ink-1 md:px-10 md:py-[19px] md:text-[15px]">
-                Pre-order {cfg.price}
+                Buy {cfg.price}
               </Magnetic>
               <a href={cfg.secondaryHref} className="inline-flex items-center justify-center rounded-[5px] border border-ink-0 px-8 py-[15px] text-[14px] font-semibold text-ink-0 transition-colors hover:bg-ink-0 hover:text-paper-0 md:px-10 md:py-[19px] md:text-[15px]">
                 {cfg.secondary}

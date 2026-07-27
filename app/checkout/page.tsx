@@ -110,15 +110,15 @@ export default function CheckoutPage() {
                   className="mt-9 max-w-md pt-6 text-[13px] leading-[1.65] text-ink-2"
                   style={{ borderTop: "1px solid var(--hair)" }}
                 >
-                  This is a pre-order. No payment is taken now. We&apos;ll email you when
-                  the first batch is ready to ship.
+                  We&apos;ll confirm your order by email, then again when it ships.
+                  Free UK delivery, 30-day returns.
                 </p>
 
                 <button
                   type="submit"
                   className="mt-7 w-full rounded-[5px] bg-ink-0 px-6 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1 sm:w-auto sm:px-12"
                 >
-                  Place pre-order
+                  Place order
                 </button>
               </form>
 
@@ -153,7 +153,7 @@ export default function CheckoutPage() {
                   <span className="num text-[21px] font-semibold text-ink-0">£{subtotal}</span>
                 </div>
                 <p className="caps mt-3 text-[9.5px] font-medium text-ink-3">
-                  Free UK delivery · Nothing charged today
+                  Free UK delivery · 30-day returns
                 </p>
               </aside>
             </div>

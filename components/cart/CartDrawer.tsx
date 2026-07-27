@@ -85,7 +85,7 @@ export function CartDrawer() {
               <div className="flex flex-1 flex-col items-center justify-center px-6 text-center">
                 <p className="text-[16px] font-medium text-ink-0">Your basket is empty.</p>
                 <p className="mt-2 max-w-[240px] text-[13px] leading-relaxed text-ink-3">
-                  Choose a size on any product page to reserve your pre-order.
+                  Choose a size on any product page to add it to your basket.
                 </p>
               </div>
             ) : (
@@ -158,7 +158,7 @@ export function CartDrawer() {
                   <span className="num text-[19px] font-semibold text-ink-0">£{subtotal}</span>
                 </div>
                 <p className="caps mt-3 text-[9.5px] font-medium leading-relaxed text-ink-3">
-                  Pre-order · nothing is charged yet.
+                  Free UK delivery · 30-day returns
                 </p>
                 <button
                   type="button"
