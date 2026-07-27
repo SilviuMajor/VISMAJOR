@@ -891,15 +891,15 @@ export const V2_CHANGES: V2Change[] = [
   },
   {
     n: 60,
-    title: "Drop the fonts and weights that never render",
+    title: "Drop the two font families that never render",
     surface: "Global",
     category: "Technical",
     what:
-      "26 font weights are loaded and 14 are never painted. Cormorant Garamond is loaded in four weights and referenced nowhere at all. EB Garamond is loaded in three weights for a single element.",
+      "Remove Cormorant Garamond entirely, and either move EB Garamond to the one page that uses it or replace it. Note: trimming unused WEIGHTS saves nothing, because all six families are variable fonts and every declared weight resolves to the same file.",
     why:
-      "Every declared weight is a separate file fetched on first paint, and text is very likely the largest contentful paint on a type-led layout.",
+      "209KB of fonts are preloaded in the head of every route, competing with the hero image for bandwidth, and 82KB of that is dead. Cormorant renders zero glyphs anywhere on the site. EB Garamond is preloaded on all 28 routes to set a single number on STONE.",
     evidence:
-      "layout.tsx:42-47 loads Cormorant; --font-numeral has zero references in the codebase.",
+      "layout.tsx:41 loads Cormorant, wired to --font-numeral, which is referenced by nothing. EB Garamond reaches the page only through .stat, used once at SharpProof.tsx:71.",
     effort: "S",
     risk: "low",
     route: "/v2/home",
@@ -929,6 +929,344 @@ export const V2_CHANGES: V2Change[] = [
     why:
       "Mirrored components in two different faces at two different sizes is the clearest sign that several hands built this. Courier at 142px also magnifies every flaw of a typewriter face.",
     evidence: "SharpProof.tsx:71 uses stat-tab; ChiselProof.tsx:70 uses font-mono.",
+    effort: "S",
+    risk: "low",
+    route: "/v2/stone",
+  },
+
+  // ─────────────────── Craft (measured against references) ───────────────────
+  {
+    n: 63,
+    title: "Halve the letter-spacing on caps",
+    surface: "Global",
+    category: "Change",
+    what:
+      "The tracking tokens are 0.22em, 0.28em and 0.34em. Move to roughly 0.01em for display, 0.10em for section caps, 0.12em for small labels. Keep one wide value for the VIS·MAJOR mark alone, where it is a logotype decision.",
+    why:
+      "Every value is two to three and a half times wider than any reference site measured. Buly, which runs a near-identical classical-caps setup, tracks its 60px hero at 0.01em and its 9px buttons at 0.11em: tracking is inversely proportional to size. Very wide tracking on large caps is one of the most reliable template-luxury tells, because it is what stock themes do to make a serif look expensive.",
+    evidence:
+      "Measured: Buly hero 60px/0.01em, nav 14px/0.10em, button 9px/0.11em. Cire Trudon uses a flat 0.05em sitewide. Aesop uses none at all.",
+    effort: "S",
+    risk: "medium",
+    route: "/v2/home",
+  },
+  {
+    n: 64,
+    title: "Use Cinzel's real small capitals",
+    surface: "Global",
+    category: "Improvement",
+    what:
+      "Stop applying text-transform uppercase to Cinzel. Setting 'Vis Major' rather than 'VIS MAJOR' gives Capital plus Small Cap, the classical inscriptional setting.",
+    why:
+      "Cinzel's lowercase slots are true small capitals, drawn separately at 0.857 to 0.86 of cap height with their own advance widths. Uppercasing throws that away and flattens the only serif hierarchy available. It is a second register hiding in a font already loaded.",
+    evidence:
+      "Measured from the Cinzel binary at 200px: lowercase ink heights 120 to 123.2 against uppercase 140 to 143.2, with advance ratios varying independently, which proves they are drawn rather than scaled.",
+    effort: "M",
+    risk: "medium",
+    route: "/v2/home",
+  },
+  {
+    n: 65,
+    title: "Nudge Cinzel down in every centred box",
+    surface: "Global",
+    category: "Improvement",
+    what:
+      "Add a small vertical correction, roughly 0.08 to 0.15em, wherever Cinzel is vertically centred: buttons, nav, badges, the sticky bar.",
+    why:
+      "Cinzel's em box is lopsided, so flex and grid centring floats it visibly high: 0.15em against a grotesque's 0.034em, four to seven times worse. Nobody will be able to name what changed, but everything will stop looking slightly off.",
+    evidence:
+      "Measured at 100px: Cinzel leaves 26.6 above the caps and 57.0 below. Helvetica leaves 18.3 and 25.1.",
+    effort: "S",
+    risk: "low",
+    route: "/v2/home",
+  },
+  {
+    n: 66,
+    title: "Bring the running type scale down",
+    surface: "Global",
+    category: "Change",
+    what:
+      "Section headings currently reach 132px in the config and 104px in use. Reserve anything above about 40px for the house mark and product wordmarks, and set section headings around 24 to 34px.",
+    why:
+      "Aesop's entire site spans 12px to 25px, with an h1 of 24px. Le Labo's h1 is 30px. Premium sites do not build hierarchy with size: they build it with case, tracking, position and the amount of air around a thing. A 13px label alone above a large void reads as more important than a 64px headline crammed against its neighbour.",
+    evidence:
+      "Measured: Aesop h1 24px, Le Labo h1 30px, Trudon h1 40px, Buly section headings 24px. tailwind.config.ts declares display at clamp(56px, 9vw, 132px).",
+    effort: "L",
+    risk: "high",
+    route: "/v2/home",
+  },
+  {
+    n: 67,
+    title: "Invert the whitespace budget",
+    surface: "Global",
+    category: "Change",
+    what:
+      "Tighten component gaps and widen section intervals: grid gaps around 8 to 10px, section rhythm around 100px, with asymmetric padding so content sits toward the top of its band.",
+    why:
+      "Aesop's grid gutters are 10px while its section rhythm is 100px. The whitespace is banked at the section level and spent almost nowhere at the component level. Most sites do the reverse, with 24px gaps everywhere and 64px between sections, and that inversion is most of why they read as loose.",
+    evidence:
+      "Measured: Aesop product tiles 376px wide with a 10px gutter; section margin-top 100px with 40px top and 60px bottom padding.",
+    effort: "M",
+    risk: "medium",
+    route: "/v2/home",
+  },
+  {
+    n: 68,
+    title: "Give the buttons an engraved keyline",
+    surface: "Global",
+    category: "Improvement",
+    what:
+      "Replace the 5px-radius button with a square double-keyline: a ring of page colour inside a hairline of ink, label at 9 to 11px.",
+    why:
+      "Every reference site zeroes its corners deliberately, and 4 to 8px radius is the tell-tale range for a templated build. The double keyline reads as engraved apothecary labelling, works in pure monochrome, and needs no colour, gradient or shadow.",
+    evidence:
+      "Measured from Buly. Trudon sets border-radius 0 eighty-six times; Byredo forces it with !important. Le Labo is the only reference using any radius, at 1 to 2px.",
+    effort: "M",
+    risk: "medium",
+    route: "/v2/home",
+  },
+  {
+    n: 69,
+    title: "Take the glare off the paper",
+    surface: "Global",
+    category: "Improvement",
+    what:
+      "Warm the page white by a hair, to something like #FFFEFB. Distinct from the cream bands that were rejected earlier: this is a change too small to read as cream.",
+    why:
+      "Three of the four measured references avoid pure black on pure white. Aesop sets #333333 on #FFFEF2. Pure ink on pure white in a high-contrast serif reads harsh and thin, and the warm paper is doing quiet work.",
+    effort: "S",
+    risk: "medium",
+    route: "/v2/home",
+  },
+  {
+    n: 70,
+    title: "Kill the fitting loop on the hero line",
+    surface: "Home",
+    category: "Technical",
+    what:
+      "The homepage meaning line is sized by a self-rescheduling animation loop running up to 60 frames, re-armed on resize and on font load. Replace with a single pass, or a plain clamp.",
+    why:
+      "It reads computed styles and measures twice per frame, then writes styles, which is textbook layout thrash, on the homepage, during load, and it risks visible layout shift. This is my own code from earlier and it should not have shipped.",
+    evidence: "HouseHero.tsx:54-62.",
+    effort: "S",
+    risk: "low",
+    route: "/v2/home",
+    fixesBug: true,
+  },
+  {
+    n: 71,
+    title: "Stop re-rendering whole pinned sections on every scroll frame",
+    surface: "STONE",
+    category: "Technical",
+    what:
+      "STONE's Formula rail writes a continuously-changing float into React state on every scroll frame, re-rendering a 450vh subtree at 60fps. Bind it to a motion value instead and keep state only for the discrete phase.",
+    why:
+      "This is the single worst performance offender on the site, and it bypasses framer's fast path entirely. The same pattern appears in three other sections.",
+    evidence: "SharpActives.tsx:56-68, then consumed as a plain number at :179.",
+    effort: "M",
+    risk: "low",
+    route: "/v2/stone",
+    fixesBug: true,
+  },
+  {
+    n: 72,
+    title: "Stop animating layout properties",
+    surface: "PECTUS",
+    category: "Technical",
+    what:
+      "The Architecture scan tick animates a percentage top value on every frame, forcing a full layout recalculation. Use a transform instead.",
+    why:
+      "Transforms are free on the compositor; animating top is not. It is a one-line change, and the spring keeps ticking after the scroll stops.",
+    evidence: "StickyArchitecture.tsx:69 driving :258.",
+    effort: "S",
+    risk: "low",
+    route: "/v2/pectus",
+    fixesBug: true,
+  },
+  {
+    n: 73,
+    title: "Turn on AVIF",
+    surface: "Global",
+    category: "Technical",
+    what:
+      "next.config.mjs has no images block, so Next serves WebP only. Add AVIF and trim the largest device size.",
+    why:
+      "Measured 24% saving across a sample, about 250KB per page load on PECTUS, for a three-line config change with no visual difference.",
+    effort: "S",
+    risk: "low",
+    route: "/v2/home",
+  },
+  {
+    n: 74,
+    title: "Shrink the decorative texture",
+    surface: "PECTUS",
+    category: "Technical",
+    what:
+      "Replace the low-opacity background scenes and figures with much smaller assets. At those opacities a heavily compressed image is visually identical.",
+    why:
+      "806KB of PECTUS's 1.03MB image payload, 77%, is decorative texture rendered at low opacity. One figure costs 101KB to appear at 13% opacity; two scene backdrops cost 292KB combined to appear at 16%.",
+    effort: "M",
+    risk: "low",
+    route: "/v2/pectus",
+  },
+  {
+    n: 75,
+    title: "Take priority off the below-fold images",
+    surface: "Global",
+    category: "Technical",
+    what:
+      "Several images far below the fold are marked priority, which emits a preload that competes with the real hero image. STEEL preloads four, three of them the same sword file at different sizes.",
+    why:
+      "Every stolen preload slot directly delays the largest contentful paint, and on PECTUS the hero is already racing 209KB of font preloads.",
+    evidence:
+      "StickyBuy.tsx:140, SharpActives.tsx:181, SteelComposition.tsx:88, SteelBuy.tsx:56.",
+    effort: "S",
+    risk: "low",
+    route: "/v2/pectus",
+    fixesBug: true,
+  },
+
+  // ───────────────────── Layout & composition ─────────────────────
+  {
+    n: 76,
+    title: "Restore the tonal band, or stop pretending it exists",
+    surface: "Global",
+    category: "Change",
+    what:
+      "--paper-1 is #FFFFFF, identical to --paper-0. Ten live sections set bg-paper-1 believing they are a raised tonal band, and all render plain white. Either give it a real value or strip it from all ten.",
+    why:
+      "The design system thinks it has three ways to separate sections: hairline, tonal band, dark band. It actually has two. That is why long stretches of these pages read as undifferentiated, and it is the root cause of several problems below.",
+    evidence:
+      "globals.css:9-11, with the comment '(was cream) raised bands now read white'. Ten consumers including StickyArchitecture.tsx:90 and SharpActives.tsx:72.",
+    effort: "S",
+    risk: "medium",
+    route: "/v2/pectus",
+    fixesBug: true,
+  },
+  {
+    n: 77,
+    title: "PECTUS is 22 screens long and 62% of it is pinned",
+    surface: "PECTUS",
+    category: "Change",
+    what:
+      "Measured at 19,995px, of which 12,330px is three pinned sections. Cutting the hero, the Architecture and Five Moments saves roughly six screens with no content lost.",
+    why:
+      "Each pin spends between 1.35 and 2 screens of scroll per state change. This is the heaviness you have been feeling, and it is arithmetic rather than opinion.",
+    evidence:
+      "Measured in-browser at 1440x900. #science holds three states across 4.5 screens; #moments holds five across 6.",
+    effort: "M",
+    risk: "medium",
+    route: "/v2/pectus",
+  },
+  {
+    n: 78,
+    title: "Stop two dark strips merging into one slab",
+    surface: "STONE",
+    category: "Change",
+    what:
+      "On STONE and SCULPT the TrustStrip sits directly above the Ticker, both dark, producing one undivided 85px black band with two rows of caps. Move the Ticker below the pinned section, as PECTUS already does.",
+    why: "Two separate devices reading as one is a straightforward composition error.",
+    evidence: "SharpComposition.tsx:45-46 and ChiselComposition.tsx:43-44.",
+    effort: "S",
+    risk: "low",
+    route: "/v2/stone",
+    fixesBug: true,
+  },
+  {
+    n: 79,
+    title: "The PECTUS ticker is invisible",
+    surface: "PECTUS",
+    category: "Change",
+    what:
+      "The Ticker is a 46px dark strip sitting immediately above Five Moments, which is a 5,400px dark section. It is swallowed whole.",
+    why: "A section nobody can see is either misplaced or unnecessary.",
+    evidence: "EnhancedComposition.tsx:43-44.",
+    effort: "S",
+    risk: "low",
+    route: "/v2/pectus",
+    fixesBug: true,
+  },
+  {
+    n: 80,
+    title: "Fix the section numbering",
+    surface: "PECTUS",
+    category: "Technical",
+    what:
+      "PECTUS numbers its sections 01, 04, 04, 06: a duplicate and three gaps. STONE runs 02, 03, 05. SCULPT starts at 04. Either renumber per page or drop the numerals.",
+    why:
+      "A visible counting error reads as carelessness on a page selling precision. STEEL is the only page that numbers correctly.",
+    evidence: "OneJob.tsx:69 is 01, StickyBuy.tsx:118 is 04, IsIsnt.tsx:18 is also 04.",
+    effort: "S",
+    risk: "low",
+    route: "/v2/pectus",
+    fixesBug: true,
+  },
+  {
+    n: 81,
+    title: "STONE's final CTA has an invisible rule and a broken layout",
+    surface: "STONE",
+    category: "Change",
+    what:
+      "Its eyebrow rule is set to ink on an ink background, so it cannot be seen, and it omits the delivery block its two siblings carry, leaving a justify-between row with one child so the CTA sits on the wrong side.",
+    why: "Three versions of one component, and this one is visibly wrong against the other two.",
+    evidence: "SharpFinalCta.tsx:12 against FinalCta.tsx:12 and ChiselFinalCta.tsx:12.",
+    effort: "S",
+    risk: "low",
+    route: "/v2/stone",
+    fixesBug: true,
+  },
+  {
+    n: 82,
+    title: "Anchors land 75px under the header",
+    surface: "Global",
+    category: "Technical",
+    what:
+      "The header is 75px tall. The FAQ rails stick at 64px, so they sit under it, and nine anchor targets have no scroll margin at all.",
+    why:
+      "Every hero Buy button and the sticky bar currently scroll the reader to a position where the heading is hidden behind the header.",
+    evidence: "FaqV2.tsx:132 uses lg:top-16; #buy, #honesty, #faq, #proof and five others have no scroll-mt.",
+    effort: "S",
+    risk: "low",
+    route: "/v2/pectus",
+    fixesBug: true,
+  },
+  {
+    n: 83,
+    title: "Two hero buttons lead nowhere",
+    surface: "STONE",
+    category: "Technical",
+    what:
+      "The SCULPT and STONE heroes both link their secondary CTA to #how, and neither page has an element with that id.",
+    why:
+      "The components that carried the anchor were dropped from the compositions and the links were left behind. Clicking does nothing.",
+    evidence: "HeroTypeWindow.tsx:62 and :74; ChiselRitual and SharpDaily are not imported anywhere.",
+    effort: "S",
+    risk: "low",
+    route: "/v2/stone",
+    fixesBug: true,
+  },
+  {
+    n: 84,
+    title: "Give STEEL some rhythm",
+    surface: "Global",
+    category: "Change",
+    what:
+      "STEEL runs four consecutive identical white sections separated only by hairlines, and its only dark band is a 39px strip. Invert one section and give the page a real beat.",
+    why:
+      "7% dark coverage across 8.5 screens makes it read as a white document with a black footer, noticeably quieter than its siblings. It also uses the small section head where the other pages use the large one, so it reads two typographic levels down.",
+    effort: "M",
+    risk: "low",
+    route: "/v2/home",
+  },
+  {
+    n: 85,
+    title: "Put the proof before the ask",
+    surface: "STONE",
+    category: "Change",
+    what:
+      "STONE renders its proof section after the final call to action, and both are dark, producing 1,273px of unbroken black.",
+    why: "Social proof arriving after the ask is backwards, and it creates the worst dark run on the site.",
+    evidence: "SharpComposition.tsx:52-53.",
     effort: "S",
     risk: "low",
     route: "/v2/stone",

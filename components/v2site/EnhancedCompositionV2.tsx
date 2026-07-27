@@ -8,7 +8,7 @@ import { StickyBuyBar } from "@/components/ui/StickyBuyBar";
 import { ScrollProgress } from "@/components/enhanced/ScrollProgress";
 import { HeroTypeWindow } from "@/components/herolab/HeroTypeWindow";
 import { TrustStrip } from "@/components/enhanced/TrustStrip";
-import { StickyArchitecture } from "@/components/enhanced/StickyArchitecture";
+import { ArchitectureV2 } from "@/components/v2site/ArchitectureV2";
 import { OneJob } from "@/components/enhanced/OneJob";
 import { HorizontalUseBefore } from "@/components/enhanced/HorizontalUseBefore";
 import { StickyBuy } from "@/components/enhanced/StickyBuy";
@@ -49,7 +49,10 @@ export function EnhancedCompositionV2() {
           <QuickBuy />
         </div>
 
-        <StickyArchitecture />
+        {/* 43 + 45 + 50 — mono, 240vh not 450vh, no pin under reduced motion */}
+        <div data-v2="43">
+          <ArchitectureV2 />
+        </div>
         <Ticker />
         <HorizontalUseBefore />
         <OneJob />
