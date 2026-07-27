@@ -1,5 +1,6 @@
 import { Container } from "@/components/ui/Container";
 import { TextReveal } from "@/components/ui/TextReveal";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 
 const OCCASIONS = [
   "The shirt that matters.",
@@ -12,12 +13,7 @@ export function UseBefore() {
   return (
     <section className="bg-ink-0 py-24 text-paper-0 md:py-32">
       <Container>
-        <div className="flex items-center gap-3.5">
-          <span className="h-px w-8 bg-paper-0/40" />
-          <span className="caps-loose text-[12px] font-semibold text-paper-0/70">
-            Use Before
-          </span>
-        </div>
+        <Eyebrow light>Use Before</Eyebrow>
 
         <TextReveal
           as="div"

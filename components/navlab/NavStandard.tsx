@@ -16,7 +16,7 @@ export function NavStandard() {
           ))}
         </nav>
         <div className="flex items-center gap-2.5">
-          <a href="#" className="hidden items-center rounded-[5px] border border-[var(--hair-strong)] px-3.5 py-1.5 text-[12px] font-semibold text-ink-0 transition-colors hover:bg-ink-0 hover:text-paper-0 md:inline-flex">
+          <a href="#" className="hidden items-center rounded-sm border border-[var(--hair-strong)] px-3.5 py-1.5 text-[12px] font-semibold text-ink-0 transition-colors hover:bg-ink-0 hover:text-paper-0 md:inline-flex">
             Buy
           </a>
           <CartGlyph className="text-ink-0" />

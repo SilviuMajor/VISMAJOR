@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow, SectionHead } from "@/components/ui/Eyebrow";
 import { ToolPhoto } from "@/components/steel/ToolPhoto";
-import { useCart } from "@/lib/cart";
+import { useAddToCart } from "@/lib/cart";
 
 // STEEL is one product: a single weighted steel blade.
 const PRICE = 24;
@@ -19,12 +19,12 @@ const SPEC: [string, string][] = [
 
 export function SteelBuy({ shipMonth }: { shipMonth: string }) {
   const [qty, setQty] = useState(1);
-  const { add } = useCart();
+  const { addToCart, adding } = useAddToCart();
 
   const total = PRICE * qty;
 
   const onAdd = () =>
-    add({
+    addToCart({
       id: "steel:blade",
       product: "steel",
       productName: "STEEL",
@@ -35,7 +35,7 @@ export function SteelBuy({ shipMonth }: { shipMonth: string }) {
     });
 
   return (
-    <section id="buy" className="border-t py-16 md:py-24" style={{ borderColor: "var(--hair)" }}>
+    <section id="buy" className="scroll-mt-[92px] border-t py-16 md:py-24" style={{ borderColor: "var(--hair)" }}>
       <Container>
         <SectionHead n="04" title="Buy STEEL" />
 
@@ -43,7 +43,7 @@ export function SteelBuy({ shipMonth }: { shipMonth: string }) {
           {/* specimen */}
           <div className="lg:sticky lg:top-24 lg:self-start">
             <div
-              className="relative flex aspect-square items-center justify-center rounded-[4px] bg-paper-0"
+              className="relative flex aspect-square items-center justify-center rounded-sm bg-paper-0"
               style={{ boxShadow: "0 28px 64px -32px rgba(20,19,15,0.38)" }}
             >
               <span className="absolute left-3 top-2.5 z-20 caps font-mono text-[9px] font-medium text-ink-3">
@@ -100,19 +100,27 @@ export function SteelBuy({ shipMonth }: { shipMonth: string }) {
             {/* qty + CTA */}
             <div className="mt-8 flex items-center gap-4">
               <div className="flex items-center rounded-sm border border-ink-0">
-                <button onClick={() => setQty(Math.max(1, qty - 1))} className="px-4 py-3 text-base font-semibold hover:bg-ink-0/5" aria-label="Decrease quantity">
+                <button onClick={() => setQty(Math.max(1, qty - 1))} className="px-4 py-3 text-base font-semibold text-ink-0 transition-colors hover:bg-ink-0/5" aria-label="Decrease quantity">
                   −
                 </button>
                 <span className="min-w-[2rem] text-center font-mono font-semibold">{qty}</span>
-                <button onClick={() => setQty(qty + 1)} className="px-4 py-3 text-base font-semibold hover:bg-ink-0/5" aria-label="Increase quantity">
+                <button onClick={() => setQty(qty + 1)} className="px-4 py-3 text-base font-semibold text-ink-0 transition-colors hover:bg-ink-0/5" aria-label="Increase quantity">
                   +
                 </button>
               </div>
               <button
                 onClick={onAdd}
-                className="flex-1 rounded-[5px] border border-ink-0 bg-ink-0 px-6 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
+                disabled={adding}
+                aria-busy={adding}
+                className="flex-1 rounded-sm border border-ink-0 bg-ink-0 px-6 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1 active:translate-y-px disabled:cursor-not-allowed disabled:opacity-70"
               >
-                Add to basket · <span className="font-semibold">£{total}</span>
+                {adding ? (
+                  "Adding…"
+                ) : (
+                  <>
+                    Add to basket · <span className="font-semibold">£{total}</span>
+                  </>
+                )}
               </button>
             </div>
             <div className="mt-3 flex items-center justify-between">

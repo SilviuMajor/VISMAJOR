@@ -59,7 +59,7 @@ function Confirmed() {
 
           <Link
             href="/"
-            className="caps mt-9 inline-flex rounded-[5px] bg-ink-0 px-10 py-[16px] text-[12px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
+            className="caps mt-9 inline-flex rounded-sm bg-ink-0 px-10 py-[16px] text-[12px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
           >
             Back to VIS·MAJOR
           </Link>

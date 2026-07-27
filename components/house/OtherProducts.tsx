@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/Container";
 import { others, type ProductSlug } from "@/lib/products";
 import { CreamTube } from "@/components/chisel/Art";
 import { SharpBottle } from "@/components/sharp/Specimen";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 
 /** Each product's own visual — PECTUS has a real tube shot; SCULPT and STONE
  *  use their line-art renderings until photography exists. */
@@ -12,7 +13,7 @@ function ProductArt({ slug }: { slug: ProductSlug }) {
     return (
       <Image
         src="/product/front.png"
-        alt=""
+        alt="PECTUS Cooling Chest Primer tube, front of pack"
         fill
         sizes="150px"
         className="object-contain melt"
@@ -35,12 +36,7 @@ export function OtherProducts({ current }: { current: ProductSlug }) {
   return (
     <section className="border-t py-20 md:py-28" style={{ borderColor: "var(--hair)" }}>
       <Container>
-        <div className="flex items-center gap-3.5">
-          <span className="h-px w-7 bg-[var(--hair-strong)]" />
-          <span className="caps-loose text-[11px] font-semibold text-ink-2">
-            The House · See our other products
-          </span>
-        </div>
+        <Eyebrow>The House · See our other products</Eyebrow>
         <h2
           className="mt-5 max-w-2xl font-bold uppercase text-ink-0"
           style={{ fontSize: "clamp(28px, 4vw, 52px)", letterSpacing: "-0.03em", lineHeight: 0.98 }}

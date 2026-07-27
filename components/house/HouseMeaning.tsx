@@ -3,6 +3,7 @@
 import { Fragment } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -26,13 +27,8 @@ export function HouseMeaning() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7, ease: EASE }}
-            className="flex items-center justify-center gap-3.5"
           >
-            <span className="h-px w-7 bg-[var(--hair-strong)]" />
-            <span className="caps-loose text-[11px] font-medium text-ink-3">
-              Meaning
-            </span>
-            <span className="h-px w-7 bg-[var(--hair-strong)]" />
+            <Eyebrow center>Meaning</Eyebrow>
           </motion.div>
 
           {/* the mark — inscriptional, in caps, given real weight */}

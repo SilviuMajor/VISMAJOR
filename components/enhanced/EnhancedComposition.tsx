@@ -52,9 +52,7 @@ export function EnhancedComposition() {
         <SceneSection scene="/scenes/home.png">
           <StickyBuy shipMonth={shipMonth} />
         </SceneSection>
-        <SceneSection scene="/scenes/stone.png">
-          <IsIsnt />
-        </SceneSection>
+        <IsIsnt />
         <FaqV2 shipMonth={shipMonth} />
         <ProductQuote latin="Mens sana in corpore sano" translation="a sound mind in a sound body." />
         <FinalCta shipMonth={shipMonth} />

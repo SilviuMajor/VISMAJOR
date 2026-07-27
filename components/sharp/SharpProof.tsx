@@ -35,8 +35,8 @@ export function SharpProof() {
   return (
     <section
       id="proof"
-      className="overflow-hidden border-y bg-ink-0 py-14 md:py-20"
-      style={{ borderColor: "rgba(244,242,236,0.14)" }}
+      className="scroll-mt-[92px] overflow-hidden border-y bg-ink-0 py-14 md:py-20"
+      style={{ borderColor: "var(--hair-inverse)" }}
     >
       <Container>
         {/* Masthead */}
@@ -63,7 +63,7 @@ export function SharpProof() {
         <Reveal delay={0.05}>
           <div
             className="mt-6 grid grid-cols-1 items-end gap-x-12 gap-y-7 border-t pt-7 lg:grid-cols-[auto_1fr]"
-            style={{ borderColor: "rgba(244,242,236,0.28)" }}
+            style={{ borderColor: "var(--hair-inverse-strong)" }}
           >
             <div>
               <div className="flex items-end gap-3 md:gap-4">
@@ -95,11 +95,34 @@ export function SharpProof() {
               </p>
             </div>
 
-            <p className="max-w-md pb-1 text-[16.5px] leading-[1.6] text-paper-0 lg:justify-self-end">
-              Ships <span className="font-semibold">September 2026</span>.{" "}
-              <span className="num font-semibold">£22</span> for 100ml, with free
-              UK delivery and 30-day returns.
-            </p>
+            <div className="max-w-md pb-1 lg:justify-self-end">
+              {/* PLACEHOLDER FIGURE. 2,000 is carried over from the old site and
+                  has not been reconciled against real order data. Replace it
+                  with the actual number, or remove the block, before launch: an
+                  invented volume claim is a misleading commercial practice
+                  under the Digital Markets, Competition and Consumers Act 2024. */}
+              <p className="flex items-baseline gap-2.5">
+                <span
+                  className="stat-tab font-semibold text-paper-0"
+                  style={{
+                    fontSize: "clamp(30px, 4vw, 52px)",
+                    letterSpacing: "-0.035em",
+                    lineHeight: 1,
+                  }}
+                >
+                  <Counter value={2000} group />+
+                </span>
+                <span className="caps text-[11px] font-medium text-paper-0/70">
+                  Orders
+                </span>
+              </p>
+
+              <p className="mt-4 text-[16.5px] leading-[1.6] text-paper-0">
+                Ships <span className="font-semibold">September 2026</span>.{" "}
+                <span className="num font-semibold">£22</span> for 100ml, with
+                free UK delivery and 30-day returns.
+              </p>
+            </div>
           </div>
         </Reveal>
 
@@ -107,7 +130,7 @@ export function SharpProof() {
         <Reveal delay={0.05}>
           <div
             className="relative mt-10 overflow-hidden border-y py-1"
-            style={{ borderColor: "rgba(244,242,236,0.12)" }}
+            style={{ borderColor: "var(--hair-inverse)" }}
           >
             <div
               className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 md:w-28"
@@ -126,7 +149,7 @@ export function SharpProof() {
                     <figure
                       key={group + "-" + i}
                       className="flex w-[78vw] max-w-[440px] shrink-0 flex-col justify-between gap-5 border-r px-7 py-6 md:w-[420px] md:px-9"
-                      style={{ borderColor: "rgba(244,242,236,0.12)" }}
+                      style={{ borderColor: "var(--hair-inverse)" }}
                     >
                       <blockquote className="text-[16.5px] leading-[1.5] text-paper-0">
                         &ldquo;{qt.q}&rdquo;

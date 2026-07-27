@@ -13,6 +13,7 @@ import {
 import { Container } from "@/components/ui/Container";
 import { Specimen, PlaceholderNote } from "@/components/chisel/Specimen";
 import { CreamTube, EMBER } from "@/components/chisel/Art";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 
 /**
  * THE ARCHITECTURE (id="science") — a pinned scroll sequence at the calibre of
@@ -63,18 +64,13 @@ export function ChiselArchitecture() {
   const bandY = useTransform(prog, [0, 1], reduce ? [0, 0] : [-6, 6]);
 
   return (
-    <section id="science" ref={ref} className="relative h-[320vh] bg-paper-1">
+    <section id="science" ref={ref} className="relative scroll-mt-[92px] h-[320vh] bg-paper-1">
       <div className="sticky top-0 flex h-screen items-center overflow-hidden pb-24 sm:pb-0">
         <Container className="relative z-10 w-full">
           <div className="grid grid-cols-1 items-center gap-6 sm:gap-10 lg:grid-cols-2 lg:gap-16">
             {/* Narrative */}
             <div className="order-2 lg:order-1">
-              <div className="flex items-center gap-3.5">
-                <span className="h-px w-7 bg-[var(--hair-strong)]" />
-                <span className="caps-loose text-[11px] font-medium text-ink-2">
-                  The Architecture
-                </span>
-              </div>
+              <Eyebrow>The Architecture</Eyebrow>
 
               <div className="relative mt-5 min-h-[104px] md:mt-8 md:min-h-[230px]">
                 <AnimatePresence mode="wait">

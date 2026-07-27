@@ -13,7 +13,12 @@
   --ink-0: #14130F;
   --ink-1: #36352F;
   --ink-2: #6A6960;
-  --ink-3: #9C9A8F;
+  /* --ink-3 is the faint TEXT tone. 4.62:1 on white — the lightest ink that
+     still clears the WCAG 4.5:1 body minimum. */
+  --ink-3: #797770;
+  /* --ink-4 is DECORATION ONLY — bullet dots, separators, hairline-adjacent
+     marks. It carries the old faint value and is never used for text. */
+  --ink-4: #9C9A8F;
   /* Metal */
   --metal-50:  #ECEDEC;
   --metal-100: #DFE1E1;
@@ -24,9 +29,16 @@
   --metal-600: #4E5255;
   --metal-700: #36393B;
   --cap-black: #161512;
-  /* Hairlines */
-  --hair:        rgba(20, 19, 15, 0.14);
-  --hair-strong: rgba(20, 19, 15, 0.30);
+  /* Hairlines.
+     --hair / --hair-strong are ink on paper. The -inverse pair is the same
+     idea flipped for the ink-black bands: white on ink, at the same two
+     weights. (These replace 17 hardcoded rgba(244,242,236,α) rules — that
+     244,242,236 was the retired cream paper colour, left behind when the
+     light surfaces went pure white.) */
+  --hair:                rgba(20, 19, 15, 0.14);
+  --hair-strong:         rgba(20, 19, 15, 0.30);
+  --hair-inverse:        rgba(255, 255, 255, 0.14);
+  --hair-inverse-strong: rgba(255, 255, 255, 0.28);
   /* Tracking scale */
   --track-wordmark:   0.04em;
   --track-tight:     -0.01em;
@@ -73,11 +85,15 @@ html, body {
   color: var(--paper-0);
 }
 
-/* Keyboard focus — a clean ink ring, shown only for keyboard users. */
+/* Keyboard focus — a clean ring, shown only for keyboard users.
+   currentColor, not ink: the ring inherits the element's own text colour, so it
+   reads ink on paper and paper on ink (dark nav, footer, every final CTA)
+   instead of disappearing into dark surfaces. The radius follows the button
+   corner rather than the old near-square 1px. */
 :where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
-  outline: 2px solid var(--ink-0);
+  outline: 2px solid currentColor;
   outline-offset: 3px;
-  border-radius: 1px;
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar { width: 10px; height: 10px; }
@@ -145,10 +161,12 @@ html { scroll-behavior: smooth; }
 }
 
 /* ---- Marquee ticker ---- */
+/* --marquee-duration is set per ticker from its own copy (see ui/Marquee.tsx)
+   so tickers of different widths still travel at the same px/second. */
 .marquee {
   display: flex;
   width: max-content;
-  animation: marquee 42s linear infinite;
+  animation: marquee var(--marquee-duration, 42s) linear infinite;
 }
 .marquee-group {
   display: flex;

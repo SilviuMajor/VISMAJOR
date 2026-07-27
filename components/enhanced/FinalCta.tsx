@@ -3,17 +3,13 @@
 import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { TextReveal } from "@/components/ui/TextReveal";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 
 export function FinalCta({ shipMonth }: { shipMonth: string }) {
   return (
     <section className="relative overflow-hidden bg-ink-0 py-24 text-paper-0 md:py-32">
       <Container>
-        <div className="flex items-center gap-3.5">
-          <span className="h-px w-8 bg-paper-0/40" />
-          <span className="caps-loose text-[11px] font-medium text-paper-0/70">
-            Ships {shipMonth}
-          </span>
-        </div>
+        <Eyebrow light>Ships {shipMonth}</Eyebrow>
 
         <TextReveal
           as="h2"
@@ -37,7 +33,7 @@ export function FinalCta({ shipMonth }: { shipMonth: string }) {
           >
             <a
               href="#buy"
-              className="inline-flex items-center justify-center gap-2.5 rounded-[5px] border border-paper-0 bg-paper-0 px-10 py-[20px] text-[14px] font-semibold text-ink-0 transition-colors hover:bg-transparent hover:text-paper-0"
+              className="inline-flex items-center justify-center gap-2.5 rounded-sm border border-paper-0 bg-paper-0 px-10 py-[20px] text-[14px] font-semibold text-ink-0 transition-colors hover:bg-transparent hover:text-paper-0"
             >
               Buy £18
             </a>

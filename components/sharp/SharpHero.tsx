@@ -13,6 +13,7 @@ import {
 import { Container } from "@/components/ui/Container";
 import { SceneBackdrop } from "@/components/ui/SceneBackdrop";
 import { SharpBottle } from "@/components/sharp/Specimen";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 const WORD = ["S", "T", "O", "N", "E"];
@@ -130,13 +131,8 @@ export function SharpHero({ shipMonth }: { shipMonth: string }) {
           {...fadeUp}
           transition={{ duration: 0.55, delay: 0.1, ease: EASE }}
           style={{ opacity: fade }}
-          className="flex items-center gap-3.5"
         >
-          <span className="h-px w-7 bg-[var(--hair-strong)]" />
-          <span className="caps-loose text-[11px] font-medium text-ink-2">
-            The Matte Cleanser · No. 002
-          </span>
-          <span className="h-px w-7 bg-[var(--hair-strong)]" />
+          <Eyebrow center>The Matte Cleanser · No. 002</Eyebrow>
         </motion.div>
 
         {/* giant kinetic wordmark + specimen plate */}
@@ -241,13 +237,13 @@ export function SharpHero({ shipMonth }: { shipMonth: string }) {
           >
             <Magnetic
               href="#buy"
-              className="inline-flex items-center justify-center gap-2.5 rounded-[5px] border border-ink-0 bg-ink-0 px-9 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
+              className="inline-flex items-center justify-center gap-2.5 rounded-sm border border-ink-0 bg-ink-0 px-9 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
             >
               Buy · £22
             </Magnetic>
             <a
               href="#how"
-              className="inline-flex items-center justify-center rounded-[5px] border border-ink-0 px-9 py-[18px] text-[13px] font-semibold text-ink-0 transition-colors hover:bg-ink-0 hover:text-paper-0"
+              className="inline-flex items-center justify-center rounded-sm border border-ink-0 px-9 py-[18px] text-[13px] font-semibold text-ink-0 transition-colors hover:bg-ink-0 hover:text-paper-0"
             >
               The Daily
             </a>

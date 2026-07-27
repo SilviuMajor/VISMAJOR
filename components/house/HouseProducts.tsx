@@ -8,6 +8,7 @@ import { PRODUCTS, type ProductSlug } from "@/lib/products";
 import { INGREDIENTS } from "@/lib/ingredients";
 import { CreamTube } from "@/components/chisel/Art";
 import { SharpBottle } from "@/components/sharp/Specimen";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 
 /* The product's own shot for the shop grid — PECTUS uses its real tube photo;
    SCULPT / STONE use their line-art specimens until photography lands. */
@@ -33,16 +34,11 @@ export function HouseProducts() {
   return (
     <section
       id="products"
-      className="border-t bg-paper-0 py-20 md:py-28"
+      className="scroll-mt-[92px] border-t bg-paper-0 py-20 md:py-28"
       style={{ borderColor: "var(--hair)" }}
     >
       <Container>
-        <div className="flex items-center gap-3.5">
-          <span className="h-px w-7 bg-[var(--hair-strong)]" />
-          <span className="caps-loose text-[11px] font-medium text-ink-2">
-            The House · Three topicals
-          </span>
-        </div>
+        <Eyebrow>The House · Three topicals</Eyebrow>
         <h2
           className="mt-5 max-w-3xl font-bold uppercase text-ink-0"
           style={{ fontSize: "clamp(30px, 4.6vw, 64px)", letterSpacing: "-0.03em", lineHeight: 0.98 }}

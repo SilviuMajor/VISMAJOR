@@ -11,6 +11,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { Container } from "@/components/ui/Container";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 
 const MINT = "#14130F";
 
@@ -69,7 +70,7 @@ export function SharpActives() {
   });
 
   return (
-    <section id="science" ref={ref} className="relative h-[450vh] bg-paper-1">
+    <section id="science" ref={ref} className="relative scroll-mt-[92px] h-[450vh] bg-paper-1">
       <div className="sticky top-0 flex h-screen items-center overflow-hidden pb-24 sm:pb-0">
         {/* a faint classical figure presiding behind the panel — soft multiply
             on white, visible on mobile too (fainter) */}
@@ -94,12 +95,7 @@ export function SharpActives() {
           <div className="grid grid-cols-1 items-center gap-6 sm:gap-10 lg:grid-cols-2 lg:gap-16">
             {/* Narrative */}
             <div className="order-2 lg:order-1">
-              <div className="flex items-center gap-3.5">
-                <span className="h-px w-7 bg-[var(--hair-strong)]" />
-                <span className="caps-loose text-[11px] font-medium text-ink-2">
-                  The Formula
-                </span>
-              </div>
+              <Eyebrow>The Formula</Eyebrow>
 
               <div className="relative mt-5 min-h-[150px] sm:mt-8 sm:min-h-[260px]">
                 <AnimatePresence mode="wait">

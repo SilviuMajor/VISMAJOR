@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { TextReveal } from "@/components/ui/TextReveal";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 
 export function HeritageBanner() {
   const ref = useRef<HTMLElement>(null);
@@ -64,12 +65,7 @@ export function HeritageBanner() {
 
       <Container className="relative z-20">
         <div className="flex flex-col justify-center py-20 sm:min-h-screen sm:py-28">
-          <div className="flex items-center gap-3.5">
-            <span className="h-px w-8 bg-paper-0/45" />
-            <span className="caps-loose text-[11px] font-medium text-paper-0/75">
-              The Standard
-            </span>
-          </div>
+          <Eyebrow light>The Standard</Eyebrow>
           <TextReveal
             as="h2"
             className="mt-7 font-bold uppercase text-paper-0 text-[clamp(36px,6vw,96px)] leading-[0.92] tracking-[-0.03em]"

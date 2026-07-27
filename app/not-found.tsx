@@ -23,7 +23,7 @@ export default function NotFound() {
         </p>
         <Link
           href="/"
-          className="mt-9 inline-flex items-center justify-center gap-2.5 rounded-[5px] border border-ink-0 bg-ink-0 px-9 py-[15px] text-[14px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
+          className="mt-9 inline-flex items-center justify-center gap-2.5 rounded-sm border border-ink-0 bg-ink-0 px-9 py-[15px] text-[14px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
         >
           Back to VIS·MAJOR &rarr;
         </Link>

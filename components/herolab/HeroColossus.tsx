@@ -69,7 +69,7 @@ export function HeroColossus() {
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.78 }} className="serif mt-4 text-ink-1" style={{ fontSize: "clamp(16px, 2vw, 23px)", letterSpacing: "0.02em" }}>
           The Cooling Chest Primer.
         </motion.p>
-        <motion.a href="#buy" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.85, ease: EASE }} className="mt-6 inline-flex rounded-[5px] bg-ink-0 px-9 py-[16px] text-[14px] font-semibold text-paper-0 transition-colors hover:bg-ink-1">
+        <motion.a href="#buy" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.85, ease: EASE }} className="mt-6 inline-flex rounded-sm bg-ink-0 px-9 py-[16px] text-[14px] font-semibold text-paper-0 transition-colors hover:bg-ink-1">
           Buy · £24
         </motion.a>
       </Container>

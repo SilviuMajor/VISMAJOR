@@ -13,6 +13,7 @@ import {
 import { Container } from "@/components/ui/Container";
 import { SceneBackdrop } from "@/components/ui/SceneBackdrop";
 import { CreamTube, SteelTool } from "@/components/chisel/Art";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 const WORD = ["S", "C", "U", "L", "P", "T"];
@@ -131,13 +132,8 @@ export function ChiselHero({ shipMonth }: { shipMonth: string }) {
           {...fadeUp}
           transition={{ duration: 0.55, delay: 0.1, ease: EASE }}
           style={{ opacity: fade }}
-          className="flex items-center gap-3.5"
         >
-          <span className="h-px w-7 bg-[var(--hair-strong)]" />
-          <span className="caps-loose text-[11px] font-medium text-ink-2">
-            The Massage & Recovery Cream · No. 003
-          </span>
-          <span className="h-px w-7 bg-[var(--hair-strong)]" />
+          <Eyebrow center>The Massage & Recovery Cream · No. 003</Eyebrow>
         </motion.div>
 
         {/* giant kinetic wordmark + the cream/tool duo */}
@@ -264,13 +260,13 @@ export function ChiselHero({ shipMonth }: { shipMonth: string }) {
           >
             <Magnetic
               href="#buy"
-              className="inline-flex items-center justify-center gap-2.5 rounded-[5px] border border-ink-0 bg-ink-0 px-9 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
+              className="inline-flex items-center justify-center gap-2.5 rounded-sm border border-ink-0 bg-ink-0 px-9 py-[18px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
             >
               From £28
             </Magnetic>
             <a
               href="#how"
-              className="inline-flex items-center justify-center rounded-[5px] border border-ink-0 px-9 py-[18px] text-[13px] font-semibold text-ink-0 transition-colors hover:bg-ink-0 hover:text-paper-0"
+              className="inline-flex items-center justify-center rounded-sm border border-ink-0 px-9 py-[18px] text-[13px] font-semibold text-ink-0 transition-colors hover:bg-ink-0 hover:text-paper-0"
             >
               The Ritual
             </a>

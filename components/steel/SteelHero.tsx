@@ -3,6 +3,7 @@
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { ToolPhoto } from "@/components/steel/ToolPhoto";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 const WORD = ["S", "T", "E", "E", "L"];
@@ -31,13 +32,8 @@ export function SteelHero({ priceFrom }: { priceFrom: string }) {
           initial={reduce ? false : { opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: EASE }}
-          className="flex items-center justify-center gap-3.5"
         >
-          <span className="h-px w-8 bg-[var(--hair-strong)]" />
-          <span className="caps-loose text-[11px] font-medium text-ink-2">
-            Massage &amp; Therapy · Machined Steel
-          </span>
-          <span className="h-px w-8 bg-[var(--hair-strong)]" />
+          <Eyebrow center>Massage &amp; Therapy · Machined Steel</Eyebrow>
         </motion.div>
 
         {/* giant kinetic wordmark + the three tools */}
@@ -109,13 +105,13 @@ export function SteelHero({ priceFrom }: { priceFrom: string }) {
           <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
             <a
               href="#buy"
-              className="rounded-[5px] bg-ink-0 px-7 py-[15px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
+              className="rounded-sm bg-ink-0 px-7 py-[15px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
             >
               Buy · from {priceFrom}
             </a>
             <a
               href="#range"
-              className="rounded-[5px] border border-ink-0 px-7 py-[15px] text-[13px] font-semibold text-ink-0 transition-colors hover:bg-ink-0 hover:text-paper-0"
+              className="rounded-sm border border-ink-0 px-7 py-[15px] text-[13px] font-semibold text-ink-0 transition-colors hover:bg-ink-0 hover:text-paper-0"
             >
               The range
             </a>

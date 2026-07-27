@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 import {
   motion,
   useMotionValue,
@@ -18,7 +19,7 @@ const OCCASIONS = [
   "The stage.",
 ];
 
-const HAIR = "rgba(244,242,236,0.16)";
+const HAIR = "var(--hair-inverse)";
 
 /* Mobile: the list builds inside the pinned viewport. The first slice of the
    pin is the intro beat and the last is a hold on the finished list, so the
@@ -64,15 +65,10 @@ export function HorizontalUseBefore() {
   });
 
   return (
-    <section id="moments" ref={sectionRef} className="relative h-[420vh] bg-ink-0 text-paper-0 lg:h-[600vh]">
+    <section id="moments" ref={sectionRef} className="relative scroll-mt-[92px] h-[420vh] bg-ink-0 text-paper-0 lg:h-[600vh]">
       {/* ---- Mobile / tablet: the list builds inside the pinned viewport ---- */}
       <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden px-6 pb-20 lg:hidden">
-        <div className="flex items-center gap-3.5">
-          <span className="h-px w-8 bg-paper-0/40" />
-          <span className="caps-loose text-[11px] font-medium text-paper-0/70">
-            Use Before
-          </span>
-        </div>
+        <Eyebrow light>Use Before</Eyebrow>
         <h2
           className="mt-5 font-bold uppercase text-paper-0"
           style={{ fontSize: "clamp(34px, 9vw, 54px)", letterSpacing: "-0.03em", lineHeight: 0.95 }}
@@ -132,12 +128,7 @@ export function HorizontalUseBefore() {
         >
           {/* intro panel */}
           <div className="flex min-w-[58vw] flex-col justify-center pl-[16vw] pr-[8vw]">
-            <div className="flex items-center gap-3.5">
-              <span className="h-px w-8 bg-paper-0/40" />
-              <span className="caps-loose text-[11px] font-semibold text-paper-0/70">
-                Use Before
-              </span>
-            </div>
+            <Eyebrow light>Use Before</Eyebrow>
             <h2
               className="mt-7 font-bold uppercase text-paper-0"
               style={{ fontSize: "clamp(40px, 6vw, 92px)", letterSpacing: "-0.03em", lineHeight: 0.92 }}

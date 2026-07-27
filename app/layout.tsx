@@ -3,6 +3,7 @@ import { Hanken_Grotesk, Cinzel, Courier_Prime, Cormorant_Garamond, EB_Garamond,
 import "./globals.css";
 import { CartProvider } from "@/lib/cart";
 import { CartDrawer } from "@/components/cart/CartDrawer";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL, sharedOpenGraph } from "@/lib/seo";
 
 const hanken = Hanken_Grotesk({
   subsets: ["latin"],
@@ -53,14 +54,30 @@ const ebGaramond = EB_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "VIS MAJOR: Performance Topicals for Men",
-  description:
-    "A small house of precision topicals for men. Cosmetic, temporary by design, each engineered to do exactly one thing. Made in the UK.",
+  // Without metadataBase, Next resolves OG images and canonicals against the
+  // per-deployment Vercel hostname, so every share card and every canonical
+  // would point at a preview URL instead of the real domain.
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "VIS MAJOR: Performance Topicals for Men",
+    template: "%s | VIS MAJOR",
+  },
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  // Note: `openGraph` merges shallowly, so any page that sets an openGraph key
+  // must re-spread `sharedOpenGraph` or it loses siteName and locale.
   openGraph: {
+    ...sharedOpenGraph,
+    url: "/",
     title: "VIS MAJOR: Performance Topicals for Men",
     description:
       "Precision topicals for men. Cosmetic, temporary by design. Made in the UK.",
-    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "VIS MAJOR: Performance Topicals for Men",
+    description:
+      "Precision topicals for men. Cosmetic, temporary by design. Made in the UK.",
   },
 };
 

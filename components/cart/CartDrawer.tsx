@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { useCart } from "@/lib/cart";
@@ -12,6 +12,10 @@ import { useCart } from "@/lib/cart";
 export function CartDrawer() {
   const { items, open, subtotal, setOpen, setQty, remove } = useCart();
   const router = useRouter();
+  // Routing to /checkout is not instant, so the button stays pressable long
+  // enough to fire twice. Guard it and show the pending state.
+  const [leaving, setLeaving] = useState(false);
+  const navigating = useRef(false);
 
   // Lock body scroll + Esc-to-close while the drawer is open.
   useEffect(() => {
@@ -28,7 +32,17 @@ export function CartDrawer() {
     };
   }, [open, setOpen]);
 
+  // Reset the guard whenever the drawer closes, so re-opening it works again.
+  useEffect(() => {
+    if (open) return;
+    navigating.current = false;
+    setLeaving(false);
+  }, [open]);
+
   const checkout = () => {
+    if (navigating.current) return;
+    navigating.current = true;
+    setLeaving(true);
     setOpen(false);
     router.push("/checkout");
   };
@@ -111,12 +125,15 @@ export function CartDrawer() {
                     </div>
 
                     <div className="mt-3 flex items-center justify-between">
-                      {/* qty stepper */}
-                      <div className="flex items-center rounded-[5px] border border-[var(--hair-strong)]">
+                      {/* qty stepper — same control as the four buy panels, so
+                          same border (ink, not the 2:1 hairline) and same
+                          hover. Only the padding is tighter, because this one
+                          sits in a drawer row. */}
+                      <div className="flex items-center rounded-sm border border-ink-0">
                         <button
                           type="button"
                           onClick={() => setQty(item.id, item.qty - 1)}
-                          className="px-3 py-1.5 text-[13px] font-semibold text-ink-1 hover:text-ink-0"
+                          className="px-3 py-1.5 text-[13px] font-semibold text-ink-0 transition-colors hover:bg-ink-0/5"
                           aria-label={`Decrease ${item.productName} quantity`}
                         >
                           −
@@ -127,7 +144,7 @@ export function CartDrawer() {
                         <button
                           type="button"
                           onClick={() => setQty(item.id, item.qty + 1)}
-                          className="px-3 py-1.5 text-[13px] font-semibold text-ink-1 hover:text-ink-0"
+                          className="px-3 py-1.5 text-[13px] font-semibold text-ink-0 transition-colors hover:bg-ink-0/5"
                           aria-label={`Increase ${item.productName} quantity`}
                         >
                           +
@@ -163,9 +180,11 @@ export function CartDrawer() {
                 <button
                   type="button"
                   onClick={checkout}
-                  className="mt-4 w-full rounded-[5px] bg-ink-0 px-6 py-[16px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1"
+                  disabled={leaving}
+                  aria-busy={leaving}
+                  className="mt-4 w-full rounded-sm bg-ink-0 px-6 py-[16px] text-[13px] font-semibold text-paper-0 transition-colors hover:bg-ink-1 active:translate-y-px disabled:cursor-not-allowed disabled:opacity-70"
                 >
-                  Checkout
+                  {leaving ? "Opening checkout…" : "Checkout"}
                 </button>
               </div>
             )}

@@ -111,7 +111,7 @@ export function Proof() {
         <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2">
           {["Made in the UK", "Cruelty-Free", "Cosmetic-Grade", "Secure Checkout", "30-Day Returns"].map((t) => (
             <span key={t} className="caps inline-flex items-center gap-2 text-[10px] font-semibold text-ink-3">
-              <span className="inline-block h-1 w-1 rounded-full bg-ink-3" />
+              <span className="inline-block h-1 w-1 rounded-full bg-ink-4" />
               {t}
             </span>
           ))}

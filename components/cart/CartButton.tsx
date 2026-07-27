@@ -41,7 +41,7 @@ export function CartButton({
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="caps mt-4 flex w-full items-center justify-center gap-2 rounded-[5px] border border-[var(--hair-strong)] px-6 py-[14px] text-[13px] font-semibold text-ink-0"
+        className="caps mt-4 flex w-full items-center justify-center gap-2 rounded-sm border border-[var(--hair-strong)] px-6 py-[14px] text-[13px] font-semibold text-ink-0"
       >
         {Bag}
         <span>Basket{count > 0 ? ` · ${count}` : ""}</span>

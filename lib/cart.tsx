@@ -10,6 +10,7 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
   type ReactNode,
 } from "react";
@@ -26,7 +27,7 @@ export interface CartItem {
   qty: number;
 }
 
-type AddInput = Omit<CartItem, "qty"> & { qty?: number };
+export type AddInput = Omit<CartItem, "qty"> & { qty?: number };
 
 interface CartContextValue {
   items: CartItem[];
@@ -118,4 +119,44 @@ export function useCart(): CartContextValue {
   const ctx = useContext(CartContext);
   if (!ctx) throw new Error("useCart must be used within a CartProvider");
   return ctx;
+}
+
+/** How long an add-to-basket button stays locked after a click. */
+const ADD_LOCK_MS = 600;
+
+/**
+ * Add to basket with a short pending lock. `add` is synchronous, so nothing
+ * stopped a double-click (or an impatient second tap on a slow phone) from
+ * posting the same line twice. `adding` drives the button's disabled / pending
+ * state; the ref does the actual guarding so the very first repeat click is
+ * blocked before React has re-rendered.
+ */
+export function useAddToCart(): {
+  adding: boolean;
+  addToCart: (item: AddInput) => void;
+} {
+  const { add } = useCart();
+  const [adding, setAdding] = useState(false);
+  const locked = useRef(false);
+
+  useEffect(() => {
+    if (!adding) return;
+    const t = window.setTimeout(() => {
+      locked.current = false;
+      setAdding(false);
+    }, ADD_LOCK_MS);
+    return () => window.clearTimeout(t);
+  }, [adding]);
+
+  const addToCart = useCallback(
+    (item: AddInput) => {
+      if (locked.current) return;
+      locked.current = true;
+      setAdding(true);
+      add(item);
+    },
+    [add],
+  );
+
+  return { adding, addToCart };
 }
