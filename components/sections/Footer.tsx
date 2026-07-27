@@ -2,10 +2,11 @@ import { Container } from "@/components/ui/Container";
 import { PRODUCTS } from "@/lib/products";
 
 const LINKS = [
-  { label: "Shipping & Returns", href: "#" },
+  { label: "Shipping", href: "/shipping" },
+  { label: "Returns", href: "/returns" },
   { label: "Contact", href: "mailto:hello@vismajor.co.uk" },
-  { label: "Terms", href: "#" },
-  { label: "Privacy", href: "#" },
+  { label: "Terms", href: "/terms" },
+  { label: "Privacy", href: "/privacy" },
 ];
 
 export function Footer() {

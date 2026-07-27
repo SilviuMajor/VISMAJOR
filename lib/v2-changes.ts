@@ -43,6 +43,8 @@ export interface V2Change {
   risk: V2Risk;
   route?: string;
   fixesBug?: boolean;
+  /** Parked for later: correct, but not part of the design pass. */
+  deferred?: boolean;
 }
 
 export const V2_CHANGES: V2Change[] = [
@@ -634,9 +636,310 @@ export const V2_CHANGES: V2Change[] = [
     risk: "low",
     route: "/v2/pectus",
   },
+
+  // ───────────────── Visual & motion (the design pass) ─────────────────
+  {
+    n: 43,
+    title: "Remove the colour that breaks the mono brand",
+    surface: "PECTUS",
+    category: "Change",
+    what:
+      "The Architecture section hardcodes strobing yellow lightning (#F59E0B, #FFC61A) with a full-panel flash at 95% opacity looping forever, plus blue snowflakes (#5FB0E0). Delete both. Keep the contracting grid, which is mono and actually means 'tightening'.",
+    why:
+      "globals.css states in writing: 'Strictly monochrome, NO brand accent colour. Restraint is the brand', and aliases the accent tokens to ink to enforce it. This section bypasses the token system entirely. It is the single most expensive-looking thing on the site to delete.",
+    evidence:
+      "components/enhanced/StickyArchitecture.tsx lines 38, 269-410. Hardcoded hexes, not tokens.",
+    effort: "S",
+    risk: "low",
+    route: "/v2/pectus",
+    fixesBug: true,
+  },
+  {
+    n: 44,
+    title: "Halve the hero's scroll cost",
+    surface: "PECTUS",
+    category: "Improvement",
+    what:
+      "The mask-reveal hero runs 320vh but finishes its work at 74% of that, leaving roughly 83vh of dead scroll where nothing changes, plus a 38vh window showing an empty veiled photograph. Cut to 160vh and overlap the phases.",
+    why:
+      "The idea is the best on the site and survives intact at half the length. The code comment claims 'no dead gap'; the gap was moved, not removed.",
+    evidence: "components/herolab/HeroTypeWindow.tsx:225 and the transform ranges at :214-220.",
+    effort: "M",
+    risk: "medium",
+    route: "/v2/pectus",
+  },
+  {
+    n: 45,
+    title: "Cut the pinned rails to a consistent length",
+    surface: "PECTUS",
+    category: "Improvement",
+    what:
+      "Three pages run the same three-phase rail at three different costs: 450vh, 320vh and 450vh. Standardise at 240vh with one shared spring.",
+    why:
+      "150vh of scroll per twelve-word line. And the same component costing different amounts on different pages is the clearest sign nobody chose the number.",
+    evidence:
+      "StickyArchitecture.tsx:90 (450vh), ChiselArchitecture.tsx:66 (320vh), SharpActives.tsx:72 (450vh, and it never springs its progress at all).",
+    effort: "M",
+    risk: "medium",
+    route: "/v2/pectus",
+  },
+  {
+    n: 46,
+    title: "Drop the horizontal pan for the list that already works better",
+    surface: "PECTUS",
+    category: "Change",
+    what:
+      "Five Moments runs a 600vh horizontal pan on desktop. The mobile fallback, which builds the five moments into one pinned screen, is the better design. Ship it at every width.",
+    why:
+      "Six screen-heights to read five short phrases. Horizontal scroll-jacking also reads as agency showreel, which is the opposite of the register here. The mobile version ends with all five visible, which is the actual point.",
+    evidence: "components/enhanced/HorizontalUseBefore.tsx:67, desktop branch at :127-195.",
+    effort: "M",
+    risk: "medium",
+    route: "/v2/pectus",
+  },
+  {
+    n: 47,
+    title: "Give motion an actual scale",
+    surface: "Global",
+    category: "Improvement",
+    what:
+      "One gesture, a block fading up on scroll, currently runs at seven different durations (0.32 to 1.2) and eleven different distances (5px to 26px). Collapse to three durations and three distances.",
+    why:
+      "A 3.75x spread on a single gesture. Nobody can tell 5px from 6px, so those are three decisions where one was needed. The 1.2s fade on the VIS·MAJOR mark reads as lag, not luxury: slow is not the same as expensive.",
+    evidence:
+      "Reveal.tsx:23 is the 0.32 standard; HouseMeaning.tsx uses 0.7, 1.2, 0.9, 0.9 on four consecutive elements.",
+    effort: "M",
+    risk: "low",
+    route: "/v2/pectus",
+  },
+  {
+    n: 48,
+    title: "Stop animating everything on scroll",
+    surface: "Global",
+    category: "Change",
+    what:
+      "SCULPT fires roughly 30 reveal animations on one page. Reserve the gesture for section openers only, target six or fewer per page, and let body copy, list items and spec tables simply be there.",
+    why:
+      "By the fifth identical fade-up the user stops seeing motion and starts seeing a template. This is the mechanism by which motion makes a site feel cheaper. Aesop's product pages have almost no scroll reveals; the content is just present, and that confidence is the luxury signal.",
+    effort: "M",
+    risk: "medium",
+    route: "/v2/pectus",
+  },
+  {
+    n: 49,
+    title: "Stop things moving when the user isn't",
+    surface: "Global",
+    category: "Change",
+    what:
+      "Delete the infinite product float, the magnetic cursor-following buttons, the scroll-cue bob, the pulsing live-status dots and the odometer counters.",
+    why:
+      "Nothing should move when the user is still. A bobbing tube is a 2014 app-store screenshot; Le Labo's bottles sit still. A CTA that dodges the cursor is a novelty, not a courtesy. And a pulsing live dot signals nothing on a product that ships next year.",
+    evidence:
+      "HeroTypeWindow.tsx:280 (float), :93-126 (magnetic), ProofV2/ChiselProof/SharpProof :50 (ping), Counter.tsx.",
+    effort: "S",
+    risk: "low",
+    route: "/v2/pectus",
+  },
+  {
+    n: 50,
+    title: "Make reduced motion actually reduce motion",
+    surface: "Global",
+    category: "Technical",
+    what:
+      "Under prefers-reduced-motion the tall sections still pin and still scroll-jack; only the transforms are neutralised. Collapse them to height auto with all phases visible, and add a global CSS kill-switch.",
+    why:
+      "Today reduced motion means 'the same scroll-jack, minus the transform'. A reduced-motion user still scrolls 320vh and still cannot see the hero until 54% of the way through. Seventeen animated files never check the preference at all.",
+    evidence:
+      "HeroTypeWindow.tsx:215-219 leave the opacity ramps unguarded. globals.css has only two reduced-motion blocks, one of which targets dead CSS.",
+    effort: "M",
+    risk: "low",
+    route: "/v2/pectus",
+    fixesBug: true,
+  },
+  {
+    n: 51,
+    title: "Fix the tickers running at three different speeds",
+    surface: "Global",
+    category: "Technical",
+    what:
+      "Three byte-identical ticker files share a fixed 42s marquee duration. Because the tracks have different content widths, they visibly move at different speeds. Collapse to one component and derive duration from width.",
+    why:
+      "Identical-looking components moving at different speeds is exactly the 'several hands built this' tell. It also fixes a real accessibility bug: Marquee marks both copies aria-hidden, so screen readers get nothing.",
+    evidence:
+      "Ticker/ChiselTicker/SharpTicker, globals.css:151, Marquee.tsx:15.",
+    effort: "S",
+    risk: "low",
+    route: "/v2/pectus",
+    fixesBug: true,
+  },
+  {
+    n: 52,
+    title: "Delete the dead animated components",
+    surface: "Global",
+    category: "Technical",
+    what:
+      "Roughly 2,971 lines across 17 unimported files, including two complete pinned set-pieces (ChiselRitual at 320vh, SharpDaily at 300vh) and four superseded heroes.",
+    why:
+      "Beyond tidiness: two abandoned pinned set-pieces are the strongest internal evidence that the pinned pattern was tried, rejected, and then shipped anyway elsewhere.",
+    effort: "S",
+    risk: "low",
+    route: "/v2/pectus",
+  },
+
+  // ───────────────────────── Typography ─────────────────────────
+  {
+    n: 53,
+    title: "Stop setting English sentences in Cinzel",
+    surface: "Home",
+    category: "Change",
+    what:
+      "The homepage meaning line is set in Cinzel, which has no lowercase: every glyph renders as a capital. Move it to the body face at 19-21px, and keep the quoted phrase in real caps.",
+    why:
+      "The copy sets 'AN UNSTOPPABLE FORCE' in caps for emphasis, but because Cinzel renders everything as caps, the emphasis is invisible. It also reads as small-caps at body size with zero tracking, which is the one thing tracked caps must never be. Cinzel is an inscriptional face: three to five words, carved, not a sentence.",
+    evidence:
+      "HouseHero.tsx:136-146 and HouseMeaning.tsx:56-61 set the identical sentence at two different sizes, leadings and trackings on the same page.",
+    effort: "S",
+    risk: "medium",
+    route: "/v2/home",
+    fixesBug: true,
+  },
+  {
+    n: 54,
+    title: "Delete the duplicated meaning line",
+    surface: "Home",
+    category: "Change",
+    what:
+      "The same sentence about the Roman name appears twice on the home page, in the hero and again in the meaning band. Keep one.",
+    why:
+      "Repeating a line verbatim within one scroll reads as an oversight rather than a refrain, especially when the two copies are set differently.",
+    effort: "S",
+    risk: "low",
+    route: "/v2/home",
+  },
+  {
+    n: 55,
+    title: "Replace 66 ad-hoc font sizes with a real scale",
+    surface: "Global",
+    category: "Improvement",
+    what:
+      "There are 66 distinct font sizes in the live tree, including 22 fixed values covering nearly every half-pixel from 8 to 17, and 44 clamps of which 32 are used exactly once. Collapse to about eight steps and wire them to the config.",
+    why:
+      "A type scale already exists in tailwind.config.ts and is completely unused: zero of its eight keys appear anywhere. Everything is authored by hand, so 14.5px and 15px are used for the same product blurb in two different components.",
+    evidence:
+      "HouseProducts.tsx:123 sets p.short at 14.5px; OtherProducts.tsx:91 sets the same field at 15px. Four different clamps land on a 56px ceiling.",
+    effort: "L",
+    risk: "medium",
+    route: "/v2/pectus",
+  },
+  {
+    n: 56,
+    title: "Stop negative-tracking the Cinzel wordmarks",
+    surface: "Global",
+    category: "Change",
+    what:
+      "Two of the four buy panels set the product wordmark in Cinzel with negative letter-spacing. Give all four the same positive tracking.",
+    why:
+      "Negative tracking on an inscriptional Roman capital collapses the serifs into each other. Positive tracking is what makes Cinzel look carved rather than squeezed. Right now the same wordmark is tracked five different ways across the site.",
+    evidence:
+      "SharpBuy.tsx:186 is -0.02em, SteelBuy.tsx:66 is -0.01em, StickyBuy.tsx:183 and ChiselBuy.tsx:174 are +0.01em.",
+    effort: "S",
+    risk: "low",
+    route: "/v2/pectus",
+  },
+  {
+    n: 57,
+    title: "Make the eyebrow one component again",
+    surface: "Global",
+    category: "Improvement",
+    what:
+      "The section eyebrow is hand-rolled in about 20 places instead of using the Eyebrow component, and splits 16 medium against 11 semibold.",
+    why:
+      "One component has the same eyebrow at two different weights depending on viewport: the mobile branch is medium and the desktop branch is semibold, same string, same component.",
+    evidence: "HorizontalUseBefore.tsx:72 vs :137.",
+    effort: "M",
+    risk: "low",
+    route: "/v2/pectus",
+  },
+  {
+    n: 58,
+    title: "Take the FAQ questions out of uppercase",
+    surface: "PECTUS",
+    category: "Improvement",
+    what:
+      "Every FAQ question is set in tracked uppercase at 17px. Set them in sentence case at a slightly larger size.",
+    why:
+      "A question mark after tracked caps reads as a sign, not a question. These are the longest uppercase strings on the site, and sentence case would also give the accordion a real second level below the section head.",
+    evidence: "FaqV2.tsx:70, ChiselFaq.tsx:79, SharpFaq.tsx:75.",
+    effort: "S",
+    risk: "low",
+    route: "/v2/pectus",
+  },
+  {
+    n: 59,
+    title: "Bring every line of running text under 70 characters",
+    surface: "Global",
+    category: "Improvement",
+    what:
+      "Several paragraphs run far past a comfortable measure, the worst at roughly 118 characters. Constrain them, and collapse the seven body line-heights to two.",
+    why:
+      "Long measures are the most reliable way to make careful typography feel careless. The FAQ answers compensate with 1.7 leading, which treats the symptom.",
+    evidence:
+      "ChiselIsIsnt.tsx:46 is max-w-3xl at 13px, about 118 characters. The PECTUS INCI at StickyBuy.tsx:372 has no max-width at all.",
+    effort: "M",
+    risk: "low",
+    route: "/v2/pectus",
+  },
+  {
+    n: 60,
+    title: "Drop the fonts and weights that never render",
+    surface: "Global",
+    category: "Technical",
+    what:
+      "26 font weights are loaded and 14 are never painted. Cormorant Garamond is loaded in four weights and referenced nowhere at all. EB Garamond is loaded in three weights for a single element.",
+    why:
+      "Every declared weight is a separate file fetched on first paint, and text is very likely the largest contentful paint on a type-led layout.",
+    evidence:
+      "layout.tsx:42-47 loads Cormorant; --font-numeral has zero references in the codebase.",
+    effort: "S",
+    risk: "low",
+    route: "/v2/home",
+  },
+  {
+    n: 61,
+    title: "Fix the synthetic italics",
+    surface: "Global",
+    category: "Technical",
+    what:
+      "Two places request italic from a font loaded without an italic style, so the browser shears the roman into a fake oblique. Load the real italic or set those lines upright.",
+    why:
+      "A synthesised slant on a grotesque is one of the most visible cheap tells in web typography, and one of the two instances is the closing line of the home page.",
+    evidence: "Footer.tsx:104 and HouseStandard.tsx:96; layout.tsx:7-12 loads Hanken with no style array.",
+    effort: "S",
+    risk: "low",
+    route: "/v2/home",
+    fixesBug: true,
+  },
+  {
+    n: 62,
+    title: "Give the mirrored proof stats one typeface",
+    surface: "STONE",
+    category: "Change",
+    what:
+      "The same stat block renders in EB Garamond at 128px on STONE and Courier Prime at 142px on SCULPT. Pick one.",
+    why:
+      "Mirrored components in two different faces at two different sizes is the clearest sign that several hands built this. Courier at 142px also magnifies every flaw of a typewriter face.",
+    evidence: "SharpProof.tsx:71 uses stat-tab; ChiselProof.tsx:70 uses font-mono.",
+    effort: "S",
+    risk: "low",
+    route: "/v2/stone",
+  },
 ];
 
 // ---- lookups -------------------------------------------------------------
+
+/** Checkout work is real but parked: it is plumbing, not part of the design pass. */
+export const isDeferred = (c: V2Change): boolean =>
+  c.deferred === true || c.surface === "Cart & Checkout";
 
 export const changeByNumber = (n: number): V2Change | undefined =>
   V2_CHANGES.find((c) => c.n === n);
