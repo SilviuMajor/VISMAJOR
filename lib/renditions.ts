@@ -18,8 +18,11 @@
  * page, which the review layer turns into a badge you can click.
  */
 
-export type Rendition = "atelier" | "colosseum";
+export type Rendition = "atelier" | "colosseum" | "synthesis";
 export type Surface = "home" | "pectus" | "stone";
+
+/** Display order, and the order the panel's rendition switcher cycles through. */
+export const RENDITION_ORDER: Rendition[] = ["atelier", "colosseum", "synthesis"];
 
 export type Category =
   | "Structure" //  a section added, removed, split or reordered
@@ -58,6 +61,12 @@ export const RENDITIONS: Record<
     slug: "v3",
     tagline: "Monumental. Full-bleed. Hard contrast.",
     note: "Built on the premise that the current site is too polite with its best asset. The Roman figures go full-bleed and architectural, sections invert to black slabs, and headlines are cropped by the viewport edge. Motion is fewer moves, bigger. Closest relatives: Byredo's editorial work, fashion-house lookbooks.",
+  },
+  synthesis: {
+    name: "The House",
+    slug: "v4",
+    tagline: "V1, with the parts of Atelier and Colosseum that earned their place.",
+    note: "Not a fourth direction. This is the live site kept intact, with four specific imports: Atelier's home hero and its padded plate, Atelier's buy split moved in under the mask reveal, Colosseum's full-bleed product strips (now carrying the tube as well as the drawing) and its material strip, and Colosseum's formula treatment on both product pages. The reveal, the Architecture with its lightning and snow, Five moments and the product copy all stay exactly as they are. This is the candidate to go live.",
   },
 };
 
@@ -576,6 +585,147 @@ export const CHANGES: Change[] = [
     title: "A close at full scale",
     from: "Final CTA, cross-sell and notify band.",
     why: "The unused finish drawing against a two-line Cinzel close, and one button.",
+  },
+
+  /* ── THE HOUSE (V4) · HOME ────────────────────────────────────── */
+  {
+    n: 101,
+    rendition: "synthesis",
+    surface: "home",
+    category: "Structure",
+    title: "Atelier's hero, imported whole",
+    from: "A mouse-tracking wordmark over a scroll-driven scene.",
+    why: "The piece of Atelier you wanted kept. Still on arrival, wordmark restrained, one line under it.",
+  },
+  {
+    n: 102,
+    rendition: "synthesis",
+    surface: "home",
+    category: "Type",
+    title: "Wordmark at 66px, tracking at 0.01em",
+    from: "Much larger, at 0.28em tracking.",
+    why: "Carried over from Atelier because it is the finding with the most evidence behind it: none of the eight reference brands tracks out its capitals, and several set them negative.",
+  },
+  {
+    n: 103,
+    rendition: "synthesis",
+    surface: "home",
+    category: "Imagery",
+    title: "The villa on its own plate, padded not cropped",
+    from: "A background wash behind other content.",
+    why: "The image treatment you singled out. The whole drawing survives, with a Courier plate line under it.",
+  },
+  {
+    n: 104,
+    rendition: "synthesis",
+    surface: "home",
+    category: "Layout",
+    title: "Colosseum's strips, now carrying the tube",
+    from: "Product cards in a grid, drawing and product never seen together.",
+    why: "The change you asked for on top of the Colosseum strips: the product sits over the drawing, hard-edged and shadowed, so each strip shows both the thing that makes the brand distinctive and the thing being sold.",
+  },
+  {
+    n: 105,
+    rendition: "synthesis",
+    surface: "home",
+    category: "Structure",
+    title: "STEEL joins the run",
+    from: "Absent from the home page entirely.",
+    why: "It is a product with a price and a page, and the home page did not mention it.",
+  },
+  {
+    n: 106,
+    rendition: "synthesis",
+    surface: "home",
+    category: "Layout",
+    title: "Colosseum's material strip, kept dense",
+    from: "A comfortable three-across band with heading and caption labels.",
+    why: "Six across, hairline under each, products in Courier. Kept at six on wide screens rather than relaxing to three, because the density is what makes it read as a specimen drawer.",
+  },
+
+  /* ── THE HOUSE (V4) · PECTUS ──────────────────────────────────── */
+  {
+    n: 107,
+    rendition: "synthesis",
+    surface: "pectus",
+    category: "Conversion",
+    title: "The buy split, second, under the reveal",
+    from: "Roughly three screens of scroll before any price appears.",
+    why: "Atelier's split moved in behind the mask reveal, which keeps the opening you wanted while bringing a price, a size and a way to buy to one screen in. The tube sits in the same block as the price rather than three screens away.",
+  },
+  {
+    n: 108,
+    rendition: "synthesis",
+    surface: "pectus",
+    category: "Motion",
+    title: "Kept: the Architecture, lightning and snow intact",
+    from: "Unchanged.",
+    why: "Marked so you can confirm it survived. The 450vh pin, the three stages and both weather effects are exactly as they are on the live site.",
+  },
+  {
+    n: 109,
+    rendition: "synthesis",
+    surface: "pectus",
+    category: "Motion",
+    title: "Kept: Five moments, unchanged",
+    from: "Unchanged.",
+    why: "Same as above. Horizontal pan on desktop, the building list on mobile.",
+  },
+  {
+    n: 110,
+    rendition: "synthesis",
+    surface: "pectus",
+    category: "Imagery",
+    title: "Colosseum's formula treatment",
+    from: "Small plates in a three-column band.",
+    why: "Two actives, half a page each, name set large, INCI in Courier underneath. The pencil work only reads as pencil work above a certain size.",
+  },
+  {
+    n: 111,
+    rendition: "synthesis",
+    surface: "pectus",
+    category: "Conversion",
+    title: "The buy section, stripped back",
+    from: "A gallery with spec tabs that switched photo and copy together, a tier selector and a quantity stepper.",
+    why: "The quantity stepper and the tab strip are gone, the size selector stays in full so this second buy point can still complete a purchase, and the gallery gets most of the width. This is the one place on the page where the product itself is the subject.",
+  },
+
+  /* ── THE HOUSE (V4) · STONE ───────────────────────────────────── */
+  {
+    n: 114,
+    rendition: "synthesis",
+    surface: "stone",
+    category: "Conversion",
+    title: "The buy split, mirrored",
+    from: "The same reveal-then-nothing opening as PECTUS.",
+    why: "Same block as PECTUS, flipped, so the two paid-traffic pages read as a pair. The washing figure is padded rather than cropped, because unlike the torso it is a whole figure and cropping loses the basin.",
+  },
+  {
+    n: 115,
+    rendition: "synthesis",
+    surface: "stone",
+    category: "Motion",
+    title: "Kept: the pinned actives, unchanged",
+    from: "Unchanged.",
+    why: "STONE's equivalent of the Architecture, left alone. It now reads as the narrative pass: the draw, the lift, the finish.",
+  },
+  {
+    n: 116,
+    rendition: "synthesis",
+    surface: "stone",
+    category: "Imagery",
+    title: "Colosseum's formula, as specification",
+    from: "Nothing. The ingredients existed only inside the pinned section, one at a time.",
+    why: "The same three actives, but stated rather than narrated: name, role, INCI, all three visible at once so they can be compared. Prose above and an ingredients panel below is how Buly and Diptyque both arrange this material.",
+  },
+  {
+    n: 117,
+    rendition: "synthesis",
+    surface: "stone",
+    category: "Conversion",
+    title: "The buy section, stripped back, with the photography marked missing",
+    from: "SVG outlines captioned \"photography to follow\".",
+    why: "Same simplified panel as PECTUS. Every render in the library is the PECTUS tube, so rather than put the wrong product in front of a buyer, each slot holds its space and states the shot that needs taking.",
   },
 ];
 

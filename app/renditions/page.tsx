@@ -5,7 +5,7 @@ import {
   RENDITIONS,
   SURFACE_LABEL,
   LIVE_HREF,
-  type Rendition,
+  RENDITION_ORDER,
   type Surface,
 } from "@/lib/renditions";
 
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 const SURFACES: Surface[] = ["home", "pectus", "stone"];
-const ORDER: Rendition[] = ["atelier", "colosseum"];
+const ORDER = RENDITION_ORDER;
 
 export default function Page() {
   return (
@@ -31,17 +31,19 @@ export default function Page() {
           className="serif mt-4 text-ink-0"
           style={{ fontSize: "clamp(34px,4.4vw,60px)", letterSpacing: "0.01em" }}
         >
-          Two directions.
+          Three renditions.
         </h1>
         <p className="mt-6 max-w-[62ch] text-[16.5px] leading-[1.7] text-ink-1">
-          Both keep what is locked: ink on paper, Cinzel, the product
-          photography and the drawn Roman figures. They differ in everything
-          else, and they are deliberately arguing with each other. Open a page,
-          then click any numbered badge or any row in the side panel to jump to
-          the exact element it refers to.
+          All three keep what is locked: ink on paper, Cinzel, the product
+          photography and the drawn Roman figures. Atelier and Colosseum are
+          two arguments pulling in opposite directions. The House is the
+          synthesis, and the one built to go live: the current site kept
+          intact, with the parts of the other two that earned their place. Open
+          a page, then click any numbered badge or any row in the side panel to
+          jump to the exact element it refers to.
         </p>
 
-        <div className="mt-14 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-14">
+        <div className="mt-14 grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-10">
           {ORDER.map((r) => {
             const meta = RENDITIONS[r];
             const count = CHANGES.filter((c) => c.rendition === r).length;

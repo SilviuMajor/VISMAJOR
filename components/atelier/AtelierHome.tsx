@@ -3,10 +3,9 @@ import { Body, Display, Eyebrow, Frame, Head, Margin, Rule, Section } from "./ki
 import { PRODUCTS } from "@/lib/products";
 import { SHELF, INGREDIENT_IMG } from "@/lib/ingredients";
 
-const PLATE: Record<string, string> = {
+// Only PECTUS has photography; the other two would show the wrong tube.
+const PLATE: Record<string, string | undefined> = {
   pectus: "/product/front.png",
-  stone: "/product/angle.png",
-  sculpt: "/product/squeeze.png",
 };
 
 export function AtelierHome() {
@@ -100,15 +99,17 @@ export function AtelierHome() {
                     <span className="num text-[15px] font-semibold tabular-nums text-ink-0">
                       £{p.priceFrom}
                     </span>
-                    <span className="relative hidden h-[54px] w-[24px] shrink-0 sm:block">
-                      <Image
-                        src={PLATE[p.slug]}
-                        alt=""
-                        fill
-                        sizes="24px"
-                        className="object-contain"
-                      />
-                    </span>
+                    {PLATE[p.slug] && (
+                      <span className="relative hidden h-[54px] w-[24px] shrink-0 sm:block">
+                        <Image
+                          src={PLATE[p.slug] as string}
+                          alt=""
+                          fill
+                          sizes="24px"
+                          className="object-contain"
+                        />
+                      </span>
+                    )}
                   </span>
                 </a>
               </li>

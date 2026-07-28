@@ -106,7 +106,7 @@ function Row({
   );
 }
 
-export function SharpFaq({ shipMonth }: { shipMonth: string }) {
+export function SharpFaq({ shipMonth }: { shipMonth?: string }) {
   const [open, setOpen] = useState(0);
 
   return (
@@ -159,9 +159,11 @@ export function SharpFaq({ shipMonth }: { shipMonth: string }) {
                 </span>
               </a>
 
-              <p className="mt-5 caps text-[10px] font-medium text-ink-3">
-                Ships {shipMonth}
-              </p>
+              {shipMonth && (
+                <p className="mt-5 caps text-[10px] font-medium text-ink-3">
+                  Ships {shipMonth}
+                </p>
+              )}
             </div>
           </Reveal>
 

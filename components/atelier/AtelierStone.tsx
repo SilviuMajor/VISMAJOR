@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Body, Display, Eyebrow, Frame, Head, Margin, Rule, Section } from "./kit";
 import { AddToBag } from "@/components/renditions/AddToBag";
+import { ShotPlaceholder } from "@/components/renditions/ShotPlaceholder";
 import { INGREDIENTS, INGREDIENT_IMG } from "@/lib/ingredients";
 
 const TIERS = [
@@ -78,14 +79,11 @@ export function AtelierStone() {
                     Matte Cleanser
                   </p>
                 </div>
-                <div className="relative h-[104px] w-[46px] shrink-0 md:h-[132px] md:w-[58px]">
-                  <Image
-                    src="/product/angle.png"
-                    alt="STONE, 100ml"
-                    fill
-                    priority
-                    sizes="58px"
-                    className="object-contain"
+                {/* every render in /public/product is the PECTUS tube */}
+                <div className="relative h-[104px] w-[62px] shrink-0 md:h-[132px] md:w-[76px]">
+                  <ShotPlaceholder
+                    brief="STONE jar, front, on white"
+                    className="h-full w-full"
                   />
                 </div>
               </div>
@@ -304,13 +302,10 @@ export function AtelierStone() {
       <Section data-mark="40">
         <Frame>
           <div className="mx-auto max-w-[520px] text-center">
-            <div className="relative mx-auto h-[150px] w-[80px]">
-              <Image
-                src="/product/angle.png"
-                alt="STONE"
-                fill
-                sizes="80px"
-                className="object-contain"
+            <div className="relative mx-auto h-[150px] w-[110px]">
+              <ShotPlaceholder
+                brief="STONE jar, three-quarter, on white"
+                className="h-full w-full"
               />
             </div>
             <Head className="mt-9">Tabula rasa.</Head>

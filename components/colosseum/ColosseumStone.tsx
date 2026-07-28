@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Body, Colossal, Eyebrow, Hair, PAD, Slab, Stack, Wide } from "./kit";
 import { AddToBag } from "@/components/renditions/AddToBag";
+import { ShotPlaceholder } from "@/components/renditions/ShotPlaceholder";
 import { INGREDIENTS, INGREDIENT_IMG } from "@/lib/ingredients";
 
 const TIERS = [
@@ -31,14 +32,11 @@ export function ColosseumStone() {
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-contain object-bottom p-8"
           />
-          <div className="absolute bottom-8 right-8 h-[150px] w-[80px] md:h-[200px] md:w-[104px]">
-            <Image
-              src="/product/angle.png"
-              alt="STONE, 100ml"
-              fill
-              priority
-              sizes="104px"
-              className="object-contain drop-shadow-[0_20px_40px_rgba(20,19,15,0.28)]"
+          {/* every render in /public/product is the PECTUS tube */}
+          <div className="absolute bottom-8 right-8 h-[150px] w-[110px] md:h-[200px] md:w-[150px]">
+            <ShotPlaceholder
+              brief="STONE jar, front, on white"
+              className="h-full w-full"
             />
           </div>
         </div>

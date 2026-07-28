@@ -3,7 +3,12 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import type { Change, Rendition, Surface } from "@/lib/renditions";
-import { RENDITIONS, SURFACE_LABEL, LIVE_HREF } from "@/lib/renditions";
+import {
+  RENDITIONS,
+  RENDITION_ORDER,
+  SURFACE_LABEL,
+  LIVE_HREF,
+} from "@/lib/renditions";
 
 /**
  * The review apparatus: a numbered badge pinned to every changed element, and
@@ -255,13 +260,18 @@ export function ReviewLayer({
                   {SURFACE_LABEL[s]}
                 </a>
               ))}
-              <a
-                href={`/${meta.slug === "v2" ? "v3" : "v2"}${surface === "home" ? "" : `/${surface}`}`}
-                className="rounded-sm border border-black/15 px-2 py-1 text-[10.5px] font-semibold uppercase text-black/60 transition-colors hover:border-black/40 hover:text-black"
-                style={{ letterSpacing: "0.12em" }}
-              >
-                ⇄ {meta.slug === "v2" ? "V3" : "V2"}
-              </a>
+              {/* the same surface in every other rendition, so you can compare
+                  like for like without going back to the index */}
+              {RENDITION_ORDER.filter((r) => r !== rendition).map((r) => (
+                <a
+                  key={r}
+                  href={`/${RENDITIONS[r].slug}${surface === "home" ? "" : `/${surface}`}`}
+                  className="rounded-sm border border-black/15 px-2 py-1 text-[10.5px] font-semibold uppercase text-black/60 transition-colors hover:border-black/40 hover:text-black"
+                  style={{ letterSpacing: "0.12em" }}
+                >
+                  ⇄ {RENDITIONS[r].slug.toUpperCase()}
+                </a>
+              ))}
               <a
                 href={LIVE_HREF[surface]}
                 className="rounded-sm border border-black/15 px-2 py-1 text-[10.5px] font-semibold uppercase text-black/60 transition-colors hover:border-black/40 hover:text-black"

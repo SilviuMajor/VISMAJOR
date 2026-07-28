@@ -5,11 +5,13 @@ import { Container } from "@/components/ui/Container";
 import { TextReveal } from "@/components/ui/TextReveal";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 
-export function SharpFinalCta({ shipMonth }: { shipMonth: string }) {
+export function SharpFinalCta({ shipMonth }: { shipMonth?: string }) {
   return (
     <section className="relative overflow-hidden bg-ink-0 py-24 text-paper-0 md:py-32">
       <Container>
-        <Eyebrow light>Ships {shipMonth} · free UK delivery</Eyebrow>
+        {shipMonth && (
+          <Eyebrow light>Ships {shipMonth} · free UK delivery</Eyebrow>
+        )}
 
         <TextReveal
           as="h2"

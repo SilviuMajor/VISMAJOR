@@ -5,11 +5,11 @@ import { Container } from "@/components/ui/Container";
 import { TextReveal } from "@/components/ui/TextReveal";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 
-export function FinalCta({ shipMonth }: { shipMonth: string }) {
+export function FinalCta({ shipMonth }: { shipMonth?: string }) {
   return (
     <section className="relative overflow-hidden bg-ink-0 py-24 text-paper-0 md:py-32">
       <Container>
-        <Eyebrow light>Ships {shipMonth}</Eyebrow>
+        {shipMonth && <Eyebrow light>Ships {shipMonth}</Eyebrow>}
 
         <TextReveal
           as="h2"
