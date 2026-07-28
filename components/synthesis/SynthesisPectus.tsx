@@ -1,4 +1,3 @@
-import { HeroTypeWindow } from "@/components/herolab/HeroTypeWindow";
 import { TrustStrip } from "@/components/enhanced/TrustStrip";
 import { StickyArchitecture } from "@/components/enhanced/StickyArchitecture";
 import { Ticker } from "@/components/sections/Ticker";
@@ -11,7 +10,7 @@ import { ProductQuote } from "@/components/house/ProductQuote";
 import { FinalCta } from "@/components/enhanced/FinalCta";
 import { OtherProducts } from "@/components/house/OtherProducts";
 import { NotifyBand } from "@/components/enhanced/NotifyBand";
-import { BuySplit } from "./BuySplit";
+import { RevealBuyHero } from "./RevealBuyHero";
 import { FormulaPlates } from "./FormulaPlates";
 import { BuyPanel } from "./BuyPanel";
 import { StickyBuyBar } from "@/components/ui/StickyBuyBar";
@@ -36,24 +35,23 @@ const TIERS = [
 export function SynthesisPectus() {
   return (
     <>
-      <HeroTypeWindow overlayAlwaysOn />
-
-      <div data-mark="107">
-        <BuySplit
-          index="Vis Major · No. I"
-          wordmark="PECTUS"
-          category="Cooling Chest Primer"
-          line="Cools and tightens in minutes. About an hour of temporary firmness, undetectable under a shirt."
-          tiers={TIERS}
-          product="pectus"
-          cartPrefix="pectus"
-          figure="/product/david.png"
-          figureAlt="A classical figure, one hand at the chest"
-          figurePosition="50% 46%"
-          productImg="/product/front.png"
-          productAlt="PECTUS, 20ml tube"
-        />
-      </div>
+      <RevealBuyHero
+        mark="107"
+        word="PECTUS"
+        scene="/scenes/pectus.png"
+        sceneObjectMobile="object-right"
+        index="Vis Major · No. I"
+        category="Cooling Chest Primer"
+        line="Cools and tightens in minutes. About an hour of temporary firmness, undetectable under a shirt."
+        tiers={TIERS}
+        product="pectus"
+        cartPrefix="pectus"
+        figure="/figures/gyno.png"
+        figureAlt="A classical figure, one hand flat at the chest"
+        figureFit="contain"
+        productImg="/product/front.png"
+        productAlt="PECTUS, 20ml tube"
+      />
 
       <TrustStrip />
       <div data-mark="108">
@@ -110,7 +108,7 @@ export function SynthesisPectus() {
       <OtherProducts current="pectus" />
       <NotifyBand />
       {/* appears once the reveal is behind you, hides over the buy panel */}
-      <StickyBuyBar priceFrom="£18" label="PECTUS · 20ml" href="#buy-top" />
+      <StickyBuyBar priceFrom="£18" label="PECTUS · 20ml" href="#buy" />
     </>
   );
 }

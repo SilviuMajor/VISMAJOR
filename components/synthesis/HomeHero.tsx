@@ -15,7 +15,7 @@ export function HomeHero() {
   return (
     <section className="bg-paper-0 pt-16 md:pt-24" data-mark="101">
       <div className="mx-auto w-full max-w-[1100px] px-6 md:px-12">
-        <div className="mx-auto max-w-[640px] text-center">
+        <div className="mx-auto max-w-[820px] text-center">
           <p
             className="text-[10px] font-semibold uppercase text-ink-2"
             style={{ letterSpacing: "0.06em" }}
@@ -25,8 +25,8 @@ export function HomeHero() {
           <h1
             className="serif mt-6 text-ink-0"
             style={{
-              fontSize: "clamp(38px,5vw,66px)",
-              lineHeight: 1.06,
+              fontSize: "clamp(46px,7.6vw,112px)",
+              lineHeight: 1.02,
               letterSpacing: "0.01em",
             }}
             data-mark="102"

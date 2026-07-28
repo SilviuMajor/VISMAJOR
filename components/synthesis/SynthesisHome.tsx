@@ -1,25 +1,29 @@
 import { HomeHero } from "./HomeHero";
+import { Definition } from "./Definition";
 import { ProductStrips, MaterialStrip } from "./ProductStrips";
 import { HouseVirtues } from "@/components/house/HouseMeaning";
-import { HouseStandard } from "@/components/house/HouseStandard";
 
 /**
  * V4 home.
  *
- * Atelier's hero and plate, Colosseum's product strips and material strip,
- * and the two V1 sections that were not being replaced by either. Nothing was
- * removed that the live page has: HouseProducts becomes the strips and
- * HouseIngredients becomes the material strip, so the content survives in a
- * better presentation rather than disappearing.
+ *   hero        Atelier's, with the wordmark taken up to 112px
+ *   definition  the name explained, as a dictionary entry, near the top
+ *   strips      Colosseum's, alternating, the product on the inner edge
+ *   materials   Colosseum's, six across
+ *   virtues     moved to the end, where it reads as a closing note rather
+ *               than as a bar sitting between the hero and the catalogue
+ *
+ * HouseStandard is gone: the closing house block was doing the same job as
+ * the definition, less well and much further down.
  */
 export function SynthesisHome() {
   return (
     <>
       <HomeHero />
-      <HouseVirtues />
+      <Definition />
       <ProductStrips />
       <MaterialStrip />
-      <HouseStandard />
+      <HouseVirtues />
     </>
   );
 }

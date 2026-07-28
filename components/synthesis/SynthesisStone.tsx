@@ -1,4 +1,3 @@
-import { HeroTypeWindow } from "@/components/herolab/HeroTypeWindow";
 import { TrustStrip } from "@/components/enhanced/TrustStrip";
 import { SharpTicker } from "@/components/sharp/SharpTicker";
 import { SharpActives } from "@/components/sharp/SharpActives";
@@ -9,7 +8,7 @@ import { SharpProof } from "@/components/sharp/SharpProof";
 import { SharpNotify } from "@/components/sharp/SharpNotify";
 import { ProductQuote } from "@/components/house/ProductQuote";
 import { OtherProducts } from "@/components/house/OtherProducts";
-import { BuySplit } from "./BuySplit";
+import { RevealBuyHero } from "./RevealBuyHero";
 import { FormulaPlates } from "./FormulaPlates";
 import { BuyPanel } from "./BuyPanel";
 import { StickyBuyBar } from "@/components/ui/StickyBuyBar";
@@ -37,27 +36,24 @@ const TIERS = [
 export function SynthesisStone() {
   return (
     <>
-      <HeroTypeWindow product="stone" overlayAlwaysOn />
-
-      <div data-mark="114">
-        <BuySplit
-          index="Vis Major · No. II"
-          wordmark="STONE"
-          category="Matte Cleanser"
-          line="Clay, charcoal and mint. Lifts the day off, rinses clean, and leaves the skin matte rather than tight."
-          tiers={TIERS}
-          defaultTier="2"
-          product="stone"
-          cartPrefix="sharp"
-          figure="/men/stone-wash.png"
-          figureAlt="A figure washing at a basin, drawn"
-          figureFit="contain"
-          productImg={null}
-          productAlt="STONE, 100ml"
-          productBrief="STONE jar, front, on white"
-          flip
-        />
-      </div>
+      <RevealBuyHero
+        mark="114"
+        word="STONE"
+        scene="/scenes/stone.png"
+        index="Vis Major · No. II"
+        category="Matte Cleanser"
+        line="Clay, charcoal and mint. Lifts the day off, rinses clean, and leaves the skin matte rather than tight."
+        tiers={TIERS}
+        defaultTier="2"
+        product="stone"
+        cartPrefix="sharp"
+        figure="/men/stone-wash.png"
+        figureAlt="A figure washing at a basin, drawn"
+        figureFit="contain"
+        productImg={null}
+        productAlt="STONE, 100ml"
+        productBrief="STONE jar, front, on white"
+      />
 
       <TrustStrip />
       <SharpTicker />
@@ -107,7 +103,7 @@ export function SynthesisStone() {
       <SharpProof />
       <OtherProducts current="stone" />
       <SharpNotify />
-      <StickyBuyBar priceFrom="£22" label="STONE · 100ml" href="#buy-top" />
+      <StickyBuyBar priceFrom="£22" label="STONE · 100ml" href="#buy" />
     </>
   );
 }

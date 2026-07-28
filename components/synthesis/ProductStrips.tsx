@@ -77,8 +77,14 @@ export function ProductStrips() {
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className={`${panel.fit} transition-transform duration-700 group-hover:scale-[1.03]`}
               />
-              {/* the product, over the drawing */}
-              <div className="absolute bottom-6 right-6 h-[130px] w-[58px] md:bottom-9 md:right-9 md:h-[190px] md:w-[96px]">
+              {/* The product sits on the inner edge of the image panel,
+                  vertically centred, so it always lands directly beside the
+                  name and explainer whichever way the strip is turned. */}
+              <div
+                className={`absolute top-1/2 h-[130px] w-[58px] -translate-y-1/2 md:h-[210px] md:w-[104px] ${
+                  flip ? "left-6 md:left-10" : "right-6 md:right-10"
+                }`}
+              >
                 {panel.product ? (
                   <Image
                     src={panel.product}
