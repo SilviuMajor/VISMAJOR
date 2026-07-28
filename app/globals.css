@@ -194,3 +194,35 @@ html { scroll-behavior: smooth; }
 
 /* ---- Soft image placeholder shimmer ---- */
 .img-skeleton { background: var(--paper-1); }
+
+/* ---- Review apparatus ----
+   Only ever active on the /v2 and /v3 rendition routes. The flash is what
+   confirms a click in the change panel landed on the right element: the
+   scroll is smooth, so without it you cannot tell which of several nearby
+   elements the number referred to. Outline rather than border, so it costs
+   no layout and cannot shift the design it is annotating. */
+.mark-flash {
+  outline: 2px solid transparent;
+  outline-offset: 6px;
+  border-radius: 2px;
+  animation: mark-flash 2s ease-out forwards;
+}
+@keyframes mark-flash {
+  0%, 70% { outline-color: #C8452F; }
+  100%    { outline-color: transparent; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mark-flash { animation-duration: 0.01ms; outline-color: #C8452F; }
+}
+
+/* The rendition page shifts left to make room for the change panel, rather
+   than sitting underneath it. Applied to a wrapper, not the viewport, so a
+   full-bleed section inside stays flush to both edges of the narrowed area.
+   Only where there is width to give up. */
+.review-inset { transition: margin-right 0.28s cubic-bezier(0.2, 0, 0, 1); }
+@media (min-width: 1280px) {
+  html.review-open .review-inset { margin-right: 380px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .review-inset { transition: none; }
+}
